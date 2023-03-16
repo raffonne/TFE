@@ -413,375 +413,14 @@
 
 
 
-// import * as THREE from 'three'
-// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-// import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.js';
-// import * as dat from 'lil-gui'
 
-// /**
-//  * Base
-//  */
 
-// const GRAVITY = 30;
 
 
 
-// //debug
 
-// const gui = new dat.GUI()
 
-// // Canvas
-// const canvas = document.querySelector('canvas.webgl')
 
-// /**
-//  * Sizes
-//  */
-// const sizes = {
-//     width: window.innerWidth,
-//     height: window.innerHeight
-// }
-
-// window.addEventListener('resize', () =>
-// {
-//     // Update sizes
-//     sizes.width = window.innerWidth
-//     sizes.height = window.innerHeight
-
-//     // Update camera
-//     camera.aspect = sizes.width / sizes.height
-//     camera.updateProjectionMatrix()
-
-//     // Update renderer
-//     renderer.setSize(sizes.width, sizes.height)
-//     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-// })
-
-// // Cursor
-// const cursor = {
-//     x: 0,
-//     y: 0
-// }
-
-// window.addEventListener('mousemove', (event) =>
-// {
-//     cursor.x = event.clientX / sizes.width - 0.5
-//     cursor.y = event.clientY / sizes.height - 0.5
-// })
-
-// // Scene
-// const scene = new THREE.Scene()
-
-// // Object
-
-// const material = new THREE.MeshStandardMaterial()
-// material.roughness = 0.4
-
-
-// const mesh = new THREE.Mesh(
-//     new THREE.BoxGeometry(1, 1, 1, 5, 5, 5),
-//     new THREE.MeshBasicMaterial({ color: 0xff0000 })
-// )
-// scene.add(mesh)
-
-// const plane = new THREE.Mesh(
-//     new THREE.PlaneGeometry(20, 20),
-// )
-// plane.rotation.x = - Math.PI * 0.5
-// plane.position.y = - 0.65
-
-// scene.add(plane)
-
-
-// /**
-//  * Camera
-//  */
-// // Base camera
-// const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-
-
-
-// scene.add(camera)
-
-
-
-// // Controls
-// const controls = new OrbitControls(camera, canvas)
-// controls.enableDamping = true
-
-// // Renderer
-// const renderer = new THREE.WebGLRenderer({
-//     canvas: canvas
-// })
-// renderer.setSize(sizes.width, sizes.height)
-
-// // Animate
-// const clock = new THREE.Clock()
-
-// const tick = () =>
-// {
-//     const elapsedTime = clock.getElapsedTime()
-
-//     // Update controls
-//     controls.update()
-
-//     //Update Camera
-//     camera.position.x = Math.cos(cursor.x * Math.PI * 2) * 3
-//     camera.position.z = Math.sin(cursor.x * Math.PI * 2) * 3
-//     camera.position.y = Math.sin(cursor.y * Math.PI * 2) * 3
-
-//     // Render
-//     renderer.render(scene, camera)
-
-//     // Call tick again on the next frame
-//     window.requestAnimationFrame(tick)
-// }
-
-// tick()
-
-import * as THREE from 'three'
-import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.js';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-
-
-const canvas = document.querySelector('canvas.webgl')
-
-/**
- * Sizes
- */
-const sizes = {
-    width: window.innerWidth,
-    height: window.innerHeight
-}
-
-
-
-// Cursor
-// const cursor = {
-//     x: window.innerWidth,
-//     y: window.innerHeight
-// }
-const cursor = {
-  x: 0,
-  y: 0
-}
-
-// MainStuff:Setup
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, .1, 1000);
-
-const renderer = new THREE.WebGLRenderer({
-    canvas : canvas
-});
-
-
-const controls = {};
-const player = {
-  height: 1,
-  turnSpeed: .1,
-  speed: .1,
-  jumpHeight: .2,
-  gravity: .01,
-  velocity: 0,
-  
-  playerJumps: false
-};
-
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-scene.background = new THREE.Color("black");
-document.body.appendChild(renderer.domElement);
-
-window.addEventListener('resize', () =>
-{
-    // Update sizes
-    sizes.width = window.innerWidth
-    sizes.height = window.innerHeight
-
-    // Update camera
-
-
-    // Update renderer
-    renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-})
-
-// Camera:Setup
-camera.position.set(0, player.height, -5);
-camera.lookAt(new THREE.Vector3(0, player.height, 5));
-
-
-
-// camera.position.set( 1, 1, 1 );
-// camera.lookAt( - 1, 8, - 8 );
-
-window.addEventListener('mousemove', (event) => {
-   cursor.x = event.clientX / sizes.width - 0.5
-   cursor.y = event.clientY / sizes.height - 0.5
-
-   console.log(cursor.x, cursor.y)
-})
-
-
-
-
-// Object:Box2
-const BoxGeometry2 = new THREE.BoxGeometry(1, 1, 1);
-const BoxMaterial2 = new THREE.MeshPhongMaterial({ color: "white", wireframe: false });
-const Box2 = new THREE.Mesh(BoxGeometry2, BoxMaterial2);
-
-Box2.position.y = .75;
-Box2.position.x = 0;
-Box2.receiveShadow = true;
-Box2.castShadow = true;
-
-scene.add(Box2);
-
-
-// Object:Plane
-const PlaneGeometry1 = new THREE.PlaneGeometry(10, 10);
-const PlaneMaterial1 = new THREE.MeshPhongMaterial({ color: "white", wireframe: false });
-const Plane1 = new THREE.Mesh(PlaneGeometry1, PlaneMaterial1);
-
-Plane1.rotation.x -= Math.PI / 2;
-Plane1.scale.x = 3;
-Plane1.scale.y = 3;
-Plane1.receiveShadow = true;
-scene.add(Plane1);
-
-// Object:Light:1
-const light1 = new THREE.PointLight("white", .8);
-light1.position.set(0, 3, 0);
-light1.castShadow = true;
-light1.shadow.camera.near = 2.5;
-scene.add(light1);
-
-// Object:Light:2
-const light2 = new THREE.AmbientLight("white", .15);
-light2.position.set(10, 2, 0);
-scene.add(light2);
-
-// Controls:Listeners
-document.addEventListener('keydown', ({ keyCode }) => { controls[keyCode] = true });
-document.addEventListener('keyup', ({ keyCode }) => { controls[keyCode] = false });
-
-
-
-// ...
-function control() {
-  // Controls:Engine 
-  if(controls[90]){ // w/z
-    camera.position.x -= Math.sin(camera.rotation.y) * player.speed;
-    camera.position.z -= -Math.cos(camera.rotation.y) * player.speed;
-  }
-  if(controls[83]){ // s
-    camera.position.x += Math.sin(camera.rotation.y) * player.speed;
-    camera.position.z += -Math.cos(camera.rotation.y) * player.speed;
-  }
-  if(controls[81]){ // a/q
-    camera.position.x += Math.sin(camera.rotation.y + Math.PI / 2) * player.speed;
-    camera.position.z += -Math.cos(camera.rotation.y + Math.PI / 2) * player.speed;
-  }
-  if(controls[68]){ // d
-    camera.position.x += Math.sin(camera.rotation.y - Math.PI / 2) * player.speed;
-    camera.position.z += -Math.cos(camera.rotation.y - Math.PI / 2) * player.speed;
-  }
-
-
-  if(cursor.x){
-    camera.rotation.y = Math.cos(cursor.y * Math.PI * 2) * 3
-  }
-
-  // if(cursor.x){
-  //   camera.rotation.x = Math.cos(cursor.x * Math.PI * 2) * 3
-  // }
-
-
-  // if(cursor){
-  //   camera.rotation.y = Math.cos(cursor.y * Math.PI * 2) * 3
-  // }
-
-  // if(cursor.x){
-  //   camera.rotation.x = Math.cos(cursor.x * Math.PI * 2) * 3
-  //   camera.rotation.x = Math.sin(cursor.y * Math.PI * 2) * 3
-  // }
-
-  // camera.rotation.z = Math.cos(cursor.x * Math.PI * 2) * 0.1
-
-
-
-//   if(controls[37]){ // la
-//     camera.rotation.x -= player.turnSpeed;
-//   }
-//   if(controls[39]){ // ra
-//     camera.rotation.x += player.turnSpeed;
-//   }
-//   if(controls[38]){ // up
-//     camera.rotation.y -= player.turnSpeed;
-//   }
-//   if(controls[40]){ // bottom
-//     camera.rotation.y += player.turnSpeed;
-//   }
-
-
-
-  if(controls[32]) { // space
-    if(player.jumps) return false;
-    player.jumps = true;
-    player.velocity = -player.jumpHeight;
-  }
-}
-
-function ixMovementUpdate() {
-  player.velocity += player.gravity;
-  camera.position.y -= player.velocity;
-  
-  if(camera.position.y < player.height) {
-    camera.position.y = player.height;
-    player.jumps = false;
-  }
-}
-
-function ixLightcubeAnimation() {
-  const a = .01;
-  Box1.rotation.x += a;
-  Box1.rotation.y += a;
-}
-
-function update() {
-  control();
-  ixMovementUpdate();
-}
-
-function render() {
-  renderer.render(scene, camera);
-  controls.movementSpeed = 150;
-  controls.lookSpeed = 0.1;
-  
-}
-
-
-const clock = new THREE.Clock()
-const tick = () =>
-{
-    update();
-    render();
-    const elapsedTime = clock.getElapsedTime()
-
-    // Update controls
-
-    //Update Camera
-    
-    
-
-    // Render
-    renderer.render(scene, camera)
-
-    // Call tick again on the next frame
-    window.requestAnimationFrame(tick)
-}
-
-tick()
 
 
 // import * as THREE from 'three'
@@ -928,3 +567,930 @@ tick()
 // }
 
 // tick()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// //PHYSICS
+// import * as THREE from 'three'
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+// import * as dat from 'lil-gui'
+// import CANNON from 'cannon'
+
+// /**
+//  * Debug
+//  */
+// const gui = new dat.GUI()
+
+// /**
+//  * Base
+//  */
+// // Canvas
+// const canvas = document.querySelector('canvas.webgl')
+
+// // Scene
+// const scene = new THREE.Scene()
+
+// /**
+//  * Textures
+//  */
+// const textureLoader = new THREE.TextureLoader()
+// const cubeTextureLoader = new THREE.CubeTextureLoader()
+
+// const environmentMapTexture = cubeTextureLoader.load([
+//     '/textures/environmentMaps/0/px.png',
+//     '/textures/environmentMaps/0/nx.png',
+//     '/textures/environmentMaps/0/py.png',
+//     '/textures/environmentMaps/0/ny.png',
+//     '/textures/environmentMaps/0/pz.png',
+//     '/textures/environmentMaps/0/nz.png'
+// ])
+
+// /**
+//  * Physics
+//  */
+// //World
+
+// const world = new CANNON.World()
+// world.gravity.set(0, -9.82, 0)
+
+// //materials
+
+// const concreteMaterial = new CANNON.Material('concrete')
+// const plasticMaterial = new CANNON.Material('plastic')
+
+
+
+
+// //Sphere
+// const sphereShape = new CANNON.Sphere(0.5)
+// const sphereBody = new CANNON.Body({
+//   mass:1,
+//   position:new CANNON.Vec3(0, 3, 0),
+//   shape: sphereShape
+// })
+// world.addBody(sphereBody)
+
+// //Floor
+
+// const floorShape = new CANNON.Plane()
+// const floorBody = new CANNON.Body()
+// floorBody.mass = 0
+// floorBody.addShape(floorShape)
+// floorBody.quaternion.setFromAxisAngle(
+//   new CANNON.Vec3(-1, 0, 0),
+//   Math.PI * 0.5
+
+// )
+// world.addBody(floorBody)
+
+
+// /**
+//  * Test sphere
+//  */
+// const sphere = new THREE.Mesh(
+//     new THREE.SphereGeometry(0.5, 32, 32),
+//     new THREE.MeshStandardMaterial({
+//         metalness: 0.3,
+//         roughness: 0.4,
+//         envMap: environmentMapTexture,
+//         envMapIntensity: 0.5
+//     })
+// )
+// sphere.castShadow = true
+// sphere.position.y = 0.5
+// scene.add(sphere)
+
+// /**
+//  * Floor
+//  */
+// const floor = new THREE.Mesh(
+//     new THREE.PlaneGeometry(10, 10),
+//     new THREE.MeshStandardMaterial({
+//         color: '#777777',
+//         metalness: 0.3,
+//         roughness: 0.4,
+//         envMap: environmentMapTexture,
+//         envMapIntensity: 0.5
+//     })
+// )
+// floor.receiveShadow = true
+// floor.rotation.x = - Math.PI * 0.5
+// scene.add(floor)
+
+// /**
+//  * Lights
+//  */
+// const ambientLight = new THREE.AmbientLight(0xffffff, 0.7)
+// scene.add(ambientLight)
+
+// const directionalLight = new THREE.DirectionalLight(0xffffff, 0.2)
+// directionalLight.castShadow = true
+// directionalLight.shadow.mapSize.set(1024, 1024)
+// directionalLight.shadow.camera.far = 15
+// directionalLight.shadow.camera.left = - 7
+// directionalLight.shadow.camera.top = 7
+// directionalLight.shadow.camera.right = 7
+// directionalLight.shadow.camera.bottom = - 7
+// directionalLight.position.set(5, 5, 5)
+// scene.add(directionalLight)
+
+// /**
+//  * Sizes
+//  */
+// const sizes = {
+//     width: window.innerWidth,
+//     height: window.innerHeight
+// }
+
+// window.addEventListener('resize', () =>
+// {
+//     // Update sizes
+//     sizes.width = window.innerWidth
+//     sizes.height = window.innerHeight
+
+//     // Update camera
+//     camera.aspect = sizes.width / sizes.height
+//     camera.updateProjectionMatrix()
+
+//     // Update renderer
+//     renderer.setSize(sizes.width, sizes.height)
+//     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+// })
+
+// /**
+//  * Camera
+//  */
+// // Base camera
+// const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
+// camera.position.set(- 3, 3, 3)
+// scene.add(camera)
+
+// // Controls
+// const controls = new OrbitControls(camera, canvas)
+// controls.enableDamping = true
+
+// /**
+//  * Renderer
+//  */
+// const renderer = new THREE.WebGLRenderer({
+//     canvas: canvas
+// })
+// renderer.shadowMap.enabled = true
+// renderer.shadowMap.type = THREE.PCFSoftShadowMap
+// renderer.setSize(sizes.width, sizes.height)
+// renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+
+// /**
+//  * Animate
+//  */
+// const clock = new THREE.Clock()
+// let oldElapsedTime = 0
+
+// const tick = () =>
+// {
+//     const elapsedTime = clock.getElapsedTime()
+//     const deltaTime = elapsedTime - oldElapsedTime
+//     oldElapsedTime = elapsedTime
+
+//     //update physics world
+//     world.step(1/60, deltaTime , 3)
+
+//     sphere.position.copy(sphereBody.position)
+//     // sphere.position.x = sphereBody.position.x
+//     // sphere.position.y = sphereBody.position.y
+//     // sphere.position.z = sphereBody.position.z ==> tout ça se trouve en une ligne au dessus 
+
+//     // Update controls
+//     controls.update()
+
+//     // Render
+//     renderer.render(scene, camera)
+
+//     // Call tick again on the next frame
+//     window.requestAnimationFrame(tick)
+// }
+
+// tick()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import * as THREE from 'three'
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+// import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.js';
+// import * as dat from 'lil-gui'
+
+// /**
+//  * Base
+//  */
+
+// const GRAVITY = 30;
+
+
+
+// //debug
+
+// const gui = new dat.GUI()
+
+// // Canvas
+// const canvas = document.querySelector('canvas.webgl')
+
+// /**
+//  * Sizes
+//  */
+// const sizes = {
+//     width: window.innerWidth,
+//     height: window.innerHeight
+// }
+
+// window.addEventListener('resize', () =>
+// {
+//     // Update sizes
+//     sizes.width = window.innerWidth
+//     sizes.height = window.innerHeight
+
+//     // Update camera
+//     camera.aspect = sizes.width / sizes.height
+//     camera.updateProjectionMatrix()
+
+//     // Update renderer
+//     renderer.setSize(sizes.width, sizes.height)
+//     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+// })
+
+// // Cursor
+// const cursor = {
+//     x: 0,
+//     y: 0
+// }
+
+// window.addEventListener('mousemove', (event) =>
+// {
+//     cursor.x = event.clientX / sizes.width - 0.5
+//     cursor.y = event.clientY / sizes.height - 0.5
+// })
+
+// // Scene
+// const scene = new THREE.Scene()
+
+// // Object
+
+// const material = new THREE.MeshStandardMaterial()
+// material.roughness = 0.4
+
+
+// const mesh = new THREE.Mesh(
+//     new THREE.BoxGeometry(1, 1, 1, 5, 5, 5),
+//     new THREE.MeshBasicMaterial({ color: 0xff0000 })
+// )
+// scene.add(mesh)
+
+// const plane = new THREE.Mesh(
+//     new THREE.PlaneGeometry(20, 20),
+// )
+// plane.rotation.x = - Math.PI * 0.5
+// plane.position.y = - 0.65
+
+// scene.add(plane)
+
+
+// /**
+//  * Camera
+//  */
+// // Base camera
+// const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
+
+// scene.add(camera)
+
+
+
+// // Controls
+// const controls = new OrbitControls(camera, canvas)
+// controls.enableDamping = true
+
+// // Renderer
+// const renderer = new THREE.WebGLRenderer({
+//     canvas: canvas
+// })
+// renderer.setSize(sizes.width, sizes.height)
+
+// // Animate
+// const clock = new THREE.Clock()
+
+// const tick = () =>
+// {
+//     const elapsedTime = clock.getElapsedTime()
+
+//     // Update controls
+//     controls.update()
+
+//     //Update Camera
+//     camera.position.x = Math.cos(cursor.x * Math.PI * 2) * 3
+//     camera.position.z = Math.sin(cursor.x * Math.PI * 2) * 3
+//     camera.position.y = Math.sin(cursor.y * Math.PI * 2) * 3
+
+//     // Render
+//     renderer.render(scene, camera)
+
+//     // Call tick again on the next frame
+//     window.requestAnimationFrame(tick)
+// }
+
+// tick()
+
+
+
+
+
+
+
+// import * as THREE from 'three'
+// import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.js';
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+// import * as dat from 'lil-gui'
+// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+
+
+// const canvas = document.querySelector('canvas.webgl')
+
+// /**
+//  * Sizes
+//  */
+// const sizes = {
+//     width: window.innerWidth,
+//     height: window.innerHeight
+// }
+
+
+
+// // Cursor
+// // const cursor = {
+// //     x: window.innerWidth,
+// //     y: window.innerHeight
+// // }
+// const cursor = {
+//   x: 0,
+//   y: 0
+// }
+
+// // MainStuff:Setup
+// const scene = new THREE.Scene();
+// const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, .1, 1000);
+
+// const renderer = new THREE.WebGLRenderer({
+//     canvas : canvas
+// });
+
+
+// const controls = {};
+// const player = {
+//   height: 1,
+//   turnSpeed: .1,
+//   speed: .1,
+//   jumpHeight: .2,
+//   gravity: .01,
+//   velocity: 0,
+  
+//   playerJumps: false
+// };
+
+// renderer.setSize(window.innerWidth, window.innerHeight);
+// renderer.shadowMap.enabled = true;
+// renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+// scene.background = new THREE.Color("black");
+// document.body.appendChild(renderer.domElement);
+
+// window.addEventListener('resize', () =>
+// {
+//     // Update sizes
+//     sizes.width = window.innerWidth
+//     sizes.height = window.innerHeight
+
+//     // Update camera
+
+
+//     // Update renderer
+//     renderer.setSize(sizes.width, sizes.height)
+//     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+// })
+
+// // Camera:Setup
+// camera.position.set(0, player.height, -5);
+// camera.lookAt(new THREE.Vector3(0, player.height, 5));
+
+
+
+// // camera.position.set( 1, 1, 1 );
+// // camera.lookAt( - 1, 8, - 8 );
+
+// window.addEventListener('mousemove', (event) => {
+//    cursor.x = event.clientX / sizes.width - 0.5
+//    cursor.y = event.clientY / sizes.height - 0.5
+
+//    console.log(cursor.x, cursor.y)
+// })
+
+
+// // const dracoLoader = new DRACOLoader()
+// // dracoLoader.setDecoderPath('/draco/')
+
+// const gltfLoader = new GLTFLoader()
+// // gltfLoader.setDRACOLoader(dracoLoader)
+// //utiliser dracoloader uniquement quand le modele 3D est très grand, pour quelques KB c'est pas la peine
+
+// gltfLoader.load(
+//   '/backrooms-3Dmodel/backrooms_with_baked_textures/scene.gltf',
+//   (gltf) => {
+//     console.log('success')
+//     // scene.add(gltf.scene.children[0])
+
+//     // while (gltf.scene.children.length){
+//     //   scene.add(gltf.scene.children[0])
+//     // }
+
+//     // const children = [...gltf.scene.children]
+//     // for (const child of children){
+//     //   scene.add(child)
+//     // }
+
+//     scene.add(gltf.scene)
+
+//   },
+//   () => {
+//     console.log('progress')
+//   },
+//   () => {
+//     console.log('error')
+//   }
+// )
+
+// // Controls:Listeners
+// document.addEventListener('keydown', ({ keyCode }) => { controls[keyCode] = true });
+// document.addEventListener('keyup', ({ keyCode }) => { controls[keyCode] = false });
+
+
+
+// // ...
+// function control() {
+//   // Controls:Engine 
+//   if(controls[90]){ // w/z
+//     camera.position.x -= Math.sin(camera.rotation.y) * player.speed;
+//     camera.position.z -= -Math.cos(camera.rotation.y) * player.speed;
+//   }
+//   if(controls[83]){ // s
+//     camera.position.x += Math.sin(camera.rotation.y) * player.speed;
+//     camera.position.z += -Math.cos(camera.rotation.y) * player.speed;
+//   }
+//   if(controls[81]){ // a/q
+//     camera.position.x += Math.sin(camera.rotation.y + Math.PI / 2) * player.speed;
+//     camera.position.z += -Math.cos(camera.rotation.y + Math.PI / 2) * player.speed;
+//   }
+//   if(controls[68]){ // d
+//     camera.position.x += Math.sin(camera.rotation.y - Math.PI / 2) * player.speed;
+//     camera.position.z += -Math.cos(camera.rotation.y - Math.PI / 2) * player.speed;
+//   }
+
+
+//   if(cursor.x){
+//     camera.rotation.y = Math.cos(cursor.y * Math.PI * 2) * 3
+//   }
+
+//   // if(cursor.x){
+//   //   camera.rotation.x = Math.cos(cursor.x * Math.PI * 2) * 3
+//   // }
+
+
+//   // if(cursor){
+//   //   camera.rotation.y = Math.cos(cursor.y * Math.PI * 2) * 3
+//   // }
+
+//   // if(cursor.x){
+//   //   camera.rotation.x = Math.cos(cursor.x * Math.PI * 2) * 3
+//   //   camera.rotation.x = Math.sin(cursor.y * Math.PI * 2) * 3
+//   // }
+
+//   // camera.rotation.z = Math.cos(cursor.x * Math.PI * 2) * 0.1
+
+
+//   if(controls[32]) { // space
+//     if(player.jumps) return false;
+//     player.jumps = true;
+//     player.velocity = -player.jumpHeight;
+//   }
+// }
+
+// function ixMovementUpdate() {
+//   player.velocity += player.gravity;
+//   camera.position.y -= player.velocity;
+  
+//   if(camera.position.y < player.height) {
+//     camera.position.y = player.height;
+//     player.jumps = false;
+//   }
+// }
+
+
+// function update() {
+//   control();
+//   ixMovementUpdate();
+// }
+
+// function render() {
+//   renderer.render(scene, camera);
+//   controls.movementSpeed = 150;
+//   controls.lookSpeed = 0.1;
+  
+// }
+
+
+// const clock = new THREE.Clock()
+// const tick = () =>
+// {
+//     update();
+//     render();
+//     const elapsedTime = clock.getElapsedTime()
+
+//     // Update controls
+
+//     //Update Camera
+    
+
+//     // Render
+//     renderer.render(scene, camera)
+
+//     // Call tick again on the next frame
+//     window.requestAnimationFrame(tick)
+// }
+
+// tick()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// //IMPORT 3D
+// import * as THREE from 'three'
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+// import * as dat from 'lil-gui'
+// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+// // import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
+
+// /**
+//  * Base
+//  */
+// // Debug
+// const gui = new dat.GUI()
+
+// // Canvas
+// const canvas = document.querySelector('canvas.webgl')
+
+// // Scene
+// const scene = new THREE.Scene()
+
+// /**
+//  * Models
+//  */
+
+// // const dracoLoader = new DRACOLoader()
+// // dracoLoader.setDecoderPath('/draco/')
+
+// const gltfLoader = new GLTFLoader()
+// // gltfLoader.setDRACOLoader(dracoLoader)
+// //utiliser dracoloader uniquement quand le modele 3D est très grand, pour quelques KB c'est pas la peine
+
+// gltfLoader.load(
+//   '/backrooms-3Dmodel/backrooms_with_baked_textures/scene.gltf',
+//   (gltf) => {
+//     console.log('success')
+//     // scene.add(gltf.scene.children[0])
+
+//     // while (gltf.scene.children.length){
+//     //   scene.add(gltf.scene.children[0])
+//     // }
+
+//     // const children = [...gltf.scene.children]
+//     // for (const child of children){
+//     //   scene.add(child)
+//     // }
+
+//     scene.add(gltf.scene)
+
+//   },
+//   () => {
+//     console.log('progress')
+//   },
+//   () => {
+//     console.log('error')
+//   }
+// )
+// /**
+//  * Floor
+//  */
+
+// // const floor = new THREE.Mesh(
+// //     new THREE.PlaneGeometry(10, 10),
+// //     new THREE.MeshStandardMaterial({
+// //         color: '#444444',
+// //         metalness: 0,
+// //         roughness: 0.5
+// //     })
+// // )
+// // floor.receiveShadow = true
+// // floor.rotation.x = - Math.PI * 0.5
+// // floor.position.x = -1
+// // scene.add(floor)
+
+// /**
+//  * Lights
+//  */
+// const ambientLight = new THREE.AmbientLight(0xffffff, 3)
+// scene.add(ambientLight)
+
+// const directionalLight = new THREE.DirectionalLight(0xffffff, 4)
+// directionalLight.castShadow = true
+// directionalLight.shadow.mapSize.set(1024, 1024)
+// directionalLight.shadow.camera.far = 15
+// directionalLight.shadow.camera.left = - 7
+// directionalLight.shadow.camera.top = 7
+// directionalLight.shadow.camera.right = 7
+// directionalLight.shadow.camera.bottom = - 7
+// directionalLight.position.set(5, 5, 5)
+// scene.add(directionalLight)
+
+// /**
+//  * Sizes
+//  */
+// const sizes = {
+//     width: window.innerWidth,
+//     height: window.innerHeight
+// }
+
+// window.addEventListener('resize', () =>
+// {
+//     // Update sizes
+//     sizes.width = window.innerWidth
+//     sizes.height = window.innerHeight
+
+//     // Update camera
+//     camera.aspect = sizes.width / sizes.height
+//     camera.updateProjectionMatrix()
+
+//     // Update renderer
+//     renderer.setSize(sizes.width, sizes.height)
+//     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+// })
+
+// /**
+//  * Camera
+//  */
+// // Base camera
+// const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
+// camera.position.set(2, 2, 2)
+// scene.add(camera)
+
+// // Controls
+// const controls = new OrbitControls(camera, canvas)
+// controls.target.set(0, 0.75, 0)
+// controls.enableDamping = true
+
+// /**
+//  * Renderer
+//  */
+// const renderer = new THREE.WebGLRenderer({
+//     canvas: canvas
+// })
+// renderer.shadowMap.enabled = true
+// renderer.shadowMap.type = THREE.PCFSoftShadowMap
+// renderer.setSize(sizes.width, sizes.height)
+// renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+
+// /**
+//  * Animate
+//  */
+// const clock = new THREE.Clock()
+// let previousTime = 0
+
+// const tick = () =>
+// {
+//     const elapsedTime = clock.getElapsedTime()
+//     const deltaTime = elapsedTime - previousTime
+//     previousTime = elapsedTime
+
+//     // Update controls
+//     controls.update()
+
+//     // Render
+//     renderer.render(scene, camera)
+
+//     // Call tick again on the next frame
+//     window.requestAnimationFrame(tick)
+// }
+
+// tick()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import * as THREE from 'three'
+import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import * as dat from 'lil-gui'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+
+
+const canvas = document.querySelector('canvas.webgl')
+
+/**
+ * Sizes
+ */
+const sizes = {
+  width: window.innerWidth,
+  height: window.innerHeight
+}
+
+// Cursor
+const cursor = {
+  x: 0,
+  y: 0
+}
+
+// MainStuff:Setup
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, .1, 1000);
+
+const renderer = new THREE.WebGLRenderer({
+  canvas : canvas
+});
+
+const controls = {};
+const player = {
+  height: 1,
+  turnSpeed: .1,
+  speed: .1,
+  jumpHeight: .2,
+  gravity: .01,
+  velocity: 0,
+
+  playerJumps: false
+};
+
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+scene.background = new THREE.Color("black");
+document.body.appendChild(renderer.domElement);
+
+window.addEventListener('resize', () =>
+{
+  // Update sizes
+  sizes.width = window.innerWidth
+  sizes.height = window.innerHeight
+
+  // Update camera
+  camera.aspect = sizes.width / sizes.height;
+  camera.updateProjectionMatrix();
+
+  // Update renderer
+  renderer.setSize(sizes.width, sizes.height)
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+})
+
+// Camera:Setup
+camera.position.set(0, player.height, -5);
+camera.lookAt(new THREE.Vector3(0, player.height, 5));
+
+window.addEventListener('mousemove', (event) => {
+  cursor.x = event.clientX / sizes.width - 0.5;
+  cursor.y = event.clientY / sizes.height - 0.5;
+})
+
+const gltfLoader = new GLTFLoader()
+
+gltfLoader.load(
+  '/backrooms-3Dmodel/backrooms_with_baked_textures/scene.gltf',
+  (gltf) => {
+    console.log('success')
+    scene.add(gltf.scene)
+  },
+  () => {
+    console.log('progress')
+  },
+  () => {
+    console.log('error')
+  }
+)
+
+// Controls:Listeners
+document.addEventListener('keydown', ({ keyCode }) => { controls[keyCode] = true });
+document.addEventListener('keyup', ({ keyCode }) => { controls[keyCode] = false });
+function control() {
+  // Controls:Engine 
+  if(controls[90]){ // w/z
+    camera.position.x -= Math.sin(camera.rotation.y) * player.speed;
+    camera.position.z -= -Math.cos(camera.rotation.y) * player.speed;
+  }
+  if(controls[83]){ // s
+    camera.position.x += Math.sin(camera.rotation.y) * player.speed;
+    camera.position.z += -Math.cos(camera.rotation.y) * player.speed;
+  }
+  if(controls[81]){ // a/q
+    camera.rotation.y -= player.turnSpeed;
+  }
+  if(controls[68]){ // d
+    camera.rotation.y += player.turnSpeed;
+  }
+
+  // if(cursor.x){
+  //   camera.rotation.y += cursor.x * 0.05;
+  // }
+
+  // Gravity
+  if(player.playerJumps){
+    player.velocity -= player.gravity;
+    camera.position.y += player.velocity;
+    if(camera.position.y < player.height){
+      player.playerJumps = false;
+      camera.position.y = player.height;
+      player.velocity = 0;
+    }
+  }
+
+  // Controls:Floor
+  if(camera.position.y > player.height){
+    player.playerJumps = true;
+  }
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  control();
+  renderer.render(scene, camera);
+}
+
+animate();

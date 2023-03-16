@@ -1,25 +1,122 @@
 @font-face {
     font-family: 'gosha';
-    src: url(./fonts/gosha/PPGoshaSans-Regular.ttf);
+    src: url("./fonts/gosha/PPGoshaSans-Regular.ttf");
 }
 @font-face {
     font-family: 'gosha';
-    src: url(./fonts/gosha/PPGoshaSans-Thin.ttf);
+    src: url("./fonts/gosha/PPGoshaSans-Thin.ttf");
 }
 @font-face {
     font-family: 'montreal';
-    src: url(./fonts/montreal/PPNeueMontreal-Thin.ttf);
+    src: url("./fonts/montreal/PPNeueMontreal-Thin.ttf");
 }
 @font-face {
     font-family: 'montreal-italic';
-    src: url(./fonts/montreal/PPNeueMontreal-ThinItalic.ttf);
+    src: url("./fonts/montreal/PPNeueMontreal-ThinItalic.ttf");
+}
+
+@font-face {
+    font-family: 'rader';
+    src: url("./fonts/PPRader-Thin.otf");
+}
+
+.bg{
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200vh;
+    background: transparent url(http://assets.iceable.com/img/noise-transparent.png) repeat 0 0;
+    background-repeat: repeat;
+    -webkit-animation: bg-animation 0.2s infinite;
+    animation: bg-animation 0.2s infinite;
+    opacity: 0.5;
+    visibility: visible;
+    z-index: -10000000;
+}
+
+@-webkit-keyframes bg-animation {
+    0% {
+      transform: translate(0, 0);
+    }
+    10% {
+      transform: translate(-5%, -5%);
+    }
+    20% {
+      transform: translate(-10%, 5%);
+    }
+    30% {
+      transform: translate(5%, -10%);
+    }
+    40% {
+      transform: translate(-5%, 15%);
+    }
+    50% {
+      transform: translate(-10%, 5%);
+    }
+    60% {
+      transform: translate(15%, 0);
+    }
+    70% {
+      transform: translate(0, 10%);
+    }
+    80% {
+      transform: translate(-15%, 0);
+    }
+    90% {
+      transform: translate(10%, 5%);
+    }
+    100% {
+      transform: translate(5%, 0);
+    }
+  }
+  
+  @keyframes bg-animation {
+    0% {
+      transform: translate(0, 0);
+    }
+    10% {
+      transform: translate(-5%, -5%);
+    }
+    20% {
+      transform: translate(-10%, 5%);
+    }
+    30% {
+      transform: translate(5%, -10%);
+    }
+    40% {
+      transform: translate(-5%, 15%);
+    }
+    50% {
+      transform: translate(-10%, 5%);
+    }
+    60% {
+      transform: translate(15%, 0);
+    }
+    70% {
+      transform: translate(0, 10%);
+    }
+    80% {
+      transform: translate(-15%, 0);
+    }
+    90% {
+      transform: translate(10%, 5%);
+    }
+    100% {
+      transform: translate(5%, 0);
+    }
+  }
+
+html{
+    scroll-behavior: intial;
+    overflow: hidden;
 }
 
 
-    html{
-        scroll-behavior: intial;
-    }
-    body{
+
+body{
     min-height: 100%!important;
     height: auto!important;
     margin: 0;
@@ -27,9 +124,11 @@
     position: relative;
     font-family: 'montreal';
     background: #000;
-
+    color: white;
+    line-height: 1.5;
 
 }
+
 button{
     cursor: pointer;
 }
@@ -42,6 +141,35 @@ a{
 
 p{
     color: white;
+    font-size: 16px;
+    max-width: 45ch;
+
+    @media (min-width:700px) {
+        font-size: 18px;
+    }
+    @media (min-width:1000px) {
+        font-size: 20px;
+    }
+}
+figure{
+  margin: 0;
+  margin-bottom: 100px;
+}
+blockquote{
+  font-size: 24px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin: 0;
+  @media (min-width:1000px) {
+    font-size: 50px;
+  }
+}
+figcaption{
+  display: flex;
+  justify-content: flex-end;
+}
+img{
+  width: 100%;
 }
 
 .webgl{
@@ -52,26 +180,54 @@ p{
     outline: none;
 
 }
+.section{
+    padding: 0 16px;
+    @media (min-width:700px) {
+        padding: 0 100px;
+    }
+    @media (min-width:1800px){
+        padding: 0 200px;
+    }
+}
 .title{
     color: white;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
 
     &--main{
         font-family: 'gosha';
         font-size: 150px;
-        margin: 0;
         letter-spacing: 10px;
     }
     &--big{
-        text-transform: uppercase;
         letter-spacing: 15px;
         opacity: 0.5;
     }
     &--medium{
-        text-transform: uppercase;
-        font-family: 'montreal';
-        font-size: 40px;
+      overflow: hidden;
+        font-family: 'rader';
+        font-size: 70px;
         letter-spacing: 5px;
-        margin: 0;
+        line-height: 1;
+        margin-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        @media (min-width:1000px) {
+            font-size: 150px;
+        }
+        .t1{
+          text-align: left;
+          margin: -10px;
+        }
+        .t2{
+          text-align: center;
+          opacity: 0.50;
+          margin: -10px;
+        }
+        .t3{
+          text-align: left;
+        }
     }
 }
 
@@ -116,6 +272,7 @@ header{
     
         height: 100vh;
         position: relative;
+        border-right: solid 0.5px rgb(255, 255, 255, 0.5);
 
 
         
@@ -211,12 +368,16 @@ header{
                 position: absolute;
                 width: 100vw;
                 height: 100vh;
-                margin: -100px 0 0 -50px;
+                margin: -100px 0 0 -120px;
                 padding-right: 60px;
                 padding-top: 125px;
                 z-index: -1;
-                background: #000;
-                border-right: solid 0.5px rgb(255, 255, 255, 0.5);
+                background: rgba(62, 62, 62, 0.42);
+                border-radius: 16px;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(8.4px);
+                -webkit-backdrop-filter: blur(8.4px);
+                
                 list-style-type: none;
                 -webkit-font-smoothing: antialiased;                
                 transform-origin: 0% 0%;
@@ -262,10 +423,10 @@ header{
         border: none;
         border: solid 0.5px white;
         border-radius: 50%;
-        background-image: url('./images/Vector.svg');
-        background-position: center;
-        background-size: 20px 18px;
-        background-repeat: no-repeat;
+        // background-image: url('./images/Vector.svg');
+        // background-position: center;
+        // background-size: 20px 18px;
+        // background-repeat: no-repeat;
     
     }
 }
@@ -335,11 +496,13 @@ header{
   }
 
 .about{
+
     position: relative;
+
     .section--about-title{
         height: 100vh;
-        width: 100vw;
         position: relative;
+        padding: 0;
         h1{
             position: absolute;
             bottom: 50%;
@@ -350,19 +513,96 @@ header{
     }
 
     .section--about-intro{
-        height: 100vh;
+        height: 150vh;
+        position: relative;
         .container-txt{
             display: flex;
             justify-content: center;
             align-items: center;
+            // position: absolute;
+            // bottom: 50%;
+            // left:50%;
+            // transform: translate(-50%, -50%);
             .content{
                 max-width: 50ch;
-                font-size: 24px;
+                font-size: 20px;
                 text-transform: uppercase;
+
+                @media (min-width:999px) {
+                    font-size: 28px;
+                }
             }
         }
 
 
+    }
+
+    .section--about-start{
+      .description{
+        padding-top: 200px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        height: 100vh;
+        @media (min-width:1000px) {
+          flex-direction: row;
+          gap: 150px;
+        }
+        &__img{
+          width:100%;
+          @media (min-width:1000px) {
+            width: 50%;
+          }
+        }
+      }
+      .noclip{
+        height: 100vh;
+      }
+    }
+    .section--about-noclip{
+      padding: 0;
+      margin: 0;
+      .video1{
+        height: 100vh;
+        width: 100vw;
+        
+      }
+    }
+
+    .pin-spacer{
+      width: 100%!important;
+    }
+
+    .section--univers{
+      padding-top: 100px;
+      height: 200vh;
+      background-image: url('./images/br-200vh.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top;
+      position: relative;
+
+      @media (min-width:1000px) {
+        background-position: -45vw;
+      }
+
+      .creation{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: 100px;
+      }
+      .ending{
+        position: absolute;
+        bottom: 50px;
+
+        .bold{
+          font-size: 50px;
+          text-transform: uppercase;
+        }
+      }
+
+      
     }
 
 }
