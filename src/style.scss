@@ -798,24 +798,34 @@ img{
 
 
 
-.controls-fixed{
+.controls--fixed{
   position: fixed;
-  opacity: 0.5;
+  opacity: 0.2;
   bottom: 50px;
   right: 50px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
 
-  div{
+  
+
+  &__keyboard, &__mouse{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    div{
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+    }
     img{
-      width: 60px;
-      height: 40px;
+      width: 60px!important;
+      height: 40px!important;
+      :hover{
+        opacity: 1;
+      }
     }
     p{
       font-size: 14px;

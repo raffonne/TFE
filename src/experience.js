@@ -1349,6 +1349,20 @@
 
 
 
+var intro = document.querySelector('.intro');
+if(intro) {
+
+	const hideIntro = () => {
+		const intro = document.querySelector('.intro');
+		intro.classList.add("hidden");
+	  }
+	  
+	document.querySelector('#hide-intro').addEventListener('click', hideIntro);
+};
+
+
+
+
 
 
 
@@ -1360,8 +1374,6 @@ import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.j
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import * as dat from 'lil-gui'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-// import { VRButton } from 'three/addons/webxr/VRButton.js';
-
 
 
 
@@ -1402,8 +1414,8 @@ const renderer = new THREE.WebGLRenderer({
 const controls = {};
 const player = {
   height: 1,
-  turnSpeed: .05,
-  speed: .08,
+  turnSpeed: .1,
+  speed: .1,
   jumpHeight: .2,
   gravity: .01,
   velocity: 0,
@@ -1461,24 +1473,35 @@ document.addEventListener('keydown', ({ keyCode }) => { controls[keyCode] = true
 document.addEventListener('keyup', ({ keyCode }) => { controls[keyCode] = false });
 function control() {
   // Controls:Engine 
-  if(controls[90]){ // w/z
+  if(controls[90] || controls[38]){ // w/z
     camera.position.x -= Math.sin(camera.rotation.y) * player.speed;
     camera.position.z -= -Math.cos(camera.rotation.y) * player.speed;
   }
-  if(controls[83]){ // s
+  if(controls[83] || controls[40]){ // s
     camera.position.x += Math.sin(camera.rotation.y) * player.speed;
     camera.position.z += -Math.cos(camera.rotation.y) * player.speed;
   }
-  if(controls[81]){ // a/q
+  if(controls[81] || controls[37]){ // a/q
     camera.rotation.y -= player.turnSpeed;
   }
-  if(controls[68]){ // d
+  if(controls[68]|| controls[39]){ // d
     camera.rotation.y += player.turnSpeed;
   }
-
-  // if(cursor.x){
-  //   camera.rotation.y += cursor.x * 0.05;
+  // if(controls[65] || controls[81]){ // a/q
+  //   camera.position.x += Math.cos(camera.rotation.y) * player.speed;
+  //   camera.position.z += Math.sin(camera.rotation.y) * player.speed;
   // }
+  // if(controls[68]){ // d
+  //   camera.position.x -= Math.cos(camera.rotation.y) * player.speed;
+  //   camera.position.z -= Math.sin(camera.rotation.y) * player.speed;
+  // }
+
+  if(cursor.x){
+    camera.rotation.y += cursor.x * 0.05;
+  }
+  if(cursor.y){
+    camera.rotation.x += cursor.x * 0.05;
+  }
 
   // Gravity
   if(player.playerJumps){
@@ -1497,17 +1520,6 @@ function control() {
   }
 }
 
-// document.body.appendChild( VRButton.createButton( renderer ) );
-
-// renderer.xr.enabled = true;
-
-// renderer.setAnimationLoop( function () {
-
-// 	renderer.render( scene, camera );
-
-// } );
-
-
 function animate() {
   requestAnimationFrame(animate);
   control();
@@ -1519,103 +1531,7 @@ animate();
 
 
 
-var intro = document.querySelector('.intro');
-if(intro) {
 
-	const hideIntro = () => {
-		const intro = document.querySelector('.intro');
-		intro.classList.add("hidden");
-	  }
-	  
-	document.querySelector('#hide-intro').addEventListener('click', hideIntro);
-};
-
-
-
-
-
- 
-
-
-var hoverMouse = function($el) {
-	$el.each(function() {
-	  var $self = $(this);
-	  var hover = false;
-	  var offsetHoverMax = $self.attr("offset-hover-max") || 0.7;
-	  var offsetHoverMin = $self.attr("offset-hover-min") || 0.5;
-  
-	  var attachEventsListener = function() {
-		$(window).on("mousemove", function(e) {
-		  //
-		  var hoverArea = hover ? offsetHoverMax : offsetHoverMin;
-  
-		  // cursor
-		  var cursor = {
-			x: e.clientX,
-			y: e.clientY - $(window).scrollTop()
-		  };
-  
-		  // size
-		  var width = $self.outerWidth();
-		  var height = $self.outerHeight();
-  
-		  // position
-		  var offset = $self.offset();
-		  var elPos = {
-			x: offset.left + width / 2,
-			y: offset.top + height / 2
-		  };
-  
-		  // comparaison
-		  var x = cursor.x - elPos.x;
-		  var y = cursor.y - elPos.y;
-  
-		  // dist
-		  var dist = Math.sqrt(x * x + y * y);
-  
-		  // mutex hover
-		  var mutHover = false;
-  
-		  // anim
-		  if (dist < width * hoverArea) {
-			mutHover = true;
-			if (!hover) {
-			  hover = true;
-			}
-			onHover(x, y);
-		  }
-  
-		  // reset
-		  if (!mutHover && hover) {
-			onLeave();
-			hover = false;
-		  }
-		});
-	  };
-  
-	  var onHover = function(x, y) {
-		TweenMax.to($self, 0.4, {
-		  x: x * 0.2,
-		  y: y * 0.2,
-		  //scale: .9,
-		  ease: Power2.easeOut
-		});
-	  };
-	  var onLeave = function() {
-		TweenMax.to($self, 1, {
-		  x: 0,
-		  y: 0,
-		  scale: 1,
-		  rotation: 0,
-		  ease: Back.easeOut.config(1.2, 0.4)
-		});
-	  };
-  
-	  attachEventsListener();
-	});
-  };
-  
-  hoverMouse($('#hide-intro'));
 
 
 
