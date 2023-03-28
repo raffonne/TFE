@@ -7,151 +7,255 @@
     <title>NOCLIP - A propos</title>
     <link rel="stylesheet" href="style.scss">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
-    <script type="module" src="./scripts/script.js"></script>
+    <script type="module" src="about.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@0.2.28/bundled/lenis.js"></script>
+    <link rel="icon" href="./images/favicon.svg">
+
 </head>
 <body>
     <div class="bg"></div>
     <header>
+        <input class="hidden" id="burger" type="checkbox" />
+        <label for="burger">
+          <div class="burger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+        </label>
         <nav>
-            <div class="utils">
-                <div class="lang">
-                    <button class="btn btn--lang">EN</button>
-                </div>
-                <div class="sound">
-                    <audio autoplay loop id="myAudio">
-                        <source src="./images/ambient.mp3" type="audio/wav">
-                    </audio>
-                    <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
-                        <img id="sound-icon" src="./images/Vector.svg">
-                      </button>
-                </div>
-            </div>
-            <div class="menuToggle">
-                <input type="checkbox" />
-                <div class="burger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul class="menu">
-                  <a href="experience.html"><li>Experience</li></a>
-                  <a href="about.html"><li>A propos</li></a>
-                  <a href="archives.html"><li>Archives</li></a>
-                </ul>
-            </div>
+          <div class="nav__el">
+              <a class="btn nav-links" href="index.html">Accueil</a>
+          </div>
+  
+          <div class="nav__el">
+              <a class="btn nav-links" href="about.html">Origines</a>
+          </div>
+          <div class="nav__el">
+              <a class="btn nav-links" href="experience.html">Experience</a>
+          </div>
+  
         </nav>
-    </header>
+        <div class="utils">
+            <div class="lang">
+                <button class="btn btn--lang">EN</button>
+            </div>
+            <div class="sound">
+                <audio autoplay loop id="myAudio">
+                    <source src="./images/ambient.mp3" type="audio/wav">
+                </audio>
+                <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
+                    <img id="sound-icon" src="./images/Vector.svg">
+                  </button>
+            </div>
+        </div>
+  
+      </header>
 
     <main class="about">
 
         <section class="section section--about-title">
-            
-            <!-- <video autoplay muted loop id="myVideo">
+            <video autoplay muted loop id="myVideo">
                 <source src="./images/dust.mp4" type="video/mp4">
-              </video> -->
-              <h1 class="title title--big">Origines</h1>
+            </video>
+            <h1 class="title title--big">Origines</h1>
         </section>
 
         <section class="section section--about-intro">
-            <div class="container-txt">
-                <div class="content-wrapper">
-                    <p class="content">
-                        Les backrooms sont une légende urbaine de type horrifique, dite également creepypasta, faisant ainsi partie d’une grande lignée de légendes créées sur internet par les internautes du monde entier.  
-                    </p>
-                    <p class="content">
-                        Né le 14 mai 2019 sur le réseau social 4chan, l’univers des backrooms est devenu l’un des plus grands projets collaboratifs d’internet de ces 4 dernières années.
-                    </p>
+
+            <div class="container">
+                <div class="container-txt">
+                    <div class="content-wrapper">
+                        <p class="content">
+                            Les backrooms sont une légende urbaine de type horrifique, dite également creepypasta, faisant ainsi partie d’une grande lignée de légendes créées sur internet par les internautes du monde entier.  
+                        </p>
+                        <p class="content">
+                            Né le 14 mai 2019 sur le réseau social 4chan, l’univers des backrooms est devenu l’un des plus grands projets collaboratifs d’internet de ces 4 dernières années.
+                        </p>
+                    </div>
                 </div>
             </div>
             
+            
         </section>
+
+
+
         <section class="section section--about-start">
 
-            <div class="introduction">
-
-                <h2 class="title title--medium">
-
-                    <span class="t1">Une</span>
-                    <span class="t2">image</span>
-                    <span class="t3">étrange</span>
-                    
-                </h2>
-
-                <div class="introduction__content">
-                    <p>
-                        Tout a commencé avec le post d’un utilisateur anonyme qui demandait aux internautes de partager les images les plus dérangeantes et malaisantes qu’ils pouvaient trouver.
-                    </p>
-                    <p>
-                        Un membre du réseau social répond à la requête et poste alors cette image :
-                    </p>
-                </div>
-
+            <div class="bg-image">
+                <img src="./images/ThebackroomsHD.png" alt="première image des backrooms">
             </div>
 
-            <div class="description">
-                <div class="description__img">
-                    <img class='image' src="./images/ThebackroomsHD.webp" alt="">
-                </div>
-                <div class="description__content">
-                    <p>
-                        La photo représente une pièce vide - potentiellement un bureau abandonné - aux murs revêtus de papier-peint vieillot et jaunâtre, avec un sol couvert d’une moquette jaune, et un faux plafond soutenant des lampes bruyantes et clignotantes.
 
-                    </p>
+            <div class="container">
+
+                <div class="introduction">
+
+                    <h2 class="title title--medium">
+    
+                        <span class="t1">Une</span>
+                        <span class="t2">image</span>
+                        <span class="t3">étrange</span>
+                        
+                    </h2>
+    
+                    <div class="introduction__content">
+                        <p>
+                            Tout a commencé avec le post d’un utilisateur anonyme qui demandait aux internautes de partager les images les plus dérangeantes et malaisantes qu’ils pouvaient trouver.
+                        </p>
+                        <p>
+                            Un membre du réseau social répond à la requête et poste alors cette image :
+                        </p>
+                    </div>
+    
+    
+
+    
+    
+                </div>
+                <div class="description">
+                    <div class="description__img">
+                        <img class="og-br" src="./images/img.webp" alt="l'image originale des backrooms">
+                    </div>
+                    <div class="description__content">
+                        <p>
+                            La photo représente une pièce vide - potentiellement un bureau abandonné - aux murs revêtus de papier-peint vieillot et jaunâtre, avec un sol couvert d’une moquette jaune, et un faux plafond soutenant des lampes bruyantes et clignotantes.
+                        </p>
+                        <p>
+                            L’utilisateur ayant posté l’image explique également que cette pièce regorge de créatures et autres entités étranges qui ne veulent pas du bien aux imprudents qu’elles rencontrent sur leur chemin.
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+            
+            
+        </section>
+
+        <section class="section section--about-entities">
+
+            <div class="container">
+                <!-- <h3 class="title title--little">Les entités</h3> -->
+                <div class="entities-content">
                     <p>
                         L’utilisateur ayant posté l’image explique également que cette pièce regorge de créatures et autres entités étranges qui ne veulent pas du bien aux imprudents qu’elles rencontrent sur leur chemin.
                     </p>
                 </div>
-            </div>
-            <div class="noclip">
-                <div class="noclip__quote">
-                    <figure class="quote">
-                        <blockquote>
-                            “If you’re not careful and you noclip out of reality in the wrong areas, you’ll end up in the Backrooms,...”
-                        </blockquote>
-                        <!-- <figcaption>
-                          &mdash; Anonymous, <cite>4chan 2019</cite>
-                        </figcaption> -->
-                      </figure>
-                </div>
-                <div class="noclip__content">
-                    <p>
-                        L’anonyme ajoute que l’endroit est uniquement accessible en “noclippant” de la réalité, un terme issu du monde des jeux vidéo et utilisé lorsqu’un joueur parvient à accéder à un niveau caché de la map principale.
-                    </p>
-                    <p>
-                        Le diffuseur de l’image applique ici le concept - qui signifie littéralement “traverser les textures” - au monde réel, en nous expliquant qu’on ne peut se retrouver dans cette pièce angoissante qu’en “traversant” la réalité, mais dans ce cas-ci, de manière involontaire.
-                    </p>
-                </div>
-            </div>
+                <!-- <div class="entities-images">
 
+                    <img class="img--1" src="./images/The_Faceling (1).webp" alt="facelings">
+
+                    <img class="img--2" src="./images/backrooms-dancing.gif" alt="">
+                
+                    <img class="img--3" src="./images/giphy.gif" alt="">
+                
+                    <img class="img--4" src="./images/NewClumpImage.webp" alt="">
+                
+                    <img class="img--5" src="./images/Smiler.webp" alt="">
+                    
+                </div> -->
+            </div>
+           
         </section>
+
+
+
+
+
+
+
         <section class="section section--about-noclip">
-            <canvas class="video1" id="video_noclip" style="background-color: red;"></canvas>
+            <div class="container">
+                <div class="noclip">
+                    <!-- <h3 class="title title--little">Noclip</h3> -->
+                    <div class="noclip__quote">
+                        <figure class="quote">
+                            <blockquote>
+                                “si vous êtes imprudents et que vous finissez par noclip en dehors de la réalité aux mauvaix endroits, vous finirez dans les backrooms,[...]”
+                            </blockquote>
+                            <!-- <figcaption>
+                                &mdash; Anonymous, <cite>4chan 2019</cite>
+                            </figcaption> -->
+                            </figure>
+                    </div>
+                    <div class="noclip__content">
+                        <p>
+                            L’anonyme ajoute que l’endroit est uniquement accessible en “noclippant” de la réalité, un terme issu du monde des jeux vidéo et utilisé lorsqu’un joueur parvient à accéder à un niveau caché de la map principale.
+                        </p>
+                        <p>
+                            Le diffuseur de l’image applique ici le concept - qui signifie littéralement “traverser les textures” - au monde réel, en nous expliquant qu’on ne peut se retrouver dans cette pièce angoissante qu’en “traversant” la réalité, mais dans ce cas-ci, de manière involontaire.
+                        </p>
+                    </div>
+                    <div class="float-img">
+                        <img src="./images/pencil.svg" alt="">
+                    </div>
+                </div>
+            </div>
         </section>
+
+
+        <section class="section section--noclip">
+
+            <canvas class="video1" id="video_noclip"></canvas>
+            
+        </section>
+
+
+
+
 
         <section class="section section--univers">
-            <h2 class="title title--medium">
-                <span>Le début</span>
-                <span>d'un univers</span>
-            </h2>
-            <div class="creation">
-                <p>
-                    L’histoire inventée autour de cette image va être partagée massivement et agiter les internautes, qui vont décider d’appeler le lieu “backrooms”. Mais au-delà de la notoriété que ce monde imaginaire va connaître, c’est un véritable projet collaboratif qui se crée autour de celui-ci, dans lequel les internautes créatifs ajoutent des nouvelles pièces et histoires à l’univers, ayant chacune leurs spécificités.
-                </p>
-                <p>
-                    Les étages qui composent les backrooms, possèdent une caractéristique commune. Ils utilisent en effet presque tous une esthétique dite “liminale”, c'est-à-dire qui représente des espaces ayant des caractéristiques telles que des grands espaces vides et répétitifs, donnant une sensation de déjà vu à tous ceux qui s'y aventurent.
-                </p>
+            <div class="univers__bg">
+                <img src="./images/br-200vh.png" alt="">
             </div>
-            <div class="ending">
+            <div class="container">
+                <h2 class="title title--medium">
+                    <span class="t4">Le début</span>
+                    <span class="t5">d'un univers</span>
+                </h2>
+                <div class="creation">
+                    <p>
+                        L’histoire inventée autour de cette image va être partagée massivement et agiter les internautes, qui vont décider d’appeler le lieu “backrooms”.
+                        <br>Mais au-delà de la notoriété que ce monde imaginaire va connaître, c’est un véritable projet collaboratif qui se crée autour de celui-ci, dans lequel les internautes créatifs ajoutent des nouvelles pièces et histoires à l’univers, ayant chacune leurs spécificités.
+                    </p>
+                    <p>
+                        Les étages qui composent les backrooms, possèdent une caractéristique commune. Ils utilisent en effet presque tous une esthétique dite “liminale”, c'est-à-dire qui représente des espaces ayant des caractéristiques telles que des grands espaces vides et répétitifs, donnant une sensation de déjà vu à tous ceux qui s'y aventurent.
+                    </p>
+                </div>
+                <div class="ending">
+                    <p class="strong">
+                        On compte maintenant plus de 2000 niveaux différents documentés dans un wikidot dédié au sujet.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="section section--about-levels">
+            <div class="container">
+                <div class="levels__content">
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--about-endLore">
+            <div class="container">
                 <p class="bold">
-                    On compte maintenant plus de 2000 niveaux différents documentés dans un wikidot dédié au sujet.
+                    Malgré l’engouement autour des backrooms, la tendance redescend petit à petit et on n’entend plus vraiment parler de cette creepypasta…
                 </p>
             </div>
+        </section>
+
+        <section class="section section--about-SUB">
+            <p>Site en cours de construction. Il n'y a pas encore le reste du contenu donc je vous invite à aller sur ce lien pour voir le prototype figma</p>
+            <a href="https://www.figma.com/proto/Roca7zAEnWdySDyh4BTDEe/NOCLIP?page-id=0%3A1&node-id=622-173&viewport=-517%2C-1313%2C0.55&scaling=scale-down">MVP</a>
         </section>
         
     </main>
     <script>
+
         const soundBtn = document.getElementById("sound-btn");
         const soundIcon = document.getElementById("sound-icon");
         const audio = document.getElementById("myAudio");
@@ -162,9 +266,11 @@
                 soundIcon.src = "./images/Vector.svg";
             } else {
                 audio.pause();
-                soundIcon.src = "sound-off.png";
+                soundIcon.src = "./images/sound-off.svg";
             }
         }
+        var vid = document.getElementById("myAudio");
+        vid.volume = 0.2;
     </script>
 </body>
 </html>

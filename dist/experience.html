@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOCLIP - Experience</title>
+    
+    <link rel="icon" href="./assets/favicon-870f3e57.svg">
+
+  <script type="module" crossorigin src="./assets/experience-80171db0.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/style-b06c333d.js">
+  <link rel="stylesheet" href="./assets/style-218f8c4a.css">
+</head>
+<body>
+    <!-- <div class="bg"></div> -->
+
+    <div class="intro">
+        <p>
+            Vous étiez probablement en train de manger, en train de rouler en voiture, ou en train de passer du temps avec vos proches. 
+
+            Soudain votre jambe passe à travers le sol et sans vous en rendre compte, votre corps entier disparaît....
+        </p>
+        <p>
+            Vous venez de tomber dans les backrooms.
+        </p>
+
+        <h3 class="title title--little">DISCLAIMER</h3>
+        <p>
+            Utilisez les touches Z et S pour avancer/reculer.
+            Utiliser les touches Q et D pour tourner la caméra.
+        </p>
+        <p>
+            L'idée est de mettre des sortes de boutons cliquables à des endroits spécififiques grâce auxquels s'affichera un texte avec des informations sur la backrooms, les sorties et les différentes entitées que l'on peut rencontrer.
+        </p>
+
+        <!-- <p class="br-author">
+            — Anonymous, 2019
+        </p> -->
+        <button id="hide-intro">Commencer</button>
+      </div>
+
+
+    <header>
+        <input class="hidden" id="burger" type="checkbox" />
+        <label for="burger">
+            <div class="burger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </label>
+        <nav>
+          <div class="nav__el">
+              <a class="btn nav-links" href="index.html">Accueil</a>
+          </div>
+  
+          <div class="nav__el">
+              <a class="btn nav-links" href="about.html">Origines</a>
+          </div>
+          <div class="nav__el">
+              <a class="btn nav-links" href="experience.html">Experience</a>
+          </div>
+  
+        </nav>
+        <div class="utils">
+            <div class="lang">
+                <button class="btn btn--lang">EN</button>
+            </div>
+            <div class="sound">
+                <audio autoplay loop id="myAudio">
+                    <source src="./assets/ambient-979a6950.mp3" type="audio/wav">
+                </audio>
+                <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
+                    <img id="sound-icon" src="./assets/Vector-0db3fbb9.svg">
+                  </button>
+            </div>
+        </div>
+  
+      </header>
+
+
+    <canvas class="webgl"></canvas>
+	
+    
+    <script>
+        const soundBtn = document.getElementById("sound-btn");
+        const soundIcon = document.getElementById("sound-icon");
+        const audio = document.getElementById("myAudio");
+
+        function toggleSound() {
+            if (audio.paused) {
+                audio.play();
+                soundIcon.src = "./images/Vector.svg";
+            } else {
+                audio.pause();
+                soundIcon.src = "./images/sound-off.svg";
+            }
+        }
+        var vid = document.getElementById("myAudio");
+        vid.volume = 0.2;
+    </script>
+
+</body>
+</html>

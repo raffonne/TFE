@@ -8,22 +8,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.0/bundled/lenis.js"></script>
+    
 
-  <script type="module" crossorigin src="./assets/index-4d9e02bc.js"></script>
-  <link rel="stylesheet" href="./assets/index-adb30dae.css">
+    <link rel="icon" href="./assets/favicon-870f3e57.svg">
+
+  <script type="module" crossorigin src="./assets/home-d8d0d12e.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/style-b06c333d.js">
+  <link rel="modulepreload" crossorigin href="./assets/lenis.modern-5ce89bb3.js">
+  <link rel="stylesheet" href="./assets/style-218f8c4a.css">
 </head>
 <body>
-    <header>
+    
+    <div class="bg"></div>
+
+    <!-- <header>
         <nav>
             <div class="utils">
                 <div class="lang">
                     <button class="btn btn--lang">EN</button>
                 </div>
                 <div class="sound">
-                    <audio autoplay loop>
-                        <source src="./The Backrooms.wav" type="audio/wav">
+                    <audio autoplay loop id="myAudio">
+                        <source src="./images/ambient.mp3" type="audio/wav">
                     </audio>
-                    <button onclick="toggleSound()" class="btn btn--sound"></button>
+                    <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
+                        <img id="sound-icon" src="./images/Vector.svg">
+                      </button>
                 </div>
             </div>
             <div class="menuToggle">
@@ -34,14 +44,55 @@
                     <span></span>
                 </div>
                 <ul class="menu">
-                  <a href="experience.html"><li>Experience</li></a>
-                  <a href="about.html"><li>A propos</li></a>
-                  <a href="archives.html"><li>Archives</li></a>
+                  <a href="index.html"><li>Accueil</li></a>
+                  <a href="about.html"><li>Origines</li></a>
+                  <a href="experience.html"><li>Exprience</li></a>
                 </ul>
             </div>
         </nav>
-    </header>
-    <div class="intro">
+    </header> -->
+
+    <header>
+        <input class="hidden" id="burger" type="checkbox" />
+        <label for="burger">
+            <div class="burger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </label>
+        <nav>
+          <div class="nav__el">
+              <a class="btn nav-links" href="index.html">Accueil</a>
+          </div>
+  
+          <div class="nav__el">
+              <a class="btn nav-links" href="about.html">Origines</a>
+          </div>
+          <div class="nav__el">
+              <a class="btn nav-links" href="experience.html">Experience</a>
+          </div>
+  
+        </nav>
+        <div class="utils">
+            <div class="lang">
+                <button class="btn btn--lang">EN</button>
+            </div>
+            <div class="sound">
+                <audio autoplay loop id="myAudio">
+                    <source src="./assets/ambient-979a6950.mp3" type="audio/wav">
+                </audio>
+                <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
+                    <img id="sound-icon" src="./assets/Vector-0db3fbb9.svg">
+                  </button>
+            </div>
+        </div>
+  
+      </header>
+
+
+
+      <!-- <div class="intro">
         <p>
             if you’re not careful and you noclip out of reality in the wrong areas, you’ll end up in the Backrooms, where it’s nothing but the stink of old moist carpet, the madness of mono-yellow, the endless background noise of fluorescent lights at maximum hum-buzz, and approximately six hundred million square miles of randomly segmented empty rooms to be trapped in...
         </p>
@@ -52,21 +103,60 @@
         <p class="br-author">
             — Anonymous, 2019
         </p>
-        <button id="hide-intro">Commencer</button>
-      </div>
-      
+        <button id="hide-intro">Continuer</button>
+      </div> -->
+
+
     <main class="main-menu">
+        <!-- <video autoplay muted loop id="myVideo">
+            <source src="./images/dust.mp4" type="video/mp4">
+        </video> -->
 
-        <div class="main-title">
-            <h1 class="title title--main">NOCLIP</h1>
-            <h2 class="title title--medium-main">Inside the backrooms</h2>
+        <div class="container">
+
+            <div class="main-title">
+                <h1 class="title title--main">NOCLIP</h1>
+                <h1 class="title title--submain">Experience</h1>
+            </div>
+    
+            <div class="main-small">
+                <p>
+                    NOCLIP Experience est un site web immersif dans lequel vous pourrez découvrir le mystérieux et terrifiant univers des Backrooms, un univers bien complexe.
+                </p>
+                <p>
+                    Les Backrooms sont une légende urbaine créée sur internet ne cessant d’évoluer chaque jour grâce à la créativité des internautes du monde entier. Il existe des milliers de Backrooms, toutes plus mystérieuses et plus dangereuses que d’autres. 
+                </p>
+
+                <p class="hidden--desktop">
+                    Passer sur ordinateur pour une expérience complète
+                </p>
+            </div>
+
         </div>
 
-        <div class="main-small main-small-bottom">
-            <p>A visual journey through the backrooms.</p>
-        </div>
+       
         
     </main>
+
+   
+    <script>
+
+        const soundBtn = document.getElementById("sound-btn");
+        const soundIcon = document.getElementById("sound-icon");
+        const audio = document.getElementById("myAudio");
+
+        function toggleSound() {
+            if (audio.paused) {
+                audio.play();
+                soundIcon.src = "./images/Vector.svg";
+            } else {
+                audio.pause();
+                soundIcon.src = "./images/sound-off.svg";
+            }
+        }
+        var vid = document.getElementById("myAudio");
+        vid.volume = 0.2;
+    </script>
 
 
     
