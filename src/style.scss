@@ -157,7 +157,7 @@
     margin-bottom: 5px;
     position: relative;
     
-    background: #cdcdcd;
+    background: #fff;
     border-radius: 3px;
     
     
@@ -197,6 +197,8 @@
       margin: 0;
       overflow: hidden;
       line-height: 1;
+      display: flex;
+      justify-content: end;
       > a{
         transition: .5s;
         transition-delay: 0s;
@@ -365,6 +367,7 @@ img{
     &--main{
       font-size: 70px;
       font-family: 'eiko';
+      // font-family: 'gosha';
       font-weight: 100;
       filter: drop-shadow(0 0 0.5rem rgb(255, 255, 255));
 
@@ -391,6 +394,7 @@ img{
     &--big{
       letter-spacing: 20px;
       opacity: 0.5;
+      
     }
 
     &--medium{
@@ -802,7 +806,7 @@ img{
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 50px;
+  gap: 30px;
 
   div{
     display: flex;
