@@ -1020,11 +1020,11 @@
 // })
 
 
-// // const dracoLoader = new DRACOLoader()
-// // dracoLoader.setDecoderPath('/draco/')
+// const dracoLoader = new DRACOLoader()
+// dracoLoader.setDecoderPath('/draco/')
 
 // const gltfLoader = new GLTFLoader()
-// // gltfLoader.setDRACOLoader(dracoLoader)
+// gltfLoader.setDRACOLoader(dracoLoader)
 // //utiliser dracoloader uniquement quand le modele 3D est très grand, pour quelques KB c'est pas la peine
 
 // gltfLoader.load(
@@ -1057,8 +1057,6 @@
 // document.addEventListener('keydown', ({ keyCode }) => { controls[keyCode] = true });
 // document.addEventListener('keyup', ({ keyCode }) => { controls[keyCode] = false });
 
-
-
 // // ...
 // function control() {
 //   // Controls:Engine 
@@ -1084,21 +1082,6 @@
 //     camera.rotation.y = Math.cos(cursor.y * Math.PI * 2) * 3
 //   }
 
-//   // if(cursor.x){
-//   //   camera.rotation.x = Math.cos(cursor.x * Math.PI * 2) * 3
-//   // }
-
-
-//   // if(cursor){
-//   //   camera.rotation.y = Math.cos(cursor.y * Math.PI * 2) * 3
-//   // }
-
-//   // if(cursor.x){
-//   //   camera.rotation.x = Math.cos(cursor.x * Math.PI * 2) * 3
-//   //   camera.rotation.x = Math.sin(cursor.y * Math.PI * 2) * 3
-//   // }
-
-//   // camera.rotation.z = Math.cos(cursor.x * Math.PI * 2) * 0.1
 
 
 //   if(controls[32]) { // space
@@ -1349,31 +1332,17 @@
 
 
 
-var intro = document.querySelector('.intro');
-if(intro) {
-
-	const hideIntro = () => {
-		const intro = document.querySelector('.intro');
-		intro.classList.add("hidden");
-	  }
-	  
-	document.querySelector('#hide-intro').addEventListener('click', hideIntro);
-};
 
 
 
 
-
-
-
-
-
-
+//THREE.JS
 import * as THREE from 'three'
 import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.js';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import * as dat from 'lil-gui'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 
 
@@ -1403,13 +1372,18 @@ const cursor = {
   y: 0
 }
 
+
 // MainStuff:Setup
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, .1, 1000);
+const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.1, 1000 );
+// camera.rotation.order = 'XYZ';
+
 
 const renderer = new THREE.WebGLRenderer({
   canvas : canvas
 });
+
+
 
 const controls = {};
 const player = {
@@ -1421,6 +1395,8 @@ const player = {
   velocity: 0,
   playerJumps: false
 };
+
+
 
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
@@ -1444,15 +1420,17 @@ window.addEventListener('resize', () =>
 })
 
 // Camera:Setup
+// camera.position.set(0, player.height, -5);
 camera.position.set(0, player.height, -5);
 camera.lookAt(new THREE.Vector3(0, player.height, 5));
 
-window.addEventListener('mousemove', (event) => {
-  cursor.x = event.clientX / sizes.width - 0.5;
-  cursor.y = event.clientY / sizes.height - 0.5;
-})
+
+
+// const dracoLoader = new DRACOLoader()
+// dracoLoader.setDecoderPath('/draco/')
 
 const gltfLoader = new GLTFLoader()
+// gltfLoader.setDRACOLoader(dracoLoader)
 
 gltfLoader.load(
   './backrooms-3Dmodel/backrooms_with_baked_textures/scene.gltf',
@@ -1468,40 +1446,53 @@ gltfLoader.load(
   }
 )
 
+
+
+//Camera controls
+
+/**
+ * Mousemove
+ */
+const mouse = new THREE.Vector2()
+
+window.addEventListener('mousemove', (event) => {
+
+  mouse.x = event.clientX / sizes.width * 2 - 1
+  mouse.y = event.clientY / sizes.height * 2 + 1
+
+})
+
 // Controls:Listeners
 document.addEventListener('keydown', ({ keyCode }) => { controls[keyCode] = true });
 document.addEventListener('keyup', ({ keyCode }) => { controls[keyCode] = false });
+
 function control() {
   // Controls:Engine 
-  if(controls[90] || controls[38]){ // w/z
+  if(controls[90] || controls[38]){ // w/z / up arrow
     camera.position.x -= Math.sin(camera.rotation.y) * player.speed;
     camera.position.z -= -Math.cos(camera.rotation.y) * player.speed;
   }
-  if(controls[83] || controls[40]){ // s
+  if(controls[83] || controls[40]){ // s/ down arrow
     camera.position.x += Math.sin(camera.rotation.y) * player.speed;
     camera.position.z += -Math.cos(camera.rotation.y) * player.speed;
   }
-  if(controls[81] || controls[37]){ // a/q
-    camera.rotation.y -= player.turnSpeed;
+  if (controls[81] || controls[37]) { // a/left arrow
+    camera.position.x += Math.cos(camera.rotation.y) * player.speed;
+    camera.position.z += Math.sin(camera.rotation.y) * player.speed;
   }
-  if(controls[68]|| controls[39]){ // d
-    camera.rotation.y += player.turnSpeed;
+  if (controls[68] || controls[39]) { // d/right arrow
+    camera.position.x -= Math.cos(camera.rotation.y) * player.speed;
+    camera.position.z -= Math.sin(camera.rotation.y) * player.speed;
   }
-  // if(controls[65] || controls[81]){ // a/q
-  //   camera.position.x += Math.cos(camera.rotation.y) * player.speed;
-  //   camera.position.z += Math.sin(camera.rotation.y) * player.speed;
-  // }
-  // if(controls[68]){ // d
-  //   camera.position.x -= Math.cos(camera.rotation.y) * player.speed;
-  //   camera.position.z -= Math.sin(camera.rotation.y) * player.speed;
-  // }
+  
 
-  if(cursor.x){
-    camera.rotation.y += cursor.x * 0.05;
+
+  if(controls[32]) { // space
+    if(player.jumps) return false;
+    player.jumps = true;
+    player.velocity = -player.jumpHeight;
   }
-  if(cursor.y){
-    camera.rotation.x += cursor.x * 0.05;
-  }
+
 
   // Gravity
   if(player.playerJumps){
@@ -1512,6 +1503,7 @@ function control() {
       camera.position.y = player.height;
       player.velocity = 0;
     }
+
   }
 
   // Controls:Floor
@@ -1520,14 +1512,133 @@ function control() {
   }
 }
 
+function ixMovementUpdate() {
+  player.velocity += player.gravity;
+  camera.position.y -= player.velocity;
+  
+  if(camera.position.y < player.height) {
+    camera.position.y = player.height;
+    player.jumps = false;
+  }
+}
+
+
+
+// function render() {
+//   ixMovementUpdate();
+
+//   controls.movementSpeed = 150;
+//   controls.lookSpeed = 0.1;
+  
+// }
+
 function animate() {
+  
   requestAnimationFrame(animate);
   control();
   renderer.render(scene, camera);
+  ixMovementUpdate();
+
+  controls.movementSpeed = 150;
+  controls.lookSpeed = 0.1;
+
+  
+
 }
 
 animate();
+// render();
 
+
+
+
+
+
+
+
+
+var intro = document.querySelector('.intro');
+if(intro) {
+
+	const hideIntro = () => {
+		const intro = document.querySelector('.intro');
+		intro.classList.add("hidden");
+	  }
+	  
+	document.querySelector('#hide-intro').addEventListener('click', hideIntro);
+};
+
+
+
+ 
+
+//Button hover begin
+var hoverMouse = function($el) {
+	$el.each(function() {
+	  var $self = $(this);
+	  var hover = false;
+	  var offsetHoverMax = $self.attr("offset-hover-max") || 0.7;
+	  var offsetHoverMin = $self.attr("offset-hover-min") || 0.5;
+  
+	  var attachEventsListener = function() {
+		$(window).on("mousemove", function(e) {
+		  //
+		  var hoverArea = hover ? offsetHoverMax : offsetHoverMin;
+  
+		  // cursor
+		  var cursor = {x: e.clientX, y: e.clientY - $(window).scrollTop()
+		  };
+  
+		  // size
+		  var width = $self.outerWidth();
+		  var height = $self.outerHeight();
+  
+		  // position
+		  var offset = $self.offset();
+		  var elPos = { x: offset.left + width / 2, y: offset.top + height / 2
+		  };
+  
+		  // comparaison
+		  var x = cursor.x - elPos.x;
+		  var y = cursor.y - elPos.y;
+  
+		  // dist
+		  var dist = Math.sqrt(x * x + y * y);
+  
+		  // mutex hover
+		  var mutHover = false;
+  
+		  // anim
+		  if (dist < width * hoverArea) {
+			mutHover = true;
+			if (!hover) {
+			  hover = true;
+			}
+			onHover(x, y);
+		  }
+  
+		  // reset
+		  if (!mutHover && hover) {
+			onLeave();
+			hover = false;
+		  }
+		});
+	  };
+  
+	  var onHover = function(x, y) {
+		TweenMax.to($self, 0.4, { x: x * 0.2, y: y * 0.2, ease: Power2.easeOut
+		});
+	  };
+	  var onLeave = function() {
+		TweenMax.to($self, 1, { x: 0, y: 0, scale: 1, rotation: 0, ease: Back.easeOut.config(1.2, 0.4)
+		});
+	  };
+  
+	  attachEventsListener();
+	});
+  };
+  
+  hoverMouse($('#hide-intro'));
 
 
 
@@ -1588,15 +1699,15 @@ animate();
 
 // const raycaster = new THREE.Raycaster()
 
-// const rayOrigin = new THREE.Vector3(-3, 0, 0)
-// const rayDirection = new THREE.Vector3(1, 0, 0)
-// rayDirection.normalize() //convertir la direction en unité
+// // const rayOrigin = new THREE.Vector3(-3, 0, 0)
+// // const rayDirection = new THREE.Vector3(1, 0, 0)
+// // rayDirection.normalize() //convertir la direction en unité
 
-// raycaster.set(rayOrigin, rayDirection)
+// // raycaster.set(rayOrigin, rayDirection)
 
-// const intersect = raycaster.intersectObject(object2)
+// // const intersect = raycaster.intersectObject(object2) //ray pour un objet
 
-// const intersects = raycaster.intersectObjects([object1, object2, object3])
+// // const intersects = raycaster.intersectObjects([object1, object2, object3])//pour plusieurs
 
 
 // /**
@@ -1630,6 +1741,18 @@ animate();
 // camera.position.z = 3
 // scene.add(camera)
 
+// /**
+//  * Mousemove
+//  */
+// const mouse = new THREE.Vector2()
+
+// window.addEventListener('mousemove', (event) => {
+
+//   mouse.x = event.clientX / sizes.width * 2 - 1
+//   mouse.y = event.clientY / sizes.height * 2 + 1
+
+// })
+
 // // Controls
 // const controls = new OrbitControls(camera, canvas)
 // controls.enableDamping = true
@@ -1648,9 +1771,34 @@ animate();
 //  */
 // const clock = new THREE.Clock()
 
+// // let currentIntersect = null
+
 // const tick = () =>
 // {
 //     const elapsedTime = clock.getElapsedTime()
+
+//     // //cast a ray
+//     raycaster.setFromCamera(mouse, camera)
+//     // const rayOrigin = new THREE.Vector3(-3, 0, 0)
+//     // const rayDirection = new THREE.Vector3(1, 0, 0)
+//     // rayDirection.normalize()
+
+//     // raycaster.set(rayOrigin, rayDirection)
+
+//     const objectsToTest = [object1, object2, object3]
+//     const intersects = raycaster.intersectObjects(objectsToTest)
+
+//     for (const object of objectsToTest){
+//       object.material.color.set('#ff0000')
+//     }
+//     for (const intersect of intersects){
+//       intersect.object.material.color.set('#0000ff')
+//     }
+
+//     //animate objects
+//     object1.position.y = Math.sin(elapsedTime * 0.3) * 1.5
+//     object2.position.y = Math.sin(elapsedTime * 0.8) * 1.5
+//     object3.position.y = Math.sin(elapsedTime * 1.4) * 1.5
 
 //     // Update controls
 //     controls.update()
@@ -1663,3 +1811,272 @@ animate();
 // }
 
 // tick()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import * as THREE from 'three';
+
+// 			// import Stats from 'three/addons/libs/stats.module.js';
+
+// 			import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+// 			// import { Octree } from 'three/addons/math/Octree.js';
+// 			// import { OctreeHelper } from 'three/addons/helpers/OctreeHelper.js';
+
+// 			// import { Capsule } from 'three/addons/math/Capsule.js';
+
+// 			import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+
+// 			const clock = new THREE.Clock();
+
+// 			const scene = new THREE.Scene();
+// 			scene.background = new THREE.Color( 0x88ccee );
+// 			scene.fog = new THREE.Fog( 0x88ccee, 0, 50 );
+
+// 			const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+// 			const fillLight1 = new THREE.HemisphereLight( 0x4488bb, 0x002244, 0.5 );
+// 			fillLight1.position.set( 2, 1, 1 );
+// 			scene.add( fillLight1 );
+
+// 			const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.8 );
+// 			directionalLight.position.set( - 5, 25, - 1 );
+// 			directionalLight.castShadow = true;
+// 			directionalLight.shadow.camera.near = 0.01;
+// 			directionalLight.shadow.camera.far = 500;
+// 			directionalLight.shadow.camera.right = 30;
+// 			directionalLight.shadow.camera.left = - 30;
+// 			directionalLight.shadow.camera.top	= 30;
+// 			directionalLight.shadow.camera.bottom = - 30;
+// 			directionalLight.shadow.mapSize.width = 1024;
+// 			directionalLight.shadow.mapSize.height = 1024;
+// 			directionalLight.shadow.radius = 4;
+// 			directionalLight.shadow.bias = - 0.00006;
+// 			scene.add( directionalLight );
+
+// 			const container = document.getElementById( 'container' );
+
+// 			const renderer = new THREE.WebGLRenderer( { antialias: true } );
+// 			renderer.setPixelRatio( window.devicePixelRatio );
+// 			renderer.setSize( window.innerWidth, window.innerHeight );
+// 			renderer.shadowMap.enabled = true;
+// 			renderer.shadowMap.type = THREE.VSMShadowMap;
+// 			renderer.outputEncoding = THREE.sRGBEncoding;
+// 			renderer.toneMapping = THREE.ACESFilmicToneMapping;
+
+
+// 			const GRAVITY = 30;
+
+			
+
+			
+
+
+// 			const playerVelocity = new THREE.Vector3();
+// 			const playerDirection = new THREE.Vector3();
+
+// 			let playerOnFloor = false;
+// 			let mouseTime = 0;
+
+// 			const keyStates = {};
+
+// 			const vector1 = new THREE.Vector3();
+// 			const vector2 = new THREE.Vector3();
+// 			const vector3 = new THREE.Vector3();
+
+// 			document.addEventListener( 'keydown', ( event ) => {
+
+// 				keyStates[ event.code ] = true;
+
+// 			} );
+
+// 			document.addEventListener( 'keyup', ( event ) => {
+
+// 				keyStates[ event.code ] = false;
+
+// 			} );
+
+
+
+// 			window.addEventListener( 'resize', onWindowResize );
+
+// 			function onWindowResize() {
+
+// 				camera.aspect = window.innerWidth / window.innerHeight;
+// 				camera.updateProjectionMatrix();
+
+// 				renderer.setSize( window.innerWidth, window.innerHeight );
+
+// 			}
+
+
+// 			function playerCollisions() {
+
+
+// 				playerOnFloor = false;
+
+// 				if ( result ) {
+
+// 					playerOnFloor = result.normal.y > 0;
+
+// 					if ( ! playerOnFloor ) {
+
+// 						playerVelocity.addScaledVector( result.normal, - result.normal.dot( playerVelocity ) );
+
+// 					}
+
+// 					playerCollider.translate( result.normal.multiplyScalar( result.depth ) );
+
+// 				}
+
+// 			}
+
+// 			function updatePlayer( deltaTime ) {
+
+// 				let damping = Math.exp( - 4 * deltaTime ) - 1;
+
+// 				if ( ! playerOnFloor ) {
+
+// 					playerVelocity.y -= GRAVITY * deltaTime;
+
+// 					// small air resistance
+// 					damping *= 0.1;
+
+// 				}
+
+// 				playerVelocity.addScaledVector( playerVelocity, damping );
+
+// 				const deltaPosition = playerVelocity.clone().multiplyScalar( deltaTime );
+// 				playerCollider.translate( deltaPosition );
+
+// 				playerCollisions();
+
+// 				camera.position.copy( playerCollider.end );
+
+// 			}
+
+
+
+
+// 			function getForwardVector() {
+
+// 				camera.getWorldDirection( playerDirection );
+// 				playerDirection.y = 0;
+// 				playerDirection.normalize();
+
+// 				return playerDirection;
+
+// 			}
+
+// 			function getSideVector() {
+
+// 				camera.getWorldDirection( playerDirection );
+// 				playerDirection.y = 0;
+// 				playerDirection.normalize();
+// 				playerDirection.cross( camera.up );
+
+// 				return playerDirection;
+
+// 			}
+
+// 			function controls( deltaTime ) {
+
+// 				// gives a bit of air control
+// 				const speedDelta = deltaTime * ( playerOnFloor ? 25 : 8 );
+
+// 				if ( keyStates[ 'KeyW' ] ) {
+
+// 					playerVelocity.add( getForwardVector().multiplyScalar( speedDelta ) );
+
+// 				}
+
+// 				if ( keyStates[ 'KeyS' ] ) {
+
+// 					playerVelocity.add( getForwardVector().multiplyScalar( - speedDelta ) );
+
+// 				}
+
+// 				if ( keyStates[ 'KeyA' ] ) {
+
+// 					playerVelocity.add( getSideVector().multiplyScalar( - speedDelta ) );
+
+// 				}
+
+// 				if ( keyStates[ 'KeyD' ] ) {
+
+// 					playerVelocity.add( getSideVector().multiplyScalar( speedDelta ) );
+
+// 				}
+
+// 				if ( playerOnFloor ) {
+
+// 					if ( keyStates[ 'Space' ] ) {
+
+// 						playerVelocity.y = 15;
+
+// 					}
+
+// 				}
+
+// 			}
+
+//         const gltfLoader = new GLTFLoader()
+//       // gltfLoader.setDRACOLoader(dracoLoader)
+
+//         gltfLoader.load(
+//           '/backrooms-3Dmodel/backrooms_with_baked_textures/scene.gltf',
+//           (gltf) => {
+//             console.log('success')
+//             scene.add(gltf.scene)
+//           },
+//           () => {
+//             console.log('progress')
+//           },
+//           () => {
+//             console.log('error')
+//           }
+//         )
+
+
+
+// 			function animate() {
+
+// 				const deltaTime = Math.min( 0.05, clock.getDelta() ) / STEPS_PER_FRAME;
+
+// 				// we look for collisions in substeps to mitigate the risk of
+// 				// an object traversing another too quickly for detection.
+
+// 				for ( let i = 0; i < STEPS_PER_FRAME; i ++ ) {
+
+// 					controls( deltaTime );
+
+// 					updatePlayer( deltaTime );
+
+// 					updateSpheres( deltaTime );
+
+// 					teleportPlayerIfOob();
+
+// 				}
+
+// 				renderer.render( scene, camera );
+
+
+// 				requestAnimationFrame( animate );
+
+// 			}

@@ -24,7 +24,7 @@ if(aboutIntro) {
 		scrollTrigger:{
 			trigger:'.container-txt',
 			start:'center center',
-			end: "top top",
+			end: "1000",
 			scrub:true,
 			pin:true,
 			// anticipatePin: true,
@@ -32,25 +32,6 @@ if(aboutIntro) {
 		}
 	});
 
-	const lenisText = new Lenis({
-		duration: 5,
-		easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-		direction: 'vertical', // vertical, horizontal
-		gestureDirection: 'vertical', // vertical, horizontal, both
-		smooth: true,
-		mouseMultiplier: 1,
-		smoothTouch: 0.1,
-		smoothWheel:true,
-		touchMultiplier: 1,
-		infinite: false,
-		});
-	
-	function raf(time) {
-	lenisText.raf(time)
-	requestAnimationFrame(raf)
-	}
-	
-	requestAnimationFrame(raf)
 };
 
 var dust = document.querySelector('.section--about-title');
@@ -216,6 +197,18 @@ gsap.to(noclipTriggerInfo,{
 	},
 	onUpdate:render,
 });
+gsap.to(noclipTriggerInfo,{
+	opacity:0,
+	ease: 'none',
+	scrollTrigger: {
+		trigger: '#video_noclip',
+		scrub: 2,
+		// markers:true,
+		start: "bottom bottom",
+		end: "+=300",
+		toggleActions: "play none none reverse"
+  }
+})
 
 
 noclipTriggerInfo.images[0].onload = () => {

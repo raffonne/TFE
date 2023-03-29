@@ -1,7 +1,7 @@
 "use strict"
 
 import gsap from "gsap";
-// import { TimelineLite } from "otherLibs/gsap/all";
+import { TimelineLite } from "./otherLibs/gsap/all";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from "./otherLibs/gsap/splitText.js";
 import Lenis from '@studio-freight/lenis';
