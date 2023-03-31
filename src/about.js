@@ -65,34 +65,50 @@ if (br1) {
 }
 
 
+gsap.from(".title--medium", {
+	opacity: 0,
+	duration: .2,
+	scrollTrigger: {
+		trigger: ".title--medium",
+		start: "bottom bottom",
+		end: "top top",
+		scrub: 0.5,
+		markers:true
+	},
+})
 
 
 
-// var titleTrigger = document.querySelector('.title--medium');
-// if (titleTrigger) {
 
-// 	gsap.to(".t1", {
-// 		x: 100,
-// 		opacity:1,
-// 		scrollTrigger:{
-// 			trigger:'.title--medium',
-// 			scrub:1.5,
-// 			// markers:true
-// 		}
+
+
+
+var titleTrigger = document.querySelector('.title--medium');
+if (titleTrigger) {
+
+
+	gsap.to(".t1", {
+		x: 100,
+		opacity:1,
+		scrollTrigger:{
+			trigger:'.title--medium',
+			scrub:1.5,
+			// markers:true
+		}
 		
-// 	  });
+	  });
 
-// 	  gsap.to(".t2", {
-// 		x: -100,
-// 		scrollTrigger:{
-// 			trigger:'.title--medium',
-// 			scrub:1,
-// 			// markers:true
-// 		}
+	  gsap.to(".t2", {
+		x: -100,
+		scrollTrigger:{
+			trigger:'.title--medium',
+			scrub:1,
+			// markers:true
+		}
 
-// 	  });
+	  });
 
-// }
+}
 
 
 
@@ -144,7 +160,7 @@ noclipTrigger.height = innerHeight;
 noclipTrigger.width = innerWidth;
 
 const noclipTriggerInfo = {
-	totalFrames : 145,
+	totalFrames : 147,
 	totalTime:7,
 	images:[],
 	currentFrame:19,
@@ -165,7 +181,7 @@ gsap.to(noclipTriggerInfo,{
 		trigger: '#video_noclip',
 		start:"top",
 		// end:`bottom+=${noclipTrigger.totalFrames*noclipTriggerInfo.totalTime}`,
-		end: 'bottom',
+		end: '1000',
 		pin:'#video_noclip',
 		scrub:true,
 		// markers:true
@@ -173,18 +189,8 @@ gsap.to(noclipTriggerInfo,{
 	onUpdate:render,
 });
 
-// gsap.to(noclipTriggerInfo,{
-// 	opacity:0,
-// 	ease: 'none',
-// 	scrollTrigger: {
-// 		trigger: '#video_noclip',
-// 		scrub: 2,
-// 		// markers:true,
-// 		start: "bottom bottom",
-// 		end: "+=300",
-// 		toggleActions: "play none none reverse"
-//   }
-// })
+
+
 
 
 noclipTriggerInfo.images[0].onload = () => {
@@ -209,11 +215,52 @@ function render(){
 }
 
 render();
+gsap.to(noclipTriggerInfo,{
+	opacity:0,
+	ease: 'none',
+	scrollTrigger: {
+		trigger: '#video_noclip',
+		scrub: 2,
+		markers:true,
+		start: "top top",
+		end: "bottom bottom",
+		toggleActions: "play none none reverse"
+  }
+});
 
 
 
+var plx = document.querySelector('.bg-image');
+if(plx){
+	gsap.from(".bg-image", {
+		opacity: 0,
+		duration: .5,
+		scrollTrigger: {
+			trigger: ".bg-image",
+			start: "-500",
+			end: "bottom bottom",
+			scrub: 0.5,
+			pin: ".bg-image",
+			markers:true
+		},
+	})
+};
 
-
+// var plx = document.querySelector('.univers__bg');
+// if(plx){
+// 	gsap.from(".univers__bg", {
+// 		opacity: 0,
+// 		duration: .2,
+// 		scrollTrigger: {
+// 			trigger: ".univers__bg",
+// 			start: "-100",
+// 			end: "bottom bottom",
+// 			scrub: 0.5,
+// 			// pin: true,
+// 			markers:true
+// 		},
+// 	})
+// };
 
 var image = document.getElementsByClassName('og-br');
 	new simpleParallax(image, {
@@ -232,13 +279,13 @@ var universBg = document.getElementsByClassName('univers__bg');
 		
 	},
 );
-var universTxt = document.getElementsByClassName('ending');
-	new simpleParallax(universTxt, {
-		overflow: true,
-		delay: .4,
+// var universTxt = document.getElementsByClassName('ending');
+// 	new simpleParallax(universTxt, {
+// 		overflow: true,
+// 		delay: .4,
 		
-	},
-);
+// 	},
+// );
 
 
 // var ent1 = document.getElementsByClassName('img--1');

@@ -6,40 +6,15 @@
     <title>NOCLIP - Experience</title>
     
     <link rel="icon" href="./assets/favicon-870f3e57.svg">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.0/bundled/lenis.js"></script>
 
-  <script type="module" crossorigin src="./assets/experience-80171db0.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/style-b06c333d.js">
-  <link rel="stylesheet" href="./assets/style-218f8c4a.css">
+  <script type="module" crossorigin src="./assets/experience-755c0d6c.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/style-231e2531.js">
+  <link rel="stylesheet" href="./assets/style-0b24ff4f.css">
 </head>
 <body>
-    <!-- <div class="bg"></div> -->
-
-    <div class="intro">
-        <p>
-            Vous étiez probablement en train de manger, en train de rouler en voiture, ou en train de passer du temps avec vos proches. 
-
-            Soudain votre jambe passe à travers le sol et sans vous en rendre compte, votre corps entier disparaît....
-        </p>
-        <p>
-            Vous venez de tomber dans les backrooms.
-        </p>
-
-        <h3 class="title title--little">DISCLAIMER</h3>
-        <p>
-            Utilisez les touches Z et S pour avancer/reculer.
-            Utiliser les touches Q et D pour tourner la caméra.
-        </p>
-        <p>
-            L'idée est de mettre des sortes de boutons cliquables à des endroits spécififiques grâce auxquels s'affichera un texte avec des informations sur la backrooms, les sorties et les différentes entitées que l'on peut rencontrer.
-        </p>
-
-        <!-- <p class="br-author">
-            — Anonymous, 2019
-        </p> -->
-        <button id="hide-intro">Commencer</button>
-      </div>
-
-
     <header>
         <input class="hidden" id="burger" type="checkbox" />
         <label for="burger">
@@ -77,9 +52,51 @@
         </div>
   
       </header>
+    <main class="experience">
+        <div class="bg"></div>
+
+    <div class="intro">
+        <p>
+            Vous étiez probablement en train de manger, en train de rouler en voiture, ou en train de passer du temps avec vos proches. 
+
+            Soudain votre jambe passe à travers le sol et sans vous en rendre compte, votre corps entier disparaît....
+        </p>
+        <p>
+            Vous venez de tomber dans les backrooms.
+        </p>
+
+        <button id="hide-intro">Commencer</button>
+      </div>
 
 
-    <canvas class="webgl"></canvas>
+      <section class="section section--experience">
+        <canvas class="webgl"></canvas>
+
+        <div class="controls controls--fixed">
+            <div class="controls--fixed__keyboard">
+                <div>
+                    <img class="controls-img" src="./assets/arrows-68fc46ff.svg" alt="">/
+                    <img class="controls-img" src="./assets/controls-ba832f44.svg" alt="controles clavier">
+                </div>
+                
+                <p>Déplacement</p>
+            </div>
+            <div class="controls--fixed__mouse">
+                <img class="controls-img" src="./assets/mouse-d21f4499.svg" alt="controles souris">
+                <p>Caméra</p>
+            </div>
+        </div>
+
+      </section>
+
+    </main>
+    
+
+
+
+
+
+   
 	
     
     <script>
@@ -96,8 +113,7 @@
                 soundIcon.src = "./images/sound-off.svg";
             }
         }
-        var vid = document.getElementById("myAudio");
-        vid.volume = 0.2;
+
     </script>
 
 </body>
