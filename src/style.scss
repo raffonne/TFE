@@ -1,4 +1,6 @@
 
+@import "style/typography" ;
+
 @font-face {
     font-family: 'gosha';
     src: url("./fonts/gosha/PPGoshaSans-Thin.ttf");
@@ -18,95 +20,6 @@
 }
 
 
-
-.bg{
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    right: -50%;
-    bottom: -50%;
-    width: 200%;
-    height: 200vh;
-    background: transparent url(http://assets.iceable.com/img/noise-transparent.png) repeat 0 0;
-    background-repeat: repeat;
-    -webkit-animation: bg-animation 0.2s infinite;
-    animation: bg-animation 0.2s infinite;
-    opacity: 0.9;
-    visibility: visible;
-    z-index: -9;
-}
-
-@-webkit-keyframes bg-animation {
-    0% {
-      transform: translate(0, 0);
-    }
-    10% {
-      transform: translate(-5%, -5%);
-    }
-    20% {
-      transform: translate(-10%, 5%);
-    }
-    30% {
-      transform: translate(5%, -10%);
-    }
-    40% {
-      transform: translate(-5%, 15%);
-    }
-    50% {
-      transform: translate(-10%, 5%);
-    }
-    60% {
-      transform: translate(15%, 0);
-    }
-    70% {
-      transform: translate(0, 10%);
-    }
-    80% {
-      transform: translate(-15%, 0);
-    }
-    90% {
-      transform: translate(10%, 5%);
-    }
-    100% {
-      transform: translate(5%, 0);
-    }
-  }
-  
-  @keyframes bg-animation {
-    0% {
-      transform: translate(0, 0);
-    }
-    10% {
-      transform: translate(-5%, -5%);
-    }
-    20% {
-      transform: translate(-10%, 5%);
-    }
-    30% {
-      transform: translate(5%, -10%);
-    }
-    40% {
-      transform: translate(-5%, 15%);
-    }
-    50% {
-      transform: translate(-10%, 5%);
-    }
-    60% {
-      transform: translate(15%, 0);
-    }
-    70% {
-      transform: translate(0, 10%);
-    }
-    80% {
-      transform: translate(-15%, 0);
-    }
-    90% {
-      transform: translate(10%, 5%);
-    }
-    100% {
-      transform: translate(5%, 0);
-    }
-  }
 
   
   header{
@@ -189,10 +102,10 @@
     display: flex;
     flex-direction: column;
     justify-content:center;
-          // background: rgba(255, 255, 255, 0.42);
-          // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-          // backdrop-filter: blur(10px);
-          // -webkit-backdrop-filter: blur(8.4px);
+          background: rgba(79, 79, 79, 0.42);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(8.4px);
     > div{
       margin: 0;
       overflow: hidden;
@@ -282,57 +195,8 @@ button{
   opacity: 0.4;
   z-index: -9999999;
 }
-.video1{
-  width: 100vw;
-}
-a{
-    color: white;
-    text-decoration: none;
-    font-family: "montreal";
-}
-
-p{
-    color: white;
-    font-size: 16px;
-    max-width: 45ch;
-    letter-spacing: 0.5px;
-
-    @media (min-width:700px) {
-        font-size: 18px;
-    }
-    @media (min-width:1000px) {
-        font-size: 20px;
-    }
-}
 
 
-.bold{
-  font-size: 20px;
-  text-transform: uppercase;
-  @media (min-width:1000px) {
-    font-size: 28px;
-  }
-}
-.strong{
-  text-transform: uppercase;
-  font-size: 50px;
-}
-
-figure{
-  margin: 0;
-  margin-bottom: 100px;
-}
-blockquote{
-  font-size: 24px;
-  text-transform: uppercase;
-  opacity: 0.5;
-  margin: 0;
-  line-height: 1.5;
-
-  @media (min-width:1000px) {
-    font-size: 50px;
-  }
-}
 figcaption{
   display: flex;
   justify-content: flex-end;
@@ -343,7 +207,7 @@ img{
 
 .webgl{
 
-    // position: fixed;
+    position: fixed;
     top: 0;
     left: 0;
     outline: none;
@@ -358,84 +222,7 @@ img{
         padding: 0 200px;
     }
 }
-.title{
-    color: white;
-    text-transform: uppercase;
-    margin: 0;
-    line-height: 1.1;
 
-    &--main{
-      font-size: 70px;
-      font-family: 'eiko';
-      // font-family: 'gosha';
-      font-weight: 100;
-      filter: drop-shadow(0 0 0.5rem rgb(255, 255, 255));
-
-      @media (min-width:1000px) {
-        font-size: 150px;
-        letter-spacing: 10px;
-      }
-    }
-
-    &--submain{
-      font-family: 'gosha';
-      text-align: center;
-      font-weight: 100;
-      font-size: 20px;
-      letter-spacing: 17px;
-
-      @media (min-width:1000px) {
-        letter-spacing: 49px;
-        font-size: 30px;
-        padding-left: 30px;
-      }
-    }
-
-    &--big{
-      letter-spacing: 20px;
-      opacity: 0.5;
-      
-    }
-
-    &--medium{
-        overflow: hidden;
-        font-family: 'right grotesk';
-        // font-family: 'cirka';
-        font-weight: 100;
-        font-size: 70px;
-        letter-spacing: 5px;
-        line-height: 1;
-        margin-bottom: 50px;
-        display: flex;
-        flex-direction: column;
-        @media (min-width:1000px) {
-            font-size: 170px;
-        }
-        .t1{
-          text-align: left;
-          margin: -10px;
-        }
-        .t2{
-          text-align: center;
-          // opacity: 0.50;
-          margin: -10px;
-        }
-        .t3{
-          text-align: left;
-        }
-        .t4{
-          text-align: end;
-        }
-    }
-    &--little{
-      font-family: 'right grotesk';
-      font-size: 25px;
-
-      @media (min-width:1000px) {
-        font-size: 80px;
-      }
-    }
-}
 
 .main-menu{
     position: relative;
@@ -647,12 +434,11 @@ img{
 
       .bg-image{
         position: absolute;
-        top: 100vh;
         width: 100vw;
         height: 72.43vw;
         min-height: 72.43vw;
         min-width: 100%;
-        transform: translateY(-20%);
+        // transform: translateY(-20%);
         z-index: -1;
         opacity: 0.7;
     }
@@ -680,20 +466,16 @@ img{
           gap: 150px;
         }
         &__img{
-          width: 40%;
+          width: 100%;
+          @media (min-width:1000px) {
+            width: 50%;
+          }
         }
 
       }
       
     }
-    .section--about-entities{
-      height: 120vh;
-      .entities-images{
-        position: relative;
-        display: flex;
-        flex-direction:column;
-      }
-    }
+
   
     .section--about-noclip{
       height: 100vh;
@@ -705,16 +487,7 @@ img{
         justify-content: center;
         .noclip{
           position: relative;
-          .float-img{
-            width: 40%;
-            position: absolute;
 
-            @media (min-width:1000px) {
-              position: absolute;
-              right: 100px;
-              // bottom: 10%;
-            }
-          }
         }
       }
     }
@@ -722,7 +495,7 @@ img{
     .section-noclip{
       
       .video1{
-        height: 100vh;
+        height: 100%;
         width: 100%;
       }
     }
@@ -769,6 +542,54 @@ img{
       height: 100vh;
     }
 
+
+
+    .section--about-entities{
+      position: relative;
+      height: 150vh;
+      .container{
+        h3{
+          // font-size: 30px;
+          @media (min-width:1000px) {
+            // position: absolute;
+            // bottom: 50%;
+            // left: 50%;
+            // transform: translate(-50%, -50%);
+
+            // font-size: 190px;
+          }
+        }
+        .entities-images{
+          height: 120vh;
+          position: relative;
+          display: grid;
+          @media (min-width:1000px) {
+            
+          }
+          .img{
+            transition: .1s;
+            
+
+            @media (min-width:1000px) {
+              position: absolute;
+              width: 30%;
+              // opacity: 0;
+            }
+
+
+          }
+
+      
+          // :hover{
+          //   opacity: 1;
+          //   transition: .1s;
+          // }
+
+        
+        }
+      }
+    }
+
     .section--about-endLore{
       height: 100vh;
       .container{
@@ -787,19 +608,17 @@ img{
 
 
 
-.section--about-SUB{
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+
+
+
+
 
 
 
 
 .controls--fixed{
   position: fixed;
+  z-index: 9999;
   opacity: 0.2;
   bottom: 50px;
   right: 50px;
@@ -834,3 +653,121 @@ img{
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .bg{
+//     position: fixed;
+//     top: -50%;
+//     left: -50%;
+//     right: -50%;
+//     bottom: -50%;
+//     width: 200%;
+//     height: 200vh;
+//     background: transparent url(http://assets.iceable.com/img/noise-transparent.png) repeat 0 0;
+//     background-repeat: repeat;
+//     -webkit-animation: bg-animation 0.2s infinite;
+//     animation: bg-animation 0.2s infinite;
+//     opacity: 0.9;
+//     visibility: visible;
+//     z-index: -9;
+// }
+
+// @-webkit-keyframes bg-animation {
+//     0% {
+//       transform: translate(0, 0);
+//     }
+//     10% {
+//       transform: translate(-5%, -5%);
+//     }
+//     20% {
+//       transform: translate(-10%, 5%);
+//     }
+//     30% {
+//       transform: translate(5%, -10%);
+//     }
+//     40% {
+//       transform: translate(-5%, 15%);
+//     }
+//     50% {
+//       transform: translate(-10%, 5%);
+//     }
+//     60% {
+//       transform: translate(15%, 0);
+//     }
+//     70% {
+//       transform: translate(0, 10%);
+//     }
+//     80% {
+//       transform: translate(-15%, 0);
+//     }
+//     90% {
+//       transform: translate(10%, 5%);
+//     }
+//     100% {
+//       transform: translate(5%, 0);
+//     }
+//   }
+  
+//   @keyframes bg-animation {
+//     0% {
+//       transform: translate(0, 0);
+//     }
+//     10% {
+//       transform: translate(-5%, -5%);
+//     }
+//     20% {
+//       transform: translate(-10%, 5%);
+//     }
+//     30% {
+//       transform: translate(5%, -10%);
+//     }
+//     40% {
+//       transform: translate(-5%, 15%);
+//     }
+//     50% {
+//       transform: translate(-10%, 5%);
+//     }
+//     60% {
+//       transform: translate(15%, 0);
+//     }
+//     70% {
+//       transform: translate(0, 10%);
+//     }
+//     80% {
+//       transform: translate(-15%, 0);
+//     }
+//     90% {
+//       transform: translate(10%, 5%);
+//     }
+//     100% {
+//       transform: translate(5%, 0);
+//     }
+//   }

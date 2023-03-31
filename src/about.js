@@ -14,21 +14,21 @@ gsap.registerPlugin(ScrollTrigger);
 // const timeline = new TimelineLite();
 const text = new SplitText(".content", ["words"]);
 
-var aboutIntro = document.querySelector('.section--about-intro');
+var aboutIntro = document.querySelector('.container');
 if(aboutIntro) {
 
 	gsap.from(text.words,{
-		opacity:0.15,
-		stagger:0.8,
+		opacity:0.1,
+		stagger:0.1,
 		ease:"none",
 		scrollTrigger:{
 			trigger:'.container-txt',
 			start:'center center',
-			end: "1000",
-			scrub:true,
+			end: '7000',
+			scrub: 1,
 			pin:true,
-			// anticipatePin: true,
-			markers:true,
+			anticipatePin: true,
+			// markers:true,
 		}
 	});
 
@@ -68,56 +68,31 @@ if (br1) {
 
 
 
-var titleTrigger = document.querySelector('.title--medium');
-if (titleTrigger) {
+// var titleTrigger = document.querySelector('.title--medium');
+// if (titleTrigger) {
 
-	gsap.to(".t1", {
-		x: 180,
-		opacity:1,
-		scrollTrigger:{
-			trigger:'.section--about-start',
-			scrub:1.5,
-			// markers:true
-		}
+// 	gsap.to(".t1", {
+// 		x: 100,
+// 		opacity:1,
+// 		scrollTrigger:{
+// 			trigger:'.title--medium',
+// 			scrub:1.5,
+// 			// markers:true
+// 		}
 		
-	  });
+// 	  });
 
-	  gsap.to(".t2", {
-		x: -400,
-		scrollTrigger:{
-			trigger:'.section--about-start',
-			scrub:3,
-			// markers:true
-		}
+// 	  gsap.to(".t2", {
+// 		x: -100,
+// 		scrollTrigger:{
+// 			trigger:'.title--medium',
+// 			scrub:1,
+// 			// markers:true
+// 		}
 
-	  });
-	  gsap.to(".t3", {
-		x: 200,
-		scrollTrigger:{
-			trigger:'.section--about-start',
-			scrub:1.5,
-			// markers:true
-		}
-		
-	  });
+// 	  });
 
-	  gsap.to('.t4', {
-		x:-500,
-		scrollTrigger:{
-			trigger:'.section--univers',
-			scrub:1.5,
-			// markers:true
-		}
-	  });
-	  gsap.to('.t5', {
-		x: 100,
-		scrollTrigger:{
-			trigger:'.section--univers',
-			scrub:2,
-			// markers:true
-		}
-	  });
-}
+// }
 
 
 
@@ -150,11 +125,11 @@ requestAnimationFrame(raf)
   
 
 
-// lenis.on('scroll', ScrollTrigger.update)
+lenis.on('scroll', ScrollTrigger.update)
 
-// gsap.ticker.add((time)=>{
-//   lenis.raf(time * 1000)
-// })
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000)
+})
 
 
 
@@ -197,18 +172,19 @@ gsap.to(noclipTriggerInfo,{
 	},
 	onUpdate:render,
 });
-gsap.to(noclipTriggerInfo,{
-	opacity:0,
-	ease: 'none',
-	scrollTrigger: {
-		trigger: '#video_noclip',
-		scrub: 2,
-		// markers:true,
-		start: "bottom bottom",
-		end: "+=300",
-		toggleActions: "play none none reverse"
-  }
-})
+
+// gsap.to(noclipTriggerInfo,{
+// 	opacity:0,
+// 	ease: 'none',
+// 	scrollTrigger: {
+// 		trigger: '#video_noclip',
+// 		scrub: 2,
+// 		// markers:true,
+// 		start: "bottom bottom",
+// 		end: "+=300",
+// 		toggleActions: "play none none reverse"
+//   }
+// })
 
 
 noclipTriggerInfo.images[0].onload = () => {
@@ -234,8 +210,6 @@ function render(){
 
 render();
 
-var vid = document.getElementById("myAudio");
-vid.volume = 0.2;
 
 
 
@@ -258,13 +232,13 @@ var universBg = document.getElementsByClassName('univers__bg');
 		
 	},
 );
-// var universTxt = document.getElementsByClassName('ending');
-// 	new simpleParallax(universTxt, {
-// 		overflow: true,
-// 		delay: .4,
+var universTxt = document.getElementsByClassName('ending');
+	new simpleParallax(universTxt, {
+		overflow: true,
+		delay: .4,
 		
-// 	},
-// );
+	},
+);
 
 
 // var ent1 = document.getElementsByClassName('img--1');
@@ -277,26 +251,8 @@ var universBg = document.getElementsByClassName('univers__bg');
 // var ent2 = document.getElementsByClassName('img--2');
 // new simpleParallax(ent2, {
 // 	overflow: true,
-// 	delay: 1,
-// 	transition: 'cubic-bezier(5,0,0,1)'
-// });
-// var ent3 = document.getElementsByClassName('img--3');
-// new simpleParallax(ent3, {
-// 	overflow: true,
-// 	delay: .5,
-// 	transition: 'cubic-bezier(5,0,0,1)'
-// });
-// var ent4 = document.getElementsByClassName('img--4');
-// new simpleParallax(ent4, {
-// 	overflow: true,
-// 	delay: .15,
-// 	transition: 'cubic-bezier(5,0,0,1)'
-// });
-// var ent5 = document.getElementsByClassName('img--5');
-// new simpleParallax(ent5, {
-// 	overflow: true,
-// 	delay: .20,
-// 	transition: 'cubic-bezier(10,0,0,1)'
+// 	delay: 4,
+// 	transition: 'cubic-bezier(20,20,5,20)'
 // });
 
 
