@@ -12,12 +12,12 @@ import simpleParallax from 'simple-parallax-js';
 gsap.registerPlugin(ScrollTrigger);
 
 // const timeline = new TimelineLite();
-const text = new SplitText(".content", ["words"]);
+const text = new SplitText(".content", ["chars"]);
 
 var aboutIntro = document.querySelector('.container');
 if(aboutIntro) {
 
-	gsap.from(text.words,{
+	gsap.from(text.chars,{
 		opacity:0.1,
 		stagger:0.1,
 		ease:"none",
@@ -58,7 +58,7 @@ if (br1) {
 		scrollTrigger: {
 			trigger: '.introduction__content',
 			start: "bottom bottom",
-			end: "-=1000",
+			end: "-=100%",
 			toggleActions: "play none none reverse"
       }
 	})
@@ -83,32 +83,32 @@ gsap.from(".title--medium", {
 
 
 
-var titleTrigger = document.querySelector('.title--medium');
-if (titleTrigger) {
+// var titleTrigger = document.querySelector('.title--medium');
+// if (titleTrigger) {
 
 
-	gsap.to(".t1", {
-		x: 100,
-		opacity:1,
-		scrollTrigger:{
-			trigger:'.title--medium',
-			scrub:1.5,
-			// markers:true
-		}
+// 	gsap.to(".t1", {
+// 		x: 100,
+// 		opacity:1,
+// 		scrollTrigger:{
+// 			trigger:'.title--medium',
+// 			scrub:1.5,
+// 			// markers:true
+// 		}
 		
-	  });
+// 	  });
 
-	  gsap.to(".t2", {
-		x: -100,
-		scrollTrigger:{
-			trigger:'.title--medium',
-			scrub:1,
-			// markers:true
-		}
+// 	  gsap.to(".t2", {
+// 		x: -100,
+// 		scrollTrigger:{
+// 			trigger:'.title--medium',
+// 			scrub:1,
+// 			// markers:true
+// 		}
 
-	  });
+// 	  });
 
-}
+// }
 
 
 
@@ -246,21 +246,7 @@ if(plx){
 	})
 };
 
-// var plx = document.querySelector('.univers__bg');
-// if(plx){
-// 	gsap.from(".univers__bg", {
-// 		opacity: 0,
-// 		duration: .2,
-// 		scrollTrigger: {
-// 			trigger: ".univers__bg",
-// 			start: "-100",
-// 			end: "bottom bottom",
-// 			scrub: 0.5,
-// 			// pin: true,
-// 			markers:true
-// 		},
-// 	})
-// };
+
 
 var image = document.getElementsByClassName('og-br');
 	new simpleParallax(image, {
@@ -303,4 +289,70 @@ var universBg = document.getElementsByClassName('univers__bg');
 // });
 
 
+var image = document.getElementsByClassName('level-01');
+        new simpleParallax(image, {
+            orientation: 'right',
+			scale: 1.5,
+			delay: 2,
+			maxTransition: 60
+        });
 
+
+//swiper
+const spaceHolder = document.querySelector('.space-holder');
+const horizontal = document.querySelector('.horizontal');
+spaceHolder.style.height = `${calcDynamicHeight(horizontal)}px`;
+
+function calcDynamicHeight(ref) {
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const objectWidth = ref.scrollWidth;
+  return objectWidth - vw + vh + 150; // 150 is the padding (in pixels) desired on the right side of the .cards container. This can be set to whatever your styles dictate
+}
+
+window.addEventListener('scroll', () => {
+  const sticky = document.querySelector('.sticky');
+  horizontal.style.transform = `translateX(-${sticky.offsetTop}px)`;
+});
+
+window.addEventListener('resize', () => {
+  spaceHolder.style.height = `${calcDynamicHeight(horizontal)}px`;
+});
+
+
+
+
+function messageClipping() {
+	var charlimit = 200;
+	var readmorelink = "Plus";
+	var readlesslink = "Moins";
+  
+	$(".message-wrapper").each(function () {
+	  if ($(this).find(".firsthalf").lenght) return;
+  
+	  var allstr = $(this).html();
+	  if (allstr.length > charlimit) {
+		var firstset = allstr.substring(0, charlimit);
+		var secondhalf = allstr.substring(charlimit, allstr.length);
+		var charclip =
+		  firstset +
+		  '<span class="clipmessage">' +
+		  secondhalf +
+		  '</span><span class="readless" title="Click to show more text">' +
+		  readmorelink +
+		  '</span><span class="readmore" title="Click to show less text">' +
+		  readlesslink +
+		  "</span>";
+		$(this).html(charclip);
+	  }
+	});
+	$(document).on("click", ".readmore,.readless", function () {
+	  $(this)
+		.closest(".message-wrapper")
+		.toggleClass("showlesscontent showmorecontent");
+	});
+  }
+  
+  $(function () {
+	messageClipping();
+  }); 

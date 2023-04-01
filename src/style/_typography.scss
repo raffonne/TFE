@@ -106,15 +106,15 @@ a{
         @media (min-width:1000px) {
             font-size: 170px;
         }
-        .t1{
-          text-align: left;
-          margin: -10px;
-        }
-        .t2{
-          text-align: center;
-          // opacity: 0.50;
-          margin: -10px;
-        }
+        // .t1{
+        //   text-align: left;
+        //   margin: -10px;
+        // }
+        // .t2{
+        //   text-align: center;
+        //   // opacity: 0.50;
+        //   margin: -10px;
+        // }
         // .t3{
         //   text-align: left;
         // }
@@ -123,11 +123,20 @@ a{
         // }
     }
     &--little{
+      margin-top: 50px;
       font-family: 'right grotesk';
       font-size: 25px;
 
       @media (min-width:1000px) {
         font-size: 80px;
+      }
+    }
+
+    &--name{
+      font-size: 18px;
+      font-family: 'montreal bold';
+      @media (min-width:1000px) {
+        font-size: 24px;
       }
     }
 }
@@ -155,4 +164,40 @@ blockquote{
     @media (min-width:1000px) {
       font-size: 50px;
     }
+}
+
+.lvl-number{
+  text-transform: uppercase;
+  
+}
+
+
+//text-fill
+
+.message-wrapper.showmorecontent .clipmessage,
+.message-wrapper.showlesscontent .readless {
+  display: none;
+}
+
+.message-wrapper.showmorecontent .readmore {
+  display: none;
+}
+
+.message-wrapper .readmore,
+.message-wrapper .readless {
+  font-weight: bold;
+  margin-left: 2px;
+  cursor: pointer;
+}
+
+.showmorecontent .clipmessage,
+.showlesscontent .readless {
+  display: block;
+  transition: .2s ease-in;
+}
+
+.readless, .readmore{
+  font-family: 'montreal bold';
+  text-transform: uppercase;
+  margin: 20px 0;
 }

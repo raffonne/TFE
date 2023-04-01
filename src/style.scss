@@ -21,7 +21,7 @@ body{
     font-family: 'montreal';
     background: #0C0C0C;
     color: white;
-    line-height: 1.7;
+    line-height: 1.5;
 
 }
 
@@ -78,6 +78,7 @@ header{
   height: 100%;
   width: 60px;
   border-right: solid 0.5px #ffffff;
+
   label {
 
     position: fixed;
@@ -95,6 +96,23 @@ header{
   
     }
   
+  }
+
+  nav{
+    .utils{
+      display: block;
+      @media (min-width:1000px) {
+        display: none;
+      }
+    }
+  }
+
+
+  .utils{
+    display: none;
+    @media (min-width:1000px) {
+      display: block;
+    }
   }
   
   label:hover {
@@ -446,8 +464,12 @@ img{
 
   
     .section--about-noclip{
-      height: 100vh;
-      padding-top: 50em;
+        padding-top: 10em;
+        padding-bottom: 10em;
+
+      @media (min-width:1000px) {
+        padding-top: 50em;
+      }
       .container{
         display: flex;
         flex-direction: column;
@@ -460,44 +482,49 @@ img{
       }
     }
 
-    .section-noclip{
+    .section--noclip{
       position: relative;
       overflow-y: hidden;
+      display: none;
+
+      @media (min-width:1000px) {
+        display: block;
+      }
+
+
       .video1{
         position: absolute;
         left: 50%;
         max-height: 100%;
         width: 100vw;
-        
+
       }
     }
 
 
 
     .section--univers{
-      padding-top: 200px;
-      height: 160vh;
+      padding-top: 50px;
+      // height: 160vh;
       // background-image: url('./images/br-200vh.png');
       // background-size: cover;
       // background-repeat: no-repeat;
       // background-position: center;
       position: relative;
 
-      // @media (min-width:1000px) {
-      //   background-position: -40vw;
-      // }
+      @media (min-width:1000px) {
+        padding-top: 200px;
+      }
 
       .univers__bg{
         position: absolute;
         width: 100%;
         z-index: -999;
         top: 0;
-        left: -20%;
 
         @media (min-width:1000px) {
           width: 80%;
           left: -20%;
-
         }
       }
       .container{
@@ -506,10 +533,10 @@ img{
           display: flex;
           flex-direction: column;
           align-items: end;
-          gap: 100px;
+          // gap: 100px;
         }
         .ending{
-          padding-top: 100px;
+          // padding-top: 100px;
         }
       }
 
@@ -517,7 +544,70 @@ img{
     }
 
     .section--about-levels{
-      height: 100vh;
+      
+      .wrapper {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+      }
+      
+      .space-holder {
+        position: relative;
+        width: 100%;
+      }
+      
+      .sticky {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        overflow-x: hidden!important;
+      }
+      
+      .horizontal {
+        position: absolute;
+        height: 100%;
+        will-change: transform;
+      }
+      
+      .cards {
+        position: relative;
+        height: 70%;
+        padding: 0 0 0 10px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+
+        @media (min-width:1000px) {
+          height: 100%;
+          padding: 0 0 0 100px;
+        }
+      }
+      
+      .br-card {
+        padding: 20px;
+        position: relative;
+        height: 300px;
+        width: 350px;
+        margin-right: 5px;
+        display: flex;
+        flex-direction: column;
+
+        p{
+          max-width: 70ch;
+        }
+       
+
+        @media (min-width:1000px) {
+          height: 700px;
+          width: 600px;
+        }
+
+      }
+      
+      
+
     }
 
 
@@ -538,7 +628,7 @@ img{
           }
         }
         .entities-images{
-          height: 120vh;
+          // height: 120vh;
           position: relative;
           display: grid;
           @media (min-width:1000px) {
@@ -619,6 +709,9 @@ img{
     }
   }
 }
+
+
+
 
 
 

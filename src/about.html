@@ -10,6 +10,9 @@
     <script type="module" src="about.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@0.2.28/bundled/lenis.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" /> -->
+
     <link rel="icon" href="./images/favicon.svg">
 
 </head>
@@ -35,6 +38,19 @@
           <div class="nav__el">
               <a class="btn nav-links" href="experience.html">Experience</a>
           </div>
+          <div class="utils">
+            <div class="lang">
+                <button class="btn btn--lang">EN</button>
+            </div>
+            <div class="sound">
+                <audio autoplay loop id="myAudio">
+                    <source src="./images/ambient.mp3" type="audio/wav">
+                </audio>
+                <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
+                    <img id="sound-icon" src="./images/Vector.svg">
+                  </button>
+            </div>
+        </div>
   
         </nav>
         <div class="utils">
@@ -125,6 +141,9 @@
                         <p>
                             La photo représente une pièce vide - potentiellement un bureau abandonné - aux murs revêtus de papier-peint vieillot et jaunâtre, avec un sol couvert d’une moquette jaune, et un faux plafond soutenant des lampes bruyantes et clignotantes.
                         </p>
+                        <p>
+                            L’utilisateur ayant posté l’image explique également que cette pièce regorge de créatures et autres entités étranges qui ne veulent pas du bien aux imprudents qu’elles rencontrent sur leur chemin.
+                        </p>
                         
                     </div>
                 </div>
@@ -207,13 +226,144 @@
         </section>
 
         <section class="section section--about-levels">
-            <div class="container">
-                <div class="levels__content">
-                </div>
-            </div>
+            
+                  <div class="wrapper">
+                    <div class="space-holder">
+                      <div class="sticky">
+                        <div class="container">
+                            <h3 class="title title--little">Quelques niveaux</h3>
+                        </div>
+                        <div class="horizontal">
+                          <section role="feed" class="cards">
+                            <article class="br-card">
+                                <small class="lvl-number">Niveau 1</small>
+                                <h4 class="title title--name">
+                                    La zone habitable
+                                </h4>
+                                <div class="message-wrapper showmorecontent">
+                                    <p>L’étage 1 est nommé “zone habitable” car il est beaucoup plus aménagé, viable que le précédent. Ce dernier ressemble à un grand parking ou un étage d'entrepôt vide avec un sol et des murs en béton. Cette fois-ci l’étage est beaucoup plus vaste et on peut y trouver des escaliers, des pièces différentes et des ascenseurs.
+                                    </p>
+                                </div>
+                                <div class="br-img">
+                                    <img class="level-01" src="./images/ThebackroomsHD.webp" alt="temporary">
+                                </div>
+                            </article>
+                            <article class="br-card">
+                                <small class="lvl-number">Niveau 2</small>
+                                <h4 class="title title--name">
+                                    Les tuyaux infinis
+                                </h4>
+                                <div class="message-wrapper showmorecontent">
+                                    <p>Le niveau 2 est beaucoup plus dangereux que les niveaux précédents.
+                                        Il s’agit d’un étage relativement très sombre et consiste en de longs tunnels de maintenance s’étendant sur des millions de kilomètres. Sur les murs sont couverts de plusieurs tuyaux s’étalant eux aussi sur la même longueur, avec à l’intérieur un liquide noir jusqu’à maintenant inconnu. Dans ces tunnels, vous pourrez tomber sur des portes parfois fermées et parfois ouvertes avec une chance de trouver des ordinateurs voire même d’autres objets.
+                                        </p>
+                                </div>
+                                
+                                <div class="br-img">
+                                    <img class="level-01" src="./images/ThebackroomsHD.webp" alt="temporary">
+                                </div>
+                            </article>
+                            <article class="br-card">
+                                <small class="lvl-number">Niveau 3</small>
+                                <h4 class="title title--name">
+                                    Le poste électrique
+                                </h4>
+                                <div class="message-wrapper showmorecontent">
+                                    <p>Le niveau de poste électrique est le plus grand des backrooms (350 M) et  ressemble beaucoup au niveau précédent et est peut être tout aussi dangereux, mais aussi au niveau 0 et de sa disposition des murs et des pièces dans l’étage plus linéaire. Il ressemble également à une prison notamment à cause des barreaux métalliques qui sont la plupart du temps impossibles à ouvrir. </p>
+                                </div>
+                                
+                                <div class="br-img">
+                                    <img class="level-01" src="./images/ThebackroomsHD.webp" alt="temporary">
+                                </div>
+                            </article>
+                            <article class="br-card">
+                                <small class="lvl-number">Niveau 4</small>
+                                <h4 class="title title--name">
+                                    Le bureau abandonné
+                                </h4>
+                                <div class="message-wrapper showmorecontent">
+                                    <p>Le niveau 4 fait office de point de contrôle pour les voyageurs. En effet, le bureau abandonné est connu pour être un niveau relativement calme où les voyageurs restent plus longtemps histoire de se reposer et en profiter pour se réapprovisionner en eau d’amende (particulièrement présente à cet étage) qui leur sera utile dans les niveaux 5 et 6. Il est également possible de rencontrer d’autres personnes..</p>
+                                </div>
+                                
+                                <div class="br-img">
+                                    <img class="level-01" src="./images/ThebackroomsHD.webp" alt="temporary">
+                                </div>
+                            </article>
+                            <article class="br-card">
+                                <small class="lvl-number">Niveau 5</small>
+                                <h4 class="title title--name">
+                                    L'horreur de la terreur
+                                </h4>
+                                <div class="message-wrapper showmorecontent">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, officiis, illo odit quis ducimus vero earum, veniam iste numquam eius sed deleniti qui veritatis assumenda commodi tempora maiores suscipit corrupti.</p>
+                                </div>
+                                
+                                <div class="br-img">
+                                    <img class="level-01" src="./images/ThebackroomsHD.webp" alt="temporary">
+                                </div>
+                            </article>
+                            <article class="br-card">
+                                <small class="lvl-number">Niveau 6</small>
+                                <h4 class="title title--name">
+                                    Le noir complet
+                                </h4>
+                                <div class="message-wrapper showmorecontent">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, officiis, illo odit quis ducimus vero earum, veniam iste numquam eius sed deleniti qui veritatis assumenda commodi tempora maiores suscipit corrupti.</p>
+                                </div>
+                                
+                                <div class="br-img">
+                                    <img class="level-01" src="./images/ThebackroomsHD.webp" alt="temporary">
+                                </div>
+                            </article>
+                            <article class="br-card">
+                                <small class="lvl-number">NNiveau 7</small>
+                                <h4 class="title title--name">
+                                    Thalassophobie
+                                </h4>
+                                <div class="message-wrapper showmorecontent">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, officiis, illo odit quis ducimus vero earum, veniam iste numquam eius sed deleniti qui veritatis assumenda commodi tempora maiores suscipit corrupti.</p>
+                                </div>
+                                
+                                <div class="br-img">
+                                    <img class="level-01" src="./images/ThebackroomsHD.webp" alt="temporary">
+                                </div>
+                            </article>
+                            <article class="br-card">
+                                <small class="lvl-number">Niveau 8</small>
+                                <h4 class="title title--name">
+                                    La grotte
+                                </h4>
+                                <div class="message-wrapper showmorecontent">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, officiis, illo odit quis ducimus vero earum, veniam iste numquam eius sed deleniti qui veritatis assumenda commodi tempora maiores suscipit corrupti.</p>
+                                </div>
+                                
+                                <div class="br-img">
+                                    <img class="level-01" src="./images/ThebackroomsHD.webp" alt="temporary">
+                                </div>
+                            </article>
+                            <article class="br-card">
+                                <small class="lvl-number">Niveau 9</small>
+                                <h4 class="title title--name">
+                                    La banlieue
+                                </h4>
+                                <div class="message-wrapper showmorecontent">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, officiis, illo odit quis ducimus vero earum, veniam iste numquam eius sed deleniti qui veritatis assumenda commodi tempora maiores suscipit corrupti.</p>
+                                </div>
+                                
+                                <div class="br-img">
+                                    <img class="level-01" src="./images/ThebackroomsHD.webp" alt="temporary">
+                                </div>
+                            </article>
+                            
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
         </section>
 
-        <!-- <section class="section section--about-entities">
+        <section class="section section--about-entities">
 
             <div class="container">
                 
@@ -242,20 +392,23 @@
                 </div>
             </div>
            
-        </section> -->
+        </section>
 
-        <section class="section section--about-endLore">
+        <!-- <section class="section section--about-endLore">
             <div class="container">
                 <p class="bold part-1">
                     Malgré l’engouement autour des backrooms, la tendance redescend petit à petit et on n’entend plus vraiment parler de cette creepypasta…
                 </p>
             </div>
-        </section>
+        </section> -->
 
         
         
     </main>
+    
+
     <script>
+        
 
         const soundBtn = document.getElementById("sound-btn");
         const soundIcon = document.getElementById("sound-icon");
