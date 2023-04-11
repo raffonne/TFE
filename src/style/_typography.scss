@@ -1,7 +1,7 @@
 p{
     color: white;
     font-size: 16px;
-    max-width: 45ch;
+    max-width: 50ch;
     letter-spacing: 0.5px;
 
     @media (min-width:700px) {
@@ -95,6 +95,7 @@ a{
     &--medium{
         overflow: hidden;
         font-family: 'right grotesk';
+        
         // font-family: 'cirka';
         font-weight: 100;
         font-size: 70px;

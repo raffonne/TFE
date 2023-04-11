@@ -11,6 +11,8 @@ html{
 
 }
 
+
+
 body{
 
     min-height: 100%!important;
@@ -22,6 +24,7 @@ body{
     background: #0C0C0C;
     color: white;
     line-height: 1.5;
+    overflow-x: hidden;
 
 }
 
@@ -93,6 +96,7 @@ header{
   
       top: 50%;
       left: 12.5px;
+      right: auto;
   
     }
   
@@ -100,7 +104,7 @@ header{
 
   nav{
     .utils{
-      display: block;
+      display: flex;
       @media (min-width:1000px) {
         display: none;
       }
@@ -111,13 +115,14 @@ header{
   .utils{
     display: none;
     @media (min-width:1000px) {
-      display: block;
+      display: flex;
     }
   }
   
   label:hover {
   
     cursor: pointer;
+
   
   }
   
@@ -184,10 +189,6 @@ header{
 input ~ nav {
 
   background: black;
-  background: rgba(79, 79, 79, 0.42);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(8.4px);
 
   position: fixed;
   top: 0;
@@ -252,8 +253,6 @@ input:checked ~ nav {
 } 
 
 
-
-
 .hidden{
 
   display: none;
@@ -266,7 +265,7 @@ input:checked ~ nav {
   height: 100%;
   object-fit: cover;
   position: fixed;
-  opacity: 0.4;
+  opacity: 1;
   z-index: -9999999;
 
 }
@@ -375,15 +374,16 @@ img{
 
     position: relative;
 
-    .section--about-title{
-        height: 100vh;
-        position: relative;
-        h1{
-            position: absolute;
-            bottom: 50%;
-            left: 50%;
-            transform: translate(-50%, 50%);
-        }
+    .section--about-origins{
+      position: relative;
+      height: 200vh;
+
+      h2{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
 
     }
 
@@ -395,7 +395,7 @@ img{
             justify-content: center;
             align-items: center;
             .content{
-                max-width: 50ch;
+                max-width: 55ch;
                 font-size: 20px;
                 text-transform: uppercase;
 
@@ -412,7 +412,7 @@ img{
     .section--about-start{
       z-index: 1;
       position: relative;
-      padding-top: 20em;
+      margin-top: 0em;
       .bg-image{
         display: none;
         @media (min-width:1000px) {
@@ -477,29 +477,25 @@ img{
         justify-content: center;
         .noclip{
           position: relative;
-
         }
       }
     }
 
-    .section--noclip{
-      position: relative;
-      overflow-y: hidden;
-      display: none;
+    // .section--noclip{
+    //   position: relative;
+    //   display: none;
 
-      @media (min-width:1000px) {
-        display: block;
-      }
+    //   @media (min-width:1000px) {
+    //     display: block;
+    //   }
 
+    //   .video1{
+    //     left: 0;
+    //     height: 100%;
+    //     width: 100vw;
 
-      .video1{
-        position: absolute;
-        left: 50%;
-        max-height: 100%;
-        width: 100vw;
-
-      }
-    }
+    //   }
+    // }
 
 
 
@@ -605,16 +601,12 @@ img{
         }
 
       }
-      
-      
 
     }
-
-
-
+    
     .section--about-entities{
       position: relative;
-      height: 150vh;
+      height: 100vh;
       .container{
         h3{
           // font-size: 30px;
@@ -659,10 +651,14 @@ img{
     }
 
     .section--about-endLore{
-      height: 100vh;
+      padding-top: 200px;
+      height: 150vh;
+      position: relative;
       .container{
         position: relative;
-
+        :nth-child(2){
+          text-align: center;
+        }
       }
 
     }

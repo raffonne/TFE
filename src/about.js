@@ -12,14 +12,14 @@ import simpleParallax from 'simple-parallax-js';
 gsap.registerPlugin(ScrollTrigger);
 
 // const timeline = new TimelineLite();
-const text = new SplitText(".content", ["chars"]);
+const text = new SplitText(".content", ["words"]);
 
 var aboutIntro = document.querySelector('.container');
 if(aboutIntro) {
 
-	gsap.from(text.chars,{
+	gsap.from(text.words,{
 		opacity:0.1,
-		stagger:0.1,
+		stagger:0.2,
 		ease:"none",
 		scrollTrigger:{
 			trigger:'.container-txt',
@@ -114,38 +114,38 @@ gsap.from(".title--medium", {
 
 
 
-const lenis = new Lenis({
-	duration: 1.5,
-	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-	direction: 'vertical', // vertical, horizontal
-	gestureDirection: 'vertical', // vertical, horizontal, both
-	smooth: true,
-	mouseMultiplier: 1,
-	smoothTouch: 0.1,
-	smoothWheel:true,
-	touchMultiplier: 1,
-	infinite: false,
-	});
+// const lenis = new Lenis({
+// 	duration: 1.5,
+// 	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+// 	direction: 'vertical', // vertical, horizontal
+// 	gestureDirection: 'vertical', // vertical, horizontal, both
+// 	smooth: true,
+// 	mouseMultiplier: 1,
+// 	smoothTouch: 0.1,
+// 	smoothWheel:true,
+// 	touchMultiplier: 1,
+// 	infinite: false,
+// 	});
 
-function raf(time) {
-lenis.raf(time)
-requestAnimationFrame(raf)
-}
+// function raf(time) {
+// lenis.raf(time)
+// requestAnimationFrame(raf)
+// }
 
-requestAnimationFrame(raf)
+// requestAnimationFrame(raf)
   
-//   get scroll value
-//   lenis.on('scroll', ({ scroll, limit, velocity, direction, progress }) => {
-//     console.log({ scroll, limit, velocity, direction, progress })
-//   })
+// //   get scroll value
+// //   lenis.on('scroll', ({ scroll, limit, velocity, direction, progress }) => {
+// //     console.log({ scroll, limit, velocity, direction, progress })
+// //   })
   
 
 
-lenis.on('scroll', ScrollTrigger.update)
+// lenis.on('scroll', ScrollTrigger.update)
 
-gsap.ticker.add((time)=>{
-  lenis.raf(time * 1000)
-})
+// gsap.ticker.add((time)=>{
+//   lenis.raf(time * 1000)
+// })
 
 
 
@@ -188,9 +188,6 @@ gsap.to(noclipTriggerInfo,{
 	},
 	onUpdate:render,
 });
-
-
-
 
 
 noclipTriggerInfo.images[0].onload = () => {

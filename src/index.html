@@ -3,51 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOCLIP - Inside the Backrooms</title>
+    <!-- Primary Meta Tags -->
+    <title>NOCLIP Experience</title>
+    <meta name="title" content="NOCLIP Experience">
+    <meta name="description" content="NOCLIP Experience est un site web immersif dans lequel vous découvrirez les secrets du mystérieux et terrifiant univers des Backrooms.
+
+    Les Backrooms sont une légende urbaine créée sur internet ne cessant d’évoluer chaque jour grâce à la créativité des internautes du monde entier. Il existe des milliers de Backrooms, toutes plus mystérieuses et plus dangereuses que les autres.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://rafko.be/projets/tfe/">
+    <meta property="og:title" content="NOCLIP Experience">
+    <meta property="og:description" content="NOCLIP Experience est un site web immersif dans lequel vous découvrirez les secrets du mystérieux et terrifiant univers des Backrooms.
+
+    Les Backrooms sont une légende urbaine créée sur internet ne cessant d’évoluer chaque jour grâce à la créativité des internautes du monde entier. Il existe des milliers de Backrooms, toutes plus mystérieuses et plus dangereuses que les autres.">
+    <meta property="og:image" content="">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://rafko.be/projets/tfe/">
+    <meta property="twitter:title" content="NOCLIP Experience">
+    <meta property="twitter:description" content="NOCLIP Experience est un site web immersif dans lequel vous découvrirez les secrets du mystérieux et terrifiant univers des Backrooms.
+
+    Les Backrooms sont une légende urbaine créée sur internet ne cessant d’évoluer chaque jour grâce à la créativité des internautes du monde entier. Il existe des milliers de Backrooms, toutes plus mystérieuses et plus dangereuses que les autres.">
+    <meta property="twitter:image" content="">
+
     <link rel="stylesheet" href="/style.scss">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.0/bundled/lenis.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <script type="module" src="index.js"></script>
 
     <link rel="icon" href="./images/favicon.svg">
 
 </head>
 <body>
-    
     <div class="bg"></div>
-
-    <!-- <header>
-        <nav>
-            <div class="utils">
-                <div class="lang">
-                    <button class="btn btn--lang">EN</button>
-                </div>
-                <div class="sound">
-                    <audio autoplay loop id="myAudio">
-                        <source src="./images/ambient.mp3" type="audio/wav">
-                    </audio>
-                    <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
-                        <img id="sound-icon" src="./images/Vector.svg">
-                      </button>
-                </div>
-            </div>
-            <div class="menuToggle">
-                <input type="checkbox" />
-                <div class="burger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul class="menu">
-                  <a href="index.html"><li>Accueil</li></a>
-                  <a href="about.html"><li>Origines</li></a>
-                  <a href="experience.html"><li>Exprience</li></a>
-                </ul>
-            </div>
-        </nav>
-    </header> -->
-
     <header>
         <input class="hidden" id="burger" type="checkbox" />
         <label for="burger">
@@ -69,6 +62,19 @@
               <a class="btn nav-links" href="experience.html">Experience</a>
           </div>
   
+          <div class="utils">
+            <div class="lang">
+                <button class="btn btn--lang">EN</button>
+            </div>
+            <div class="sound">
+                <audio autoplay loop id="myAudio">
+                    <source src="./images/ambient.mp3" type="audio/wav">
+                </audio>
+                <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
+                    <img id="sound-icon" src="./images/Vector.svg">
+                  </button>
+            </div>
+        </div>
         </nav>
         <div class="utils">
             <div class="lang">
@@ -88,49 +94,388 @@
 
 
 
-      <!-- <div class="intro">
-        <p>
-            if you’re not careful and you noclip out of reality in the wrong areas, you’ll end up in the Backrooms, where it’s nothing but the stink of old moist carpet, the madness of mono-yellow, the endless background noise of fluorescent lights at maximum hum-buzz, and approximately six hundred million square miles of randomly segmented empty rooms to be trapped in...
-        </p>
-        <p>
-            God save you if you hear something wandering around nearby. Because it sure as hell has heard you...
-        </p>
-
-        <p class="br-author">
-            — Anonymous, 2019
-        </p>
-        <button id="hide-intro">Continuer</button>
-      </div> -->
-
-
     <main class="main-menu">
-        <!-- <video autoplay muted loop id="myVideo">
-            <source src="./images/dust.mp4" type="video/mp4">
-        </video> -->
+        <section class="section section--home">
+            <video autoplay muted loop id="myVideo">
+                <source src="./images/dust.mp4" type="video/mp4">
+            </video>
+            <div class="container">
 
-        <div class="container">
-
-            <div class="main-title">
-                <h1 class="title title--main">NOCLIP</h1>
-                <h1 class="title title--submain">Experience</h1>
+                <div class="main-title">
+                    <h1 class="title title--main">NOCLIP</h1>
+                    <h1 class="title title--submain">Experience</h1>
+                </div>
+        
+                <div class="main-small">
+                    <p>
+                        NOCLIP Experience est un site web immersif dans lequel vous découvrirez les secrets du mystérieux et terrifiant univers des Backrooms.
+                    </p>
+                    <p>
+                        Les Backrooms sont une légende urbaine créée sur internet ne cessant d’évoluer chaque jour grâce à la créativité des internautes du monde entier. Il existe des milliers de Backrooms, toutes plus mystérieuses et plus dangereuses que les autres. 
+                    </p>
+    
+                    <p class="hidden--desktop">
+                        Passer sur ordinateur pour une expérience complète
+                    </p>
+                </div>
+    
             </div>
     
-            <div class="main-small">
-                <p>
-                    NOCLIP Experience est un site web immersif dans lequel vous pourrez découvrir le mystérieux et terrifiant univers des Backrooms, un univers bien complexe.
-                </p>
-                <p>
-                    Les Backrooms sont une légende urbaine créée sur internet ne cessant d’évoluer chaque jour grâce à la créativité des internautes du monde entier. Il existe des milliers de Backrooms, toutes plus mystérieuses et plus dangereuses que d’autres. 
-                </p>
+        </section>
+    </main>
 
-                <p class="hidden--desktop">
-                    Passer sur ordinateur pour une expérience complète
-                </p>
+    <main class="about">
+
+        <section class="section section--about-intro">
+
+            <div class="container">
+                <div class="container-txt">
+
+                    <!-- <figure>
+                        <audio
+                            controls
+                            src="./images/test-br.mp3">
+                        </audio>
+                    </figure> -->
+                    
+                    <div class="content-wrapper">
+                        <p class="content">Si vous êtes imprudents et que vous finissez par noclip en dehors de la réalité aux mauvais endroits,  vous finirez dans les backrooms. là où il n’y a que la puanteur des vieux tapis humides, le monochromes jaunes sur tous les murs, le bourdonnement incessant des lampes éléctriques au plafond, piégé dans des milliards de kilomètres carré de pièces vides aléatoirement ségmentées.</p>
+                        <p class="content">Que dieu vous protège si vous entendez quelque chose errant près de vous, parce qu’il est certain que ça vous a entendu aussi.</p>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </section>
+
+        <section class="section section--about-origins" style="margin-top: 5000px;">
+            <video autoplay muted loop id="myVideo">
+                <source src="./images/dust.mp4" type="video/mp4">
+            </video>
+            <h2 class="title title--big">Introduction</h2>
+        </section>
+
+
+
+        <section class="section section--about-start">
+
+            <div class="bg-image">
+                <img src="./images/ThebackroomsHD.png" alt="première image des backrooms">
+            </div>
+ 
+
+
+            <div class="container">
+
+
+
+
+
+                <div class="introduction">
+
+                    <h2 class="title title--medium">
+    
+                        <span class="t1">Une image</span>
+                        <span class="t2">étrange</span>
+                        
+                    </h2>
+    
+                    <div class="introduction__content">
+                        <p>
+                            Les backrooms sont une légende urbaine de type horrifique, dite également creepypasta, faisant ainsi partie d’une grande lignée de légendes créées sur internet par les internautes du monde entier.
+
+                            Né le 14 mai 2019 sur le réseau social 4chan, l’univers des backrooms est devenu l’un des plus grands projets collaboratifs d’internet de ces 4 dernières années.
+
+                            Tout a commencé avec le post d’un utilisateur anonyme qui demandait aux internautes de partager les images les plus dérangeantes et malaisantes qu’ils pouvaient trouver.
+                        </p>
+                        <p>
+                            Un membre du réseau social répond à la requête et poste alors cette image :
+                        </p>
+                    </div>
+    
+    
+
+    
+    
+                </div>
+                <div class="description">
+                    <div class="description__img">
+                        <img class="og-br" src="./images/img.webp" alt="l'image originale des backrooms">
+                    </div>
+                    <div class="description__content">
+                        <p>
+                            La photo représente une pièce vide - potentiellement un bureau abandonné - aux murs revêtus de papier-peint vieillot et jaunâtre, avec un sol couvert d’une moquette jaune, et un faux plafond soutenant des lampes bruyantes et clignotantes.
+                        </p>
+                        <p>
+                            L’utilisateur ayant posté l’image explique également que cette pièce regorge de créatures et autres entités étranges qui ne veulent pas du bien aux imprudents qu’elles rencontrent sur leur chemin.
+                        </p>
+                        
+                    </div>
+                </div>
+                
+            </div>
+    
+            
+            
+        </section>
+
+        
+
+
+
+
+
+
+
+        <section class="section section--about-noclip">
+            <div class="container">
+                <div class="noclip">
+                    <div class="noclip__quote">
+                        <figure class="quote">
+                            <blockquote>
+                                “si vous êtes imprudents et que vous finissez par noclip en dehors de la réalité aux mauvaix endroits, vous finirez dans les backrooms,[...]”
+                            </blockquote>
+                            </figure>
+                    </div>
+                    <div class="noclip__content">
+                        <p>
+                            L’anonyme ajoute que l’endroit est uniquement accessible en “noclippant” de la réalité, un terme issu du monde des jeux vidéo et utilisé lorsqu’un joueur parvient à accéder à un niveau caché de la map principale.
+                        </p>
+                        <p>
+                            Le diffuseur de l’image applique ici le concept - qui signifie littéralement “traverser les textures” - au monde réel, en nous expliquant qu’on ne peut se retrouver dans cette pièce angoissante qu’en “traversant” la réalité, mais dans ce cas-ci, de manière involontaire.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- <section class="section section--noclip">
+            
+            <canvas class="video1" id="video_noclip"></canvas>
+            
+        </section> -->
+
+
+
+
+
+        <section class="section section--univers" >
+
+            <div class="univers__bg">
+                <img src="./images/br-200vh.png" alt="">
+            </div>
+            
+            <div class="container">
+                <h2 class="title title--medium">
+                    <span class="t4">Le début</span>
+                    <span class="t5">d'un univers</span>
+                </h2>
+                <div class="creation">
+                    <p>
+                        L’histoire inventée autour de cette image va être partagée massivement et agiter les internautes, qui vont décider d’appeler le lieu “backrooms”.
+                        <br>Mais au-delà de la notoriété que ce monde imaginaire va connaître, c’est un véritable projet collaboratif qui se crée autour de celui-ci, dans lequel les internautes créatifs ajoutent des nouvelles pièces et histoires à l’univers, ayant chacune leurs spécificités.
+                    </p>
+                    <p>
+                        Les étages qui composent les backrooms, possèdent une caractéristique commune. Ils utilisent en effet presque tous une esthétique dite “liminale”, c'est-à-dire qui représente des espaces ayant des caractéristiques telles que des grands espaces vides et répétitifs, donnant une sensation de déjà vu à tous ceux qui s'y aventurent.
+                    </p>
+                </div>
+                <div class="ending">
+                    <p class="strong">
+                        On compte maintenant plus de 2000 niveaux différents documentés dans un wikidot dédié au sujet.
+                    </p>
+                </div>
             </div>
 
-        </div>
+        </section>
 
-       
+        <section class="section section--about-levels">
+            
+                  <div class="wrapper">
+                    <div class="space-holder">
+                      <div class="sticky">
+                        <!-- <div class="container">
+                            <h3 class="title title--little">Quelques niveaux</h3>
+                        </div> -->
+                        <div class="horizontal">
+                          <div role="feed" class="cards">
+                            <article class="br-card">
+                                <small class="lvl-number">Niveau 1</small>
+                                <h4 class="title title--name">
+                                    La zone habitable
+                                </h4>
+                                <div class="message-wrapper showmorecontent">
+                                    <p>L’étage 1 est nommé “zone habitable” car il est beaucoup plus aménagé, viable que le précédent. Ce dernier ressemble à un grand parking ou un étage d'entrepôt vide avec un sol et des murs en béton. Cette fois-ci l’étage est beaucoup plus vaste et on peut y trouver des escaliers, des pièces différentes et des ascenseurs.
+                                    </p>
+                                </div>
+                                <div class="br-img">
+                                    <img class="level-01" src="./images/ThebackroomsHD.webp" alt="temporary">
+                                </div>
+                            </article>
+                            <article class="br-card">
+                                <small class="lvl-number">Niveau 2</small>
+                                <h4 class="title title--name">
+                                    Les tuyaux infinis
+                                </h4>
+                                <div class="message-wrapper showmorecontent">
+                                    <p>Le niveau 2 est beaucoup plus dangereux que les niveaux précédents.
+                                        Il s’agit d’un étage relativement très sombre et consiste en de longs tunnels de maintenance s’étendant sur des millions de kilomètres. Sur les murs sont couverts de plusieurs tuyaux s’étalant eux aussi sur la même longueur, avec à l’intérieur un liquide noir jusqu’à maintenant inconnu. Dans ces tunnels, vous pourrez tomber sur des portes parfois fermées et parfois ouvertes avec une chance de trouver des ordinateurs voire même d’autres objets.
+                                        </p>
+                                </div>
+                                
+                                <div class="br-img">
+                                    <img class="level-01" src="./images/ThebackroomsHD.webp" alt="temporary">
+                                </div>
+                            </article>
+                            <article class="br-card">
+                                <small class="lvl-number">Niveau 3</small>
+                                <h4 class="title title--name">
+                                    Le poste électrique
+                                </h4>
+                                <div class="message-wrapper showmorecontent">
+                                    <p>Le niveau de poste électrique est le plus grand des backrooms (350 M) et  ressemble beaucoup au niveau précédent et est peut être tout aussi dangereux, mais aussi au niveau 0 et de sa disposition des murs et des pièces dans l’étage plus linéaire. Il ressemble également à une prison notamment à cause des barreaux métalliques qui sont la plupart du temps impossibles à ouvrir. </p>
+                                </div>
+                                
+                                <div class="br-img">
+                                    <img class="level-01" src="./images/ThebackroomsHD.webp" alt="temporary">
+                                </div>
+                            </article>
+                            <article class="br-card">
+                                <small class="lvl-number">Niveau 4</small>
+                                <h4 class="title title--name">
+                                    Le bureau abandonné
+                                </h4>
+                                <div class="message-wrapper showmorecontent">
+                                    <p>Le niveau 4 fait office de point de contrôle pour les voyageurs. En effet, le bureau abandonné est connu pour être un niveau relativement calme où les voyageurs restent plus longtemps histoire de se reposer et en profiter pour se réapprovisionner en eau d’amende (particulièrement présente à cet étage) qui leur sera utile dans les niveaux 5 et 6. Il est également possible de rencontrer d’autres personnes..</p>
+                                </div>
+                                
+                                <div class="br-img">
+                                    <img class="level-01" src="./images/ThebackroomsHD.webp" alt="temporary">
+                                </div>
+                            </article>
+                            <article class="br-card">
+                                <small class="lvl-number">Niveau 5</small>
+                                <h4 class="title title--name">
+                                    L'horreur de la terreur
+                                </h4>
+                                <div class="message-wrapper showmorecontent">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, officiis, illo odit quis ducimus vero earum, veniam iste numquam eius sed deleniti qui veritatis assumenda commodi tempora maiores suscipit corrupti.</p>
+                                </div>
+                                
+                                <div class="br-img">
+                                    <img class="level-01" src="./images/ThebackroomsHD.webp" alt="temporary">
+                                </div>
+                            </article>
+                            <article class="br-card">
+                                <small class="lvl-number">Niveau 6</small>
+                                <h4 class="title title--name">
+                                    Le noir complet
+                                </h4>
+                                <div class="message-wrapper showmorecontent">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, officiis, illo odit quis ducimus vero earum, veniam iste numquam eius sed deleniti qui veritatis assumenda commodi tempora maiores suscipit corrupti.</p>
+                                </div>
+                                
+                                <div class="br-img">
+                                    <img class="level-01" src="./images/ThebackroomsHD.webp" alt="temporary">
+                                </div>
+                            </article>
+                            <article class="br-card">
+                                <small class="lvl-number">NNiveau 7</small>
+                                <h4 class="title title--name">
+                                    Thalassophobie
+                                </h4>
+                                <div class="message-wrapper showmorecontent">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, officiis, illo odit quis ducimus vero earum, veniam iste numquam eius sed deleniti qui veritatis assumenda commodi tempora maiores suscipit corrupti.</p>
+                                </div>
+                                
+                                <div class="br-img">
+                                    <img class="level-01" src="./images/ThebackroomsHD.webp" alt="temporary">
+                                </div>
+                            </article>
+                            <article class="br-card">
+                                <small class="lvl-number">Niveau 8</small>
+                                <h4 class="title title--name">
+                                    La grotte
+                                </h4>
+                                <div class="message-wrapper showmorecontent">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, officiis, illo odit quis ducimus vero earum, veniam iste numquam eius sed deleniti qui veritatis assumenda commodi tempora maiores suscipit corrupti.</p>
+                                </div>
+                                
+                                <div class="br-img">
+                                    <img class="level-01" src="./images/ThebackroomsHD.webp" alt="temporary">
+                                </div>
+                            </article>
+                            <article class="br-card">
+                                <small class="lvl-number">Niveau 9</small>
+                                <h4 class="title title--name">
+                                    La banlieue
+                                </h4>
+                                <div class="message-wrapper showmorecontent">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, officiis, illo odit quis ducimus vero earum, veniam iste numquam eius sed deleniti qui veritatis assumenda commodi tempora maiores suscipit corrupti.</p>
+                                </div>
+                                
+                                <div class="br-img">
+                                    <img class="level-01" src="./images/ThebackroomsHD.webp" alt="temporary">
+                                </div>
+                            </article>
+                            
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+        </section>
+
+
+
+        <!-- <section class="section section--about-entities">
+
+            <div class="container">
+                
+                <div class="entities-content">
+                    <h3 class="title title--little">Les&nbsp;entités</h3>
+
+                    <p>
+                        L’utilisateur ayant posté l’image explique également que cette pièce regorge de créatures et autres entités étranges qui ne veulent pas du bien aux imprudents qu’elles rencontrent sur leur chemin.
+                    </p>
+                </div>
+                <div class="entities-images">
+
+                    <img class="img img--1" src="./images/The_Faceling (1).webp" alt="facelings">
+
+                    <img class="img img--2" src="./images/backrooms-dancing.gif" alt="">
+                
+                    <img class="img img--3" src="./images/giphy.gif" alt="">
+                
+                    <img class="img img--4" src="./images/NewClumpImage.webp" alt="">
+                
+                    <img class="img img--5" src="./images/Smiler.webp" alt="">
+
+                    <img class="img img--6" src="./images/skinstealer.jpg" alt="">
+
+                    
+                </div>
+            </div>
+           
+        </section> -->
+
+        <section class="section section--about-endLore">
+            <div class="container">
+                <p class="bold p1">
+                    Malgré l’engouement autour des backrooms, la tendance redescend petit à petit et on n’entend plus vraiment parler de cette creepypasta…
+                </p>
+                <p class="bold p2">
+                    Jusqu'en 2022
+                </p>
+            </div>
+        </section>
+
+        <section class="section section--kane">
+            
+        </section>
+
+        
         
     </main>
 
@@ -150,8 +495,7 @@
                 soundIcon.src = "./images/sound-off.svg";
             }
         }
-        var vid = document.getElementById("myAudio");
-        vid.volume = 0.2;
+
     </script>
 
 
