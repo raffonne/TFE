@@ -23,7 +23,7 @@ if(aboutIntro) {
 		scrollTrigger:{
 			trigger:'.container-txt',
 			start:'center center',
-			end: '7000',
+			end: '4000',
 			scrub: 1,
 			pin:true,
 			anticipatePin: true,
@@ -64,44 +64,44 @@ if (br1) {
 }
 
 
-gsap.from(".title--medium", {
-	opacity: 0,
-	duration: .2,
-	scrollTrigger: {
-		trigger: ".title--medium",
-		start: "bottom bottom",
-		end: "top top",
-		scrub: 0.5,
-		markers:true
-	},
-})
+// gsap.from(".title--medium", {
+// 	opacity: 0,
+// 	duration: .2,
+// 	scrollTrigger: {
+// 		trigger: ".title--medium",
+// 		start: "bottom bottom",
+// 		end: "top top",
+// 		scrub: 0.5,
+// 		markers:true
+// 	},
+// })
 
 
 
-// const lenis = new Lenis({
-// 	duration: 1.5,
-// 	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-// 	direction: 'vertical', // vertical, horizontal
-// 	gestureDirection: 'vertical', // vertical, horizontal, both
-// 	smooth: true,
-// 	mouseMultiplier: 1,
-// 	smoothTouch: 0.1,
-// 	smoothWheel:true,
-// 	touchMultiplier: 1,
-// 	infinite: false,
-// 	});
+const lenis = new Lenis({
+	duration: 1.5,
+	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+	direction: 'vertical', // vertical, horizontal
+	gestureDirection: 'vertical', // vertical, horizontal, both
+	smooth: true,
+	mouseMultiplier: 1,
+	smoothTouch: 0.1,
+	smoothWheel:true,
+	touchMultiplier: 1,
+	infinite: false,
+	});
 
-// function raf(time) {
-// lenis.raf(time)
-// requestAnimationFrame(raf)
-// }
+function raf(time) {
+lenis.raf(time)
+requestAnimationFrame(raf)
+}
 
-// requestAnimationFrame(raf)
+requestAnimationFrame(raf)
   
-// //   get scroll value
-// //   lenis.on('scroll', ({ scroll, limit, velocity, direction, progress }) => {
-// //     console.log({ scroll, limit, velocity, direction, progress })
-// //   })
+//   get scroll value
+//   lenis.on('scroll', ({ scroll, limit, velocity, direction, progress }) => {
+//     console.log({ scroll, limit, velocity, direction, progress })
+//   })
   
 
 
@@ -190,10 +190,10 @@ if(chapter){
 		duration: 1.5,
 		scrollTrigger: {
 			trigger: ".section--about-origins",
-			start: "-500",
+			start: "-200",
 			end: "bottom bottom",
 			scrub: 2,
-			markers:true,
+			// markers:true,
 			pin:true
 		},
 	})
@@ -207,20 +207,28 @@ if(plx){
 		scrollTrigger: {
 			trigger: ".bg-image",
 			start: "-500",
-			end: "bottom bottom",
+			end: "bottom 300",
 			scrub: 0.5,
 			pin: true,
-			markers:true
+			// markers:true
 		},
 	})
 };
 
 
+var icon = document.getElementsByClassName('icon-img');
+	new simpleParallax(icon, {
+		overflow: true,
+		delay: .2,
+		transition: 'cubic-bezier(0,0,0,2)',
+		
+	},
+);
 
 var image = document.getElementsByClassName('og-br');
 	new simpleParallax(image, {
 		overflow: true,
-		delay: .6,
+		delay: .4,
 		transition: 'cubic-bezier(0,0,0,2)',
 		
 	},

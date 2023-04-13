@@ -1,0 +1,61 @@
+
+.section {
+    //home screen
+    &--home{
+        position: relative;
+        height: 100vh;
+        display: flex;
+    }
+    //intro
+    &--about-intro{
+        position: relative;
+        margin-top: 0;
+        height: 100vh;
+    }
+    //origines
+    &--about-origins{
+
+        position: relative;   
+        padding-top: 2000px; 
+        height: 150vh;
+
+
+        @media (min-width:1000px) {
+
+            
+        }
+    }
+    //begin
+    &--about-start{
+        position: relative;
+    }
+    //noclip
+    &--about-noclip{
+        // padding-top: 10em;
+        // padding-bottom: 10em;
+    }
+    //univers
+    &--about-univers{
+        padding-top: 50px;
+        position: relative;
+  
+        @media (min-width:1000px) {
+          padding-top: 200px;
+        }
+    }
+    //niveaux diff
+    &--about-levels{
+
+    }
+    //entites
+    &--about-entities{
+        position: relative;
+        height: 100vh;
+    }
+    //fin de la hype
+    &--about-endLore{
+        padding-top: 200px;
+        height: 150vh;
+        position: relative;
+    }
+}
