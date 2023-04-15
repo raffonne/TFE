@@ -48,8 +48,30 @@ body{
 
     }
 
+    @media (min-width:1900px) {
+        padding: 200px;
+    }
+
 }
 
+.wrapper{
+    
+    position: relative;
+
+    &--levels{
+        min-height: 100vh;
+    }
+
+    &--entities{
+        
+        height: 100vh;
+        margin: 0 auto;
+
+        @media (min-width:1000px) {
+            max-width: 800px;
+        }
+    }
+}
 
 //SCROLLBAR
 

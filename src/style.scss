@@ -125,7 +125,9 @@
 
 }
 
-
+.voiceover{
+  display: flex;
+}
 
 .about{
 
@@ -134,25 +136,24 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        align-items: center;
-        gap: 1em;
         
 
         .content-wrapper{
 
           position: relative;
+          // border-left: solid 1px #A7A7A7;
+          // margin-left: 2em;
+          // padding-left: 2em;
 
-          &::before{
+          // &::before{
 
-            content: "";
-            background: #A7A7A7;
-            height: 100%;
-            width: 0.5px;
-            margin-right: 2em;
-            position: absolute;
-            left: -2em;
+          //   content: "";
+          //   background: #A7A7A7;
+          //   height: 100%;
+          //   width: 0.5px;
+          //   position: absolute;
 
-          }
+          // }
         }
     }
 
@@ -288,11 +289,7 @@
     }
 
     .section--about-levels{
-      
-      .wrapper--levels{
-        position: relative;
-        min-height: 100vh;
-      }
+    
       
       .space-holder {
         position: relative;
@@ -324,7 +321,7 @@
 
         @media (min-width:1000px) {
           height: 100%;
-          padding: 0 0 0 10em;
+          padding: 0 0 0 1em;
         }
       }
       
@@ -332,10 +329,14 @@
         padding: 20px;
         position: relative;
         width: 350px;
-        padding: 0 60px;
+        padding: 0 20px;
         gap: 2em;
         display: flex;
         flex-direction: column;
+
+        @media (min-width:1000px) {
+          padding: 0 120px;
+        }
 
         &:after{
           content: "";
@@ -358,69 +359,68 @@
 
       }
 
-      .wrapper--entities{
-        position: relative;
-      }
-
     }
     
-    .section--about-entities{
-
-      .container{
-        h3{
-          // font-size: 30px;
-          @media (min-width:1000px) {
-            // position: absolute;
-            // bottom: 50%;
-            // left: 50%;
-            // transform: translate(-50%, -50%);
-
-            // font-size: 190px;
-          }
-        }
-        .entities-images{
-          // height: 120vh;
-          position: relative;
-          display: grid;
-          @media (min-width:1000px) {
-            
-          }
-          .img{
-            transition: .1s;
-            
-
-            @media (min-width:1000px) {
-              position: absolute;
-              width: 30%;
-              // opacity: 0;
-            }
-
-
-          }
-
-      
-          // :hover{
-          //   opacity: 1;
-          //   transition: .1s;
-          // }
-
-        
-        }
-      }
-    }
-
-    .section--about-endLore{
-
-      .container{
-        position: relative;
-        :nth-child(2){
-          text-align: center;
-        }
-      }
-
-    }
 
 }
+
+
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: orange;
+  position: absolute;
+  transition: transform 100ms ease;
+  will-change: transform;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.box-1 {
+  top: 150px;
+  left: 0;
+  box-shadow: 0 10px 50px -10px rgba(0, 0, 0, 0.5);
+  background-image: url("./images/The_Faceling\ \(1\).webp");
+}
+
+.box-2 {
+  top: 250px;
+  right: 0; 
+  background-image: url("./images/what-is-this-entity-called-i-have-seen-it-alot-but-i-cant-v0-14wp3sw1aty81.webp");
+}
+
+.box-3 {
+  top: 400px;
+  background-image: url("./images/Smiler.webp");
+}
+
+.box-4{
+  bottom:0;
+  right:5%;
+  background-image: url("./images/skinstealer.jpg");
+  
+}
+
+.box-5{
+  left: 0;
+  bottom: 10%;
+  background-image: url("./images/giphy.gif");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

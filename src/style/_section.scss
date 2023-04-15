@@ -1,14 +1,20 @@
 
 .section {
+
+    position: relative;
     //home screen
     &--home{
         position: relative;
         height: 100vh;
         display: flex;
+
+        @media (min-width:1000px) {
+            display: grid;
+            grid-template-rows: auto;
+        }
     }
     //intro
     &--about-intro{
-        position: relative;
         margin-top: 0;
         height: 100vh;
     }
@@ -45,7 +51,7 @@
     }
     //niveaux diff
     &--about-levels{
-
+        position: relative;
     }
     //entites
     &--about-entities{
@@ -54,8 +60,42 @@
     }
     //fin de la hype
     &--about-endLore{
-        padding-top: 200px;
-        height: 150vh;
+        
+        height: 100vh;
         position: relative;
+
+        .container{
+            
+            .bold{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
     }
+
+    &--about-footage{
+        height: 100vh;
+
+        .container{
+            h1{
+                height: 100vh;
+            }
+
+            .kane-intro{
+                height: 100vh;
+                display: grid;
+                grid-template-rows: auto;
+                margin: 200px;
+
+                .bold{
+                    max-width: 45ch;
+                }
+            }
+
+        }
+    }
+
 }

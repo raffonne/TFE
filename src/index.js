@@ -58,45 +58,36 @@ if (br1) {
 			trigger: '.introduction__content',
 			start: "bottom bottom",
 			end: "-=100%",
-			toggleActions: "play none none reverse"
+			toggleActions: "play none none reverse",
+			markers:true
       }
 	})
 }
 
 
-// gsap.from(".title--medium", {
-// 	opacity: 0,
-// 	duration: .2,
-// 	scrollTrigger: {
-// 		trigger: ".title--medium",
-// 		start: "bottom bottom",
-// 		end: "top top",
-// 		scrub: 0.5,
-// 		markers:true
-// 	},
-// })
 
 
 
-const lenis = new Lenis({
-	duration: 1.5,
-	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-	direction: 'vertical', // vertical, horizontal
-	gestureDirection: 'vertical', // vertical, horizontal, both
-	smooth: true,
-	mouseMultiplier: 1,
-	smoothTouch: 0.1,
-	smoothWheel:true,
-	touchMultiplier: 1,
-	infinite: false,
-	});
 
-function raf(time) {
-lenis.raf(time)
-requestAnimationFrame(raf)
-}
+// const lenis = new Lenis({
+// 	duration: 1.5,
+// 	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+// 	direction: 'vertical', // vertical, horizontal
+// 	gestureDirection: 'vertical', // vertical, horizontal, both
+// 	smooth: true,
+// 	mouseMultiplier: 1,
+// 	smoothTouch: 0.1,
+// 	smoothWheel:true,
+// 	touchMultiplier: 1,
+// 	infinite: false,
+// 	});
 
-requestAnimationFrame(raf)
+// function raf(time) {
+// lenis.raf(time)
+// requestAnimationFrame(raf)
+// }
+
+// requestAnimationFrame(raf)
   
 //   get scroll value
 //   lenis.on('scroll', ({ scroll, limit, velocity, direction, progress }) => {
@@ -215,6 +206,33 @@ if(plx){
 	})
 };
 
+gsap.to(".show-1", {
+	opacity: 0,
+	duration: 2,
+	scrollTrigger:{
+		trigger:".section--about-endLore",
+		start:"bottom bottom",
+		end:'bottom bottom',
+		markers:true,
+		scrub:2,
+		pin:true
+	}
+})
+
+gsap.from(".show-2", {
+	opacity: 0,
+	duration: 2,
+	delay:5,
+	scrollTrigger:{
+		trigger:".section--about-endLore",
+		start:"center center",
+		end:'top top',
+		markers:true,
+		scrub:2,
+		pin:true
+	}
+})
+
 
 var icon = document.getElementsByClassName('icon-img');
 	new simpleParallax(icon, {
@@ -244,81 +262,11 @@ var universBg = document.getElementsByClassName('univers__bg');
 );
 
 
-  
-//   get scroll value
-//   lenis.on('scroll', ({ scroll, limit, velocity, direction, progress }) => {
-//     console.log({ scroll, limit, velocity, direction, progress })
-//   })
-  
-
-
-// lenis.on('scroll', ScrollTrigger.update)
-
-// gsap.ticker.add((time)=>{
-//   lenis.raf(time * 1000)
-// })
-
-
-
-
- 
-var vid = document.getElementById("myAudio");
-vid.volume = 0.2;
-
-
-
-
-// const $bigBall = document.querySelector('.cursor__ball--big');
-// const $smallBall = document.querySelector('.cursor__ball--small');
-// const $hoverables = document.querySelectorAll('a',"button");
-
-// // Listeners
-// document.body.addEventListener('mousemove', onMouseMove);
-// for (let i = 0; i < $hoverables.length; i++) {
-//   $hoverables[i].addEventListener('mouseenter', onMouseHover);
-//   $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
-// }
-
-// // Move the cursor
-// function onMouseMove(e) {
-//   TweenMax.to($bigBall, .4, {
-//     x: e.pageX - 15,
-//     y: e.pageY - 15
-//   })
-//   TweenMax.to($smallBall, .1, {
-//     x: e.pageX - 5,
-//     y: e.pageY - 7
-//   })
-// }
-
-// // Hover an element
-// function onMouseHover() {
-//   TweenMax.to($bigBall, .3, {
-//     scale: 4
-//   })
-// }
-// function onMouseHoverOut() {
-//   TweenMax.to($bigBall, .3, {
-//     scale: 1
-//   })
-// }
 
 
 
 
 
-
-
-
-
-var image = document.getElementsByClassName('level-01');
-        new simpleParallax(image, {
-            orientation: 'right',
-            scale: 1.5,
-            delay: 2,
-            maxTransition: 60,
-            stagger:0.3
-        });
 
 
 //swiper
@@ -330,7 +278,7 @@ function calcDynamicHeight(ref) {
   const vw = window.innerWidth;
   const vh = window.innerHeight;
   const objectWidth = ref.scrollWidth;
-  return objectWidth - vw + vh + 150; // 150 is the padding (in pixels) desired on the right side of the .cards container. This can be set to whatever your styles dictate
+  return objectWidth - vw + vh; // 150 is the padding (in pixels) desired on the right side of the .cards container. This can be set to whatever your styles dictate
 }
 
 window.addEventListener('scroll', () => {
@@ -345,37 +293,3 @@ window.addEventListener('resize', () => {
 
 
 
-function messageClipping() {
-	var charlimit = 200;
-	var readmorelink = "Plus";
-	var readlesslink = "Moins";
-  
-	$(".message-wrapper").each(function () {
-	  if ($(this).find(".firsthalf").lenght) return;
-  
-	  var allstr = $(this).html();
-	  if (allstr.length > charlimit) {
-		var firstset = allstr.substring(0, charlimit);
-		var secondhalf = allstr.substring(charlimit, allstr.length);
-		var charclip =
-		  firstset +
-		  '<span class="clipmessage">' +
-		  secondhalf +
-		  '</span><span class="readless" title="Click to show more text">' +
-		  readmorelink +
-		  '</span><span class="readmore" title="Click to show less text">' +
-		  readlesslink +
-		  "</span>";
-		$(this).html(charclip);
-	  }
-	});
-	$(document).on("click", ".readmore,.readless", function () {
-	  $(this)
-		.closest(".message-wrapper")
-		.toggleClass("showlesscontent showmorecontent");
-	});
-  }
-  
-  $(function () {
-	messageClipping();
-  }); 
