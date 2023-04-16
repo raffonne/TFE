@@ -37,8 +37,23 @@
     }
     //noclip
     &--about-noclip{
-        // padding-top: 10em;
-        // padding-bottom: 10em;
+        padding-top: 10em;
+        padding-bottom: 10em;
+    }
+
+    &--noclip{
+
+        display: none;
+    
+        @media (min-width:1000px) {
+            display: block;
+        }
+    
+        .video1{
+            height: 100vh;
+            width: 100%;
+        }
+          
     }
     //univers
     &--about-univers{
@@ -61,37 +76,68 @@
     //fin de la hype
     &--about-endLore{
         
-        height: 100vh;
+        // height: 100vh;
         position: relative;
 
         .container{
             
             .bold{
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                // position: absolute;
+                // top: 50%;
+                // left: 50%;
+                // transform: translate(-50%, -50%);
+                font-size: 150px;
             }
         }
 
     }
 
     &--about-footage{
-        height: 100vh;
+        height: 200vh;
 
         .container{
             h1{
                 height: 100vh;
             }
 
-            .kane-intro{
-                height: 100vh;
+            .kane{
+
                 display: grid;
-                grid-template-rows: auto;
-                margin: 200px;
+                grid-template-columns: 2fr 3fr 2fr;
+                grid-template-areas: 
+                "bold bold bold"
+                "vid vid vid"
+                "txt txt ."
+                "strong strong strong";
+
+                grid-gap: 200px;
 
                 .bold{
                     max-width: 45ch;
+                    grid-area: bold;
+                    display: block;
+                    align-items: center;
+                }
+
+                .kane__extrait{
+                    grid-area: vid;
+                }
+                .kane__txt{
+                    grid-area: txt;
+                }
+                .kane__sum{
+                    height: 100vh;
+                    grid-area: strong;
+
+                    .strong{
+                        display: flex;
+                    }
+
+                    .btn-watch{
+                        display: flex;
+                        justify-content: end;
+                        
+                    }
                 }
             }
 

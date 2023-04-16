@@ -215,7 +215,6 @@
 
   
     .section--about-noclip{
-      padding-top: 10em;
 
       @media (min-width:1000px) {
         padding-top: 25em;
@@ -226,26 +225,10 @@
         .noclip{
           position: relative;
           margin: 4em 0;
-
         }
       }
     }
 
-    // .section--noclip{
-    //   position: relative;
-    //   display: none;
-
-    //   @media (min-width:1000px) {
-    //     display: block;
-    //   }
-
-    //   .video1{
-    //     left: 0;
-    //     height: 100%;
-    //     width: 100vw;
-
-    //   }
-    // }
 
     .univers__title{
       height: 150vh;

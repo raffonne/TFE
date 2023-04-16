@@ -4,8 +4,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from "./otherLibs/gsap/splitText";
 import Lenis from '@studio-freight/lenis';
-// import CSSRulePlugin from "gsap/CSSRulePlugin";
 import simpleParallax from 'simple-parallax-js';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -43,7 +45,7 @@ if (dust){
 			scrub: 2,
 			// markers:true,
 			start: "bottom bottom",
-			end: "+=1000",
+			end: "+=2000",
 			toggleActions: "play none none reverse"
       }
 	})
@@ -89,7 +91,7 @@ if (br1) {
 
 // requestAnimationFrame(raf)
   
-//   get scroll value
+// //   get scroll value
 //   lenis.on('scroll', ({ scroll, limit, velocity, direction, progress }) => {
 //     console.log({ scroll, limit, velocity, direction, progress })
 //   })
@@ -102,71 +104,72 @@ if (br1) {
 //   lenis.raf(time * 1000)
 // })
   
-// const noclipTrigger = document.getElementById('video_noclip');
-// const noclipTriggerContext = noclipTrigger.getContext('2d');
+const noclipTrigger = document.getElementById('video_noclip');
+const noclipTriggerContext = noclipTrigger.getContext('2d');
 
-// noclipTrigger.height = innerHeight;
-// noclipTrigger.width = innerWidth;
+noclipTrigger.height = innerHeight;
+noclipTrigger.width = innerWidth;
 
-// const noclipTriggerInfo = {
-// 	totalFrames : 147,
-// 	totalTime:7,
-// 	images:[],
-// 	currentFrame:19,
-// 	currentImage : (index) => `./images/noclipFrames/ezgif-frame-${index.toString().padStart(3,"0")}.jpg`,
-// };
+const noclipTriggerInfo = {
+	totalFrames : 147,
+	totalTime:7,
+	images:[],
+	currentFrame:19,
+	currentImage : (index) => `./images/noclipFrames/ezgif-frame-${index.toString().padStart(3,"0")}.jpg`,
+};
 
-// for (let i=0; i <= noclipTriggerInfo.totalFrames; i++){
-// 	const img = new Image();
-// 	img.src = noclipTriggerInfo.currentImage(i);
-// 	noclipTriggerInfo.images.push(img);
-// }
+for (let i=0; i <= noclipTriggerInfo.totalFrames; i++){
+	const img = new Image();
+	img.src = noclipTriggerInfo.currentImage(i);
+	noclipTriggerInfo.images.push(img);
+}
 
-// gsap.to(noclipTriggerInfo,{
-// 	currentFrame: noclipTriggerInfo.totalFrames,
-// 	snap:"currentFrame",
-// 	ease:"none",
-// 	scrollTrigger:{
-// 		trigger: '#video_noclip',
-// 		start:"top",
-// 		// end:`bottom+=${noclipTrigger.totalFrames*noclipTriggerInfo.totalTime}`,
-// 		end: '1000',
-// 		pin:'#video_noclip',
-// 		scrub:true,
-// 		// markers:true
-// 	},
-// 	onUpdate:render,
-// });
-
-
-// noclipTriggerInfo.images[0].onload = () => {
-// 	noclipTriggerContext.drawImage(
-// 		noclipTriggerInfo.images[0],
-// 		 0, 
-// 		 0
-// 	);
-// }
-
-// noclipTriggerInfo.images[0].onload = () => {
-// 	noclipTriggerContext.drawImage(noclipTriggerInfo.images[0], 0, 0)
-// };
+gsap.to(noclipTriggerInfo,{
+	currentFrame: noclipTriggerInfo.totalFrames,
+	snap:"currentFrame",
+	ease:"none",
+	scrollTrigger:{
+		trigger: '#video_noclip',
+		start:"top top",
+		// end:`bottom+=${noclipTrigger.totalFrames*noclipTriggerInfo.totalTime}`,
+		end: '100',
+		pin:true,
+		scrub:true,
+		markers:true
+	},
+	onUpdate:render,
+});
 
 
-// function render(){
-// 	noclipTriggerContext.drawImage(
-// 		noclipTriggerInfo.images[noclipTriggerInfo.currentFrame],
-// 		 0, 
-// 		 0
-// 	);
-// }
+noclipTriggerInfo.images[0].onload = () => {
+	noclipTriggerContext.drawImage(
+		noclipTriggerInfo.images[0],
+		 0, 
+		 0
+	);
+}
 
-// render();
+noclipTriggerInfo.images[0].onload = () => {
+	noclipTriggerContext.drawImage(noclipTriggerInfo.images[0], 0, 0)
+};
+
+
+function render(){
+	noclipTriggerContext.drawImage(
+		noclipTriggerInfo.images[noclipTriggerInfo.currentFrame],
+		 0, 
+		 0
+	);
+}
+
+render();
+
 // gsap.to(noclipTriggerInfo,{
 // 	opacity:0,
 // 	ease: 'none',
 // 	scrollTrigger: {
-// 		trigger: '#video_noclip',
-// 		scrub: 2,
+// 		trigger: '.section--noclip',
+// 		scrub: true,
 // 		markers:true,
 // 		start: "top top",
 // 		end: "bottom bottom",
@@ -195,9 +198,10 @@ if(plx){
 	gsap.from(".bg-image", {
 		opacity: 0,
 		duration: .5,
+		scale: 1.3,
 		scrollTrigger: {
 			trigger: ".bg-image",
-			start: "-500",
+			start: "-300",
 			end: "bottom 300",
 			scrub: 0.5,
 			pin: true,
@@ -206,42 +210,34 @@ if(plx){
 	})
 };
 
-gsap.to(".show-1", {
-	opacity: 0,
-	duration: 2,
-	scrollTrigger:{
-		trigger:".section--about-endLore",
-		start:"bottom bottom",
-		end:'bottom bottom',
-		markers:true,
-		scrub:2,
-		pin:true
-	}
-})
+// gsap.to(".show-1", {
+// 	opacity: 0,
+// 	duration: 2,
+// 	scrollTrigger:{
+// 		trigger:".section--about-endLore",
+// 		start:"bottom bottom",
+// 		end:'bottom bottom',
+// 		markers:true,
+// 		scrub:2,
+// 		pin:true
+// 	}
+// })
 
-gsap.from(".show-2", {
-	opacity: 0,
-	duration: 2,
-	delay:5,
-	scrollTrigger:{
-		trigger:".section--about-endLore",
-		start:"center center",
-		end:'top top',
-		markers:true,
-		scrub:2,
-		pin:true
-	}
-})
+// gsap.from(".show-2", {
+// 	opacity: 0,
+// 	duration: 2,
+// 	delay:5,
+// 	scrollTrigger:{
+// 		trigger:".section--about-endLore",
+// 		start:"center center",
+// 		end:'top top',
+// 		markers:true,
+// 		scrub:2,
+// 		pin:true
+// 	}
+// })
 
 
-var icon = document.getElementsByClassName('icon-img');
-	new simpleParallax(icon, {
-		overflow: true,
-		delay: .2,
-		transition: 'cubic-bezier(0,0,0,2)',
-		
-	},
-);
 
 var image = document.getElementsByClassName('og-br');
 	new simpleParallax(image, {
@@ -289,6 +285,12 @@ window.addEventListener('scroll', () => {
 window.addEventListener('resize', () => {
   spaceHolder.style.height = `${calcDynamicHeight(horizontal)}px`;
 });
+
+
+
+
+
+AOS.init();
 
 
 
