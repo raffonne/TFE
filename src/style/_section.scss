@@ -86,14 +86,18 @@
                 // top: 50%;
                 // left: 50%;
                 // transform: translate(-50%, -50%);
-                font-size: 150px;
+                font-size: 100px;
+            }
+
+            .show-2{
+                margin-top: 10em;
+                text-align: center;
             }
         }
 
     }
 
     &--about-footage{
-        height: 200vh;
 
         .container{
             h1{
@@ -144,4 +148,45 @@
         }
     }
 
+    &--zoom3D{
+        .portal {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+          }
+          
+          .portal-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            // animation-name: zoom-in;
+            // animation-duration: 10s;
+            // animation-fill-mode: forwards;
+            // transition: transform 0.5s;
+          }
+          
+          .portal-content {
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../images/br-bg.jpeg');
+            background-position-y: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1;
+          }
+          
+          
+          
+          
+    }
+
 }
+

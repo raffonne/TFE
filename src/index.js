@@ -104,65 +104,65 @@ if (br1) {
 //   lenis.raf(time * 1000)
 // })
   
-const noclipTrigger = document.getElementById('video_noclip');
-const noclipTriggerContext = noclipTrigger.getContext('2d');
+// const noclipTrigger = document.getElementById('video_noclip');
+// const noclipTriggerContext = noclipTrigger.getContext('2d');
 
-noclipTrigger.height = innerHeight;
-noclipTrigger.width = innerWidth;
+// noclipTrigger.height = innerHeight;
+// noclipTrigger.width = innerWidth;
 
-const noclipTriggerInfo = {
-	totalFrames : 147,
-	totalTime:7,
-	images:[],
-	currentFrame:19,
-	currentImage : (index) => `./images/noclipFrames/ezgif-frame-${index.toString().padStart(3,"0")}.jpg`,
-};
+// const noclipTriggerInfo = {
+// 	totalFrames : 147,
+// 	totalTime:7,
+// 	images:[],
+// 	currentFrame:19,
+// 	currentImage : (index) => `./images/noclipFrames/ezgif-frame-${index.toString().padStart(3,"0")}.jpg`,
+// };
 
-for (let i=0; i <= noclipTriggerInfo.totalFrames; i++){
-	const img = new Image();
-	img.src = noclipTriggerInfo.currentImage(i);
-	noclipTriggerInfo.images.push(img);
-}
+// for (let i=0; i <= noclipTriggerInfo.totalFrames; i++){
+// 	const img = new Image();
+// 	img.src = noclipTriggerInfo.currentImage(i);
+// 	noclipTriggerInfo.images.push(img);
+// }
 
-gsap.to(noclipTriggerInfo,{
-	currentFrame: noclipTriggerInfo.totalFrames,
-	snap:"currentFrame",
-	ease:"none",
-	scrollTrigger:{
-		trigger: '#video_noclip',
-		start:"top top",
-		// end:`bottom+=${noclipTrigger.totalFrames*noclipTriggerInfo.totalTime}`,
-		end: '100',
-		pin:true,
-		scrub:true,
-		markers:true
-	},
-	onUpdate:render,
-});
-
-
-noclipTriggerInfo.images[0].onload = () => {
-	noclipTriggerContext.drawImage(
-		noclipTriggerInfo.images[0],
-		 0, 
-		 0
-	);
-}
-
-noclipTriggerInfo.images[0].onload = () => {
-	noclipTriggerContext.drawImage(noclipTriggerInfo.images[0], 0, 0)
-};
+// gsap.to(noclipTriggerInfo,{
+// 	currentFrame: noclipTriggerInfo.totalFrames,
+// 	snap:"currentFrame",
+// 	ease:"none",
+// 	scrollTrigger:{
+// 		trigger: '#video_noclip',
+// 		start:"top top",
+// 		// end:`bottom+=${noclipTrigger.totalFrames*noclipTriggerInfo.totalTime}`,
+// 		end: '100 ',
+// 		pin:true,
+// 		scrub:true,
+// 		markers:true
+// 	},
+// 	onUpdate:render,
+// });
 
 
-function render(){
-	noclipTriggerContext.drawImage(
-		noclipTriggerInfo.images[noclipTriggerInfo.currentFrame],
-		 0, 
-		 0
-	);
-}
+// noclipTriggerInfo.images[0].onload = () => {
+// 	noclipTriggerContext.drawImage(
+// 		noclipTriggerInfo.images[0],
+// 		 0, 
+// 		 0
+// 	);
+// }
 
-render();
+// noclipTriggerInfo.images[0].onload = () => {
+// 	noclipTriggerContext.drawImage(noclipTriggerInfo.images[0], 0, 0)
+// };
+
+
+// function render(){
+// 	noclipTriggerContext.drawImage(
+// 		noclipTriggerInfo.images[noclipTriggerInfo.currentFrame],
+// 		 0, 
+// 		 0
+// 	);
+// }
+
+// render();
 
 // gsap.to(noclipTriggerInfo,{
 // 	opacity:0,
@@ -206,6 +206,21 @@ if(plx){
 			scrub: 0.5,
 			pin: true,
 			// markers:true
+		},
+	})
+};
+var portal = document.querySelector('.portal-image');
+if(portal){
+	gsap.to(".portal-image", {
+		scale: 5,
+		duration:'10',
+		scrollTrigger: {
+			trigger: ".portal-image",
+			start: "top top",
+			end: "bottom bottom",
+			scrub: true,
+			pin: true,
+			markers:true
 		},
 	})
 };
@@ -295,3 +310,14 @@ AOS.init();
 
 
 
+// window.addEventListener('scroll', function() {
+// 	var portalImage = document.querySelector('.portal-image');
+// 	var threshold = portalImage.offsetTop + portalImage.offsetHeight / 2;
+	
+// 	if (window.pageYOffset > threshold) {
+// 	  portalImage.classList.add('show-content');
+// 	}
+//   });
+
+  
+  
