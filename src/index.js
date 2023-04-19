@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from "./otherLibs/gsap/splitText";
 import Lenis from '@studio-freight/lenis';
 import simpleParallax from 'simple-parallax-js';
+import Parallax from 'parallax-js';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -212,18 +213,22 @@ if(plx){
 var portal = document.querySelector('.portal-image');
 if(portal){
 	gsap.to(".portal-image", {
-		scale: 5,
-		duration:'10',
+		scale: 11,
 		scrollTrigger: {
 			trigger: ".portal-image",
 			start: "top top",
 			end: "bottom bottom",
-			scrub: true,
-			pin: true,
-			markers:true
+			markers:true,
+			scrub:2
 		},
 	})
 };
+
+
+
+
+
+//UTILISER TIMELINE
 
 // gsap.to(".show-1", {
 // 	opacity: 0,
@@ -267,11 +272,26 @@ var universBg = document.getElementsByClassName('univers__bg');
 	new simpleParallax(universBg, {
 		overflow: true,
 		delay: .6,
-		transition: 'cubic-bezier(0,0,0,1)',
+		transition: 'cubic-bezier(0,0,0,2)',
 		
 	},
 );
 
+var kaneBg = document.getElementsByClassName('kaneImg--1');
+	new simpleParallax(kaneBg, {
+		overflow: true,
+		transition: 'cubic-bezier(0,0,0,10)',
+		
+	},
+);
+
+var kaneBg2 = document.getElementsByClassName('kaneImg--2');
+	new simpleParallax(kaneBg2, {
+		overflow: true,
+		transition: 'cubic-bezier(0,0,0,4)',
+		
+	},
+);
 
 
 
@@ -308,16 +328,3 @@ window.addEventListener('resize', () => {
 AOS.init();
 
 
-
-
-// window.addEventListener('scroll', function() {
-// 	var portalImage = document.querySelector('.portal-image');
-// 	var threshold = portalImage.offsetTop + portalImage.offsetHeight / 2;
-	
-// 	if (window.pageYOffset > threshold) {
-// 	  portalImage.classList.add('show-content');
-// 	}
-//   });
-
-  
-  
