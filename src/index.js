@@ -1,6 +1,5 @@
 
 import gsap from "gsap";
-// import { TimelineLite } from "otherLibs/gsap/all";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from "./otherLibs/gsap/splitText";
 import Lenis from '@studio-freight/lenis';
@@ -12,8 +11,6 @@ import 'aos/dist/aos.css';
 
 
 gsap.registerPlugin(ScrollTrigger);
-
-// const timeline = new TimelineLite();
 const text = new SplitText(".content", ["words"]);
 
 var aboutIntro = document.querySelector('.container');
@@ -72,38 +69,32 @@ if (br1) {
 
 
 
-// const lenis = new Lenis({
-// 	duration: 1.5,
-// 	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-// 	direction: 'vertical', // vertical, horizontal
-// 	gestureDirection: 'vertical', // vertical, horizontal, both
-// 	smooth: true,
-// 	mouseMultiplier: 1,
-// 	smoothTouch: 0.1,
-// 	smoothWheel:true,
-// 	touchMultiplier: 1,
-// 	infinite: false,
-// 	});
+const lenis = new Lenis({
+	duration: 1.5,
+	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+	direction: 'vertical', // vertical, horizontal
+	gestureDirection: 'vertical', // vertical, horizontal, both
+	smooth: true,
+	mouseMultiplier: 1,
+	smoothTouch: 0.1,
+	smoothWheel:true,
+	touchMultiplier: 1,
+	infinite: false,
+	});
 
-// function raf(time) {
-// lenis.raf(time)
-// requestAnimationFrame(raf)
-// }
+	function raf(time) {
+	lenis.raf(time)
+	requestAnimationFrame(raf)
+}
 
-// requestAnimationFrame(raf)
-  
-// //   get scroll value
-//   lenis.on('scroll', ({ scroll, limit, velocity, direction, progress }) => {
-//     console.log({ scroll, limit, velocity, direction, progress })
-//   })
-  
+requestAnimationFrame(raf)
 
 
-// lenis.on('scroll', ScrollTrigger.update)
+lenis.on('scroll', ScrollTrigger.update)
 
-// gsap.ticker.add((time)=>{
-//   lenis.raf(time * 1000)
-// })
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000)
+})
   
 // const noclipTrigger = document.getElementById('video_noclip');
 // const noclipTriggerContext = noclipTrigger.getContext('2d');
@@ -229,14 +220,15 @@ if(portal){
 var kane = document.querySelector('.kaneImg--3');
 if(kane){
 	gsap.from(".kaneImg--3", {
-		opacity: 0,
-		// scale:1.3,
+		// opacity: 0,
+		y:500,
 		scrollTrigger: {
 			trigger: ".kaneImg--3",
 			start: "top top",
-			end: "bottom -1000",
+			end: "bottom -500",
 			pin: true,
-			markers:true
+			markers:true,
+			scrub:true
 		},
 	})
 };
@@ -306,7 +298,6 @@ var kanetxt = document.getElementsByClassName('kane__resume');
 
 
 
-
 //swiper
 const spaceHolder = document.querySelector('.space-holder');
 const horizontal = document.querySelector('.horizontal');
@@ -334,4 +325,8 @@ window.addEventListener('resize', () => {
 
 AOS.init();
 
+
+
+var scene = document.getElementById('scene');
+var parallaxInstance = new Parallax(scene);
 

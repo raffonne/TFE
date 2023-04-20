@@ -40,10 +40,10 @@
 
     <link rel="icon" href="./assets/favicon-870f3e57.svg">
 
-  <script type="module" crossorigin src="./assets/home-d0a3cab4.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/style-af0c57f3.js">
+  <script type="module" crossorigin src="./assets/home-5784a071.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/style-6145bc32.js">
   <link rel="modulepreload" crossorigin href="./assets/simpleParallax.min-dbf9a8ba.js">
-  <link rel="stylesheet" href="./assets/style-491bc0f3.css">
+  <link rel="stylesheet" href="./assets/style-b18112e2.css">
   <link rel="stylesheet" href="./assets/index-73168167.css">
 </head>
 <body>
@@ -69,18 +69,18 @@
               <a class="btn nav-links" href="experience.html">Experience</a>
           </div>
   
-          <div class="utils">
+          <!-- <div class="utils">
             <div class="lang">
                 <button class="btn btn--lang">EN</button>
             </div>
             <div class="sound">
                 <audio autoplay loop id="myAudio">
-                    <source src="./assets/ambient-979a6950.mp3" type="audio/wav">
+                    <source src="./images/dark-ambient-atmosphere-2-141314.mp3" type="audio/wav">
                 </audio>
                 <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
-                    <img id="sound-icon" src="./assets/Vector-0db3fbb9.svg">
+                    <img id="sound-icon" src="./images/Vector.svg">
                   </button>
-            </div>
+            </div> -->
         </div>
         </nav>
         <div class="utils">
@@ -89,7 +89,7 @@
             </div>
             <div class="sound">
                 <audio autoplay loop id="myAudio">
-                    <source src="./assets/ambient-979a6950.mp3" type="audio/wav">
+                    <source src="./assets/dark-ambient-atmosphere-2-141314-af3c235c.mp3" type="audio/wav">
                 </audio>
                 <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
                     <img id="sound-icon" src="./assets/Vector-0db3fbb9.svg">
@@ -102,9 +102,17 @@
       <main class="about">
 
         <section class="section section--home">
-            <video autoplay muted loop id="myVideo">
-                <source src="./assets/dust-5ab4bf9f.mp4" type="video/mp4">
-            </video>
+
+            <!-- <video autoplay muted loop id="myVideo">
+                <source src="./images/dust.mp4" type="video/mp4">
+            </video> -->
+
+            <div id="scene">
+                <div data-depth="0.2">
+                    
+                </div>
+              </div>
+
             <div class="container">
 
                 <div class="main-title">
@@ -137,18 +145,21 @@
                 <div class="container-txt">
 
                     <!-- <div class="voiceover">
-                        <audio id="audio2"
+
+                        <audio id="voiceOver"
                             src="./images/test-br.mp3">
                         </audio>
-                        <button class="btn btn--voiceOver">
-                            
+
+                        <button id="voice-btn" onclick="toggleSound()">
+                            <img id="voice-icon" src="./images/Vector.svg">
                         </button>
                     </div> -->
                     
-                    <div class="content-wrapper" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="content-wrapper" >
                         <p class="content bold">Si vous êtes imprudents et que vous finissez par noclip en dehors de la réalité aux mauvais endroits,  vous finirez dans les backrooms. là où il n’y a que la puanteur des vieux tapis humides, le monochromes jaunes sur tous les murs, le bourdonnement incessant des lampes éléctriques au plafond, piégé dans des milliards de kilomètres carré de pièces vides aléatoirement ségmentées.</p>
                         <p class="content bold">Que dieu vous protège si vous entendez quelque chose errant près de vous, parce qu’il est certain que ça vous a entendu aussi.</p>
-                    </div>
+                        
+                    </div>  
                 </div>
             </div>
         </section>
@@ -265,8 +276,8 @@
             </div>
         </section>
 
-<!-- 
-        <section class="section section--noclip">
+
+        <!-- <section class="section section--noclip">
             
             <canvas class="video1" id="video_noclip"></canvas>
             
@@ -281,8 +292,6 @@
         
 
         <section class="section section--about-univers" >
-
-            
 
             <div class="univers__bg">
                 <img src="./assets/br-200vh-5687310f.png" alt="">
@@ -497,37 +506,87 @@
                 <p class="bold show-1">
                     Malgré l’engouement autour des backrooms, la tendance redescend petit à petit et on n’entend plus vraiment parler de cette creepypasta… 
                 </p>
-    
+<!--     
                 <p class="bold show-2">
                     Jusqu'en 2022
-                </p>
+                </p> -->
 
             </div>
 
         </section>
 
+        <div class="footage__title">
+            <h2 class="title title--big">Images trouvées</h2>
+        </div>
+
         <section class="section section--about-footage">
+
+
+            <div class="kaneImg kaneImg--3">
+                <img src="./assets/kanepixels-fe9c9e3c.jpg" alt="">
+            </div>
+
+
             <div class="container">
-
-                <h1 class="title title--big">Images trouvées</h1>
                 
                 
-
                 <div class="kane">
+
                     <p class="bold" data-aos="fade-up" data-aos-duration="1000">
                         En janvier 2022, <span class="bold-txt">Kane Pixels</span> , un jeune vidéaste et artiste VFX, poste une vidéo intitulée “Found Footage”…
                     </p>
 
-                    <div class="kane__extrait">
-                        <!-- <iframe width="100%" height="500px" src="https://www.youtube.com/embed/H4dGpz6cnHo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+                    <div class="kane__extrait" data-aos="fade-up" data-aos-duration="1000">
+                        <iframe width="100%" height="500px" src="https://www.youtube.com/embed/H4dGpz6cnHo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     
                     </div>
+
+                    
 
                     <div class="kane__txt" data-aos="fade-up" data-aos-duration="1000">
                         <p>
                             Kane Pixels, à ce moment-là, n'a que 16 ans mais nous montre ses compétences en 3D et VFX presque professionnelles en nous invitant dans l’endroit le plus mystérieux d’internet à la manière de témoignages filmés avec une caméra vhs.
                         </p>
                     </div>
+
+                    <div class=" kane__resume" data-aos="fade-up" data-aos-duration="1000">
+                        <p >
+                            La série se concentre sur une seule des backrooms, le niveau 0 appelé également le lobby, et nous donne une version différente de ce qu’on connait déjà.
+                            
+
+                        </p>
+                        <p>
+                            Ici, les backrooms ont été créés par des humains, plus particulièrement par le laboratoire A-SYNC qui, en faisant des expériences, a ouvert de nombreux portails invisibles un peu partout dans le monde où l’on peut noclip à tout moment et atterrir dans les backrooms.
+                        </p>
+                        
+                        
+                    </div>
+
+                    <div class="kane__resumeBis">
+                        <p data-aos="fade-up" data-aos-duration="1000">
+                            On suit 2 histoires parallèles : celles des scientifiques qui font des tests à l’intérieur des backrooms mais aussi les tests et les démarches de leur création et celle des personnes lambdas qui ont disparues et on atterit dans les backrooms en noclippant.
+                        </p>
+                    </div>
+
+
+                    
+                    <div class="kaneImg kaneImg--1">
+                        <video muted loop >
+                            <source src="./assets/foundfootage-clip-4b296eb8.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="kaneImg kaneImg--2">
+                        <img src="./assets/lost-kid-73371916.webp" alt="">
+                    </div>
+                    
+                    
+                    <div class="kaneImg kaneImg--4">
+                        <img src="./assets/doors-b44ba8fb.svg" alt="">
+                    </div>
+
+                    
+
 
                     <div class="kane__sum">
                         <p class="strong">
@@ -548,7 +607,7 @@
             </div>
         </section>
 
-        <section class="section section--zoom3D">
+        <section class="section section--zoom3D" style="margin-top: 100em;">
 
             <div class="portal" data-relative-input="true" id="scene">
 
@@ -557,17 +616,7 @@
                 </div>
 
                 <div class="portal-content" data-depth="0.5">
-                    <div class="container">
-                        <p>
-                            La série se concentre sur une seule des backrooms, le niveau 0 appelé également le lobby, et nous donne une version différente de ce qu’on connait déjà.
-                            Ici, les backrooms ont été créés par des humains, plus particulièrement par le laboratoire A-SYNC qui, en faisant des expériences, a ouvert de nombreux portails invisibles un peu partout dans le monde où l’on peut noclip à tout moment et atterrir dans les backrooms.
-
-                        </p>
-
-                        <p>
-                            On suit 2 histoires parallèles : celles des scientifiques qui font des tests à l’intérieur des backrooms mais aussi les tests et les démarches de leur création et celle des personnes lambdas qui ont disparues et on atterit dans les backrooms en noclippant.
-                        </p>
-                    </div>
+                    
                 </div>
             </div>
 
@@ -596,7 +645,7 @@
                 audio.pause();
                 soundIcon.src = "./images/sound-off.svg";
             }
-        }
+        };
 
         
 
