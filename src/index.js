@@ -214,48 +214,34 @@ var portal = document.querySelector('.portal-image');
 if(portal){
 	gsap.to(".portal-image", {
 		scale: 11,
+		duration:5,
 		scrollTrigger: {
 			trigger: ".portal-image",
 			start: "top top",
 			end: "bottom bottom",
 			markers:true,
-			scrub:2
+			scrub:true
+		}
+	})
+};
+
+
+var kane = document.querySelector('.kaneImg--3');
+if(kane){
+	gsap.from(".kaneImg--3", {
+		opacity: 0,
+		// scale:1.3,
+		scrollTrigger: {
+			trigger: ".kaneImg--3",
+			start: "top top",
+			end: "bottom -1000",
+			pin: true,
+			markers:true
 		},
 	})
 };
 
 
-
-
-
-//UTILISER TIMELINE
-
-// gsap.to(".show-1", {
-// 	opacity: 0,
-// 	duration: 2,
-// 	scrollTrigger:{
-// 		trigger:".section--about-endLore",
-// 		start:"bottom bottom",
-// 		end:'bottom bottom',
-// 		markers:true,
-// 		scrub:2,
-// 		pin:true
-// 	}
-// })
-
-// gsap.from(".show-2", {
-// 	opacity: 0,
-// 	duration: 2,
-// 	delay:5,
-// 	scrollTrigger:{
-// 		trigger:".section--about-endLore",
-// 		start:"center center",
-// 		end:'top top',
-// 		markers:true,
-// 		scrub:2,
-// 		pin:true
-// 	}
-// })
 
 
 
@@ -288,10 +274,31 @@ var kaneBg = document.getElementsByClassName('kaneImg--1');
 var kaneBg2 = document.getElementsByClassName('kaneImg--2');
 	new simpleParallax(kaneBg2, {
 		overflow: true,
-		transition: 'cubic-bezier(0,0,0,4)',
+		transition: 'cubic-bezier(0,0,.83,.50)'
 		
 	},
 );
+
+
+var kaneBg4 = document.getElementsByClassName('kaneImg--4');
+	new simpleParallax(kaneBg4, {
+		overflow: true,
+		transition: 'cubic-bezier(0,0,.83,.50)'
+		
+	},
+);
+
+var kanetxt = document.getElementsByClassName('kane__resume');
+	new simpleParallax(kanetxt, {
+		overflow: true,
+		transition: 'cubic-bezier(0,0,.83,.50)'
+		
+	},
+);
+
+
+
+
 
 
 

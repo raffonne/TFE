@@ -2,19 +2,17 @@ button{
     cursor: pointer;
 }
 
+
 .btn--voiceOver{
     z-index: 999999999;
     height: 35px;
     width: 35px;
-    padding: 10px;
+    padding: 11px;
     background-color: transparent;
     border: none;
     border: solid 0.5px white;
     border-radius: 50%;
-    background-image: url("../images/play.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 40%;
+
 
 }
     

@@ -97,21 +97,39 @@
     
     &--about-footage{
 
+        .kaneImg--3{
+            
+            @media (min-width:1000px) {
+
+                display: block;
+                position: absolute;
+                z-index: -999;
+                opacity: 0.4;
+      
+              }
+    
+        }
+
+        
+
         .container{
 
             .kane{
                 
                 position: relative;
                 display: grid;
-                grid-template-columns: 2fr 4fr 2fr;
+                grid-template-columns: 3fr 4fr 1fr 2fr 3fr;
                 grid-template-areas: 
-                "bold bold bold"
-                "vid vid vid"
-                "txt txt ."
-                "res res ."
-                "strong strong strong";
+                "bold bold bold . ."
+                "vid vid vid . ."
+                "txt txt img1 img1 img1"
+                ". res res res ."
+                ". img2 . resBis resBis"
+                
+                "strong strong strong strong strong";
 
-                grid-row-gap: 15em;
+                grid-column-gap:5em;
+                grid-row-gap:15em;
 
                 
                 
@@ -134,18 +152,47 @@
                     
                 }
                 .kane__resume{
+                    // background: black;
+                    padding: 20px;
                     
                     p{
-                        // max-width: 100ch;
+                        max-width: 55ch;
                     }
                     grid-area: res;
                     
                     
                 }
+
+                
+
+                .kaneImg--1{
+                    grid-area: img1;
+                }
+                .kaneImg--2{
+                    grid-area:img2;
+                }
+
+                .kaneImg--4{
+                    position: absolute;
+                    max-width: 20%;
+                    bottom: 50%;
+                    left: 0;
+                    opacity: 0.7;
+                }
+
+                .kane__resumeBis{
+                    
+                    grid-area: resBis;
+                }
+
+                
                 .kane__sum{
 
                     height: 100vh;
                     grid-area: strong;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
 
                     .strong{
                         display: flex;
@@ -178,10 +225,10 @@
             width: 100%;
             height: 100%;
             z-index: 1;
-            // animation-name: zoom-in;
-            // animation-duration: 10s;
-            // animation-fill-mode: forwards;
-            // transition: transform 5s;
+            animation-name: zoom-in;
+            animation-duration: 10s;
+            animation-fill-mode: forwards;
+            transition: transform 5s;
           }
 
           .portal-content {
