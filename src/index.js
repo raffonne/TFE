@@ -5,7 +5,6 @@ import { SplitText } from "./otherLibs/gsap/splitText";
 import Lenis from '@studio-freight/lenis';
 import simpleParallax from 'simple-parallax-js';
 import Parallax from 'parallax-js';
-
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -49,6 +48,22 @@ if (dust){
 	})
 };
 
+var opacity = document.querySelector('#scene');
+if (opacity){
+	gsap.to('#scene',{
+		opacity:0,
+		y:-200,
+		scrollTrigger: {
+			trigger: '#scene',
+			scrub: 2,
+			// markers:true,
+			start: "bottom bottom",
+			end: "+=500",
+			toggleActions: "play none none reverse"
+      }
+	})
+};
+
 var br1 = document.querySelector('.section--about-start');
 if (br1) {
 	gsap.to('.introduction__bg-image',{
@@ -65,36 +80,32 @@ if (br1) {
 }
 
 
+// const lenis = new Lenis({
+// 	duration: 1.5,
+// 	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+// 	direction: 'vertical', // vertical, horizontal
+// 	gestureDirection: 'vertical', // vertical, horizontal, both
+// 	smooth: true,
+// 	mouseMultiplier: 1,
+// 	smoothTouch: 0.1,
+// 	smoothWheel:true,
+// 	touchMultiplier: 1,
+// 	infinite: false,
+// 	});
+
+// 	function raf(time) {
+// 	lenis.raf(time)
+// 	requestAnimationFrame(raf)
+// }
+
+// requestAnimationFrame(raf)
 
 
+// lenis.on('scroll', ScrollTrigger.update)
 
-
-const lenis = new Lenis({
-	duration: 1.5,
-	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-	direction: 'vertical', // vertical, horizontal
-	gestureDirection: 'vertical', // vertical, horizontal, both
-	smooth: true,
-	mouseMultiplier: 1,
-	smoothTouch: 0.1,
-	smoothWheel:true,
-	touchMultiplier: 1,
-	infinite: false,
-	});
-
-	function raf(time) {
-	lenis.raf(time)
-	requestAnimationFrame(raf)
-}
-
-requestAnimationFrame(raf)
-
-
-lenis.on('scroll', ScrollTrigger.update)
-
-gsap.ticker.add((time)=>{
-  lenis.raf(time * 1000)
-})
+// gsap.ticker.add((time)=>{
+//   lenis.raf(time * 1000)
+// })
   
 // const noclipTrigger = document.getElementById('video_noclip');
 // const noclipTriggerContext = noclipTrigger.getContext('2d');
@@ -204,8 +215,9 @@ if(plx){
 var portal = document.querySelector('.portal-image');
 if(portal){
 	gsap.to(".portal-image", {
+		duration:2,
 		scale: 11,
-		duration:5,
+		// rotation:90,
 		scrollTrigger: {
 			trigger: ".portal-image",
 			start: "top top",
@@ -215,6 +227,21 @@ if(portal){
 		}
 	})
 };
+
+var portalContent = document.querySelector('.portal-content');
+if (portalContent) {
+	gsap.to('.portal-content',{
+		ease: 'none',
+		scrollTrigger: {
+			trigger: 'portal-content',
+			start: "-300",
+			end: "bottom 300",
+			scrub: 0.5,
+			pin: true,
+			// markers:true
+      }
+	})
+}
 
 
 var kane = document.querySelector('.kaneImg--3');

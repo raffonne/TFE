@@ -40,16 +40,16 @@
 
     <link rel="icon" href="./assets/favicon-870f3e57.svg">
 
-  <script type="module" crossorigin src="./assets/home-5784a071.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/style-6145bc32.js">
+  <script type="module" crossorigin src="./assets/home-9d45e193.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/style-3fc0de09.js">
   <link rel="modulepreload" crossorigin href="./assets/simpleParallax.min-dbf9a8ba.js">
-  <link rel="stylesheet" href="./assets/style-b18112e2.css">
+  <link rel="stylesheet" href="./assets/style-fc600663.css">
   <link rel="stylesheet" href="./assets/index-73168167.css">
 </head>
 <body>
     <div class="bg"></div>
     <header>
-        <input class="hidden" id="burger" type="checkbox" />
+        <input class="hidden hidden--input" id="burger" type="checkbox" />
         <label for="burger">
             <div class="burger">
                 <span class="bar"></span>
@@ -107,11 +107,11 @@
                 <source src="./images/dust.mp4" type="video/mp4">
             </video> -->
 
-            <div id="scene">
+            <!-- <div id="scene">
                 <div data-depth="0.2">
                     
                 </div>
-              </div>
+              </div> -->
 
             <div class="container">
 
@@ -119,8 +119,18 @@
                     <h1 class="title title--main">NOCLIP</h1>
                     <h1 class="title title--submain">Experience</h1>
                 </div>
+
+                <div class="hidden hidden--desktop">
+
+                    <img class="picto" src="./assets/desktop-only-71033f3c.svg" alt="">
+                    
+                    <small>
+                        Expérience optimisée sur desktop
+                    </small>
+                </div>
         
                 <div class="main-small">
+
                     <p>
                         NOCLIP Experience est un site web immersif dans lequel vous découvrirez les secrets du mystérieux et terrifiant univers des Backrooms.
                     </p>
@@ -128,9 +138,8 @@
                         Les Backrooms sont une légende urbaine créée sur internet ne cessant d’évoluer chaque jour grâce à la créativité des internautes du monde entier. Il existe des milliers de Backrooms, toutes plus mystérieuses et plus dangereuses que les autres. 
                     </p>
     
-                    <p class="hidden bold-txt">
-                        Passer sur ordinateur pour une expérience complète
-                    </p>
+                    
+                    
                 </div>
     
             </div>
@@ -611,15 +620,93 @@
 
             <div class="portal" data-relative-input="true" id="scene">
 
-                <div class="portal-image">
+                <div class="portal-image desktop-only">
                     <img src="./assets/scroll-bg-158db0b5.png" alt="">
                 </div>
 
                 <div class="portal-content" data-depth="0.5">
+                    <div class="container">
+                        <div class="outro">
+                            <p>
+                                Vous avez désormais découvert l’immense univers des backrooms et ses secrets. Ceci n’était qu’une brève présentation des quelques niveaux de bases.
+
+                                
+                            </p>
+                            <p>
+                                Il en existe des milliers qui sont mis à jour régulièrement, d’autres modifiés et tout ça grâce à l’imagination des internautes du monde entier s’unissant pour nourrir un univers fantastique.
+                            </p>
+                        </div>
+                        <div class="wikidot">
+                            <p>
+                                Si ce site n’a pas suffit à vous divertir et à vous plonger dans les backrooms, visitez le wikidot officiel qui ressence tous les niveaux existant avec leur description mais aussi des petites histoires pour se plonger un maximum dans le jeu de rôle. 
+                            </p>
+
+                            <!-- <a href="http://backrooms-wiki.wikidot.com/">WIKIDOT</a> -->
+                        </div>
+                    </div>
                     
                 </div>
             </div>
 
+        </section>
+
+        <section class="section section--outroPlay">
+            <div class="container">
+                <div class="outro">
+                    <p class="strong">
+                        Plongez-vous dans la peau d'une personne égarée, perdue dans les backrooms et découvrez les backrooms à travers ses yeux.
+                    </p>
+                    <img src="" alt="">
+                </div>
+                
+
+                <button id="hide-intro">
+                    <a href="experience.html">NOCLIP EXPERIENCE</a>
+                </button>
+            </div>
+        </section>
+
+
+        <section class="section section--credits">
+            <div class="container">
+                <h3 class="title title--little">Remerciements</h3>
+                <div class="credits">
+                    <ul class="credits__category">
+                        <li class="credits-list__el">Image & vidéos</li>
+                        <li class="credits-list__el">Animations & transitions</li>
+                        <li class="credits-list__el">Code</li>
+                        <li class="credits-list__el">Typographies</li>
+                        <li class="credits-list__el">Mentions spéciales</li>
+                    </ul>
+
+                    <ul class="credits__links">
+
+                        <li>
+                            <a href="https://www.kanepixels.shop/">KANEPIXELS</a>
+                            <a href="https://unsplash.com/fr">UNSPLASH</a>
+                        </li>
+
+                        <li>
+                            <a href="https://greensock.com/">Greensock</a>
+                            <a href="https://simpleparallax.com/">SimpleParallax</a>
+                            <a href="https://lenis.studiofreight.com/">Lenis</a>
+                        </li>
+                        <li>
+                            <a href="https://threejs-journey.com/">ThreeJS Journey</a>
+                            <a href="https://github.com/kripken/ammo.js/">Ammo.js</a>
+                            <a href="https://threejs.org/docs/#examples/en/controls/FirstPersonControls">fpscontrols.js</a>
+                        </li>
+                        <li>
+                            <a href="https://pangrampangram.com/">pangrampangram</a>
+                        </li>
+                        <li>
+                            <a href="https://openai.com/blog/chatgpt">chatgpt</a>
+                            <a href="https://openai.com/product/dall-e-2">dall-e</a>
+                            <a href="https://www.midjourney.com/home/?callbackUrl=%2Fapp%2F">midjourney</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
 
@@ -627,6 +714,13 @@
         
         
     </main>
+
+    <footer>
+        <div class="container">
+            <div class="rafko"><a href="http://rafko.be/">FROM RAFKO WITH LOVE</a></div>
+            <div class="dwt"><a href="https://dwt.heaj.be/">DWT</a></div>
+        </div>
+    </footer>
 
    
     <script>

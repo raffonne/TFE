@@ -6,16 +6,23 @@
     &--home{
         position: relative;
         height: 100vh;
-        display: flex;
+        // display: flex;
         #scene{
+            position: absolute!important;
             div{
+                
                 height: 100vh;
                 width:100vw;
-                background-image: url("../images/test4.png");
+                background-image: url("../images/bg-main.png");
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
                 opacity: 0.5;
+
+                
+            }
+            @media (min-width:1000px) {
+                position: relative!important;
             }
         }
 
@@ -136,7 +143,9 @@
             .kane{
                 
                 position: relative;
-                display: grid;
+
+                @media (min-width:1000px) {
+                    display: grid;
                 grid-template-columns: 3fr 4fr 1fr 2fr 3fr;
                 grid-template-areas: 
                 "bold bold bold . ."
@@ -149,6 +158,8 @@
 
                 grid-column-gap:5em;
                 grid-row-gap:15em;
+                }
+                
 
                 
                 
@@ -239,17 +250,31 @@
           }
           
           .portal-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            animation-name: zoom-in;
-            animation-duration: 10s;
-            animation-fill-mode: forwards;
-            transition: transform 5s;
+
+            @media (min-width:700px){
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                animation-name: zoom-in;
+                animation-duration: 10s;
+                animation-fill-mode: forwards;
+                transition: transform 5s;
+            }
+            
           }
+
+        //   .desktop-only{
+        //     display: none;
+        //     @media (min-width:1000px) {
+        //         display: block;
+        //     }
+            
+        //   }
+
+          
 
           .portal-content {
             width: 100%;
@@ -259,9 +284,24 @@
             background-repeat: no-repeat;
             background-size: cover;
             z-index: -1;
+            
 
-            .container{
-                margin: 200px 0;
+            > div{
+                padding-top: 10em;
+                @media (min-width:1000px) {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    
+                    .wikidot{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: end;
+                        height: 100vh;
+                    }
+                }
+
+                
+                
             }
           }
           
@@ -270,5 +310,33 @@
           
     }
 
+    &--outroPlay{
+        height: 100vh;
+    }
+
+    &--credits{
+        
+        .credits{
+            @media (min-width:700px) {
+                display: grid;
+                grid-template-columns: 250px 400px;
+            }
+            
+
+        }
+    }
+
+}
+
+
+
+footer{
+    .container{
+        padding-top:5em ;
+        padding-bottom: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
 
