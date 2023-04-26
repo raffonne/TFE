@@ -223,7 +223,7 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    padding-top: 15em;
+                    padding-top: 50em;
 
                     .strong{
                         display: flex;
@@ -250,8 +250,9 @@
           }
           
           .portal-image {
-
+            display: none;
             @media (min-width:700px){
+                display: block;
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -277,31 +278,65 @@
           
 
           .portal-content {
-            width: 100%;
-            height: 100%;
-            background-image: url('../images/br-bg.jpeg');
-            background-position-y: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            z-index: -1;
+
+            .portal-container{
+                opacity: 0;
+            }
+
+            &::before {    
+                content: "";
+                background-image: url('../images/bg-main.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 90%;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0px;
+                right: 0px;
+                bottom: 0px;
+                left: 0px;
+                opacity: 0.75;
+                z-index: -1;
+            }
+            
+            
+            
+           
             
 
             > div{
-                padding-top: 10em;
+                padding-top: 5em;
                 @media (min-width:1000px) {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
+                    // display: grid;
+                    // grid-template-columns: 1fr 1fr;
                     
-                    .wikidot{
-                        display: flex;
-                        flex-direction: column;
-                        align-items: end;
-                        height: 100vh;
-                    }
                 }
 
                 
                 
+            }
+            .container{
+                opacity: 0;
+                .title--main{
+                    padding: 0;
+                    letter-spacing: normal;
+                    display: flex;
+                    text-align: justify;
+                    font-family: "montreal"!important;
+                    font-size: 150px;
+                    text-transform: uppercase;
+                }
+
+                button{
+                    
+                    @media(min-width:1000px){
+                        position: absolute;
+                        bottom: 100px;
+                        right: 100px;
+                    }
+                    
+                }
             }
           }
           
@@ -310,33 +345,24 @@
           
     }
 
-    &--outroPlay{
-        height: 100vh;
-    }
-
-    &--credits{
-        
-        .credits{
-            @media (min-width:700px) {
-                display: grid;
-                grid-template-columns: 250px 400px;
-            }
-            
-
-        }
-    }
 
 }
 
 
 
 footer{
+
+    position: fixed;
+    bottom: 0;
+
     .container{
+
         padding-top:5em ;
         padding-bottom: 50px;
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
+        font-size: 12px;
+
     }
 }
 

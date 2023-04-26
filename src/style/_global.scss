@@ -130,7 +130,7 @@ body{
 header{
     height: 100%;
     width: 60px;
-
+    position: absolute;
     @media(min-width:1000px){
         // border-right: solid 0.5px #A7A7A7;
 

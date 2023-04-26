@@ -35,7 +35,7 @@ if(aboutIntro) {
 var dust = document.querySelector('.main-title');
 if (dust){
 	gsap.to('#myVideo',{
-		opacity:0,
+		opacity:0.3,
 		ease: 'none',
 		scrollTrigger: {
 			trigger: '.main-title',
@@ -64,20 +64,20 @@ if (opacity){
 	})
 };
 
-var br1 = document.querySelector('.section--about-start');
-if (br1) {
-	gsap.to('.introduction__bg-image',{
-		opacity:1,
-		ease: 'none',
-		scrollTrigger: {
-			trigger: '.introduction__content',
-			start: "bottom bottom",
-			end: "-=100%",
-			toggleActions: "play none none reverse",
-			markers:true
-      }
-	})
-}
+// var br1 = document.querySelector('.section--about-start');
+// if (br1) {
+// 	gsap.to('.introduction__bg-image',{
+// 		opacity:1,
+// 		ease: 'none',
+// 		scrollTrigger: {
+// 			trigger: '.introduction__content',
+// 			start: "bottom bottom",
+// 			end: "-=100%",
+// 			toggleActions: "play none none reverse",
+// 			markers:true
+//       }
+// 	})
+// }
 
 
 // const lenis = new Lenis({
@@ -212,36 +212,66 @@ if(plx){
 		},
 	})
 };
-var portal = document.querySelector('.portal-image');
-if(portal){
-	gsap.to(".portal-image", {
-		duration:2,
-		scale: 11,
-		// rotation:90,
-		scrollTrigger: {
-			trigger: ".portal-image",
-			start: "top top",
-			end: "bottom bottom",
-			markers:true,
-			scrub:true
-		}
-	})
-};
+// var portal = document.querySelector('.portal-image');
+// if(portal){
+// 	gsap.to(".portal-image", {
+// 		duration:2,
+// 		scale: 11,
+// 		// rotation:90,
+// 		scrollTrigger: {
+// 			trigger: ".portal-image",
+// 			start: "top 300",
+// 			end: "bottom bottom",
+// 			markers:true,
+// 			scrub:true
+// 		}
+// 	})
+// };
 
-var portalContent = document.querySelector('.portal-content');
-if (portalContent) {
-	gsap.to('.portal-content',{
-		ease: 'none',
-		scrollTrigger: {
-			trigger: 'portal-content',
-			start: "-300",
-			end: "bottom 300",
-			scrub: 0.5,
-			pin: true,
-			// markers:true
-      }
-	})
+
+var tl = gsap.timeline({repeat: 2, repeatDelay: 1});
+tl.to(".portal-image", {
+	duration:5,
+	scale: 11,
+	// rotation:90,
+	opacity:0,
+	display:"none",
+	scrollTrigger: {
+		trigger: ".portal-image",
+		start: "top 300",
+		end: "bottom bottom",
+		markers:true,
+		scrub:true
+	}
 }
+);
+
+tl.to(".portal-container", {
+	opacity:1,
+	duration:2,
+	delay:0.5,
+});
+
+
+
+
+
+
+// var portalContent = document.querySelector('.portal-content');
+// if (portalContent) {
+// 	gsap.to('.portal-content',{
+// 		duration: .5,
+// 		scale: 0.7,
+// 		scrollTrigger: {
+// 			trigger: 'portal-content',
+// 			start: "-100",
+// 			end: "bottom 1000",
+// 			scrub: 0.5,
+// 			pin: true,
+// 			// markers:true
+//       }
+// 	})
+// }
 
 
 var kane = document.querySelector('.kaneImg--3');
