@@ -1557,16 +1557,16 @@ animate();
 
 
 
-var intro = document.querySelector('.intro');
-if(intro) {
+// var intro = document.querySelector('.intro');
+// if(intro) {
 
-	const hideIntro = () => {
-		const intro = document.querySelector('.intro');
-		intro.classList.add("hidden");
-	  }
+// 	const hideIntro = () => {
+// 		const intro = document.querySelector('.intro');
+// 		intro.classList.add("hidden");
+// 	  }
 	  
-	document.querySelector('#hide-intro').addEventListener('click', hideIntro);
-};
+// 	document.querySelector('.button').addEventListener('click', hideIntro);
+// };
 
 
 
@@ -1638,7 +1638,7 @@ var hoverMouse = function($el) {
 	});
   };
   
-  hoverMouse($('#hide-intro'));
+  hoverMouse($('button'));
 
 
 

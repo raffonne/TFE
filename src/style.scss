@@ -132,227 +132,13 @@
 
 }
 
-.voiceover{
+.container-txt{
   display: flex;
-}
-
-.about{
-
-
-    .container-txt{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        
-
-        .content-wrapper{
-
-          position: relative;
-          // border-left: solid 1px #A7A7A7;
-          // margin-left: 2em;
-          // padding-left: 2em;
-
-          // &::before{
-
-          //   content: "";
-          //   background: #A7A7A7;
-          //   height: 100%;
-          //   width: 0.5px;
-          //   position: absolute;
-
-          // }
-        }
-    }
-
-
-    .section--about-start{
-
-      .bg-image{
-        display: none;
-        @media (min-width:1000px) {
-
-          display: block;
-          position: absolute;
-          z-index: -1;
-          opacity: 0.5;
-
-        }
-
-        img{
-          transform: translateY(-50%);
-        }
-        
-    }
-
-      .introduction{
-        position: relative;
-
-          @media (min-width:1000px) {
-            padding: 204px 0;
-          }
-        
-        }
-
-        
-        
-      .description{
-        
-        display: flex;
-        flex-direction: column;
-        justify-content: end;
-        align-items: center;
-        gap: 100px;
-        
-        @media (min-width:1000px) {
-          flex-direction: row;
-          padding-bottom: 104px;
-        }
-        &__img{
-          width: 100%;
-          max-width: 500px;
-
-          @media (min-width:1000px) {
-            transform: translateY(-30%);
-          }
-        }
-
-      }
-      
-    }
-
+  flex-direction: row;
+  justify-content: center;
   
-    .section--about-noclip{
-
-      @media (min-width:1000px) {
-        padding-top: 25em;
-      }
-
-      .container{
-
-        .noclip{
-          position: relative;
-          margin: 4em 0;
-        }
-      }
-    }
-
-
-    .univers__title{
-      height: 150vh;
-      position: relative;
-      h2{
-        position: absolute;
-        left: 50%;
-        bottom: 40%;
-        transform: translate(-50%, -50%);
-      }
-    }
-
-    .section--about-univers{
-
-
-      .univers__bg{
-        position: absolute;
-        width: 100%;
-        z-index: -999;
-        top: 20%;
-
-        @media (min-width:1000px) {
-          width: 80%;
-          left: -10%;
-        }
-      }
-      .container{
-
-        .creation{
-          display: flex;
-          flex-direction: column;
-          align-items: end;
-          gap: 50px;
-        }
-        .ending{
-          padding: 13em 0;
-        }
-      }
-
-
-    }
-
-    .section--about-levels{
-    
-      
-      .space-holder {
-        position: relative;
-        width: 100%;
-      }
-      
-      .sticky {
-        position: sticky;
-        top: 0;
-        height: 100vh;
-        width: 100%;
-        overflow-x: hidden!important;
-      }
-      
-      .horizontal {
-        position: absolute;
-        height: 100%;
-        will-change: transform;
-      }
-      
-      .cards {
-        position: relative;
-        height: 50%;
-        padding: 0 0 0 10px;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: flex-start;
-        align-items: center;
-
-        @media (min-width:1000px) {
-          height: 100%;
-          padding: 0 0 0 1em;
-        }
-      }
-      
-      .br-card {
-        padding: 20px;
-        position: relative;
-        width: 350px;
-        padding: 0 20px;
-        gap: 2em;
-        display: flex;
-        flex-direction: column;
-
-        @media (min-width:1000px) {
-          padding: 0 120px;
-        }
-
-        &:after{
-          content: "";
-          height: 100%;
-          width: 0.5px;
-          background: #A7A7A7;
-          right: 0;
-          position: absolute;
-        }
-
-        &:last-of-type{
-          &:after{
-            display: none;
-          }
-        }
-
-        @media (min-width:1000px) {
-          width: 600px;
-        }
-
-      }
-
-    }
-    
-
 }
+
 
 
 .footage__title{
@@ -361,48 +147,17 @@
 }
 
 
-.box {
-  width: 200px;
-  height: 200px;
-  background-color: orange;
-  position: absolute;
-  transition: transform 100ms ease;
-  will-change: transform;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
 
-.box-1 {
-  top: 150px;
-  left: 0;
-  box-shadow: 0 10px 50px -10px rgba(0, 0, 0, 0.5);
-  background-image: url("./images/The_Faceling\ \(1\).webp");
-}
-
-.box-2 {
-  top: 250px;
-  right: 0; 
-  background-image: url("./images/what-is-this-entity-called-i-have-seen-it-alot-but-i-cant-v0-14wp3sw1aty81.webp");
-}
-
-.box-3 {
-  top: 400px;
-  background-image: url("./images/Smiler.webp");
-}
-
-.box-4{
-  bottom:0;
-  right:5%;
-  background-image: url("./images/skinstealer.jpg");
-  
-}
-
-.box-5{
-  left: 0;
-  bottom: 10%;
-  background-image: url("./images/giphy.gif");
-}
+.univers__title{
+    height: 150vh;
+    position: relative;
+    h2{
+      position: absolute;
+      left: 50%;
+      bottom: 40%;
+      transform: translate(-50%, -50%);
+    }
+  }
 
 
 
@@ -413,8 +168,7 @@
 
 
 
-
-
+//EXPERIENCE
 
 
 
@@ -470,34 +224,34 @@
 
 
 
-.intro {
-  position: absolute;
-  z-index: 99999;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #0F0F0F;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: ease 2s;
-  opacity: 1;
+// .intro {
+//   position: absolute;
+//   z-index: 99999;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background-color: #0F0F0F;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   transition: ease 2s;
+//   opacity: 1;
 
-  p{
-      font-size: 20px;
-      margin-bottom: 2rem;
-      max-width: 60ch;
-      color: #C5C5C5;
-  }
+//   p{
+//       font-size: 20px;
+//       margin-bottom: 2rem;
+//       max-width: 60ch;
+//       color: #C5C5C5;
+//   }
 
-  .br-author{
-      text-align: right;
-      font-family: 'montreal-italic';
-  }
+//   .br-author{
+//       text-align: right;
+//       font-family: 'montreal-italic';
+//   }
 
-}
+// }
 
 
 

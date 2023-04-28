@@ -2,23 +2,9 @@ button{
     cursor: pointer;
 }
 
-
-.btn--voiceOver{
-    z-index: 999999999;
-    height: 35px;
-    width: 35px;
-    padding: 11px;
-    background-color: transparent;
-    border: none;
-    border: solid 0.5px white;
-    border-radius: 50%;
-
-
-}
     
-#hide-intro{
+.btn--link{
     font-size: 12px;
-    cursor: pointer;
     text-transform: uppercase;
     text-align: center;
     background-color: transparent;
