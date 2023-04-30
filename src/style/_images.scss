@@ -65,9 +65,14 @@ img{
     width:25px;
     max-width:45px;
     position: absolute;
-    top: 50%;
-    right: -7px;
+    top: 0;
+    right: 0;
     margin: 5px;
+
+    @media (min-width:1000px) {
+      top: 50%;
+      right: -7px;
+    }
 
 
   }

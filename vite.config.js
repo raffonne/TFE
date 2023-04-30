@@ -53,7 +53,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         home: resolve(__dirname, './src/index.html'),
-        about: resolve(__dirname, './src/about.html'),
         experience: resolve(__dirname, './src/experience.html'),
       }
     }

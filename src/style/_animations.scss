@@ -125,9 +125,11 @@
     gap: 2em;
     display: flex;
     flex-direction: column;
+    margin-top: 10em;
 
     @media (min-width:1000px) {
       padding: 0 120px;
+      margin-top: 0;
     }
 
     &:after{

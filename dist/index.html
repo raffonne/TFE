@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Primary Meta Tags -->
-    <title>NOCLIP Experience</title>
+    <title>NOCLIP | Inside the Backrooms</title>
     <meta name="title" content="NOCLIP Experience">
     <meta name="description" content="NOCLIP Experience est un site web immersif dans lequel vous découvrirez les secrets du mystérieux et terrifiant univers des Backrooms.
 
@@ -29,24 +29,52 @@
     <meta property="twitter:image" content="">
 
     
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.0/bundled/lenis.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
 
     <link rel="icon" href="./assets/favicon-870f3e57.svg">
 
-  <script type="module" crossorigin src="./assets/home-9d45e193.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/style-3fc0de09.js">
-  <link rel="modulepreload" crossorigin href="./assets/simpleParallax.min-dbf9a8ba.js">
-  <link rel="stylesheet" href="./assets/style-fc600663.css">
-  <link rel="stylesheet" href="./assets/index-73168167.css">
+  <script type="module" crossorigin src="./assets/index-f047c854.js"></script>
+  <link rel="stylesheet" href="./assets/index-ef75ce22.css">
 </head>
 <body>
+    
+    <div class="preloader-wrap">
+
+        <video autoplay muted loop id="myVideo">
+            <source src="./assets/dust-5ab4bf9f.mp4" type="video/mp4">
+        </video>
+
+        <div class="percentage" id="precent">100%</div>
+
+        <div class="headphones-required">
+
+            <div class="headphones">
+                <img src="./assets/headphones-2923001c.svg" alt="headphones">
+            </div>
+
+            <p>
+                Activez le son pour profiter de l’expérience.
+            </p>
+
+        </div>
+
+        <div class="desktop">
+            <p>
+                Le site web est optimisé pour les écrans d’ordinateur.
+                Certaines parties du site comme la page expérience ne sont pas disponible sur mobile.
+            </p>
+        </div>
+
+    </div>
+
     <div class="bg"></div>
     <header>
         <input class="hidden hidden--input" id="burger" type="checkbox" />
@@ -62,9 +90,6 @@
               <a class="btn nav-links" href="index.html">Accueil</a>
           </div>
   
-          <div class="nav__el">
-              <a class="btn nav-links" href="about.html">Origines</a>
-          </div>
           <div class="nav__el">
               <a class="btn nav-links" href="experience.html">Experience</a>
           </div>
@@ -101,42 +126,52 @@
 
       <main class="about">
 
+
+
         <section class="section section--home">
 
-            <!-- <video autoplay muted loop id="myVideo">
-                <source src="./images/dust.mp4" type="video/mp4">
-            </video> -->
+            <video autoplay muted loop id="myVideo">
+                <source src="./assets/dust-5ab4bf9f.mp4" type="video/mp4">
+            </video>
 
-            <!-- <div id="scene">
-                <div data-depth="0.2">
+            <div id="scene">
+                <div data-depth="0.1">
                     
                 </div>
-              </div> -->
+            </div>
+
+
 
             <div class="container">
 
                 <div class="main-title">
-                    <h1 class="title title--main">NOCLIP</h1>
-                    <h1 class="title title--submain">Experience</h1>
+                    <h1 class="title title--main blur">
+                        <span class="blur-txt">N</span><span class="blur-txt">O</span><span class="blur-txt">C</span><span class="blur-txt">L</span><span class="blur-txt">I</span><span class="blur-txt">P</span>
+                    </h1>
+                    <h1 class="title title--submain blur">Inside the backrooms</h1>
                 </div>
 
-                <div class="hidden hidden--desktop">
-
-                    <img class="picto" src="./assets/desktop-only-71033f3c.svg" alt="">
-                    
-                    <small>
-                        Expérience optimisée sur desktop
-                    </small>
-                </div>
+                
         
                 <div class="main-small">
 
                     <p>
-                        NOCLIP Experience est un site web immersif dans lequel vous découvrirez les secrets du mystérieux et terrifiant univers des Backrooms.
+                        NOCLIP est un site web immersif dans lequel vous découvrirez les secrets du mystérieux et terrifiant univers des Backrooms.
                     </p>
                     <p>
                         Les Backrooms sont une légende urbaine créée sur internet ne cessant d’évoluer chaque jour grâce à la créativité des internautes du monde entier. Il existe des milliers de Backrooms, toutes plus mystérieuses et plus dangereuses que les autres. 
                     </p>
+
+                    <div class="hidden hidden--desktop">
+
+                        <img class="picto" src="./assets/desktop-only-71033f3c.svg" alt="">
+                        
+                        <small>
+                            Expérience optimisée sur desktop
+                        </small>
+                    </div>
+
+                    
     
                     
                     
@@ -145,6 +180,8 @@
             </div>
     
         </section>
+
+
 
     
 
@@ -174,12 +211,16 @@
         </section>
 
 
+        
+
+
         <section class="section section--about-origins">
+
             <div class="container">
 
                 <div class="origins-introduction">
 
-                    <h2 class="title title--big">Introduction</h2>
+                    <h2 class="title title--big">Prologue</h2>
 
                     <p data-aos="fade-up" data-aos-duration="1000">
                         Les <span class="bold-txt">backrooms</span> sont une légende urbaine de type horrifique, dite également <span class="bold-txt">creepypasta</span> , faisant ainsi partie d’une grande lignée de légendes créées sur internet par les internautes du monde entier.
@@ -266,7 +307,7 @@
                     <div class="noclip__quote">
                         <figure class="quote">
                             <blockquote>
-                                “si vous êtes imprudents et que vous finissez par noclip en dehors de la réalité aux mauvaix endroits, vous finirez dans les backrooms,[...]”
+                                “Si vous êtes imprudents et que vous finissez par noclip en dehors de la réalité aux mauvaix endroits, vous finirez dans les backrooms, [...]”
                             </blockquote>
                             <figcaption>
                                 - Anomyme 2019
@@ -285,12 +326,6 @@
             </div>
         </section>
 
-
-        <!-- <section class="section section--noclip">
-            
-            <canvas class="video1" id="video_noclip"></canvas>
-            
-        </section> -->
 
 
 
@@ -316,8 +351,11 @@
                     <div class="internet" data-aos="fade-up" data-aos-duration="1000">
                         <h4 class="title title--little">L'imagination d'internet</h4>
                         <p>
-                            L’histoire inventée autour de cette image va être partagée massivement et agiter les internautes, qui vont décider d’appeler le lieu “backrooms”.
-                            <br>Mais au-delà de la notoriété que ce monde imaginaire va connaître, c’est un véritable <span class="bold-txt">projet collaboratif</span>  qui se crée autour de celui-ci, dans lequel les internautes créatifs ajoutent <span class="bold-txt">des nouvelles pièces</span>  et histoires à l’univers, ayant chacune leurs <span class="bold-txt">spécificités</span> .
+                            L’histoire (le lore) inventée autour de cette image va être partagée massivement et agiter les internautes, qui vont décider d’appeler le lieu “backrooms”.
+                            
+                        </p>
+                        <p>
+                            Mais au-delà de la notoriété que ce monde imaginaire va connaître, c’est un véritable <span class="bold-txt">projet collaboratif</span>  qui se crée autour de celui-ci, dans lequel les internautes créatifs ajoutent <span class="bold-txt">des nouvelles pièces</span>  et histoires à l’univers, ayant chacune leurs <span class="bold-txt">spécificités</span> .
                         </p>
                     </div>
 
@@ -333,7 +371,7 @@
                 </div>
                 <div class="ending">
                     <p class="strong">
-                        On compte maintenant plus de <span class="bold-txt">2000 niveaux</span>  différents documentés dans un <a href="http://backrooms-wiki.wikidot.com/">wikidot</a>  dédié au sujet.
+                        On compte maintenant plus de <span class="bold-txt">2000 niveaux</span>  différents documentés dans un <a class="link-txt" href="http://backrooms-wiki.wikidot.com/">wikidot</a>  dédié au sujet.
                     </p>
                     <p class="strong">
                         et avec ces derniers, des miliers d’entités <span class="bold-txt">hostiles</span> ...
@@ -486,45 +524,34 @@
                     
                 </div>
             </div>
-<!-- 
-            <div class="container">
-
-                <p class="strong">et avec ces derniers, des miliers d’entités <span class="bold-txt">hostiles</span> ...</p>
-
-
-                <div class="wrapper wrapper--entities">
-
-                    
-                    <div class="box box-1" data-speed="4" data-parallax></div>
-                    <div class="box box-2" data-speed="5" data-parallax></div>
-                    <div class="box box-3" data-speed="7" data-parallax></div>
-                    <div class="box box-4" data-speed="2" data-parallax></div>
-                    <div class="box box-5" data-speed="2" data-parallax></div>
-
-                </div>
-
-            </div> -->
-                  
                   
         </section>
+
+
 
         <section class="section section--about-endLore">
 
             <div class="container">
 
-                <p class="bold show-1">
-                    Malgré l’engouement autour des backrooms, la tendance redescend petit à petit et on n’entend plus vraiment parler de cette creepypasta… 
-                </p>
-<!--     
-                <p class="bold show-2">
-                    Jusqu'en 2022
-                </p> -->
+                <div class="endLore-txt">
+                    <p class="bold show-1">
+                        Malgré l’engouement autour des backrooms, la tendance redescend petit à petit et on n’entend plus parler de la creepypasta… 
+                    </p>
+        
+                    <!-- <p class="bold show-2">
+                        Jusqu'en 2022
+                    </p> -->
+    
+                </div>
 
+                
+
+               
             </div>
 
         </section>
 
-        <div class="footage__title">
+        <div class="footage__title" style="padding-top: 2000px;">
             <h2 class="title title--big">Images trouvées</h2>
         </div>
 
@@ -545,10 +572,10 @@
                         En janvier 2022, <span class="bold-txt">Kane Pixels</span> , un jeune vidéaste et artiste VFX, poste une vidéo intitulée “Found Footage”…
                     </p>
 
-                    <div class="kane__extrait" data-aos="fade-up" data-aos-duration="1000">
+                    <!-- <div class="kane__extrait">
                         <iframe width="100%" height="500px" src="https://www.youtube.com/embed/H4dGpz6cnHo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     
-                    </div>
+                    </div> -->
 
                     
 
@@ -581,7 +608,7 @@
                     
                     <div class="kaneImg kaneImg--1">
                         <video muted loop >
-                            <source src="./assets/foundfootage-clip-4b296eb8.mp4" type="video/mp4">
+                            <source src="./images/foundfootage-clip.mp4" type="video/mp4">
                         </video>
                     </div>
 
@@ -599,11 +626,15 @@
 
                     <div class="kane__sum">
                         <p class="strong">
-                            Grâce au travail du youtubeur, les backrooms vont alors connaître une renaissance et la série de vidéos de Kane Pixels sur le sujet deviendra une des séries horreurla plus virale qui n’a jamais existé sur Youtube.
+                            Grâce au travail du youtubeur, <span class="icon-txt icon-txt--backrooms">les backrooms</span>&nbsp;vont alors connaître une renaissance et la série de <span class="icon-txt icon-txt--movie">vidéos</span> de Kane Pixels sur le sujet deviendra une des séries <span class="icon-txt icon-txt--horror">horreur</span> la plus virale qui n’a jamais existé sur <span class="icon-txt icon-txt--youtube">Youtube</span>.
                         </p>
 
                         <div class="btn-watch">
-                            <button id="hide-intro" href="https://www.youtube.com/watch?v=8TYopkSmKyA&list=PLVAh-MgDVqvDUEq6qDXqORBioE4Yhol_z"> Regarder</button>
+                            <button id="btn" class="btn btn--link">
+                                <a href="https://www.youtube.com/watch?v=8TYopkSmKyA&list=PLVAh-MgDVqvDUEq6qDXqORBioE4Yhol_z">
+                                    Regarder
+                                </a>
+                            </button>
                         </div>
                         
                         
@@ -616,33 +647,94 @@
             </div>
         </section>
 
-        <section class="section section--zoom3D" style="margin-top: 100em;">
+        <section class="section section--zoom3D" style="margin-top: 50em;">
 
-            <div class="portal" data-relative-input="true" id="scene">
+            <div class="portal">
 
-                <div class="portal-image desktop-only">
+                <div class="portal-image">
                     <img src="./assets/scroll-bg-158db0b5.png" alt="">
                 </div>
 
-                <div class="portal-content" data-depth="0.5">
-                    <div class="container">
-                        <div class="outro">
-                            <p>
-                                Vous avez désormais découvert l’immense univers des backrooms et ses secrets. Ceci n’était qu’une brève présentation des quelques niveaux de bases.
+                <div class="portal-content">
 
-                                
-                            </p>
+                    <div class="portal-bg"></div>
+
+                    <div class="portal-container container">
+
+                        <div class="footer-heading footer-heading--row-1">
                             <p>
-                                Il en existe des milliers qui sont mis à jour régulièrement, d’autres modifiés et tout ça grâce à l’imagination des internautes du monde entier s’unissant pour nourrir un univers fantastique.
+                                ON
                             </p>
                         </div>
-                        <div class="wikidot">
+                        <div class="footer-heading footer-heading--row-2">
                             <p>
-                                Si ce site n’a pas suffit à vous divertir et à vous plonger dans les backrooms, visitez le wikidot officiel qui ressence tous les niveaux existant avec leur description mais aussi des petites histoires pour se plonger un maximum dans le jeu de rôle. 
+                                SE
                             </p>
-
-                            <!-- <a href="http://backrooms-wiki.wikidot.com/">WIKIDOT</a> -->
                         </div>
+                        <div class="footer-heading footer-heading--row-3">
+                            <p>
+                                RETROUVE
+                            </p>
+                        </div>
+                        <div class="footer-heading footer-heading--row-4">
+                            <p>
+                                DE
+                            </p>
+                        </div>
+
+                        <div class="footer-heading footer-heading--row-5">
+                            <p>
+                                L'autre
+                            </p>
+                        </div>
+
+                        <div class="footer-heading footer-heading--row-6">
+                            <p>
+                                Côté
+                            </p>
+                        </div>
+
+                        
+                        <button class="btn btn--link">
+                            <a href="experience.html">NOCLIP EXPERIENCE</a>
+                        </button>
+
+
+                        <div class="credits">
+                            <h3 class="title title--little">Crédits</h3>
+                                <ul class="credits__category">
+
+                                    <li class="credits-list__el">Image & vidéos
+                                        <a class="link-txt" href="https://www.kanepixels.shop/">KANEPIXELS</a>
+                                        <a class="link-txt" href="https://unsplash.com/fr">UNSPLASH</a>
+                                    </li>
+
+                                    <li class="credits-list__el">Animations & transitions
+                                        <a class="link-txt" href="https://greensock.com/">Greensock</a>
+                                        <a class="link-txt" href="https://simpleparallax.com/">SimpleParallax</a>
+                                        <a class="link-txt" href="https://lenis.studiofreight.com/">Lenis</a>
+                                    </li>
+
+                                    <li class="credits-list__el">Code
+                                        <a class="link-txt" href="https://threejs-journey.com/">ThreeJS Journey</a>
+                                        <a class="link-txt" href="https://github.com/kripken/ammo.js/">Ammo.js</a>
+                                        <a class="link-txt" href="https://threejs.org/docs/#examples/en/controls/FirstPersonControls">fpscontrols.js</a>
+                                    </li>
+
+                                    <li class="credits-list__el">Typographies 
+                                        <a class="link-txt" href="https://pangrampangram.com/">pangrampangram</a>
+                                    </li>
+
+                                    <li class="credits-list__el">Mentions spéciales
+                                        <a class="link-txt" href="https://openai.com/blog/chatgpt">Wikidot</a>
+                                        <a class="link-txt" href="https://openai.com/product/dall-e-2">Feldup</a>
+                                    </li>
+                                    
+                                </ul>
+
+                            
+                        </div>
+                        
                     </div>
                     
                 </div>
@@ -650,70 +742,14 @@
 
         </section>
 
-        <section class="section section--outroPlay">
-            <div class="container">
-                <div class="outro">
-                    <p class="strong">
-                        Plongez-vous dans la peau d'une personne égarée, perdue dans les backrooms et découvrez les backrooms à travers ses yeux.
-                    </p>
-                    <img src="" alt="">
-                </div>
-                
-
-                <button id="hide-intro">
-                    <a href="experience.html">NOCLIP EXPERIENCE</a>
-                </button>
-            </div>
-        </section>
-
-
-        <section class="section section--credits">
-            <div class="container">
-                <h3 class="title title--little">Remerciements</h3>
-                <div class="credits">
-                    <ul class="credits__category">
-                        <li class="credits-list__el">Image & vidéos</li>
-                        <li class="credits-list__el">Animations & transitions</li>
-                        <li class="credits-list__el">Code</li>
-                        <li class="credits-list__el">Typographies</li>
-                        <li class="credits-list__el">Mentions spéciales</li>
-                    </ul>
-
-                    <ul class="credits__links">
-
-                        <li>
-                            <a href="https://www.kanepixels.shop/">KANEPIXELS</a>
-                            <a href="https://unsplash.com/fr">UNSPLASH</a>
-                        </li>
-
-                        <li>
-                            <a href="https://greensock.com/">Greensock</a>
-                            <a href="https://simpleparallax.com/">SimpleParallax</a>
-                            <a href="https://lenis.studiofreight.com/">Lenis</a>
-                        </li>
-                        <li>
-                            <a href="https://threejs-journey.com/">ThreeJS Journey</a>
-                            <a href="https://github.com/kripken/ammo.js/">Ammo.js</a>
-                            <a href="https://threejs.org/docs/#examples/en/controls/FirstPersonControls">fpscontrols.js</a>
-                        </li>
-                        <li>
-                            <a href="https://pangrampangram.com/">pangrampangram</a>
-                        </li>
-                        <li>
-                            <a href="https://openai.com/blog/chatgpt">chatgpt</a>
-                            <a href="https://openai.com/product/dall-e-2">dall-e</a>
-                            <a href="https://www.midjourney.com/home/?callbackUrl=%2Fapp%2F">midjourney</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
 
 
 
         
         
     </main>
+
+    
 
     <footer>
         <div class="container">
@@ -725,8 +761,7 @@
    
     <script>
 
-
-
+         
         const soundBtn = document.getElementById("sound-btn");
         const soundIcon = document.getElementById("sound-icon");
         const audio = document.getElementById("myAudio");

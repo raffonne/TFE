@@ -7,26 +7,28 @@
 @import "style/section";
 @import "style/images";
 
-
-
-.bg {
-
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%;
-  width: 200%;
-  height: 200vh;
-  background: transparent url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
-  background-repeat: repeat;
-  -webkit-animation: bg-animation 0.2s infinite;
-          animation: bg-animation 0.2s infinite;
-  opacity: 1;
-  visibility: visible;
-  z-index: -1;
-
+*{
+  outline: red dashed 1px;
 }
+
+// .bg {
+
+//   position: fixed;
+//   top: -50%;
+//   left: -50%;
+//   right: -50%;
+//   bottom: -50%;
+//   width: 200%;
+//   height: 200vh;
+//   background: transparent url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
+//   background-repeat: repeat;
+//   -webkit-animation: bg-animation 0.2s infinite;
+//           animation: bg-animation 0.2s infinite;
+//   opacity: 1;
+//   visibility: visible;
+//   z-index: -1;
+
+// }
 
 
 
@@ -49,7 +51,7 @@
 
         @media (min-width:1000px) {
           position: absolute;
-          top: 35%;
+          top: 40%;
           left: 50%;
           transform: translate(-50%, -50%);
         }
@@ -261,3 +263,62 @@
 
 
 
+.preloader-wrap {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background: #000;
+  z-index: 999999999999999999999999999;
+}
+
+.percentage {
+  z-index: 100;
+  text-align: center;
+  color: #fff;
+  font-size: 100px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 50px;
+  bottom: 0px;
+
+}
+
+.headphones{
+  height: 35px;
+  width: 35px;
+}
+
+.headphones-required{
+  
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  transform: translate(-50%, -50%);
+  max-width: 30ch;
+  text-align: center;
+  text-transform: uppercase;
+  p {
+    font-size: 13px!important;
+  }
+}
+
+.desktop{
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  p{
+    text-align: center;
+    font-size: 16px!important;
+  }
+
+}

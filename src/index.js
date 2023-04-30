@@ -53,13 +53,14 @@ var opacity = document.querySelector('#scene');
 if (opacity){
 	gsap.to('#scene',{
 		opacity:0,
-		y:-200,
+		scale:3,
 		scrollTrigger: {
 			trigger: '#scene',
-			scrub: 2,
+			scrub: 1.5,
 			// markers:true,
 			start: "bottom bottom",
 			end: "+=500",
+			pin:true,
 			toggleActions: "play none none reverse"
       }
 	})
@@ -118,7 +119,7 @@ if (opacity){
 
 
 // const lenis = new Lenis({
-// 	duration: 1.2,
+// 	duration: 1.5,
 // 	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
 // 	direction: 'vertical', // vertical, horizontal
 // 	gestureDirection: 'vertical', // vertical, horizontal, both
@@ -173,10 +174,38 @@ if(plx){
 			scrub: 0.5,
 			pin: true,
 			// markers:true
-		},
+		}
 	})
 };
 
+var gif = document.querySelector('.noclip__quote');
+if (gif) {
+	gsap.to('.noclip__quote', {
+		opacity:1,
+		duration:3,
+		scrollTrigger: {
+			trigger:'.noclip__quote',
+			start:"bottom bottom",
+			end:"top top",
+			markers:true
+		}
+	})
+};
+
+var h2 = document.querySelector('.title--big');
+if (h2) {
+	gsap.to('.title--big', {
+		opacity:1,
+		duration:3,
+		scrollTrigger: {
+			trigger:'.title--big',
+			start:"bottom bottom",
+			end:"-1000",
+			markers:true,
+			scrub:0.5
+		}
+	})
+};
 
 var pinText1 = document.querySelector('.show-1');
 if(pinText1){
@@ -247,15 +276,15 @@ if(inside){
 }
 
 
-var kane = document.querySelector('.kaneImg--3');
+var kane = document.querySelector('.kane-bg');
 if(kane){
-	gsap.from(".kaneImg--3", {
+	gsap.from(".kane-bg", {
 		// opacity: 0,
 		y:500,
 		scrollTrigger: {
-			trigger: ".kaneImg--3",
+			trigger: ".kane-bg",
 			start: "top top",
-			end: "bottom -500",
+			end: "bottom -300",
 			pin: true,
 			markers:true,
 			scrub:true
@@ -301,6 +330,14 @@ var kaneBg2 = document.getElementsByClassName('kaneImg--2');
 	},
 );
 
+var kaneBg3 = document.getElementsByClassName('kaneImg--3');
+	new simpleParallax(kaneBg3, {
+		overflow: true,
+		transition: 'cubic-bezier(0,0,.83,.50)'
+		
+	},
+);
+
 
 var kaneBg4 = document.getElementsByClassName('kaneImg--4');
 	new simpleParallax(kaneBg4, {
@@ -310,13 +347,13 @@ var kaneBg4 = document.getElementsByClassName('kaneImg--4');
 	},
 );
 
-var kanetxt = document.getElementsByClassName('kane__resume');
-	new simpleParallax(kanetxt, {
-		overflow: true,
-		transition: 'cubic-bezier(0,0,.83,.50)'
+// var kanetxt = document.getElementsByClassName('kane__resume');
+// 	new simpleParallax(kanetxt, {
+// 		overflow: true,
+// 		transition: 'cubic-bezier(0,0,.83,.50)'
 		
-	},
-);
+// 	},
+// );
 
 
 
@@ -435,3 +472,42 @@ var hoverMouse = function($el) {
   };
   
   hoverMouse($('button'));
+
+
+
+
+
+  // Source:  http://codepen.io/ahsanrathore/post/accurate-page-progress-bar
+var width = 100,
+perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
+EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
+time = parseInt((EstimatedTime/2000)%60)*100;
+
+// Percentage Increment Animation
+var PercentageID = $("#precent"),
+	start = 0,
+	end = 100,
+	durataion = time;
+	animateValue(PercentageID, start, end, durataion);
+	
+function animateValue(id, start, end, duration) {
+
+var range = end - start,
+  current = start,
+  increment = end > start? 1 : -1,
+  stepTime = Math.abs(Math.floor(duration / range)),
+  obj = $(id);
+
+var timer = setInterval(function() {
+	current += increment;
+	$(obj).text(current + "%");
+  //obj.innerHTML = current;
+	if (current == end) {
+		clearInterval(timer);
+	}
+}, stepTime);
+}
+
+setTimeout(function(){
+$('.preloader-wrap').fadeOut(2000);
+}, time);
