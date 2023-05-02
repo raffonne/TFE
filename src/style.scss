@@ -7,9 +7,9 @@
 @import "style/section";
 @import "style/images";
 
-*{
-  outline: red dashed 1px;
-}
+// *{
+//   outline: red dashed 1px;
+// }
 
 // .bg {
 
@@ -322,3 +322,15 @@
   }
 
 }
+
+
+
+.illu-noclip{
+  position: absolute;
+  width: 50%;
+  opacity: 0.1;
+  left: 10%;
+
+}
+
+

@@ -49,8 +49,11 @@ if(aboutIntro) {
 // 	})
 // };
 
+
+
 var opacity = document.querySelector('#scene');
 if (opacity){
+
 	gsap.to('#scene',{
 		opacity:0,
 		scale:3,
@@ -187,7 +190,7 @@ if (gif) {
 			trigger:'.noclip__quote',
 			start:"bottom bottom",
 			end:"top top",
-			markers:true
+			// markers:true
 		}
 	})
 };
@@ -201,7 +204,7 @@ if (h2) {
 			trigger:'.title--big',
 			start:"bottom bottom",
 			end:"-1000",
-			markers:true,
+			// markers:true,
 			scrub:0.5
 		}
 	})
@@ -286,7 +289,7 @@ if(kane){
 			start: "top top",
 			end: "bottom -300",
 			pin: true,
-			markers:true,
+			// markers:true,
 			scrub:true
 		},
 	})
@@ -342,10 +345,19 @@ var kaneBg3 = document.getElementsByClassName('kaneImg--3');
 var kaneBg4 = document.getElementsByClassName('kaneImg--4');
 	new simpleParallax(kaneBg4, {
 		overflow: true,
-		transition: 'cubic-bezier(0,0,.83,.50)'
+		transition: 'cubic-bezier(0,0,.83,2)'
 		
 	},
 );
+
+var illu = document.getElementsByClassName('.illu-noclip');
+	new simpleParallax(illu, {
+		overflow: true,
+		transition: 'cubic-bezier(0,0,.83,3)'
+		
+	},
+);
+
 
 // var kanetxt = document.getElementsByClassName('kane__resume');
 // 	new simpleParallax(kanetxt, {
@@ -511,3 +523,29 @@ var timer = setInterval(function() {
 setTimeout(function(){
 $('.preloader-wrap').fadeOut(2000);
 }, time);
+
+
+
+
+// // sélectionner le bouton et ajouter un gestionnaire d'événement
+// var fullscreenBtn = document.getElementById('fullscreen-btn');
+// fullscreenBtn.addEventListener('click', function() {
+
+//   // sélectionner l'élément HTML à mettre en mode plein écran (dans cet exemple, le corps du document)
+//   var elem = document.body;
+
+//   // vérifier si le navigateur supporte le mode plein écran
+//   if (document.fullscreenEnabled || document.webkitFullscreenEnabled || document.mozFullScreenEnabled || document.msFullscreenEnabled) {
+
+//     // demander au navigateur de mettre l'élément en mode plein écran
+//     if (elem.requestFullscreen) {
+//       elem.requestFullscreen();
+//     } else if (elem.webkitRequestFullscreen) {
+//       elem.webkitRequestFullscreen();
+//     } else if (elem.mozRequestFullScreen) {
+//       elem.mozRequestFullScreen();
+//     } else if (elem.msRequestFullscreen) {
+//       elem.msRequestFullscreen();
+//     }
+//   }
+// });

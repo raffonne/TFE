@@ -44,7 +44,7 @@
 </head>
 <body>
     
-    <!-- <div class="preloader-wrap">
+    <div class="preloader-wrap">
 
         <video autoplay muted loop id="myVideo">
             <source src="./images/dust.mp4" type="video/mp4">
@@ -73,7 +73,7 @@
             </p>
         </div>
 
-    </div> -->
+    </div>
 
     <div class="bg"></div>
     <header>
@@ -102,12 +102,16 @@
             </div>
             <div class="sound">
                 <audio autoplay loop id="myAudio">
-                    <source src="./images/dark-ambient-atmosphere-2-141314.mp3" type="audio/wav">
+                    <source src="./images//waiting-in-the-shadows-dark-ambient-soundscape-108567.mp3" type="audio/wav">
                 </audio>
                 <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
                     <img id="sound-icon" src="./images/Vector.svg">
                   </button>
             </div>
+
+            <!-- <div class="fullscreen">
+                <button id="fullscreen-btn">Activer le mode plein écran</button>
+            </div> -->
         </div>
   
       </header>
@@ -123,7 +127,7 @@
             </video>
 
             <div id="scene">
-                <div data-depth="0.1"></div>
+                <div data-depth="0.2"></div>
             </div>
 
 
@@ -231,7 +235,7 @@
         <section class="section section--about-start">
 
             <div class="bg-image">
-                <img src="./images/ThebackroomsHD.png" alt="première image des backrooms">
+                <img src="./images/ThebackroomsHD.webp" alt="première image des backrooms">
             </div>
 
             <div class="container">
@@ -290,8 +294,11 @@
             <div class="container">
                 <!-- <h4 class="title title--little">NOCLIP : Un passage vers le monde parallèle</h3> -->
                 <div class="noclip">
+                    <img class="illu-noclip" src="./images/illu-noclip.svg" alt="illustration de noclip">
+
 
                     <div class="noclip__quote">
+
 
                         <figure class="quote">
                             <blockquote>
@@ -314,7 +321,7 @@
                         </p>
                     </div>
 
-                    <div class="noclip__gif">
+                    <div class="noclip__gif" data-aos="fade-up" data-aos-duration="1000">
                         <img src="./images/backrooms-noclip.gif" alt="exemple de noclip dans les backrooms">
                     </div>
 
@@ -762,19 +769,32 @@
     <script>
 
          
-        const soundBtn = document.getElementById("sound-btn");
-        const soundIcon = document.getElementById("sound-icon");
-        const audio = document.getElementById("myAudio");
+const soundBtn = document.getElementById("sound-btn");
+const soundIcon = document.getElementById("sound-icon");
+const audio = document.getElementById("myAudio");
 
-        function toggleSound() {
-            if (audio.paused) {
-                audio.play();
-                soundIcon.src = "./images/Vector.svg";
-            } else {
-                audio.pause();
-                soundIcon.src = "./images/sound-off.svg";
-            }
-        };
+// Vérifie s'il y a une valeur stockée pour l'état de pause de l'audio
+const isPaused = localStorage.getItem("isPaused");
+if (isPaused === "true") {
+  audio.pause();
+  soundIcon.src = "./images/sound-off.svg";
+} else {
+  audio.play();
+  soundIcon.src = "./images/Vector.svg";
+}
+
+function toggleSound() {
+  if (audio.paused) {
+    audio.play();
+    soundIcon.src = "./images/Vector.svg";
+    localStorage.setItem("isPaused", "false"); // Stocke la valeur false pour indiquer que l'audio n'est pas en pause
+  } else {
+    audio.pause();
+    soundIcon.src = "./images/sound-off.svg";
+    localStorage.setItem("isPaused", "true"); // Stocke la valeur true pour indiquer que l'audio est en pause
+  }
+};
+
 
         
 

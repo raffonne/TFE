@@ -8,6 +8,10 @@
         height: 100vh;
         // display: flex;
         overflow: hidden!important;
+
+        @media (min-width:1000px) {
+            overflow: visible!important;
+        }
         #scene{
             position: absolute!important;
             div{
@@ -111,6 +115,10 @@
                     opacity: 0;
                     margin: 20em 0;
                     grid-area: quote;
+
+                    position: relative;
+
+                    
                 }
 
                 &__content{
