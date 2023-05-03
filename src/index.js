@@ -63,8 +63,6 @@ if (opacity){
 			// markers:true,
 			start: "bottom bottom",
 			end: "+=500",
-			pin:true,
-			toggleActions: "play none none reverse"
       }
 	})
 };
@@ -80,30 +78,27 @@ if (opacity){
 			scrub: 0.5,
 			// markers:true,
 			start: "bottom bottom",
-			end: "+=500",
-			toggleActions: "play none none reverse"
+			end: "+=800",
       }
 	})
 };
 
 
-// var opacity = document.querySelector('.main-title');
-// if (opacity){
-// 	gsap.to('.main-title',{
-// 		opacity:0,
-// 		y:"100",
-// 		scrollTrigger: {
-// 			trigger: '.main-title',
-// 			scrub: 2,
-// 			// markers:true,
-// 			start: "bottom 300",
-// 			end: "+=300",
-// 			pin:true,
-// 			toggleActions: "play none none reverse",
+var opacity = document.querySelector('.main-title');
+if (opacity){
+	gsap.to('.main-title',{
+		opacity:0,
+		y:-100,
+		scrollTrigger: {
+			trigger: '.main-title',
+			scrub: 0.5,
+			// markers:true,
+			start: "bottom 100",
+			end: "+=800",
 			
-//       }
-// 	})
-// };
+      }
+	})
+};
 
 // var br1 = document.querySelector('.section--about-start');
 // if (br1) {
@@ -328,7 +323,7 @@ var kaneBg = document.getElementsByClassName('kaneImg--1');
 var kaneBg2 = document.getElementsByClassName('kaneImg--2');
 	new simpleParallax(kaneBg2, {
 		overflow: true,
-		transition: 'cubic-bezier(0,0,.83,.50)'
+		transition: 'cubic-bezier(0,0,0,10)'
 		
 	},
 );
@@ -336,7 +331,7 @@ var kaneBg2 = document.getElementsByClassName('kaneImg--2');
 var kaneBg3 = document.getElementsByClassName('kaneImg--3');
 	new simpleParallax(kaneBg3, {
 		overflow: true,
-		transition: 'cubic-bezier(0,0,.83,.50)'
+		transition: 'cubic-bezier(0,0,0,10)'
 		
 	},
 );
@@ -345,7 +340,7 @@ var kaneBg3 = document.getElementsByClassName('kaneImg--3');
 var kaneBg4 = document.getElementsByClassName('kaneImg--4');
 	new simpleParallax(kaneBg4, {
 		overflow: true,
-		transition: 'cubic-bezier(0,0,.83,2)'
+		transition: 'cubic-bezier(0,0,0,10)'
 		
 	},
 );
@@ -353,7 +348,7 @@ var kaneBg4 = document.getElementsByClassName('kaneImg--4');
 var illu = document.getElementsByClassName('.illu-noclip');
 	new simpleParallax(illu, {
 		overflow: true,
-		transition: 'cubic-bezier(0,0,.83,3)'
+		transition: 'cubic-bezier(0,0,0,10)'
 		
 	},
 );
@@ -417,79 +412,79 @@ var parallaxInstance = new Parallax(scene);
 
 
 
-//Button hover begin
-var hoverMouse = function($el) {
-	$el.each(function() {
-	  var $self = $(this);
-	  var hover = false;
-	  var offsetHoverMax = $self.attr("offset-hover-max") || 0.7;
-	  var offsetHoverMin = $self.attr("offset-hover-min") || 0.5;
+// //Button hover begin
+// var hoverMouse = function($el) {
+// 	$el.each(function() {
+// 	  var $self = $(this);
+// 	  var hover = false;
+// 	  var offsetHoverMax = $self.attr("offset-hover-max") || 0.7;
+// 	  var offsetHoverMin = $self.attr("offset-hover-min") || 0.5;
   
-	  var attachEventsListener = function() {
-		$(window).on("mousemove", function(e) {
-		  //
-		  var hoverArea = hover ? offsetHoverMax : offsetHoverMin;
+// 	  var attachEventsListener = function() {
+// 		$(window).on("mousemove", function(e) {
+// 		  //
+// 		  var hoverArea = hover ? offsetHoverMax : offsetHoverMin;
   
-		  // cursor
-		  var cursor = {x: e.clientX, y: e.clientY - $(window).scrollTop()
-		  };
+// 		  // cursor
+// 		  var cursor = {x: e.clientX, y: e.clientY - $(window).scrollTop()
+// 		  };
   
-		  // size
-		  var width = $self.outerWidth();
-		  var height = $self.outerHeight();
+// 		  // size
+// 		  var width = $self.outerWidth();
+// 		  var height = $self.outerHeight();
   
-		  // position
-		  var offset = $self.offset();
-		  var elPos = { x: offset.left + width / 2, y: offset.top + height / 2
-		  };
+// 		  // position
+// 		  var offset = $self.offset();
+// 		  var elPos = { x: offset.left + width / 2, y: offset.top + height / 2
+// 		  };
   
-		  // comparaison
-		  var x = cursor.x - elPos.x;
-		  var y = cursor.y - elPos.y;
+// 		  // comparaison
+// 		  var x = cursor.x - elPos.x;
+// 		  var y = cursor.y - elPos.y;
   
-		  // dist
-		  var dist = Math.sqrt(x * x + y * y);
+// 		  // dist
+// 		  var dist = Math.sqrt(x * x + y * y);
   
-		  // mutex hover
-		  var mutHover = false;
+// 		  // mutex hover
+// 		  var mutHover = false;
   
-		  // anim
-		  if (dist < width * hoverArea) {
-			mutHover = true;
-			if (!hover) {
-			  hover = true;
-			}
-			onHover(x, y);
-		  }
+// 		  // anim
+// 		  if (dist < width * hoverArea) {
+// 			mutHover = true;
+// 			if (!hover) {
+// 			  hover = true;
+// 			}
+// 			onHover(x, y);
+// 		  }
   
-		  // reset
-		  if (!mutHover && hover) {
-			onLeave();
-			hover = false;
-		  }
-		});
-	  };
+// 		  // reset
+// 		  if (!mutHover && hover) {
+// 			onLeave();
+// 			hover = false;
+// 		  }
+// 		});
+// 	  };
   
-	  var onHover = function(x, y) {
-		TweenMax.to($self, 0.4, { x: x * 0.2, y: y * 0.2, ease: Power2.easeOut
-		});
-	  };
-	  var onLeave = function() {
-		TweenMax.to($self, 1, { x: 0, y: 0, scale: 1, rotation: 0, ease: Back.easeOut.config(1.2, 0.4)
-		});
-	  };
+// 	  var onHover = function(x, y) {
+// 		TweenMax.to($self, 0.4, { x: x * 0.2, y: y * 0.2, ease: Power2.easeOut
+// 		});
+// 	  };
+// 	  var onLeave = function() {
+// 		TweenMax.to($self, 1, { x: 0, y: 0, scale: 1, rotation: 0, ease: Back.easeOut.config(1.2, 0.4)
+// 		});
+// 	  };
   
-	  attachEventsListener();
-	});
-  };
+// 	  attachEventsListener();
+// 	});
+//   };
   
-  hoverMouse($('button'));
+//   hoverMouse($('button'));
 
 
 
 
 
-  // Source:  http://codepen.io/ahsanrathore/post/accurate-page-progress-bar
+//   Source:  http://codepen.io/ahsanrathore/post/accurate-page-progress-bar
 var width = 100,
 perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
 EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),

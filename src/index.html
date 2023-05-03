@@ -43,41 +43,51 @@
 
 </head>
 <body>
-    
+<!--     
     <div class="preloader-wrap">
 
-        <video autoplay muted loop id="myVideo">
-            <source src="./images/dust.mp4" type="video/mp4">
-        </video>
+        <div class="container">
+            <video autoplay muted loop id="myVideo">
+                <source src="./images/dust.mp4" type="video/mp4">
+            </video>
+    
+            <div class="percentage" id="precent">100%</div>
+    
+            <div class="headphones-required">
+    
+                <div class="headphones">
 
-        <div class="percentage" id="precent">100%</div>
-
-        <div class="headphones-required">
-
-            <div class="headphones">
-                <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M33.9167 20.0416C33.875 11.5671 26.9838 4.62496 18.5 4.62496C10.0162 4.62496 3.12496 11.5671 3.08333 20.0416H6.9375C8.214 20.0416 9.25 21.0776 9.25 22.3541V33.1458C9.25 34.4223 8.214 35.4583 6.9375 35.4583H2.3125C1.036 35.4583 0 34.4223 0 33.1458V20.0416C0.041625 9.86508 8.31575 1.54163 18.5 1.54163C28.6842 1.54163 36.9584 9.86508 37 20.0416V33.1458C37 34.4223 35.964 35.4583 34.6875 35.4583H30.0625C28.786 35.4583 27.75 34.4223 27.75 33.1458V22.3541C27.75 21.0776 28.786 20.0416 30.0625 20.0416H33.9167Z" fill="white"/>
+                    <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M33.9167 20.0416C33.875 11.5671 26.9838 4.62496 18.5 4.62496C10.0162 4.62496 3.12496 11.5671 3.08333 20.0416H6.9375C8.214 20.0416 9.25 21.0776 9.25 22.3541V33.1458C9.25 34.4223 8.214 35.4583 6.9375 35.4583H2.3125C1.036 35.4583 0 34.4223 0 33.1458V20.0416C0.041625 9.86508 8.31575 1.54163 18.5 1.54163C28.6842 1.54163 36.9584 9.86508 37 20.0416V33.1458C37 34.4223 35.964 35.4583 34.6875 35.4583H30.0625C28.786 35.4583 27.75 34.4223 27.75 33.1458V22.3541C27.75 21.0776 28.786 20.0416 30.0625 20.0416H33.9167Z" fill="white"/>
                     </svg>
+
+                </div>
+    
+                <p>
+                    Activez le son pour profiter de l’expérience.
+                </p>
+    
             </div>
 
-            <p>
-                Activez le son pour profiter de l’expérience.
-            </p>
+                <div class="desktop">
+                    <p>
+                        Le site web est optimisé pour les écrans d’ordinateur.
+                        Certaines parties du site comme la page expérience ne sont pas disponible sur mobile.
+                    </p>
+                </div>
 
+    
+            
         </div>
 
-        <div class="desktop">
-            <p>
-                Le site web est optimisé pour les écrans d’ordinateur.
-                Certaines parties du site comme la page expérience ne sont pas disponible sur mobile.
-            </p>
-        </div>
+        
 
-    </div>
+    </div> -->
 
     <div class="bg"></div>
     <header>
         <input class="hidden hidden--input" id="burger" type="checkbox" />
+
         <label for="burger">
             <div class="burger">
                 <span class="bar"></span>
@@ -85,33 +95,57 @@
                 <span class="bar"></span>
             </div>
         </label>
+
         <nav>
-          <div class="nav__el">
-              <a class="btn nav-links" href="index.html">Accueil</a>
-          </div>
-  
-          <div class="nav__el">
-              <a class="btn nav-links" href="experience.html">Experience</a>
-          </div>
-  
-        </div>
+
+            <div class="nav__el">
+                <a class="btn nav-links" href="index.html">Accueil</a>
+            </div>
+    
+            <div class="nav__el">
+                <a class="btn nav-links" href="experience.html">Experience</a>
+            </div>
+
+            <!-- <div class="utils">
+
+                <div class="lang">
+                    <button class="btn btn--lang">EN</button>
+                </div>
+
+                <div class="sound">
+
+                    <audio autoplay loop id="myAudio">
+                        <source src="./images//waiting-in-the-shadows-dark-ambient-soundscape-108567.mp3" type="audio/wav">
+                    </audio>
+
+                    <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
+                        <img id="sound-icon" src="./images/Vector.svg">
+                    </button>
+
+                </div>
+
+            </div> -->
+
         </nav>
+
         <div class="utils">
+
             <div class="lang">
                 <button class="btn btn--lang">EN</button>
             </div>
+
             <div class="sound">
+
                 <audio autoplay loop id="myAudio">
                     <source src="./images//waiting-in-the-shadows-dark-ambient-soundscape-108567.mp3" type="audio/wav">
                 </audio>
+
                 <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
                     <img id="sound-icon" src="./images/Vector.svg">
-                  </button>
+                </button>
+                
             </div>
 
-            <!-- <div class="fullscreen">
-                <button id="fullscreen-btn">Activer le mode plein écran</button>
-            </div> -->
         </div>
   
       </header>
@@ -135,36 +169,41 @@
             <div class="container">
 
                 <div class="main-title">
+
                     <h1 class="title title--main blur">
                         <span class="blur-txt">N</span><span class="blur-txt">O</span><span class="blur-txt">C</span><span class="blur-txt">L</span><span class="blur-txt">I</span><span class="blur-txt">P</span>
                     </h1>
-                    <h1 class="title title--submain blur">Inside the backrooms</h1>
+
+                    <h1 class="title title--submain">Inside the backrooms</h1>
+
                 </div>
 
                 
         
                 <div class="main-small">
 
-                    <p>
-                        NOCLIP est un site web immersif dans lequel vous découvrirez les secrets du mystérieux et terrifiant univers des Backrooms.
-                    </p>
-                    <p>
-                        Les Backrooms sont une légende urbaine créée sur internet ne cessant d’évoluer chaque jour grâce à la créativité des internautes du monde entier. Il existe des milliers de Backrooms, toutes plus mystérieuses et plus dangereuses que les autres. 
-                    </p>
-
-                    <div class="hidden hidden--desktop">
+                    <!-- <div class="main-small__desktop hidden hidden--desktop">
 
                         <img class="picto" src="./images/desktop-only.svg" alt="icone disponible uniquement sur desktop">
                         
-                        <small>
+                        <p>
                             Expérience optimisée sur desktop
-                        </small>
+                        </p>
+                    </div> -->
+
+                    <div class="main-small__txt">
+                        <p>
+                            NOCLIP est un site web immersif dans lequel vous découvrirez les secrets du mystérieux et terrifiant univers des Backrooms.
+                        </p>
+                        <p>
+                            Les Backrooms sont une légende urbaine créée sur internet ne cessant d’évoluer chaque jour grâce à la créativité des internautes du monde entier. Il existe des milliers de Backrooms, toutes plus mystérieuses et plus dangereuses que les autres. 
+                        </p>
                     </div>
 
+                   
+
                     
-    
-                    
-                    
+
                 </div>
     
             </div>
@@ -668,7 +707,13 @@
 
                     <div class="portal-container container">
 
-                        <div class="footer-heading footer-heading--row-1">
+                        <div class="footer-heading">
+                            <p>
+                                ON SE RETROUVE DE L'AUTRE CÔTé
+                            </p>
+                        </div>
+                    
+                        <!-- <div class="footer-heading footer-heading--row-1">
                             <p>
                                 ON
                             </p>
@@ -699,48 +744,13 @@
                             <p>
                                 Côté
                             </p>
-                        </div>
+                        </div> -->
 
                         
                         <button class="btn btn--link">
                             <a href="experience.html">NOCLIP EXPERIENCE</a>
                         </button>
 
-
-                        <div class="credits">
-                            <h3 class="title title--little">Crédits</h3>
-                                <ul class="credits__category">
-
-                                    <li class="credits-list__el">Image & vidéos
-                                        <a class="link-txt" href="https://www.kanepixels.shop/">KANEPIXELS</a>
-                                        <a class="link-txt" href="https://unsplash.com/fr">UNSPLASH</a>
-                                    </li>
-
-                                    <li class="credits-list__el">Animations & transitions
-                                        <a class="link-txt" href="https://greensock.com/">Greensock</a>
-                                        <a class="link-txt" href="https://simpleparallax.com/">SimpleParallax</a>
-                                        <a class="link-txt" href="https://lenis.studiofreight.com/">Lenis</a>
-                                    </li>
-
-                                    <li class="credits-list__el">Code
-                                        <a class="link-txt" href="https://threejs-journey.com/">ThreeJS Journey</a>
-                                        <a class="link-txt" href="https://github.com/kripken/ammo.js/">Ammo.js</a>
-                                        <a class="link-txt" href="https://threejs.org/docs/#examples/en/controls/FirstPersonControls">fpscontrols.js</a>
-                                    </li>
-
-                                    <li class="credits-list__el">Typographies 
-                                        <a class="link-txt" href="https://pangrampangram.com/">pangrampangram</a>
-                                    </li>
-
-                                    <li class="credits-list__el">Mentions spéciales
-                                        <a class="link-txt" href="https://openai.com/blog/chatgpt">Wikidot</a>
-                                        <a class="link-txt" href="https://openai.com/product/dall-e-2">Feldup</a>
-                                    </li>
-                                    
-                                </ul>
-
-                            
-                        </div>
                         
                     </div>
                     
@@ -769,31 +779,32 @@
     <script>
 
          
-const soundBtn = document.getElementById("sound-btn");
-const soundIcon = document.getElementById("sound-icon");
-const audio = document.getElementById("myAudio");
+        const soundBtn = document.getElementById("sound-btn");
+        const soundIcon = document.getElementById("sound-icon");
+        const audio = document.getElementById("myAudio");
 
 // Vérifie s'il y a une valeur stockée pour l'état de pause de l'audio
-const isPaused = localStorage.getItem("isPaused");
-if (isPaused === "true") {
-  audio.pause();
-  soundIcon.src = "./images/sound-off.svg";
-} else {
-  audio.play();
-  soundIcon.src = "./images/Vector.svg";
-}
+    const isPaused = localStorage.getItem("isPaused");
 
-function toggleSound() {
-  if (audio.paused) {
-    audio.play();
-    soundIcon.src = "./images/Vector.svg";
-    localStorage.setItem("isPaused", "false"); // Stocke la valeur false pour indiquer que l'audio n'est pas en pause
-  } else {
-    audio.pause();
-    soundIcon.src = "./images/sound-off.svg";
-    localStorage.setItem("isPaused", "true"); // Stocke la valeur true pour indiquer que l'audio est en pause
-  }
-};
+    if (isPaused === "true") {
+        audio.pause();
+        soundIcon.src = "./images/sound-off.svg";
+    } else {
+        audio.play();
+        soundIcon.src = "./images/Vector.svg";
+    }
+
+    function toggleSound() {
+      if (audio.paused) {
+        audio.play();
+        soundIcon.src = "./images/Vector.svg";
+        localStorage.setItem("isPaused", "false"); // Stocke la valeur false pour indiquer que l'audio n'est pas en pause
+      } else {
+        audio.pause();
+        soundIcon.src = "./images/sound-off.svg";
+        localStorage.setItem("isPaused", "true"); // Stocke la valeur true pour indiquer que l'audio est en pause
+      }
+    };
 
 
         

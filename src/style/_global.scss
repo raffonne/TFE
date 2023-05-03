@@ -30,11 +30,13 @@ body{
     &--desktop{
       display: flex;
       flex-direction: column;
+      // gap: 1em;
+      text-transform: uppercase;
+      max-width: 20ch;
       align-items: center;
-      gap: 1em;
   
       .picto{
-        height: 50px;
+        height: 30px;
         width:100px;
         
       }
