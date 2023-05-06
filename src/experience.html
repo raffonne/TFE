@@ -44,7 +44,8 @@
 </head>
 <body>
     <header>
-        <input class="hidden" id="burger" type="checkbox" />
+        <input class="hidden hidden--input" id="burger" type="checkbox" />
+
         <label for="burger">
             <div class="burger">
                 <span class="bar"></span>
@@ -52,34 +53,65 @@
                 <span class="bar"></span>
             </div>
         </label>
+
         <nav>
-          <div class="nav__el">
-              <a class="btn nav-links" href="index.html">Accueil</a>
-          </div>
-          <div class="nav__el">
-              <a class="btn nav-links" href="experience.html">Experience</a>
-          </div>
-  
+
+            <div class="nav__el">
+                <a class="btn nav-links" href="index.html">Accueil</a>
+            </div>
+    
+            <div class="nav__el">
+                <a class="btn nav-links active" href="experience.html">Experience</a>
+            </div>
+
+            <!-- <div class="utils">
+
+                <div class="lang">
+                    <button class="btn btn--lang">EN</button>
+                </div>
+
+                <div class="sound">
+
+                    <audio autoplay loop id="myAudio">
+                        <source src="./images//waiting-in-the-shadows-dark-ambient-soundscape-108567.mp3" type="audio/wav">
+                    </audio>
+
+                    <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
+                        <img id="sound-icon" src="./images/Vector.svg">
+                    </button>
+
+                </div>
+
+            </div> -->
+
         </nav>
+
         <div class="utils">
+
             <div class="lang">
                 <button class="btn btn--lang">EN</button>
             </div>
+
             <div class="sound">
+
                 <audio autoplay loop id="myAudio">
-                    <source src="./images/ambient&noise.mp3" type="audio/wav">
+                    <source src="./images//waiting-in-the-shadows-dark-ambient-soundscape-108567.mp3" type="audio/wav">
                 </audio>
+
                 <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
                     <img id="sound-icon" src="./images/Vector.svg">
-                  </button>
+                </button>
+                
             </div>
+
         </div>
   
       </header>
+
     <main class="experience">
         <div class="bg"></div>
 
-    <div class="intro">
+    <!-- <div class="intro">
         <p>
             Vous étiez probablement en train de manger, en train de rouler en voiture, ou en train de passer du temps avec vos proches. 
 
@@ -90,10 +122,11 @@
         </p>
 
         <button class="btn btn--link">Commencer</button>
-      </div>
+      </div> -->
 
 
       <section class="section section--experience">
+        
         <canvas class="webgl"></canvas>
 
         <div class="controls controls--fixed">
@@ -128,15 +161,28 @@
         const soundIcon = document.getElementById("sound-icon");
         const audio = document.getElementById("myAudio");
 
-        function toggleSound() {
+        // Vérifie s'il y a une valeur stockée pour l'état de pause de l'audio
+            const isPaused = localStorage.getItem("isPaused");
+
+            if (isPaused === "true") {
+                audio.pause();
+                soundIcon.src = "./images/sound-off.svg";
+            } else {
+                audio.play();
+                soundIcon.src = "./images/Vector.svg";
+            }
+
+            function toggleSound() {
             if (audio.paused) {
                 audio.play();
                 soundIcon.src = "./images/Vector.svg";
+                localStorage.setItem("isPaused", "false"); // Stocke la valeur false pour indiquer que l'audio n'est pas en pause
             } else {
                 audio.pause();
                 soundIcon.src = "./images/sound-off.svg";
+                localStorage.setItem("isPaused", "true"); // Stocke la valeur true pour indiquer que l'audio est en pause
             }
-        }
+            };
 
     </script>
 

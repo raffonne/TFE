@@ -8,8 +8,6 @@ import Parallax from 'parallax-js';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-
-
 gsap.registerPlugin(ScrollTrigger);
 const text = new SplitText(".content", ["words"]);
 
@@ -278,7 +276,8 @@ var kane = document.querySelector('.kane-bg');
 if(kane){
 	gsap.from(".kane-bg", {
 		// opacity: 0,
-		y:500,
+		y:100,
+		// scale: 1.5,
 		scrollTrigger: {
 			trigger: ".kane-bg",
 			start: "top top",
@@ -312,13 +311,13 @@ var universBg = document.getElementsByClassName('univers__bg');
 	},
 );
 
-var kaneBg = document.getElementsByClassName('kaneImg--1');
-	new simpleParallax(kaneBg, {
-		overflow: true,
-		transition: 'cubic-bezier(0,0,0,10)',
+// var kaneBg = document.getElementsByClassName('kaneImg--1');
+// 	new simpleParallax(kaneBg, {
+// 		overflow: true,
+// 		transition: 'cubic-bezier(0,0,0,10)',
 		
-	},
-);
+// 	},
+// );
 
 var kaneBg2 = document.getElementsByClassName('kaneImg--2');
 	new simpleParallax(kaneBg2, {
@@ -366,13 +365,6 @@ var illu = document.getElementsByClassName('.illu-noclip');
 
 
 
-
-
-
-
-
-
-//swiper
 const spaceHolder = document.querySelector('.space-holder');
 const horizontal = document.querySelector('.horizontal');
 spaceHolder.style.height = `${calcDynamicHeight(horizontal)}px`;
@@ -393,10 +385,6 @@ window.addEventListener('resize', () => {
   spaceHolder.style.height = `${calcDynamicHeight(horizontal)}px`;
 });
 
-
-
-
-
 AOS.init();
 
 
@@ -406,85 +394,7 @@ var parallaxInstance = new Parallax(scene);
 
 
 
-
-
-
-
-
-
-// //Button hover begin
-// var hoverMouse = function($el) {
-// 	$el.each(function() {
-// 	  var $self = $(this);
-// 	  var hover = false;
-// 	  var offsetHoverMax = $self.attr("offset-hover-max") || 0.7;
-// 	  var offsetHoverMin = $self.attr("offset-hover-min") || 0.5;
-  
-// 	  var attachEventsListener = function() {
-// 		$(window).on("mousemove", function(e) {
-// 		  //
-// 		  var hoverArea = hover ? offsetHoverMax : offsetHoverMin;
-  
-// 		  // cursor
-// 		  var cursor = {x: e.clientX, y: e.clientY - $(window).scrollTop()
-// 		  };
-  
-// 		  // size
-// 		  var width = $self.outerWidth();
-// 		  var height = $self.outerHeight();
-  
-// 		  // position
-// 		  var offset = $self.offset();
-// 		  var elPos = { x: offset.left + width / 2, y: offset.top + height / 2
-// 		  };
-  
-// 		  // comparaison
-// 		  var x = cursor.x - elPos.x;
-// 		  var y = cursor.y - elPos.y;
-  
-// 		  // dist
-// 		  var dist = Math.sqrt(x * x + y * y);
-  
-// 		  // mutex hover
-// 		  var mutHover = false;
-  
-// 		  // anim
-// 		  if (dist < width * hoverArea) {
-// 			mutHover = true;
-// 			if (!hover) {
-// 			  hover = true;
-// 			}
-// 			onHover(x, y);
-// 		  }
-  
-// 		  // reset
-// 		  if (!mutHover && hover) {
-// 			onLeave();
-// 			hover = false;
-// 		  }
-// 		});
-// 	  };
-  
-// 	  var onHover = function(x, y) {
-// 		TweenMax.to($self, 0.4, { x: x * 0.2, y: y * 0.2, ease: Power2.easeOut
-// 		});
-// 	  };
-// 	  var onLeave = function() {
-// 		TweenMax.to($self, 1, { x: 0, y: 0, scale: 1, rotation: 0, ease: Back.easeOut.config(1.2, 0.4)
-// 		});
-// 	  };
-  
-// 	  attachEventsListener();
-// 	});
-//   };
-  
-//   hoverMouse($('button'));
-
-
-
-
-
-//   Source:  http://codepen.io/ahsanrathore/post/accurate-page-progress-bar
+// //   Source:  http://codepen.io/ahsanrathore/post/accurate-page-progress-bar
 var width = 100,
 perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
 EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
@@ -522,25 +432,97 @@ $('.preloader-wrap').fadeOut(2000);
 
 
 
-// // sélectionner le bouton et ajouter un gestionnaire d'événement
-// var fullscreenBtn = document.getElementById('fullscreen-btn');
-// fullscreenBtn.addEventListener('click', function() {
 
-//   // sélectionner l'élément HTML à mettre en mode plein écran (dans cet exemple, le corps du document)
-//   var elem = document.body;
 
-//   // vérifier si le navigateur supporte le mode plein écran
-//   if (document.fullscreenEnabled || document.webkitFullscreenEnabled || document.mozFullScreenEnabled || document.msFullscreenEnabled) {
 
-//     // demander au navigateur de mettre l'élément en mode plein écran
-//     if (elem.requestFullscreen) {
-//       elem.requestFullscreen();
-//     } else if (elem.webkitRequestFullscreen) {
-//       elem.webkitRequestFullscreen();
-//     } else if (elem.mozRequestFullScreen) {
-//       elem.mozRequestFullScreen();
-//     } else if (elem.msRequestFullscreen) {
-//       elem.msRequestFullscreen();
-//     }
-//   }
-// });
+
+
+const lerp = (current, target, factor) =>
+    current * (1 - factor) + target * factor;
+
+let mousePosition = { x: 0, y: 0 };
+window.addEventListener("mousemove", (e) => {
+    mousePosition.x = e.pageX;
+    mousePosition.y = e.pageY;
+});
+
+const calculateDistance = (x1, y1, x2, y2) => {
+    return Math.hypot(x1 - x2, y1 - y2);
+};
+
+// ------------------------------------------------------------------------
+class MagneticObject {
+    constructor(domElement) {
+        this.domElement = domElement;
+        this.boundingClientRect = this.domElement.getBoundingClientRect();
+        this.triggerArea = 200;
+        this.interpolationFactor = 0.8;
+
+        this.lerpingData = {
+            x: { current: 0, target: 0 },
+            y: { current: 0, target: 0 },
+        };
+
+        this.render();
+        this.resize();
+    }
+
+    resize() {
+        window.addEventListener("resize", () => {
+            this.boundingClientRect = this.domElement.getBoundingClientRect();
+        });
+    }
+
+    render() {
+        const distanceFromMouseToCenter = calculateDistance(
+            mousePosition.x,
+            mousePosition.y,
+            this.boundingClientRect.left + this.boundingClientRect.width / 2,
+            this.boundingClientRect.top + this.boundingClientRect.height / 2
+        );
+
+        let targetHolder = { x: 0, y: 0 };
+
+        if (distanceFromMouseToCenter < this.triggerArea) {
+            targetHolder.x =
+                (mousePosition.x -
+                    (this.boundingClientRect.left +
+                        this.boundingClientRect.width / 2)) *
+                0.2;
+            targetHolder.y =
+                (mousePosition.y -
+                    (this.boundingClientRect.top +
+                        this.boundingClientRect.height / 2)) *
+                0.2;
+            console.log(targetHolder);
+        
+        }
+		
+        this.lerpingData["x"].target = targetHolder.x;
+        this.lerpingData["y"].target = targetHolder.y;
+
+        for (const item in this.lerpingData) {
+            this.lerpingData[item].current = lerp(
+                this.lerpingData[item].current,
+                this.lerpingData[item].target,
+                this.interpolationFactor
+            );
+        }
+
+        this.domElement.style.transform = `translate(${this.lerpingData["x"].current}px, ${this.lerpingData["y"].current}px)`;
+
+        window.requestAnimationFrame(() => this.render());
+    }
+}
+
+const button = document.querySelector(".btn--link");
+new MagneticObject(button);
+
+
+
+
+
+
+
+
+

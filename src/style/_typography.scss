@@ -57,11 +57,29 @@ ul{
     &:hover{
       color: #fff;
       filter: drop-shadow(0 0 0.5rem rgb(255, 255, 255));
-
     }
   }
 }
 
+
+.active{
+
+  position: relative;
+
+  &::before{
+
+    content: "";
+    background: white;
+    height: 50px;
+    width:50px;
+    border-radius: 100px;
+    position: absolute;
+    left: -0.5em;
+    top: 50%;
+
+  }
+
+}
 
 //LINKS MENU
 .nav-links{
@@ -72,14 +90,14 @@ ul{
   font-size: 30px;
   padding-top: 50px;
   padding-right: 100px;
-  
-  
+  font-family: 'eiko'!important;
+
 
   @media (min-width:1000px) {
 
-    font-size: 200px;
+    font-size: 150px;
     line-height: 1;
-    opacity: 0.5;
+    
     transition: .3s ease-in-out;
     
     &:hover{
@@ -167,7 +185,7 @@ ul{
 
       @media (min-width:700px) {
         font-size: 24px;
-        letter-spacing: 12px;
+        letter-spacing: 8px;
         padding-left: 5px;
       }
 

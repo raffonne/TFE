@@ -1,7 +1,8 @@
 
 .section {
-
+    
     position: relative;
+
     //home screen
     &--home{
         position: relative;
@@ -16,18 +17,18 @@
             
             position: absolute!important;
             z-index: -9999999;
+            transform: scale(1.5);
 
             div{
                 height: 100vh;
                 width:100vw;
-                background-image: url("../images/bg-main.webp");
+                // background-image: url("../images/bg-main.webp");
+                background-image: url("../images/bg.png");
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
                 
             }
-
-              
               
             @media (min-width:1000px) {
                 position: relative!important;
@@ -214,9 +215,17 @@
     
     &--about-footage{
         
-
         .kane-bg{
-            
+
+            display: block;
+            position: absolute;
+            position: absolute;
+            z-index: -999;
+            opacity: 0.3;
+            left: 0;
+            top: 0;
+
+
             @media (min-width:1000px) {
 
                 display: block;
@@ -226,12 +235,19 @@
                 left: 45%;
                 top: 0;
       
-              }
+            }  
 
-              img{
-                width: 50%;
-              }
-              
+            img{
+
+                width: 100%;
+
+                @media (min-width:1000px) {
+                    width:50%;
+                }
+
+            }
+            
+                 
     
         }
 
@@ -242,6 +258,20 @@
             .kane{
                 
                 position: relative;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                "bold"
+                "vid"
+                "txt"
+                "img1"
+                "res"
+                "resBis"
+                "img2"
+                "img3"
+                "strong";
+                grid-row-gap:1em;
+
 
                 @media (min-width:1000px) {
 
@@ -260,11 +290,6 @@
                     grid-row-gap:10em;
 
                 }
-                
-
-                
-                
-        
 
                 .bold{
                     // max-width: 45ch;
@@ -298,6 +323,7 @@
 
                     &--1{
                         grid-area: img1;
+                        width: 100px;
                     }
                     &--2{
 
@@ -412,10 +438,11 @@
             .portal-bg{
                 
                 &::before {
+                    
                     content: "";
-                    background-image: url('../images/bg-main.webp');
+                    // background-image: url('../images/bg-main.webp');
                     background-position-x: center;
-                    background-position-y: bottom;
+                    background-position-y: center;
                     background-repeat: no-repeat;
                     background-size: cover;
                     position: absolute;
@@ -433,35 +460,42 @@
 
             .portal-container{
 
-                
+                display: flex;
+                flex-direction: column;
+                gap: 10em;
                 
                 @media (min-width:1000px) {
 
-                    // height: 90vh;
-
-                    display: grid;
                     grid-template-rows: 25% 25% 25% 25%;
                     grid-template-areas:
 
                     "row1 . . row2"
                     ". row3 row3 ."
                     "row4 . row5 row5"
-                    "credits credits row6 btn";
+                    "credits credits row6 row6";
 
                 }
 
                 .footer-heading{
 
+                    grid-area:head;
+                    
+                    @media (min-width:1000px) {
+
+                        position: absolute;
+
+
+                    }
                     
                     p{
                         // text-align: center;
-                        font-size: 60px;
-                        text-align: justify;
-                        font-family: 'montreal bold';
+                        font-size: 80px;
+                        text-align: center;
+                        font-family: 'montreal';
                         line-height: 1.5;
                         margin: 0;
-                        text-transform: uppercase;
-                        filter: drop-shadow(0 0 0.5rem rgb(255, 255, 255));
+                        // text-transform: uppercase;
+                        // filter: drop-shadow(0 0 0.5rem rgb(255, 255, 255));
 
                     }
 
@@ -514,56 +548,37 @@
                 }
 
                 .credits{
-
+                    display: none;
                     grid-area: credits;
                     // align-self: flex-end;
-                    // text-align: center;
                     
-                    &__category{
 
-                        display: flex;
-                        flex-direction: column;
-                        
-                        gap: 20px;
-                        
-
-                        li{
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: space-between;
-                        }
+                    @media (min-width:1000px) {
+                        display: block;
+                        position: absolute;
+                        bottom: 100px;
                     }
+
                 }
 
-                button{
-
-                    grid-area: btn;
-
+                .exp-btn{
                     position: absolute;
-                    top: 40%;
-                    right: 16px;
-
-                    display: block;
-                    align-self: center;
-
-                    
+                    bottom: 50%;
+                    left: 50%;
+                    transform: translate(-50%);
+                 
                     @media(min-width:1000px){
-                        // position: absolute;
-                        // bottom: 100px;
-                        // right: 100px;
-                        align-self: flex-end;
-                        justify-self: flex-end;
+                        position: absolute;
+                        bottom: 50%;
+                    left: 50%;
+                    transform: translate(-50%);
                     }
                     
                 }
             }
-          }
-          
-          
-          
-          
+        }
+ 
     }
-
 
 }
 
@@ -584,7 +599,7 @@ footer{
 
     .container{
 
-        padding-top:5em ;
+        // padding-top:5em ;
         padding-bottom: 50px;
         display: flex;
         justify-content: space-between;
@@ -592,4 +607,5 @@ footer{
 
     }
 }
+
 

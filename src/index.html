@@ -36,6 +36,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.0/bundled/lenis.js"></script>
 
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script type="module" src="index.js"></script>
 
@@ -43,8 +44,8 @@
 
 </head>
 <body>
-<!--     
-    <div class="preloader-wrap">
+    
+    <!-- <div class="preloader-wrap">
 
         <div class="container">
             <video autoplay muted loop id="myVideo">
@@ -99,7 +100,7 @@
         <nav>
 
             <div class="nav__el">
-                <a class="btn nav-links" href="index.html">Accueil</a>
+                <a class="btn nav-links active" href="index.html">Accueil</a>
             </div>
     
             <div class="nav__el">
@@ -154,17 +155,17 @@
 
 
 
-        <section class="section section--home">
+        <section class="section section--home" id="home">
 
             <video autoplay muted loop id="myVideo">
                 <source src="./images/dust.mp4" type="video/mp4">
             </video>
 
             <div id="scene">
-                <div data-depth="0.2"></div>
+                <div data-depth="0.2">
+                    
+                </div>
             </div>
-
-
 
             <div class="container">
 
@@ -176,20 +177,24 @@
 
                     <h1 class="title title--submain">Inside the backrooms</h1>
 
+                    
+
                 </div>
+
+                
 
                 
         
                 <div class="main-small">
 
-                    <!-- <div class="main-small__desktop hidden hidden--desktop">
+                    <div class="main-small__desktop hidden hidden--desktop">
 
                         <img class="picto" src="./images/desktop-only.svg" alt="icone disponible uniquement sur desktop">
                         
                         <p>
                             Expérience optimisée sur desktop
                         </p>
-                    </div> -->
+                    </div>
 
                     <div class="main-small__txt">
                         <p>
@@ -614,10 +619,10 @@
                         En janvier 2022, <span class="bold-txt">Kane Pixels</span> , un jeune vidéaste et artiste VFX, poste une vidéo intitulée “Found Footage”…
                     </p>
 
-                    <!-- <div class="kane__extrait">
+                    <div class="kane__extrait">
                         <iframe width="100%" height="500px" src="https://www.youtube.com/embed/H4dGpz6cnHo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     
-                    </div> -->
+                    </div>
 
                     
 
@@ -649,9 +654,15 @@
 
                     
                     <div class="kaneImg kaneImg--1">
-                        <video muted loop >
+
+                        <video width="320" height="240" controls muted>
+
                             <source src="./images/foundfootage-clip.mp4" type="video/mp4">
+                            <source src="./images/foundfootage-clip.ogg" type="video/ogg">
+                            <source src="./images/foundfootage-clip.webm" type="video/webm">
+
                         </video>
+
                     </div>
 
                     <div class="kaneImg kaneImg--2">
@@ -676,10 +687,13 @@
                         </p>
 
                         <div class="btn-watch">
-                            <button id="btn" class="btn btn--link">
+
+                            <button class="btn btn--link">
+
                                 <a href="https://www.youtube.com/watch?v=8TYopkSmKyA&list=PLVAh-MgDVqvDUEq6qDXqORBioE4Yhol_z">
                                     Regarder
                                 </a>
+                                
                             </button>
                         </div>
                         
@@ -706,12 +720,12 @@
                     <div class="portal-bg"></div>
 
                     <div class="portal-container container">
-
+                    <!-- 
                         <div class="footer-heading">
                             <p>
-                                ON SE RETROUVE DE L'AUTRE CÔTé
+                                On se retrouve de l'autre côté
                             </p>
-                        </div>
+                        </div> -->
                     
                         <!-- <div class="footer-heading footer-heading--row-1">
                             <p>
@@ -747,9 +761,51 @@
                         </div> -->
 
                         
-                        <button class="btn btn--link">
-                            <a href="experience.html">NOCLIP EXPERIENCE</a>
-                        </button>
+                        <div class="exp-btn">
+
+                            <button class="btn btn--exp">
+                                
+                                <a class="rolling-text" href="experience.html">NOCLIP EXPERIENCE</a>
+
+                            </button>
+
+                            <div class="cursor"></div>
+
+                        </div>
+                        
+                        <div class="credits">
+                            <h3 class="title title--little">Crédits</h3>
+                                <ul class="credits__category">
+
+                                    <li class="credits-list__el">Image &amp; vidéos
+                                        <a class="link-txt" href="https://www.kanepixels.shop/">KANEPIXELS</a>
+                                        <a class="link-txt" href="https://unsplash.com/fr">UNSPLASH</a>
+                                    </li>
+
+                                    <li class="credits-list__el">Animations &amp; transitions
+                                        <a class="link-txt" href="https://greensock.com/">Greensock</a>
+                                        <a class="link-txt" href="https://simpleparallax.com/">SimpleParallax</a>
+                                        <a class="link-txt" href="https://lenis.studiofreight.com/">Lenis</a>
+                                    </li>
+
+                                    <li class="credits-list__el">Code
+                                        <a class="link-txt" href="https://threejs-journey.com/">ThreeJS Journey</a>
+                                        <a class="link-txt" href="https://github.com/kripken/ammo.js/">Ammo.js</a>
+                                        <a class="link-txt" href="https://threejs.org/docs/#examples/en/controls/FirstPersonControls">fpscontrols.js</a>
+                                    </li>
+
+                                    <li class="credits-list__el">Typographies 
+                                        <a class="link-txt" href="https://pangrampangram.com/">pangrampangram</a>
+                                    </li>
+
+                                    <li class="credits-list__el">Mentions spéciales
+                                        <a class="link-txt" href="https://openai.com/blog/chatgpt">Wikidot</a>
+                                        <a class="link-txt" href="https://openai.com/product/dall-e-2">Feldup</a>
+                                    </li>
+                                    
+                                </ul>
+
+                        </div>
 
                         
                     </div>
@@ -778,36 +834,32 @@
    
     <script>
 
-         
         const soundBtn = document.getElementById("sound-btn");
         const soundIcon = document.getElementById("sound-icon");
         const audio = document.getElementById("myAudio");
 
-// Vérifie s'il y a une valeur stockée pour l'état de pause de l'audio
-    const isPaused = localStorage.getItem("isPaused");
+        // Vérifie s'il y a une valeur stockée pour l'état de pause de l'audio
+            const isPaused = localStorage.getItem("isPaused");
 
-    if (isPaused === "true") {
-        audio.pause();
-        soundIcon.src = "./images/sound-off.svg";
-    } else {
-        audio.play();
-        soundIcon.src = "./images/Vector.svg";
-    }
+            if (isPaused === "true") {
+                audio.pause();
+                soundIcon.src = "./images/sound-off.svg";
+            } else {
+                audio.play();
+                soundIcon.src = "./images/Vector.svg";
+            }
 
-    function toggleSound() {
-      if (audio.paused) {
-        audio.play();
-        soundIcon.src = "./images/Vector.svg";
-        localStorage.setItem("isPaused", "false"); // Stocke la valeur false pour indiquer que l'audio n'est pas en pause
-      } else {
-        audio.pause();
-        soundIcon.src = "./images/sound-off.svg";
-        localStorage.setItem("isPaused", "true"); // Stocke la valeur true pour indiquer que l'audio est en pause
-      }
-    };
-
-
-        
+            function toggleSound() {
+            if (audio.paused) {
+                audio.play();
+                soundIcon.src = "./images/Vector.svg";
+                localStorage.setItem("isPaused", "false"); // Stocke la valeur false pour indiquer que l'audio n'est pas en pause
+            } else {
+                audio.pause();
+                soundIcon.src = "./images/sound-off.svg";
+                localStorage.setItem("isPaused", "true"); // Stocke la valeur true pour indiquer que l'audio est en pause
+            }
+            };
 
     </script>
 
