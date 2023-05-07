@@ -29,15 +29,13 @@
     <meta property="twitter:image" content="">
 
     <link rel="stylesheet" href="/style.scss">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.0/bundled/lenis.js"></script>
-
-
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>  
     <script type="module" src="index.js"></script>
 
     <link rel="icon" href="./images/favicon.svg">
@@ -138,11 +136,11 @@
             <div class="sound">
 
                 <audio autoplay loop id="myAudio">
-                    <source src="./images//waiting-in-the-shadows-dark-ambient-soundscape-108567.mp3" type="audio/wav">
+                    <source src="./images/ambient-sound.mp3" type="audio/wav">
                 </audio>
 
                 <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
-                    <img id="sound-icon" src="./images/Vector.svg">
+                    <img id="sound-icon" src="./images/Vector.svg" alt="icone son">
                 </button>
                 
             </div>
@@ -162,7 +160,7 @@
             </video>
 
             <div id="scene">
-                <div data-depth="0.2">
+                <div data-depth="0.4">
                     
                 </div>
             </div>
@@ -259,7 +257,7 @@
                     <p data-aos="fade-up" data-aos-duration="1000">
                         Les <span class="bold-txt">backrooms</span> sont une légende urbaine de type horrifique, dite également <span class="bold-txt">creepypasta</span> , faisant ainsi partie d’une grande lignée de légendes créées sur internet par les internautes du monde entier.
                         <br><br>
-                        Né le 14 mai 2019 sur le <span class="bold-txt">réseau social 4chan</span> , l’univers des backrooms est devenu l’un des plus grands projets collaboratifs d’internet de ces 4 dernières années.
+                        Le 14 mai 2019 sur le <span class="bold-txt">réseau social 4chan</span> a été publiée une image accompagnée d'une description et c'est ainsi que l’univers des backrooms est devenu l’un des plus grands projets collaboratifs d’internet de ces 4 dernières années.
                     </p>
 
                     <div class="icon-img">
@@ -279,7 +277,7 @@
         <section class="section section--about-start">
 
             <div class="bg-image">
-                <img src="./images/ThebackroomsHD.webp" alt="première image des backrooms">
+                <img src="./images/ThebackroomsHD.webp" alt="première image des backrooms" srcset="./images/ThebackroomsHD@2x.webp 2x">
             </div>
 
             <div class="container">
@@ -306,7 +304,7 @@
                 </div>
                 <div class="description" >
                     <div class="description__img">
-                        <img class="og-br" src="./images/img.webp" alt="l'image originale des backrooms">
+                        <img class="og-br" src="./images/img.webp" srcset="./images/img@2x.webp 2x" alt="l'image originale des backrooms">
                     </div>
                     <div class="description__content" data-aos="fade-up" data-aos-duration="1000">
                         <h4 class="title title--little">Une impression de déjà-vu</h4>
@@ -338,7 +336,6 @@
             <div class="container">
                 <!-- <h4 class="title title--little">NOCLIP : Un passage vers le monde parallèle</h3> -->
                 <div class="noclip">
-                    <img class="illu-noclip" src="./images/illu-noclip.svg" alt="illustration de noclip">
 
 
                     <div class="noclip__quote">
@@ -355,6 +352,9 @@
                         </figure>
 
                     </div>
+
+                    <img class="illu-noclip" src="./images/illu-noclip.svg" alt="illustration de noclip">
+
                     
                     <div class="noclip__content" data-aos="fade-up" data-aos-duration="1000">
                         <p>
@@ -385,7 +385,7 @@
         <section class="section section--about-univers" >
 
             <div class="univers__bg">
-                <img src="./images/br-200vh.webp" alt="un espace liminal">
+                <img src="./images/br-200vh.webp" srcset="./images/br-200vh@2x.webp 2x" alt="un espace liminal">
             </div>
             
             <div class="container">
@@ -439,7 +439,7 @@
                             <article class="br-card" >
 
                                 <div class="br-img">
-                                    <img class="level-01" src="./images/level1.webp" alt="image du niveau 1 des backrooms">
+                                    <img class="level-01" src="./images/level1.webp" srcset="./images/level1@2x.webp 2x" alt="image du niveau 1 des backrooms">
                                 </div>
 
                                 <div class="br-name" >
@@ -455,8 +455,8 @@
 
                             <article class="br-card">
 
-                                <div class="float">
-                                    <img src="./images/4chan.svg" alt="">
+                                <div class="float float--1" >
+                                    <img src="./images/smilers.webp" srcset="./images/smilers@2x.webp 2x" alt="smilers">
                                 </div>
 
                                 <div class="br-name">
@@ -467,14 +467,22 @@
                                 </div>
                                 
                                 <div class="br-img">
-                                    <img class="level-02" src="./images/level2.webp" alt="image du niveau 2 des backrooms">
+                                    <img class="level-02" src="./images/level2.webp" srcset="./images/level2@2x.webp 2x" alt="image du niveau 2 des backrooms">
                                 </div>
 
+                                <div class="float float--3" >
+                                    <img src="./images/bacteria.webp" srcset="./images/bacteria@2x.webp 2x" alt="bacteria">
+                                </div>
+
+
                             </article>
+
                             <article class="br-card">
+
+                                 
                                 
                                 <div class="br-img">
-                                    <img class="level-03" src="./images/level3.webp" alt="image du niveau 3 des backrooms">
+                                    <img class="level-03" src="./images/level3.webp" srcset="./images/level3@2x.webp 2x" alt="image du niveau 3 des backrooms">
                                 </div>
 
                                 <div class="br-name">
@@ -485,8 +493,13 @@
                                 </div>
 
 
+
                             </article>
                             <article class="br-card">
+
+                                <div class="float float--4" >
+                                    <img src="./images/windows.webp" srcset="./images/windows@2x.webp 2x" alt="windows">
+                                </div>
 
                                 <div class="br-name">
                                     <small class="lvl-number">Niveau 4</small>
@@ -496,7 +509,7 @@
                                 </div>
 
                                 <div class="br-img">
-                                    <img class="level-04" src="./images/level4.webp" alt="image du niveau 4 des backrooms">
+                                    <img class="level-04" src="./images/level4.webp" srcset="./images/level4@2x.webp 2x" alt="image du niveau 4 des backrooms">
                                 </div>
 
                             </article>
@@ -504,7 +517,7 @@
                             <article class="br-card">
                                 
                                 <div class="br-img">
-                                    <img class="level-05" src="./images/level5.webp" alt="image du niveau 5 des backrooms">
+                                    <img class="level-05" src="./images/level5.webp" srcset="./images/level5@2x.webp 2x" alt="image du niveau 5 des backrooms">
                                 </div>
 
                                 <div class="br-name">
@@ -514,6 +527,7 @@
                                     </h4>
                                 </div>
 
+                               
 
                             </article>
                             <article class="br-card">
@@ -526,14 +540,14 @@
                                 </div>
 
                                 <div class="br-img">
-                                    <img class="level-06" src="./images/level6.webp" alt="image du niveau 6 des backrooms">
+                                    <img class="level-06" src="./images/level6.webp" srcset="./images/level6@2x.webp 2x" alt="image du niveau 6 des backrooms">
                                 </div>
 
                             </article>
                             <article class="br-card">
                                 
                                 <div class="br-img">
-                                    <img class="level-07" src="./images/level7.webp" alt="image du niveau 7 des backrooms">
+                                    <img class="level-07" src="./images/level7.webp" srcset="./images/level7@2x.webp 2x" alt="image du niveau 7 des backrooms">
                                 </div>
 
                                 <div class="br-name">
@@ -554,14 +568,14 @@
                                 </div>
                                 
                                 <div class="br-img">
-                                    <img class="level-08" src="./images/level8.webp" alt="image du niveau 8 des backrooms">
+                                    <img class="level-08" src="./images/level8.webp" srcset="./images/level8@2x.webp 2x" alt="image du niveau 8 des backrooms">
                                 </div>
 
                             </article>
                             <article class="br-card">
                                 
                                 <div class="br-img">
-                                    <img class="level-09" src="./images/level9.webp" alt="image du niveau 9 des backrooms">
+                                    <img class="level-09" src="./images/level9.webp" srcset="./images/level9@2x.webp 2x" alt="image du niveau 9 des backrooms">
                                 </div>
 
                                 <div class="br-name">
@@ -613,7 +627,7 @@
 
 
             <div class="kaneImg kane-bg">
-                <img src="./images/kanepixels.webp" alt="image des scientifiques présents dans les vidéos de kane pixels">
+                <img src="./images/kanepixels.webp" srcset="./images/kanepixels@2x.webp 2x" alt="image des scientifiques présents dans les vidéos de kane pixels">
             </div>
 
 
@@ -628,7 +642,6 @@
 
                     <div class="kane__extrait">
                         <iframe width="100%" height="500px" src="https://www.youtube.com/embed/H4dGpz6cnHo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    
                     </div>
 
                     
@@ -662,7 +675,7 @@
                     
                     <div class="kaneImg kaneImg--1">
 
-                        <video width="320" height="240" controls muted>
+                        <video width="320" height="240" controls>
 
                             <source src="./images/foundfootage-clip.mp4" type="video/mp4">
                             <source src="./images/foundfootage-clip.ogg" type="video/ogg">
@@ -673,11 +686,11 @@
                     </div>
 
                     <div class="kaneImg kaneImg--2">
-                        <img src="./images/lost-kid.webp" alt="avis de recherche d'une personne perdue dans les vidéos de KanePixels">
+                        <img src="./images/lost-kid.webp" srcset="./images/lost-kid@2x.webp 2x" alt="avis de recherche d'une personne perdue dans les vidéos de KanePixels">
                     </div>
 
                     <div class="kaneImg kaneImg--3">
-                        <img src="./images/lab.webp" alt="Image de vidéos des scientifiques">
+                        <img src="./images/lab.webp" srcset="./images/lab@2x.webp 2x" alt="Image de vidéos des scientifiques">
                     </div>
                     
                     
@@ -719,7 +732,7 @@
             <div class="portal">
 
                 <div class="portal-image">
-                    <img src="./images/scroll-bg.webp" alt="portail vers les backrooms dans le vidéos de kane pixels">
+                    <img src="./images/scroll-bg.webp" srcset="./images/scroll-bg@2x.webp 2x" alt="portail vers les backrooms dans le vidéos de kane pixels">
                 </div>
 
                 <div class="portal-content">
@@ -772,7 +785,7 @@
 
                             <button class="btn btn--exp">
                                 
-                                <a class="rolling-text" href="experience.html">NOCLIP EXPERIENCE</a>
+                                <a href="experience.html">Noclip EXPERIENCE</a>
 
                             </button>
 

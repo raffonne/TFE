@@ -2,9 +2,11 @@
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from "./otherLibs/gsap/splitText";
-// import Lenis from '@studio-freight/lenis';
+import Lenis from '@studio-freight/lenis';
 import simpleParallax from 'simple-parallax-js';
+
 import Parallax from 'parallax-js';
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -21,7 +23,7 @@ if(aboutIntro) {
 		scrollTrigger:{
 			trigger:'.container-txt',
 			start:'center center',
-			end: '4000',
+			end: '6000',
 			scrub: 1,
 			pin:true,
 			anticipatePin: true,
@@ -49,8 +51,8 @@ if(aboutIntro) {
 
 
 
-var opacity = document.querySelector('#scene');
-if (opacity){
+var opacity1 = document.querySelector('#scene');
+if (opacity1){
 
 	gsap.to('#scene',{
 		opacity:0,
@@ -61,6 +63,20 @@ if (opacity){
 			// markers:true,
 			start: "bottom bottom",
 			end: "+=500",
+      }
+	})
+};
+
+var noclip = document.querySelector('.illu-noclip');
+if (noclip){
+	gsap.to('.illu-noclip',{
+		y:-400,
+		scrollTrigger: {
+			trigger: '.illu-noclip',
+			scrub: 0.5,
+			// markers:true,
+			start: "bottom bottom",
+			end: "+=100",
       }
 	})
 };
@@ -81,9 +97,24 @@ if (opacity){
 	})
 };
 
+var title = document.querySelector('.title--big');
+if (title) {
+	gsap.from('.title--big',{
+		opacity:0,
+		y:100,
+		scrollTrigger:{
+			trigger: '.title--big',
+			scrub: 0.5,
+			markers:true,
+			start: "bottom bottom",
+			end: "+=100",
+		}
+	})
+}
 
-var opacity = document.querySelector('.main-title');
-if (opacity){
+
+var opacity2 = document.querySelector('.main-title');
+if (opacity2){
 	gsap.to('.main-title',{
 		opacity:0,
 		y:-100,
@@ -91,55 +122,55 @@ if (opacity){
 			trigger: '.main-title',
 			scrub: 0.5,
 			// markers:true,
-			start: "bottom 100",
+			start: "bottom 50",
 			end: "+=800",
 			
       }
 	})
 };
 
-// var br1 = document.querySelector('.section--about-start');
-// if (br1) {
-// 	gsap.to('.introduction__bg-image',{
-// 		opacity:1,
-// 		ease: 'none',
-// 		scrollTrigger: {
-// 			trigger: '.introduction__content',
-// 			start: "bottom bottom",
-// 			end: "-=100%",
-// 			toggleActions: "play none none reverse",
-// 			markers:true
-//       }
-// 	})
-// }
+var br1 = document.querySelector('.section--about-start');
+if (br1) {
+	gsap.to('.introduction__bg-image',{
+		opacity:1,
+		ease: 'none',
+		scrollTrigger: {
+			trigger: '.introduction__content',
+			start: "bottom bottom",
+			end: "-=100%",
+			// toggleActions: "play none none reverse",
+			// markers:true
+      }
+	})
+}
 
 
-// const lenis = new Lenis({
-// 	duration: 1.5,
-// 	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-// 	direction: 'vertical', // vertical, horizontal
-// 	gestureDirection: 'vertical', // vertical, horizontal, both
-// 	smooth: true,
-// 	mouseMultiplier: 1,
-// 	smoothTouch: 0.1,
-// 	smoothWheel:true,
-// 	touchMultiplier: 1,
-// 	infinite: false,
-// 	});
+const lenis = new Lenis({
+	duration: 1.5,
+	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+	direction: 'vertical', // vertical, horizontal
+	gestureDirection: 'vertical', // vertical, horizontal, both
+	smooth: true,
+	mouseMultiplier: 1,
+	smoothTouch: 0.1,
+	smoothWheel:true,
+	touchMultiplier: 1,
+	infinite: false,
+	});
 
-// 	function raf(time) {
-// 	lenis.raf(time)
-// 	requestAnimationFrame(raf)
-// }
+	function raf(time) {
+	lenis.raf(time)
+	requestAnimationFrame(raf)
+}
 
-// requestAnimationFrame(raf)
+requestAnimationFrame(raf)
 
 
-// lenis.on('scroll', ScrollTrigger.update)
+lenis.on('scroll', ScrollTrigger.update)
 
-// gsap.ticker.add((time)=>{
-//   lenis.raf(time * 1000)
-// })
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000)
+})
 
 var chapter = document.querySelector('.section--about-origins');
 if(chapter){
@@ -181,8 +212,10 @@ if (gif) {
 		duration:3,
 		scrollTrigger: {
 			trigger:'.noclip__quote',
-			start:"bottom bottom",
-			end:"top top",
+			start:"center center",
+			end:"top -1000",
+			pin:true,
+			scrub:true
 			// markers:true
 		}
 	})
@@ -344,13 +377,7 @@ var kaneBg4 = document.getElementsByClassName('kaneImg--4');
 	},
 );
 
-var illu = document.getElementsByClassName('.illu-noclip');
-	new simpleParallax(illu, {
-		overflow: true,
-		transition: 'cubic-bezier(0,0,0,10)'
-		
-	},
-);
+
 
 
 // var kanetxt = document.getElementsByClassName('kane__resume');
@@ -360,6 +387,13 @@ var illu = document.getElementsByClassName('.illu-noclip');
 		
 // 	},
 // );
+
+
+var float = document.getElementsByClassName('.float');
+	new simpleParallax(float, {
+		overflow:true
+	},
+);
 
 
 

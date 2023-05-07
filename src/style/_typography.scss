@@ -99,7 +99,7 @@ ul{
   padding-top: 0.5em;
   padding-right: 1em;
   font-family: 'eiko'!important;
-  background: -webkit-linear-gradient(90deg, #000000 0%, #d1d1d1 100%);
+  background: -webkit-linear-gradient(90deg, #000000 0%, #ffffff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: .5s ease-in;
@@ -116,7 +116,7 @@ ul{
       opacity: 1;
       transition: .5s ease-in;
       // filter: drop-shadow(0 0 0.5rem rgb(255, 255, 255));
-      background: #919191;
+      background: #fff;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -352,26 +352,26 @@ figcaption{
 
 
 
-// .blur {
-// 	.blur-txt{
-// 		@for $i from 0 through 6 {
-// 			&:nth-child(#{$i + 1}) {
-// 				filter: blur(0px);
-// 				animation: blur-text 3s (#{calc($i / 5)})+s infinite linear alternate ;
-//         animation-delay: 3s;
-// 			}
-// 		}
-// 	}
-// }
+.blur {
+	.blur-txt{
+		@for $i from 0 through 6 {
+			&:nth-child(#{$i + 1}) {
+				filter: blur(0px);
+				animation: blur-text 3s (#{calc($i / 5)})+s infinite linear alternate ;
+        animation-delay: 3s;
+			}
+		}
+	}
+}
 
-// @keyframes blur-text {
-// 	0% {
-//     filter: blur(0px);
-//   }
+@keyframes blur-text {
+	0% {
+    filter: blur(0px);
+  }
 
 
-// 	100% {
-//     filter: blur(5px);
-//     opacity: 0.5;
-//   }
-// }
+	100% {
+    filter: blur(5px);
+    opacity: 0.5;
+  }
+}

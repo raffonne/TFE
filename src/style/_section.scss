@@ -17,18 +17,8 @@
             
             position: absolute!important;
             z-index: -9999999;
-            transform: scale(1.5);
+            transform: scale(1.2);
 
-            div{
-                height: 100vh;
-                width:100vw;
-                // background-image: url("../images/bg-main.webp");
-                background-image: url("../images/bg.png");
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                
-            }
               
             @media (min-width:1000px) {
                 position: relative!important;
@@ -50,7 +40,7 @@
     &--about-origins{
 
         position: relative;   
-        padding-top: 2000px; 
+        padding-top: 3000px; 
         height: 150vh;
 
 
@@ -440,7 +430,7 @@
                 &::before {
                     
                     content: "";
-                    // background-image: url('../images/bg-main.webp');
+                    background-image: url('../images/bg-main.webp');
                     background-position-x: center;
                     background-position-y: center;
                     background-repeat: no-repeat;
