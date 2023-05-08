@@ -113,21 +113,21 @@ if (title) {
 }
 
 
-var opacity2 = document.querySelector('.main-title');
-if (opacity2){
-	gsap.to('.main-title',{
-		opacity:0,
-		y:-100,
-		scrollTrigger: {
-			trigger: '.main-title',
-			scrub: 0.5,
-			// markers:true,
-			start: "bottom 50",
-			end: "+=800",
+// var opacity2 = document.querySelector('.main-title');
+// if (opacity2){
+// 	gsap.to('.main-title',{
+// 		opacity:0,
+// 		y:-100,
+// 		scrollTrigger: {
+// 			trigger: '.main-title',
+// 			scrub: 0.5,
+// 			// markers:true,
+// 			start: "bottom 50",
+// 			end: "+=800",
 			
-      }
-	})
-};
+//       }
+// 	})
+// };
 
 var br1 = document.querySelector('.section--about-start');
 if (br1) {
@@ -145,32 +145,32 @@ if (br1) {
 }
 
 
-const lenis = new Lenis({
-	duration: 1.5,
-	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-	direction: 'vertical', // vertical, horizontal
-	gestureDirection: 'vertical', // vertical, horizontal, both
-	smooth: true,
-	mouseMultiplier: 1,
-	smoothTouch: 0.1,
-	smoothWheel:true,
-	touchMultiplier: 1,
-	infinite: false,
-	});
+// const lenis = new Lenis({
+// 	duration: 1.5,
+// 	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+// 	direction: 'vertical', // vertical, horizontal
+// 	gestureDirection: 'vertical', // vertical, horizontal, both
+// 	smooth: true,
+// 	mouseMultiplier: 1,
+// 	smoothTouch: 0.1,
+// 	smoothWheel:true,
+// 	touchMultiplier: 1,
+// 	infinite: false,
+// 	});
 
-	function raf(time) {
-	lenis.raf(time)
-	requestAnimationFrame(raf)
-}
+// 	function raf(time) {
+// 	lenis.raf(time)
+// 	requestAnimationFrame(raf)
+// }
 
-requestAnimationFrame(raf)
+// requestAnimationFrame(raf)
 
 
-lenis.on('scroll', ScrollTrigger.update)
+// lenis.on('scroll', ScrollTrigger.update)
 
-gsap.ticker.add((time)=>{
-  lenis.raf(time * 1000)
-})
+// gsap.ticker.add((time)=>{
+//   lenis.raf(time * 1000)
+// })
 
 var chapter = document.querySelector('.section--about-origins');
 if(chapter){
@@ -205,13 +205,31 @@ if(plx){
 	})
 };
 
-var gif = document.querySelector('.noclip__quote');
-if (gif) {
+var quote = document.querySelector('.noclip__quote');
+if (quote) {
 	gsap.to('.noclip__quote', {
 		opacity:1,
 		duration:3,
 		scrollTrigger: {
 			trigger:'.noclip__quote',
+			start:"center center",
+			end:"top -1000",
+			pin:true,
+			scrub:true
+			// markers:true
+		}
+	})
+};
+
+var ending = document.querySelector('.footer-heading');
+if (ending) {
+	gsap.to('.footer-heading', {
+		opacity:1,
+		duration:5,
+		scale:10,
+		opacity:0,
+		scrollTrigger: {
+			trigger:'.footer-heading',
 			start:"center center",
 			end:"top -1000",
 			pin:true,
@@ -323,7 +341,14 @@ if(kane){
 };
 
 
-
+var image = document.getElementsByClassName('icon-img');
+	new simpleParallax(image, {
+		overflow: true,
+		delay: .4,
+		transition: 'cubic-bezier(0,0,0,2)',
+		
+	},
+);
 
 
 var image = document.getElementsByClassName('og-br');
@@ -344,18 +369,19 @@ var universBg = document.getElementsByClassName('univers__bg');
 	},
 );
 
-// var kaneBg = document.getElementsByClassName('kaneImg--1');
-// 	new simpleParallax(kaneBg, {
-// 		overflow: true,
-// 		transition: 'cubic-bezier(0,0,0,10)',
-		
-// 	},
-// );
+var kaneBg = document.getElementsByClassName('kaneImg--1');
+	new simpleParallax(kaneBg, {
+		overflow: true,
+		delay: .4,
+		transition: 'cubic-bezier(0,0,0,1)',
+	},
+);
 
 var kaneBg2 = document.getElementsByClassName('kaneImg--2');
 	new simpleParallax(kaneBg2, {
 		overflow: true,
-		transition: 'cubic-bezier(0,0,0,10)'
+		delay: .6,
+		transition: 'cubic-bezier(0,0,0,1)'
 		
 	},
 );
@@ -363,7 +389,8 @@ var kaneBg2 = document.getElementsByClassName('kaneImg--2');
 var kaneBg3 = document.getElementsByClassName('kaneImg--3');
 	new simpleParallax(kaneBg3, {
 		overflow: true,
-		transition: 'cubic-bezier(0,0,0,10)'
+		delay: .5,
+		transition: 'cubic-bezier(0,0,0,1)'
 		
 	},
 );
@@ -372,26 +399,38 @@ var kaneBg3 = document.getElementsByClassName('kaneImg--3');
 var kaneBg4 = document.getElementsByClassName('kaneImg--4');
 	new simpleParallax(kaneBg4, {
 		overflow: true,
-		transition: 'cubic-bezier(0,0,0,10)'
+		delay: .7,
+		transition: 'cubic-bezier(0,0,0,1)'
+		
+	},
+);
+
+var gif = document.getElementsByClassName('noclip__gif');
+	new simpleParallax(gif, {
+		overflow: true,
+		delay: .4,		
+		transition: 'cubic-bezier(0,0,1,1)'
+
+	},
+);
+
+
+var kanetxt = document.getElementsByClassName('kane__resume');
+	new simpleParallax(kanetxt, {
+		overflow: true,
+		delay: .4,
+		transition: 'cubic-bezier(0,0,1,1)'
 		
 	},
 );
 
 
-
-
-// var kanetxt = document.getElementsByClassName('kane__resume');
-// 	new simpleParallax(kanetxt, {
-// 		overflow: true,
-// 		transition: 'cubic-bezier(0,0,.83,.50)'
-		
-// 	},
-// );
-
-
 var float = document.getElementsByClassName('.float');
 	new simpleParallax(float, {
-		overflow:true
+		overflow:true,
+		delay: .4,
+		transition: 'cubic-bezier(0,0,1,1)'
+
 	},
 );
 
@@ -551,7 +590,6 @@ class MagneticObject {
 
 const button = document.querySelector(".btn--link");
 new MagneticObject(button);
-
 
 
 

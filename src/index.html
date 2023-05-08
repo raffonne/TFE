@@ -169,9 +169,11 @@
 
                 <div class="main-title">
 
-                    <h1 class="title title--main blur">
-                        <span class="blur-txt">N</span><span class="blur-txt">O</span><span class="blur-txt">C</span><span class="blur-txt">L</span><span class="blur-txt">I</span><span class="blur-txt">P</span>
-                    </h1>
+                    <!-- <h1 class="title title--main blur">
+                        <span class="blur-txt">NOCLIP</span>
+                    </h1> -->
+
+                    <h1 class="title title--main">N<b>O</b>C<b>LI</b>P</h1>
 
                     <h1 class="title title--submain">Inside the backrooms</h1>
 
@@ -353,7 +355,8 @@
 
                     </div>
 
-                    <img class="illu-noclip" src="./images/illu-noclip.svg" alt="illustration de noclip">
+
+                    <img class="noclip__illu" src="./images/illu-noclip.svg" alt="illustration de noclip">
 
                     
                     <div class="noclip__content" data-aos="fade-up" data-aos-duration="1000">
@@ -365,9 +368,11 @@
                         </p>
                     </div>
 
-                    <div class="noclip__gif" data-aos="fade-up" data-aos-duration="1000">
+
+                    <div class="noclip__gif">
                         <img src="./images/backrooms-noclip.gif" alt="exemple de noclip dans les backrooms">
                     </div>
+
 
                 </div>
             </div>
@@ -605,10 +610,6 @@
                     <p class="bold show-1">
                         Malgré l’engouement autour des backrooms, la tendance redescend petit à petit et on n’entend plus parler de la creepypasta… 
                     </p>
-        
-                    <!-- <p class="bold show-2">
-                        Jusqu'en 2022
-                    </p> -->
     
                 </div>
 
@@ -641,7 +642,7 @@
                     </p>
 
                     <div class="kane__extrait">
-                        <iframe width="100%" height="500px" src="https://www.youtube.com/embed/H4dGpz6cnHo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/H4dGpz6cnHo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
 
                     
@@ -666,7 +667,7 @@
                     </div>
 
                     <div class="kane__resumeBis">
-                        <p data-aos="fade-up" data-aos-duration="500">
+                        <p data-aos="fade-up" data-aos="fade-up" data-aos-duration="500">
                             On suit 2 histoires parallèles : celles des scientifiques qui font des tests à l’intérieur des backrooms mais aussi les tests et les démarches de leur création et celle des personnes lambdas qui ont disparues et on atterit dans les backrooms en noclippant.
                         </p>
                     </div>
@@ -678,8 +679,6 @@
                         <video width="320" height="240" controls>
 
                             <source src="./images/foundfootage-clip.mp4" type="video/mp4">
-                            <source src="./images/foundfootage-clip.ogg" type="video/ogg">
-                            <source src="./images/foundfootage-clip.webm" type="video/webm">
 
                         </video>
 
@@ -726,70 +725,42 @@
                 
             </div>
         </section>
+        
+
+        <section class="section section--zoomEnding">
+
+            <div class="footer-heading">
+                <p>
+                    On se retrouve de l'autre côté...
+                </p>
+            </div>
+
+        </section>
+
 
         <section class="section section--zoom3D" style="margin-top: 50em;">
 
             <div class="portal">
 
-                <div class="portal-image">
-                    <img src="./images/scroll-bg.webp" srcset="./images/scroll-bg@2x.webp 2x" alt="portail vers les backrooms dans le vidéos de kane pixels">
-                </div>
+                <div class="portal-image"></div>
 
                 <div class="portal-content">
 
                     <div class="portal-bg"></div>
 
                     <div class="portal-container container">
-                    <!-- 
-                        <div class="footer-heading">
-                            <p>
-                                On se retrouve de l'autre côté
-                            </p>
-                        </div> -->
                     
-                        <!-- <div class="footer-heading footer-heading--row-1">
-                            <p>
-                                ON
-                            </p>
-                        </div>
-                        <div class="footer-heading footer-heading--row-2">
-                            <p>
-                                SE
-                            </p>
-                        </div>
-                        <div class="footer-heading footer-heading--row-3">
-                            <p>
-                                RETROUVE
-                            </p>
-                        </div>
-                        <div class="footer-heading footer-heading--row-4">
-                            <p>
-                                DE
-                            </p>
-                        </div>
-
-                        <div class="footer-heading footer-heading--row-5">
-                            <p>
-                                L'autre
-                            </p>
-                        </div>
-
-                        <div class="footer-heading footer-heading--row-6">
-                            <p>
-                                Côté
-                            </p>
-                        </div> -->
-
+                    
+                        
                         
                         <div class="exp-btn">
 
-                            <button class="btn btn--exp">
+                            <button class="btn btn--link">
                                 
                                 <a href="experience.html">Noclip EXPERIENCE</a>
 
                             </button>
 
-                            <div class="cursor"></div>
 
                         </div>
                         
@@ -881,6 +852,20 @@
             }
             };
 
+
+const texte = document.getElementById('text');
+const letters = text.textContent.split('');
+
+text.textContent = '';
+
+letters.forEach(letter => {
+  const span = document.createElement('span');
+  span.textContent = letter;
+  span.classList.add('blur');
+  const delay = Math.floor(Math.random() * 100) / 10;
+  span.style.animationDelay = `${delay}s`;
+  texte.appendChild(span);
+});
     </script>
 
 

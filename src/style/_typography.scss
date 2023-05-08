@@ -177,7 +177,13 @@ ul{
       font-family: 'eiko';
       font-weight: 100;
 
-      filter: drop-shadow(0 0 0.5rem rgb(255, 255, 255));
+      // filter: drop-shadow(0 0 0.5rem rgb(255, 255, 255));
+
+      text-shadow: 0 -40px 100px,0 0 2px, 0 0 1em , 0 0 0.5em , 0 0 0.1em;
+      b{
+        animation:blink linear infinite 5s;
+        font:inherit;
+      }
 
       @media (min-width:700px) {
         font-size: 118px;
@@ -199,7 +205,7 @@ ul{
       text-transform: uppercase;
 
       @media (min-width:700px) {
-        font-size: 24px;
+        font-size: 2px;
         letter-spacing: 8px;
         padding-left: 5px;
       }
@@ -207,7 +213,7 @@ ul{
       @media (min-width:1000px) {
 
         letter-spacing: 15px;
-        font-size: 30px;
+        font-size: 20px;
         // padding-left: 30px;
 
       }
@@ -351,27 +357,38 @@ figcaption{
 
 
 
+// .blur {
+//   .blur-txt {
+//     $letters: split('NOCLIP', '');
+//     @for $i from 6 through length($letters) {
+//       $random: random();
+//       &:nth-child(#{$i}) {
+//         filter: blur(#{if($random > 0.5, 5px, 0px)});
+//         animation: blur-text 3s (#{calc($i / 5)})+s infinite linear alternate;
+//         animation-delay: 3s;
+//       }
+//     }
+//   }
+// }
 
-.blur {
-	.blur-txt{
-		@for $i from 0 through 6 {
-			&:nth-child(#{$i + 1}) {
-				filter: blur(0px);
-				animation: blur-text 3s (#{calc($i / 5)})+s infinite linear alternate ;
-        animation-delay: 3s;
-			}
-		}
-	}
+// @keyframes blur-text {
+//   0% {
+//     filter: blur(0px);
+//   }
+//   100% {
+//     filter: blur(5px);
+//   }
+// }
+
+
+@keyframes blink {
+  79% {color:inherit;text-shadow:inherit;}  
+  80%   {color:#333;text-shadow:none;}
+  80.5% {color:inherit;text-shadow:inherit;}
+  81%   {color:#333;text-shadow:none;}
+  81.5% {color:inherit;text-shadow:inherit;}  
+  82%   {color:#333;text-shadow:none;}
+  82.5% {color:inherit;text-shadow:inherit;}  
 }
 
-@keyframes blur-text {
-	0% {
-    filter: blur(0px);
-  }
 
-
-	100% {
-    filter: blur(5px);
-    opacity: 0.5;
-  }
-}
