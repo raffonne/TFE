@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NOCLIP - Experience</title>
     
-    <link rel="icon" href="./assets/favicon-870f3e57.svg">
+    <link rel="icon" href="./assets/favicon-400c0395.svg">
     <meta name="title" content="NOCLIP Experience">
     <meta name="description" content="NOCLIP Experience est un site web immersif dans lequel vous découvrirez les secrets du mystérieux et terrifiant univers des Backrooms.
 
@@ -40,14 +40,15 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
 
-    <link rel="icon" href="./assets/favicon-870f3e57.svg">
-  <script type="module" crossorigin src="./assets/experience-91cfc8e0.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/index-77446957.js">
-  <link rel="stylesheet" href="./assets/index-b06c96be.css">
+    <link rel="icon" href="./assets/favicon-400c0395.svg">
+  <script type="module" crossorigin src="./assets/experience-4b019f3d.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/index-fbd1c2ba.js">
+  <link rel="stylesheet" href="./assets/index-6e5af503.css">
 </head>
 <body>
     <header>
-        <input class="hidden" id="burger" type="checkbox" />
+        <input class="hidden hidden--input" id="burger" type="checkbox" />
+
         <label for="burger">
             <div class="burger">
                 <span class="bar"></span>
@@ -55,34 +56,65 @@
                 <span class="bar"></span>
             </div>
         </label>
+
         <nav>
-          <div class="nav__el">
-              <a class="btn nav-links" href="index.html">Accueil</a>
-          </div>
-          <div class="nav__el">
-              <a class="btn nav-links" href="experience.html">Experience</a>
-          </div>
-  
+
+            <div class="nav__el">
+                <a class="btn nav-links" href="index.html">Accueil</a>
+            </div>
+    
+            <div class="nav__el">
+                <a class="btn nav-links active" href="experience.html">Experience</a>
+            </div>
+
+            <!-- <div class="utils">
+
+                <div class="lang">
+                    <button class="btn btn--lang">EN</button>
+                </div>
+
+                <div class="sound">
+
+                    <audio autoplay loop id="myAudio">
+                        <source src="./images//waiting-in-the-shadows-dark-ambient-soundscape-108567.mp3" type="audio/wav">
+                    </audio>
+
+                    <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
+                        <img id="sound-icon" src="./images/Vector.svg">
+                    </button>
+
+                </div>
+
+            </div> -->
+
         </nav>
+
         <div class="utils">
+
             <div class="lang">
                 <button class="btn btn--lang">EN</button>
             </div>
+
             <div class="sound">
+
                 <audio autoplay loop id="myAudio">
-                    <source src="./assets/ambient_noise-88b763e9.mp3" type="audio/wav">
+                    <source src="./images//waiting-in-the-shadows-dark-ambient-soundscape-108567.mp3" type="audio/wav">
                 </audio>
+
                 <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
-                    <img id="sound-icon" src="./assets/Vector-0db3fbb9.svg">
-                  </button>
+                    <img id="sound-icon" src="./assets/Vector-e1c5faf9.svg">
+                </button>
+                
             </div>
+
         </div>
   
       </header>
+
     <main class="experience">
         <div class="bg"></div>
 
-    <div class="intro">
+    <!-- <div class="intro">
         <p>
             Vous étiez probablement en train de manger, en train de rouler en voiture, ou en train de passer du temps avec vos proches. 
 
@@ -93,10 +125,11 @@
         </p>
 
         <button class="btn btn--link">Commencer</button>
-      </div>
+      </div> -->
 
 
       <section class="section section--experience">
+        
         <canvas class="webgl"></canvas>
 
         <div class="controls controls--fixed">
@@ -131,15 +164,28 @@
         const soundIcon = document.getElementById("sound-icon");
         const audio = document.getElementById("myAudio");
 
-        function toggleSound() {
+        // Vérifie s'il y a une valeur stockée pour l'état de pause de l'audio
+            const isPaused = localStorage.getItem("isPaused");
+
+            if (isPaused === "true") {
+                audio.pause();
+                soundIcon.src = "./images/sound-off.svg";
+            } else {
+                audio.play();
+                soundIcon.src = "./images/Vector.svg";
+            }
+
+            function toggleSound() {
             if (audio.paused) {
                 audio.play();
                 soundIcon.src = "./images/Vector.svg";
+                localStorage.setItem("isPaused", "false"); // Stocke la valeur false pour indiquer que l'audio n'est pas en pause
             } else {
                 audio.pause();
                 soundIcon.src = "./images/sound-off.svg";
+                localStorage.setItem("isPaused", "true"); // Stocke la valeur true pour indiquer que l'audio est en pause
             }
-        }
+            };
 
     </script>
 

@@ -23,22 +23,22 @@ body{
 }
 
 
-// .bg {
-//   position: fixed;
-//   top: -50%;
-//   left: -50%;
-//   right: -50%;
-//   bottom: -50%;
-//   width: 200%;
-//   height: 200%;
-//   background: transparent url(http://assets.iceable.com/img/noise-transparent.png) repeat 0 0;
-//   background-repeat: repeat;
-//   -webkit-animation: bg-animation .2s infinite;
-//   animation: bg-animation .2s infinite;
-//   opacity: .9;
-//   visibility: visible;
-//   z-index: -99;
-// }
+.bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent url(http://assets.iceable.com/img/noise-transparent.png) repeat 0 0;
+  background-repeat: repeat;
+  -webkit-animation: bg-animation .2s infinite;
+  animation: bg-animation .2s infinite;
+  opacity: 1;
+  visibility: visible;
+  z-index: 9;
+}
 
 
 .hidden{
@@ -78,6 +78,7 @@ body{
     top: 0;
     left: 0;
     outline: none;
+    z-index: 1;
 
 }
 .container{
@@ -147,6 +148,8 @@ header{
     height: 100%;
     width: 60px;
     position: absolute;
+
+    z-index: 999;
     @media(min-width:1000px){
         // border-right: solid 0.5px #A7A7A7;
 
@@ -159,7 +162,9 @@ header{
       right: 12.5px;
       // margin: 1em;
       height: 20px;
-      z-index: 9999;
+      z-index: 999;
+
+      
       transform: translateY(-50%);
     
       @media (min-width:1000px) {

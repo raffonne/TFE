@@ -1,3 +1,221 @@
+
+//THREE.JS
+import * as THREE from 'three'
+import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.js';
+import * as dat from 'lil-gui'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
+
+
+
+/**
+ * Loader
+ */
+
+/**
+ * Overlay
+ */
+
+
+const canvas = document.querySelector('canvas.webgl')
+
+/**
+ * Sizes
+ */
+const sizes = {
+  width: window.innerWidth,
+  height: window.innerHeight
+}
+
+// Cursor
+// const cursor = {
+//   x: 0,
+//   y: 0
+// }
+
+
+// MainStuff:Setup
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.1, 1000 );
+camera.rotation.order = 'XYZ';
+
+
+const renderer = new THREE.WebGLRenderer({
+  canvas : canvas
+});
+
+
+
+const controls = {};
+const player = {
+  height: 1,
+  turnSpeed: .1,
+  speed: .05,
+  gravity: .01,
+  velocity: 0,
+};
+
+
+let lastMouseX = null;
+let lastMouseY = null;
+
+document.addEventListener('mousemove', event => {
+  if (lastMouseX === null) {
+    lastMouseX = event.clientX;
+    lastMouseY = event.clientY;
+    return;
+  }
+
+  const deltaX = event.clientX - lastMouseX;
+  const deltaY = event.clientY - lastMouseY;
+
+  camera.rotation.y -= -(deltaX * 0.001);
+  camera.rotation.x -= deltaY * 0.001;
+
+  lastMouseX = event.clientX;
+  lastMouseY = event.clientY;
+});
+
+
+
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+scene.background = new THREE.Color("black");
+document.body.appendChild(renderer.domElement);
+
+window.addEventListener('resize', () =>
+{
+  // Update sizes
+  sizes.width = window.innerWidth
+  sizes.height = window.innerHeight
+
+  // Update camera
+  camera.aspect = sizes.width / sizes.height;
+  camera.updateProjectionMatrix();
+
+  // Update renderer
+  renderer.setSize(sizes.width, sizes.height)
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+})
+
+// Camera:Setup
+camera.position.set(0, player.height, -5);
+camera.lookAt(new THREE.Vector3(0, player.height, 5));
+
+
+//model 3D : setup
+const dracoLoader = new DRACOLoader()
+dracoLoader.setDecoderPath('/draco/')
+
+const gltfLoader = new GLTFLoader()
+gltfLoader.setDRACOLoader(dracoLoader)
+
+gltfLoader.load(
+  './backrooms-3Dmodel/backrooms_with_baked_textures/scene.gltf',
+  // './backrooms/scene.gltf',
+  (gltf) => {
+    console.log('success')
+    scene.add(gltf.scene)
+  },
+  () => {
+    console.log('progress')
+  },
+  () => {
+    console.log('error')
+  }
+)
+
+
+
+//Camera controls
+
+/**
+ * Mousemove
+ */
+const mouse = new THREE.Vector2()
+
+window.addEventListener('mousemove', (event) => {
+
+  mouse.x = event.clientX / sizes.width * 2 - 1
+  mouse.y = event.clientY / sizes.height * 2 + 1
+
+})
+
+// Controls:Listeners
+document.addEventListener('keydown', ({ keyCode }) => { controls[keyCode] = true });
+document.addEventListener('keyup', ({ keyCode }) => { controls[keyCode] = false });
+
+function control() {
+  // Controls:Engine 
+  if(controls[90] || controls[38]){ // w/z / up arrow
+    camera.position.x -= Math.sin(camera.rotation.y) * player.speed;
+    camera.position.z -= -Math.cos(camera.rotation.y) * player.speed;
+  }
+  if(controls[83] || controls[40]){ // s/ down arrow
+    camera.position.x += Math.sin(camera.rotation.y) * player.speed;
+    camera.position.z += -Math.cos(camera.rotation.y) * player.speed;
+  }
+  if (controls[81] || controls[37]) { // a/left arrow
+    camera.position.x += Math.cos(camera.rotation.y) * player.speed;
+    camera.position.z += Math.sin(camera.rotation.y) * player.speed;
+  }
+  if (controls[68] || controls[39]) { // d/right arrow
+    camera.position.x -= Math.cos(camera.rotation.y) * player.speed;
+    camera.position.z -= Math.sin(camera.rotation.y) * player.speed;
+  }
+  
+
+
+}
+
+
+
+
+
+
+
+function animate() {
+  
+  requestAnimationFrame(animate);
+  control();
+  renderer.render(scene, camera);
+
+  controls.movementSpeed = 150;
+  controls.lookSpeed = 0.1;
+
+  
+
+}
+
+animate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import * as THREE from 'three'
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 // import gsap from 'gsap'
@@ -1339,220 +1557,6 @@
 
 
 
-// //THREE.JS
-// import * as THREE from 'three'
-// import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.js';
-// import * as dat from 'lil-gui'
-// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-// import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
-// // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-
-
-
-// /**
-//  * Loader
-//  */
-
-// /**
-//  * Overlay
-//  */
-
-
-
-// const canvas = document.querySelector('canvas.webgl')
-
-// /**
-//  * Sizes
-//  */
-// const sizes = {
-//   width: window.innerWidth,
-//   height: window.innerHeight
-// }
-
-// // Cursor
-// const cursor = {
-//   x: 0,
-//   y: 0
-// }
-
-
-// // MainStuff:Setup
-// const scene = new THREE.Scene();
-// const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.1, 1000 );
-// // camera.rotation.order = 'XYZ';
-
-
-// const renderer = new THREE.WebGLRenderer({
-//   canvas : canvas
-// });
-
-
-
-// const controls = {};
-// const player = {
-//   height: 1,
-//   turnSpeed: .1,
-//   speed: .1,
-//   jumpHeight: .2,
-//   gravity: .01,
-//   velocity: 0,
-//   playerJumps: false
-// };
-
-
-
-// renderer.setSize(window.innerWidth, window.innerHeight);
-// renderer.shadowMap.enabled = true;
-// renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-// scene.background = new THREE.Color("black");
-// document.body.appendChild(renderer.domElement);
-
-// window.addEventListener('resize', () =>
-// {
-//   // Update sizes
-//   sizes.width = window.innerWidth
-//   sizes.height = window.innerHeight
-
-//   // Update camera
-//   camera.aspect = sizes.width / sizes.height;
-//   camera.updateProjectionMatrix();
-
-//   // Update renderer
-//   renderer.setSize(sizes.width, sizes.height)
-//   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-// })
-
-// // Camera:Setup
-// // camera.position.set(0, player.height, -5);
-// camera.position.set(0, player.height, -5);
-// camera.lookAt(new THREE.Vector3(0, player.height, 5));
-
-
-
-// // const dracoLoader = new DRACOLoader()
-// // dracoLoader.setDecoderPath('/draco/')
-
-// const gltfLoader = new GLTFLoader()
-// // gltfLoader.setDRACOLoader(dracoLoader)
-
-// gltfLoader.load(
-//   './backrooms-3Dmodel/backrooms_with_baked_textures/scene.gltf',
-//   (gltf) => {
-//     console.log('success')
-//     scene.add(gltf.scene)
-//   },
-//   () => {
-//     console.log('progress')
-//   },
-//   () => {
-//     console.log('error')
-//   }
-// )
-
-
-
-// //Camera controls
-
-// /**
-//  * Mousemove
-//  */
-// const mouse = new THREE.Vector2()
-
-// window.addEventListener('mousemove', (event) => {
-
-//   mouse.x = event.clientX / sizes.width * 2 - 1
-//   mouse.y = event.clientY / sizes.height * 2 + 1
-
-// })
-
-// // Controls:Listeners
-// document.addEventListener('keydown', ({ keyCode }) => { controls[keyCode] = true });
-// document.addEventListener('keyup', ({ keyCode }) => { controls[keyCode] = false });
-
-// function control() {
-//   // Controls:Engine 
-//   if(controls[90] || controls[38]){ // w/z / up arrow
-//     camera.position.x -= Math.sin(camera.rotation.y) * player.speed;
-//     camera.position.z -= -Math.cos(camera.rotation.y) * player.speed;
-//   }
-//   if(controls[83] || controls[40]){ // s/ down arrow
-//     camera.position.x += Math.sin(camera.rotation.y) * player.speed;
-//     camera.position.z += -Math.cos(camera.rotation.y) * player.speed;
-//   }
-//   if (controls[81] || controls[37]) { // a/left arrow
-//     camera.position.x += Math.cos(camera.rotation.y) * player.speed;
-//     camera.position.z += Math.sin(camera.rotation.y) * player.speed;
-//   }
-//   if (controls[68] || controls[39]) { // d/right arrow
-//     camera.position.x -= Math.cos(camera.rotation.y) * player.speed;
-//     camera.position.z -= Math.sin(camera.rotation.y) * player.speed;
-//   }
-  
-
-
-//   if(controls[32]) { // space
-//     if(player.jumps) return false;
-//     player.jumps = true;
-//     player.velocity = -player.jumpHeight;
-//   }
-
-
-//   // Gravity
-//   if(player.playerJumps){
-//     player.velocity -= player.gravity;
-//     camera.position.y += player.velocity;
-//     if(camera.position.y < player.height){
-//       player.playerJumps = false;
-//       camera.position.y = player.height;
-//       player.velocity = 0;
-//     }
-
-//   }
-
-//   // Controls:Floor
-//   if(camera.position.y > player.height){
-//     player.playerJumps = true;
-//   }
-// }
-
-// function ixMovementUpdate() {
-//   player.velocity += player.gravity;
-//   camera.position.y -= player.velocity;
-  
-//   if(camera.position.y < player.height) {
-//     camera.position.y = player.height;
-//     player.jumps = false;
-//   }
-// }
-
-
-
-// // function render() {
-// //   ixMovementUpdate();
-
-// //   controls.movementSpeed = 150;
-// //   controls.lookSpeed = 0.1;
-  
-// // }
-
-// function animate() {
-  
-//   requestAnimationFrame(animate);
-//   control();
-//   renderer.render(scene, camera);
-//   ixMovementUpdate();
-
-//   controls.movementSpeed = 150;
-//   controls.lookSpeed = 0.1;
-
-  
-
-// }
-
-// animate();
-// // render();
-
-
 
 
 
@@ -2092,43 +2096,43 @@
 
 
 
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+// import * as THREE from 'three';
+// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
 
-const container = document.getElementById('home');
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const scene = new THREE.Scene();
-const renderer = new THREE.WebGLRenderer();
+// const container = document.getElementById('home');
+// const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+// const scene = new THREE.Scene();
+// const renderer = new THREE.WebGLRenderer();
 
-// Charger le modèle 3D
-const loader = new GLTFLoader();
-loader.load('./infinite_corridor/scene.gltf', (gltf) => {
-  // Ajouter le modèle 3D à la scène
-  scene.add(gltf.scene);
+// // Charger le modèle 3D
+// const loader = new GLTFLoader();
+// loader.load('./backrooms-3Dmodel/backrooms_with_baked_textures/scene.gltf', (gltf) => {
+//   // Ajouter le modèle 3D à la scène
+//   scene.add(gltf.scene);
 
-  // Calculer la boîte englobante (bounding box) du modèle 3D
-  const bbox = new THREE.Box3().setFromObject(gltf.scene);
+//   // Calculer la boîte englobante (bounding box) du modèle 3D
+//   const bbox = new THREE.Box3().setFromObject(gltf.scene);
 
-  // Centrer la caméra sur la boîte englobante
-  const center = bbox.getCenter(new THREE.Vector3());
-  camera.position.set(center.x, center.y, bbox.max.z + 5);
+//   // Centrer la caméra sur la boîte englobante
+//   const center = bbox.getCenter(new THREE.Vector3());
+//   camera.position.set(center.x, center.y, bbox.max.z + 5);
 
-  // Pointer la caméra vers le centre de la boîte englobante
-  camera.lookAt(center);
+//   // Pointer la caméra vers le centre de la boîte englobante
+//   camera.lookAt(center);
 
-  // Ajouter une lumière à la scène
-  const light = new THREE.PointLight(0xffffff, 1, 100);
-  light.position.set(0, 0, 10);
-  scene.add(light);
-});
+//   // Ajouter une lumière à la scène
+//   const light = new THREE.PointLight(0xffffff, 1, 100);
+//   light.position.set(0, 0, 10);
+//   scene.add(light);
+// });
 
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+// renderer.setSize(window.innerWidth, window.innerHeight);
+// document.body.appendChild(renderer.domElement);
 
-function animate() {
-  requestAnimationFrame(animate);
-  renderer.render(scene, camera);
-}
+// function animate() {
+//   requestAnimationFrame(animate);
+//   renderer.render(scene, camera);
+// }
 
-animate();
+// animate();

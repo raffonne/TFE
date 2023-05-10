@@ -1,0 +1,11 @@
+Model Information:
+* title:	infinite corridor
+* source:	https://sketchfab.com/3d-models/infinite-corridor-db8887ec66f34e91aee03c33350b5961
+* author:	spicybamer (https://sketchfab.com/smitecraft.swe)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "infinite corridor" (https://sketchfab.com/3d-models/infinite-corridor-db8887ec66f34e91aee03c33350b5961) by spicybamer (https://sketchfab.com/smitecraft.swe) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

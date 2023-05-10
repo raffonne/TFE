@@ -145,32 +145,32 @@ if (br1) {
 }
 
 
-// const lenis = new Lenis({
-// 	duration: 1.5,
-// 	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-// 	direction: 'vertical', // vertical, horizontal
-// 	gestureDirection: 'vertical', // vertical, horizontal, both
-// 	smooth: true,
-// 	mouseMultiplier: 1,
-// 	smoothTouch: 0.1,
-// 	smoothWheel:true,
-// 	touchMultiplier: 1,
-// 	infinite: false,
-// 	});
+const lenis = new Lenis({
+	duration: 1.5,
+	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+	direction: 'vertical', // vertical, horizontal
+	gestureDirection: 'vertical', // vertical, horizontal, both
+	smooth: true,
+	mouseMultiplier: 1,
+	smoothTouch: 0.1,
+	smoothWheel:true,
+	touchMultiplier: 1,
+	infinite: false,
+	});
 
-// 	function raf(time) {
-// 	lenis.raf(time)
-// 	requestAnimationFrame(raf)
-// }
+	function raf(time) {
+	lenis.raf(time)
+	requestAnimationFrame(raf)
+}
 
-// requestAnimationFrame(raf)
+requestAnimationFrame(raf)
 
 
-// lenis.on('scroll', ScrollTrigger.update)
+lenis.on('scroll', ScrollTrigger.update)
 
-// gsap.ticker.add((time)=>{
-//   lenis.raf(time * 1000)
-// })
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000)
+})
 
 var chapter = document.querySelector('.section--about-origins');
 if(chapter){
@@ -292,17 +292,19 @@ if(pinText2){
 var portal = document.querySelector('.portal-image');
 if(portal){
 	gsap.to(".portal-image", {
-		duration:4,
+		duration:2,
 		scale: 12,
+
 		onComplete: () => {
 			portal.style.display = 'none';
 		  },
+
 		scrollTrigger: {
 			trigger: ".portal-image",
 			start: "top 100",
 			end: "bottom bottom",
-			// markers:true,
-			scrub:3,
+			markers:true,
+			scrub:1,
 			
 		}
 	})
