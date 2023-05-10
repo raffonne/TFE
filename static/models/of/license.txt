@@ -1,0 +1,11 @@
+Model Information:
+* title:	Off With His Head
+* source:	https://sketchfab.com/3d-models/off-with-his-head-bc38df08de144c2fb6ab6c6435783573
+* author:	Proton of the QC (https://sketchfab.com/protonoftheqc)
+
+Model License:
+* license type:	CC-BY-ND-4.0 (http://creativecommons.org/licenses/by-nd/4.0/)
+* requirements:	Author must be credited. Modified versions can not be distributed. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Off With His Head" (https://sketchfab.com/3d-models/off-with-his-head-bc38df08de144c2fb6ab6c6435783573) by Proton of the QC (https://sketchfab.com/protonoftheqc) licensed under CC-BY-ND-4.0 (http://creativecommons.org/licenses/by-nd/4.0/)
