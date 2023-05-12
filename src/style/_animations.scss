@@ -9,32 +9,78 @@
 }
 
 @keyframes blink {
+
+
+    15%{
+        color:inherit;
+        text-shadow:inherit;
+    }
+    16%{
+        color: #333;
+        text-shadow: none;
+    }
+    17%{
+        color:inherit;
+        text-shadow: inherit;
+    }
+    18%{
+        color: #333;
+        text-shadow: none;
+    }
+    19%{
+        color:inherit;
+        text-shadow: inherit;
+    }
+    20%{
+        color: #333;
+        text-shadow: none;
+    }
+    21%{
+        color:inherit;
+        text-shadow: inherit;
+    }
+
+    49%{
+        color:inherit;
+        text-shadow:inherit;
+    }
+
+
+    50%{
+        color:#333;
+        text-shadow:none;
+    }
+    51%{
+        color:inherit;
+        text-shadow:inherit;
+    }
+
     
     79% {
         color:inherit;
         text-shadow:inherit;
     }  
     80%   {
-        color:#000;
+        color:#333;
         text-shadow:none;
     }
-    80.5%{
+    81%{
         color:inherit;
         text-shadow:inherit;
     }
-    81%{
-        color:#000;
+    82%{
+        color:#333;
         text-shadow:none;
     }
-    81.5% {
+    83% {
         color:inherit;
         text-shadow:inherit;
     }  
-    82% {
-        color:#000;
+    84% {
+        color:#333;
         text-shadow:none;
     }
-    82.5% {
+    85% {
         color:inherit;
         text-shadow:inherit;
     }  

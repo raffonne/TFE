@@ -51,18 +51,42 @@
     }
     //begin
     &--about-start{
-    
+
+        .container{
+            display: grid;
+            @media (min-width:1000px) {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-areas: 
+                "title title title"
+                "intro intro ."
+                "img desc desc";
+                row-gap: 8em;
+            }
+        }
+
+        .title{
+            grid-area: title;
+        }
+        .chars{
+            transform: translateY(115px);
+            transition: transform .5s;
+        }
         .introduction{
+            grid-area: intro;
             position: relative;
     
-              @media (min-width:1000px) {
-                padding: 204px 0;
-              }
+            //   @media (min-width:1000px) {
+            //     padding: 204px 0;
+            //   }
             
         }
 
+        .description-img{
+            grid-area: img;
+        }
+
         .description{
-        
+            grid-area: desc;
             display: flex;
             flex-direction: column;
             justify-content: end;
@@ -99,45 +123,47 @@
 
             .noclip{
 
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                grid-template-areas:
-                "quote quote"
-                "txt ."
-                '. img'
-                ". gif";
-                column-gap: 10em;
+                @media (min-width:1000px) {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas:
+                    "quote quote"
+                    "txt ."
+                    '. img'
+                    ". gif";
+                    column-gap: 10em;
 
-                &__quote{
-                    opacity: 0;
-                    margin: 20em 0;
-                    grid-area: quote;
+                    &__quote{
+                        opacity: 0;
+                        margin: 20em 0;
+                        grid-area: quote;
 
-                    position: relative;
+                        position: relative;
+                        
+                    }
 
-                    
+                    &__content{
+                        grid-area: txt;
+                    }
+
+                    &__illu{
+
+                        grid-area: img;
+                        position: absolute;
+                        width: 100%;
+                        opacity: 0.1;
+                        left: 10%;
+                        bottom: 20%;
+                    }
+
+                    &__gif{
+                        grid-area: gif;
+                        // width: 80%;
+                    }
                 }
 
-                &__content{
-                    grid-area: txt;
-                }
-
-                &__illu{
-                    grid-area: img;
-                    position: absolute;
-                    width: 100%;
-                    opacity: 0.1;
-                    left: 10%;
-                    bottom: 20%;
-                }
-
-                &__gif{
-                    grid-area: gif;
-                    // width: 80%;
-                }
             }
         }
-        
 
     }
 
@@ -419,12 +445,15 @@
     &--zoomEnding{
         padding-top: 10em;
         height: 100vh;
+        overflow:hidden ;
+
 
         .footer-heading{
             position: absolute;
             bottom: 50%;
             left: 50%;
             transform: translate(-50%);
+            overflow:hidden ;
             p{
                 font-size: 30px;
                 text-align: center;
@@ -528,13 +557,16 @@
                 }
 
                 .credits{
+
                     grid-area: credits;
 
                     position: absolute;
                     bottom: 50px;
+                    display: none;
 
                     @media (min-width:1000px) {
                         bottom: 100px;
+                        display: block;
                         // left: 50%;
                         // transform: translateX(-50%);
                     }

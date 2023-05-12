@@ -11,12 +11,13 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 gsap.registerPlugin(ScrollTrigger);
-const text = new SplitText(".content", ["words"]);
+
+const textScroll = new SplitText(".content", ["words"]);
 
 var aboutIntro = document.querySelector('.container');
 if(aboutIntro) {
 
-	gsap.from(text.words,{
+	gsap.from(textScroll.words,{
 		opacity:0.1,
 		stagger:0.2,
 		ease:"none",
@@ -33,21 +34,6 @@ if(aboutIntro) {
 
 };
 
-// var dust = document.querySelector('#myVideo');
-// if (dust){
-// 	gsap.to('#myVideo',{
-// 		opacity:0.2,
-// 		ease: 'none',
-// 		scrollTrigger: {
-// 			trigger: '#myVideo',
-// 			scrub: 2,
-// 			// markers:true,
-// 			start: "bottom bottom",
-// 			end: "+=2000",
-// 			toggleActions: "play none none reverse"
-//       }
-// 	})
-// };
 
 
 
@@ -56,10 +42,10 @@ if (opacity1){
 
 	gsap.to('#scene',{
 		opacity:0,
-		scale:3,
+		scale:4,
 		scrollTrigger: {
 			trigger: '#scene',
-			scrub: 1.5,
+			scrub: 1.3,
 			// markers:true,
 			start: "bottom bottom",
 			end: "+=500",
@@ -82,52 +68,7 @@ if (noclip){
 };
 
 
-var opacity = document.querySelector('.main-small');
-if (opacity){
-	gsap.to('.main-small',{
-		opacity:0,
-		y:-100,
-		scrollTrigger: {
-			trigger: '.main-small',
-			scrub: 0.5,
-			// markers:true,
-			start: "bottom bottom",
-			end: "+=800",
-      }
-	})
-};
 
-var title = document.querySelector('.title--big');
-if (title) {
-	gsap.from('.title--big',{
-		opacity:0,
-		y:100,
-		scrollTrigger:{
-			trigger: '.title--big',
-			scrub: 0.5,
-			markers:true,
-			start: "bottom bottom",
-			end: "+=100",
-		}
-	})
-}
-
-
-// var opacity2 = document.querySelector('.main-title');
-// if (opacity2){
-// 	gsap.to('.main-title',{
-// 		opacity:0,
-// 		y:-100,
-// 		scrollTrigger: {
-// 			trigger: '.main-title',
-// 			scrub: 0.5,
-// 			// markers:true,
-// 			start: "bottom 50",
-// 			end: "+=800",
-			
-//       }
-// 	})
-// };
 
 var br1 = document.querySelector('.section--about-start');
 if (br1) {
@@ -144,33 +85,6 @@ if (br1) {
 	})
 }
 
-
-const lenis = new Lenis({
-	duration: 1.5,
-	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-	direction: 'vertical', // vertical, horizontal
-	gestureDirection: 'vertical', // vertical, horizontal, both
-	smooth: true,
-	mouseMultiplier: 1,
-	smoothTouch: 0.1,
-	smoothWheel:true,
-	touchMultiplier: 1,
-	infinite: false,
-	});
-
-	function raf(time) {
-	lenis.raf(time)
-	requestAnimationFrame(raf)
-}
-
-requestAnimationFrame(raf)
-
-
-lenis.on('scroll', ScrollTrigger.update)
-
-gsap.ticker.add((time)=>{
-  lenis.raf(time * 1000)
-})
 
 var chapter = document.querySelector('.section--about-origins');
 if(chapter){
@@ -233,26 +147,26 @@ if (ending) {
 			start:"center center",
 			end:"top -1000",
 			pin:true,
-			scrub:true
+			scrub:1.2
 			// markers:true
 		}
 	})
 };
 
-var h2 = document.querySelector('.title--big');
-if (h2) {
-	gsap.to('.title--big', {
-		opacity:1,
-		duration:3,
-		scrollTrigger: {
-			trigger:'.title--big',
-			start:"bottom bottom",
-			end:"-1000",
-			// markers:true,
-			scrub:0.5
-		}
-	})
-};
+// var h2 = document.querySelector('.title--big');
+// if (h2) {
+// 	gsap.to('.title--big', {
+// 		opacity:1,
+// 		duration:3,
+// 		scrollTrigger: {
+// 			trigger:'.title--big',
+// 			start:"bottom bottom",
+// 			end:"-1000",
+// 			// markers:true,
+// 			scrub:0.5
+// 		}
+// 	})
+// };
 
 var pinText1 = document.querySelector('.show-1');
 if(pinText1){
@@ -292,7 +206,7 @@ if(pinText2){
 var portal = document.querySelector('.portal-image');
 if(portal){
 	gsap.to(".portal-image", {
-		duration:2,
+		duration:4,
 		scale: 12,
 
 		onComplete: () => {
@@ -302,9 +216,9 @@ if(portal){
 		scrollTrigger: {
 			trigger: ".portal-image",
 			start: "top 100",
-			end: "bottom bottom",
-			markers:true,
-			scrub:1,
+			end: "bottom 100",
+			// markers:true,
+			scrub:3,
 			
 		}
 	})
@@ -329,7 +243,7 @@ var kane = document.querySelector('.kane-bg');
 if(kane){
 	gsap.from(".kane-bg", {
 		// opacity: 0,
-		y:100,
+		y:500,
 		// scale: 1.5,
 		scrollTrigger: {
 			trigger: ".kane-bg",
@@ -351,6 +265,7 @@ var image = document.getElementsByClassName('icon-img');
 		
 	},
 );
+
 
 
 var image = document.getElementsByClassName('og-br');
@@ -460,21 +375,17 @@ window.addEventListener('resize', () => {
 });
 
 
-
-
-
-
-
 var scene = document.getElementById('scene');
 var parallaxInstance = new Parallax(scene);
 
 
 
-// //   Source:  http://codepen.io/ahsanrathore/post/accurate-page-progress-bar
+//   Source:  http://codepen.io/ahsanrathore/post/accurate-page-progress-bar
+
 var width = 100,
 perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
 EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
-time = parseInt((EstimatedTime/2000)%60)*100;
+time = parseInt((EstimatedTime/1000)%60)*100;
 
 // Percentage Increment Animation
 var PercentageID = $("#precent"),
@@ -502,10 +413,38 @@ var timer = setInterval(function() {
 }
 
 setTimeout(function(){
-$('.preloader-wrap').fadeOut(2000);
+
+	$('.preloader-wrap').fadeOut(1000);
+
+	gsap.to('.no-blik',{
+
+		opacity:1,
+		duration:2,
+		delay:2
+	}),
+
+	gsap.to('.title--submain',{
+		opacity:1,
+		duration:6,
+		delay:2,
+	}),
+
+	gsap.to('.main-small',{
+		opacity:1,
+		y:-50,
+		delay:4,
+		duraton:30
+	}),
+	
+	gsap.to('.scene-img',{
+		opacity:1,
+		duration:3,
+		delay:3,
+		scale:1.2
+	})
+
+
 }, time);
-
-
 
 
 
@@ -593,12 +532,5 @@ $('.preloader-wrap').fadeOut(2000);
 
 // const button = document.querySelector(".btn--link");
 // new MagneticObject(button);
-
-
-
-
-
-
-
 
 AOS.init();

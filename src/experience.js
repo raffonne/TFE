@@ -2,163 +2,163 @@
 
 
 
-import * as THREE from 'three'
-import * as dat from 'lil-gui'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
+// import * as THREE from 'three'
+// import * as dat from 'lil-gui'
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+// import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
-/**
- * Base
- */
-// Debug
-const gui = new dat.GUI()
+// /**
+//  * Base
+//  */
+// // Debug
+// const gui = new dat.GUI()
 
-// Canvas
-const canvas = document.querySelector('canvas.webgl')
+// // Canvas
+// const canvas = document.querySelector('canvas.webgl')
 
-// Scene
-const scene = new THREE.Scene()
+// // Scene
+// const scene = new THREE.Scene()
 
 
-/**
- * Models
- */
+// /**
+//  * Models
+//  */
 
-const dracoLoader = new DRACOLoader();
-dracoLoader.setDecoderPath('/draco/')
+// const dracoLoader = new DRACOLoader();
+// dracoLoader.setDecoderPath('/draco/')
 
-const gltfLoader = new GLTFLoader();
-gltfLoader.setDRACOLoader(dracoLoader)
+// const gltfLoader = new GLTFLoader();
+// gltfLoader.setDRACOLoader(dracoLoader)
 
-gltfLoader.load(
-  // '/models/FlightHelmet/glTF/FlightHelmet.gltf',
-  '/models/Duck/glTF-Draco/Duck.gltf',
-  (gltf) => {
+// gltfLoader.load(
+//   // '/models/FlightHelmet/glTF/FlightHelmet.gltf',
+//   '/models/Duck/glTF-Draco/Duck.gltf',
+//   (gltf) => {
 
-    // const children = [...gltf.scene.children]
-    // for (const child of children){
-    //   scene.add(child)
-    // }
+//     // const children = [...gltf.scene.children]
+//     // for (const child of children){
+//     //   scene.add(child)
+//     // }
 
-    scene.add(gltf.scene)
+//     scene.add(gltf.scene)
     
-  },
-  // () => {
-  //   console.log('success')
-  // },
-  // () => {
-  //   console.log('progress')
-  // },
-  // () => {
-  //   console.log('error')
-  // }
-)
+//   },
+//   // () => {
+//   //   console.log('success')
+//   // },
+//   // () => {
+//   //   console.log('progress')
+//   // },
+//   // () => {
+//   //   console.log('error')
+//   // }
+// )
 
-/**
- * Floor
- */
-const floor = new THREE.Mesh(
-    new THREE.PlaneGeometry(10, 10),
-    new THREE.MeshStandardMaterial({
-        color: '#444444',
-        metalness: 0,
-        roughness: 0.5
-    })
-)
-floor.receiveShadow = true
-floor.rotation.x = - Math.PI * 0.5
-scene.add(floor)
+// /**
+//  * Floor
+//  */
+// const floor = new THREE.Mesh(
+//     new THREE.PlaneGeometry(10, 10),
+//     new THREE.MeshStandardMaterial({
+//         color: '#444444',
+//         metalness: 0,
+//         roughness: 0.5
+//     })
+// )
+// floor.receiveShadow = true
+// floor.rotation.x = - Math.PI * 0.5
+// scene.add(floor)
 
-/**
- * Lights
- */
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
-scene.add(ambientLight)
+// /**
+//  * Lights
+//  */
+// const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
+// scene.add(ambientLight)
 
-const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6)
-directionalLight.castShadow = true
-directionalLight.shadow.mapSize.set(1024, 1024)
-directionalLight.shadow.camera.far = 15
-directionalLight.shadow.camera.left = - 7
-directionalLight.shadow.camera.top = 7
-directionalLight.shadow.camera.right = 7
-directionalLight.shadow.camera.bottom = - 7
-directionalLight.position.set(5, 5, 5)
-scene.add(directionalLight)
+// const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6)
+// directionalLight.castShadow = true
+// directionalLight.shadow.mapSize.set(1024, 1024)
+// directionalLight.shadow.camera.far = 15
+// directionalLight.shadow.camera.left = - 7
+// directionalLight.shadow.camera.top = 7
+// directionalLight.shadow.camera.right = 7
+// directionalLight.shadow.camera.bottom = - 7
+// directionalLight.position.set(5, 5, 5)
+// scene.add(directionalLight)
 
-/**
- * Sizes
- */
-const sizes = {
-    width: window.innerWidth,
-    height: window.innerHeight
-}
+// /**
+//  * Sizes
+//  */
+// const sizes = {
+//     width: window.innerWidth,
+//     height: window.innerHeight
+// }
 
-window.addEventListener('resize', () =>
-{
-    // Update sizes
-    sizes.width = window.innerWidth
-    sizes.height = window.innerHeight
+// window.addEventListener('resize', () =>
+// {
+//     // Update sizes
+//     sizes.width = window.innerWidth
+//     sizes.height = window.innerHeight
 
-    // Update camera
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
+//     // Update camera
+//     camera.aspect = sizes.width / sizes.height
+//     camera.updateProjectionMatrix()
 
-    // Update renderer
-    renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-})
+//     // Update renderer
+//     renderer.setSize(sizes.width, sizes.height)
+//     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+// })
 
-/**
- * Camera
- */
-// Base camera
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.set(2, 2, 2)
-// camera.position.set(0, 2,90)
+// /**
+//  * Camera
+//  */
+// // Base camera
+// const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
+// camera.position.set(2, 2, 2)
+// // camera.position.set(0, 2,90)
 
-scene.add(camera)
+// scene.add(camera)
 
-// Controls
-const controls = new OrbitControls(camera, canvas)
-controls.target.set(0, 0.75, 0)
-controls.enableDamping = true
+// // Controls
+// const controls = new OrbitControls(camera, canvas)
+// controls.target.set(0, 0.75, 0)
+// controls.enableDamping = true
 
-/**
- * Renderer
- */
-const renderer = new THREE.WebGLRenderer({
-    canvas: canvas
-})
-renderer.shadowMap.enabled = true
-renderer.shadowMap.type = THREE.PCFSoftShadowMap
-renderer.setSize(sizes.width, sizes.height)
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+// /**
+//  * Renderer
+//  */
+// const renderer = new THREE.WebGLRenderer({
+//     canvas: canvas
+// })
+// renderer.shadowMap.enabled = true
+// renderer.shadowMap.type = THREE.PCFSoftShadowMap
+// renderer.setSize(sizes.width, sizes.height)
+// renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
-/**
- * Animate
- */
-const clock = new THREE.Clock()
-let previousTime = 0
+// /**
+//  * Animate
+//  */
+// const clock = new THREE.Clock()
+// let previousTime = 0
 
-const tick = () =>
-{
-    const elapsedTime = clock.getElapsedTime()
-    const deltaTime = elapsedTime - previousTime
-    previousTime = elapsedTime
+// const tick = () =>
+// {
+//     const elapsedTime = clock.getElapsedTime()
+//     const deltaTime = elapsedTime - previousTime
+//     previousTime = elapsedTime
 
-    // Update controls
-    controls.update()
+//     // Update controls
+//     controls.update()
 
-    // Render
-    renderer.render(scene, camera)
+//     // Render
+//     renderer.render(scene, camera)
 
-    // Call tick again on the next frame
-    window.requestAnimationFrame(tick)
-}
+//     // Call tick again on the next frame
+//     window.requestAnimationFrame(tick)
+// }
 
-tick()
+// tick()
 
 
 
@@ -184,200 +184,240 @@ tick()
  * BACKROOMS V1
  */
 
-// //THREE.JS
-// import * as THREE from 'three'
-// import gsap from "gsap";
-// import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.js';
-// import * as dat from 'lil-gui'
-// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-// // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-// import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
+//THREE.JS
+import * as THREE from 'three'
+import gsap from "gsap";
+import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.js';
+import * as dat from 'lil-gui'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
 
-// /**
-//  * Loader
-//  */
+/**
+ * Loader
+ */
 
-// // const LoadingManager = new THREE.LoadingManager(
-// //   () => {
-// //     console.log('loaded')
-// //     gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 3, value : 0})
-// //   }, 
-// //   () => {
-// //     console.log('error')
-// //   }, 
-// //   () => {
-// //     console.log('progress')
-// //   }
-// // )
-// /**
-//  * Overlay
-//  */
-
-
-// const canvas = document.querySelector('canvas.webgl')
-
-// /**
-//  * Sizes
-//  */
-// const sizes = {
-//   width: window.innerWidth,
-//   height: window.innerHeight
-// }
-
-
-
-// // MainStuff:Setup
-// const scene = new THREE.Scene();
-
-// /**
-//  * Overlay
-//  */
-
-// // const overlayGeometry = new THREE.PlaneGeometry(2,2,1,1)
-// // const overlayMaterial = new THREE.ShaderMaterial({
-// //   // wireframe:true,
-// //   transparent:true,
-// //   uniforms:{
-
-// //     uAlpha: { value : 1 }
-
-// //   },
-// //   vertexShader:`
-
-// //   void main() {
-
-// //     gl_Position = vec4(position, 1.0);
-
-// //   }`,
-
-// //   fragmentShader:`
-
-// //   uniform float uAlpha;
-
-// //   void main() {
-
-// //     gl_FragColor = vec4(0.0, 0.0, 0.0, uAlpha);
-
-// //   }`
-// // })
-// // const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial)
-// // scene.add(overlay)
-
-
-// const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.1, 1000 );
-// camera.rotation.order = 'XYZ';
-
-
-// const renderer = new THREE.WebGLRenderer({
-//   canvas : canvas
-// });
-
-
-
-// const controls = {};
-
-// const player = {
-//   height: 1.2,
-//   speed: .05,
-//   gravity: .01,
-//   velocity: 0,
-// };
-
-
-
-
-// renderer.setSize(window.innerWidth, window.innerHeight);
-// renderer.shadowMap.enabled = true;
-// renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-// scene.background = new THREE.Color("black");
-// document.body.appendChild(renderer.domElement);
-
-// window.addEventListener('resize', () =>
-// {
-//   // Update sizes
-//   sizes.width = window.innerWidth
-//   sizes.height = window.innerHeight
-
-//   // Update camera
-//   camera.aspect = sizes.width / sizes.height;
-//   camera.updateProjectionMatrix();
-
-//   // Update renderer
-//   renderer.setSize(sizes.width, sizes.height)
-//   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-  
-// })
-
-// // Camera:Setup
-// camera.position.set(0, player.height, -5);
-// camera.lookAt(new THREE.Vector3(0, player.height, 5));
-
-
-// //model 3D : setup
-
-
-// const gltfLoader = new GLTFLoader()
-
-// gltfLoader.load(
-//   './backrooms-3Dmodel/backrooms_with_baked_textures/scene.gltf',
-//   // './backrooms/scene.gltf',
-//   (gltf) => {
-//     console.log('success')
-//     scene.add(gltf.scene)
-//   },
+// const LoadingManager = new THREE.LoadingManager(
 //   () => {
-//     console.log('progress')
-//   },
+//     console.log('loaded')
+//     gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 3, value : 0})
+//   }, 
 //   () => {
 //     console.log('error')
+//   }, 
+//   () => {
+//     console.log('progress')
 //   }
 // )
+/**
+ * Overlay
+ */
 
-// //Camera controls
 
-// /**
-//  * Mousemove
-//  */
+const canvas = document.querySelector('canvas.webgl')
 
-// // Controls:Listeners
-// document.addEventListener('keydown', ({ keyCode }) => { controls[keyCode] = true });
-// document.addEventListener('keyup', ({ keyCode }) => { controls[keyCode] = false });
-
-// function control() {
-//   // Controls:Engine 
-//   if(controls[90] || controls[38]){ // w/z / up arrow
-//     camera.position.x -= Math.sin(camera.rotation.y) * player.speed;
-//     camera.position.z -= -Math.cos(camera.rotation.y) * player.speed;
-//   }
-//   if(controls[83] || controls[40]){ // s/ down arrow
-//     camera.position.x += Math.sin(camera.rotation.y) * player.speed;
-//     camera.position.z += -Math.cos(camera.rotation.y) * player.speed;
-//   }
-//   if (controls[81] || controls[37]) { // a/left arrow
-//     camera.position.x += Math.cos(camera.rotation.y) * player.speed;
-//     camera.position.z += Math.sin(camera.rotation.y) * player.speed;
-//   }
-//   if (controls[68] || controls[39]) { // d/right arrow
-//     camera.position.x -= Math.cos(camera.rotation.y) * player.speed;
-//     camera.position.z -= Math.sin(camera.rotation.y) * player.speed;
-//   }
-// }
-
-// function animate() {  
-//   requestAnimationFrame(animate);
-//   control();
-//   renderer.render(scene, camera);
-// }
-
-// animate();
+/**
+ * Sizes
+ */
+const sizes = {
+  width: window.innerWidth,
+  height: window.innerHeight
+}
 
 
 
+// MainStuff:Setup
+const scene = new THREE.Scene();
+
+/**
+ * Overlay
+ */
+
+// const overlayGeometry = new THREE.PlaneGeometry(2,2,1,1)
+// const overlayMaterial = new THREE.ShaderMaterial({
+//   // wireframe:true,
+//   transparent:true,
+//   uniforms:{
+
+//     uAlpha: { value : 1 }
+
+//   },
+//   vertexShader:`
+
+//   void main() {
+
+//     gl_Position = vec4(position, 1.0);
+
+//   }`,
+
+//   fragmentShader:`
+
+//   uniform float uAlpha;
+
+//   void main() {
+
+//     gl_FragColor = vec4(0.0, 0.0, 0.0, uAlpha);
+
+//   }`
+// })
+// const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial)
+// scene.add(overlay)
+
+
+const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.1, 1000 );
+camera.rotation.order = 'XYZ';
+
+
+const renderer = new THREE.WebGLRenderer({
+  canvas : canvas
+});
+
+
+
+const controls = {};
+
+const player = {
+  height: 1.2,
+  speed: .05,
+  gravity: .01,
+  velocity: 0,
+};
 
 
 
 
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+scene.background = new THREE.Color("black");
+document.body.appendChild(renderer.domElement);
+
+window.addEventListener('resize', () =>
+{
+  // Update sizes
+  sizes.width = window.innerWidth
+  sizes.height = window.innerHeight
+
+  // Update camera
+  camera.aspect = sizes.width / sizes.height;
+  camera.updateProjectionMatrix();
+
+  // Update renderer
+  renderer.setSize(sizes.width, sizes.height)
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  
+})
+
+// Camera:Setup
+camera.position.set(0, player.height, -5);
+camera.lookAt(new THREE.Vector3(0, player.height, 5));
+
+
+//model 3D : setup
+
+
+const gltfLoader = new GLTFLoader()
+
+gltfLoader.load(
+  './backrooms-3Dmodel/backrooms_with_baked_textures/scene.gltf',
+  // './backrooms/scene.gltf',
+  (gltf) => {
+    console.log('success')
+    scene.add(gltf.scene)
+  },
+  () => {
+    console.log('progress')
+  },
+  () => {
+    console.log('error')
+  }
+)
+
+//Camera controls
+
+/**
+ * Mousemove
+ */
+
+
+
+// Controls:Listeners
+document.addEventListener('keydown', ({ keyCode }) => { controls[keyCode] = true });
+document.addEventListener('keyup', ({ keyCode }) => { controls[keyCode] = false });
+
+function control() {
+  // Controls:Engine 
+  if(controls[90] || controls[38]){ // w/z / up arrow
+    camera.position.x -= Math.sin(camera.rotation.y) * player.speed;
+    camera.position.z -= -Math.cos(camera.rotation.y) * player.speed;
+  }
+  if(controls[83] || controls[40]){ // s/ down arrow
+    camera.position.x += Math.sin(camera.rotation.y) * player.speed;
+    camera.position.z += -Math.cos(camera.rotation.y) * player.speed;
+  }
+  if (controls[81] || controls[37]) { // a/left arrow
+    camera.position.x += Math.cos(camera.rotation.y) * player.speed;
+    camera.position.z += Math.sin(camera.rotation.y) * player.speed;
+  }
+  if (controls[68] || controls[39]) { // d/right arrow
+    camera.position.x -= Math.cos(camera.rotation.y) * player.speed;
+    camera.position.z -= Math.sin(camera.rotation.y) * player.speed;
+  }
+}
+
+function onDocumentMouseMove( event ) {
+
+    event.preventDefault();
+
+    if ( isMouseDown ) {
+
+        theta = - ( ( event.clientX - onMouseDownPosition.x ) * 0.5 )
+                + onMouseDownTheta;
+        phi = ( ( event.clientY - onMouseDownPosition.y ) * 0.5 )
+              + onMouseDownPhi;
+
+        phi = Math.min( 180, Math.max( 0, phi ) );
+
+        camera.position.x = radious * Math.sin( theta * Math.PI / 360 )
+                            * Math.cos( phi * Math.PI / 360 );
+        camera.position.y = radious * Math.sin( phi * Math.PI / 360 );
+        camera.position.z = radious * Math.cos( theta * Math.PI / 360 )
+                            * Math.cos( phi * Math.PI / 360 );
+        camera.updateMatrix();
+
+    }
+
+    mouse3D = projector.unprojectVector(
+        new THREE.Vector3(
+            ( event.clientX / renderer.domElement.width ) * 2 - 1,
+            - ( event.clientY / renderer.domElement.height ) * 2 + 1,
+            0.5
+        ),
+        camera
+    );
+    ray.direction = mouse3D.subSelf( camera.position ).normalize();
+
+    interact();
+    render();
+
+}
+
+
+function animate() {  
+  requestAnimationFrame(animate);
+  control();
+  renderer.render(scene, camera);
+
+  target.x = ( 1 - mouse.x ) * 0.0002;
+  target.y = ( 1 - mouse.y ) * 0.0002;
+  
+  camera.rotation.x += 0.05 * ( target.y - camera.rotation.x );
+  camera.rotation.y += 0.05 * ( target.x - camera.rotation.y );
+
+}
+
+animate();
 
 
 

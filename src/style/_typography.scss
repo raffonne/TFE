@@ -4,7 +4,7 @@ p{
 
   color: white;
   font-size: 16px;
-  max-width: 50ch;
+  max-width: 55ch;
   letter-spacing: 0.5px;
   line-height: 1.5;
 
@@ -47,12 +47,11 @@ ul{
 
 .link-txt{
   font-family: 'montreal bold';
-  color: #A7A7A7;
+  color: #333;
 
   @media (min-width:1000px) {
 
-    color: #A7A7A7;
-    filter: blur(0.2em);
+    color: #747474;
 
     &:hover{
       color: #fff;
@@ -98,7 +97,7 @@ ul{
   font-size: 40px;
   padding-top: 0.5em;
   padding-right: 1em;
-  font-family: 'eiko'!important;
+  font-family: 'montreal';
   background: -webkit-linear-gradient(90deg, #000000 0%, #ffffff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -107,18 +106,17 @@ ul{
 
   @media (min-width:1000px) {
 
-    font-size: 150px;
+    font-size: 200px;
     line-height: 1;
     
     transition: .5s ease-in;
     
     &:hover{
-      opacity: 1;
       transition: .5s ease-in;
-      // filter: drop-shadow(0 0 0.5rem rgb(255, 255, 255));
-      background: #fff;
+      background: -webkit-linear-gradient(90deg, #ffffff 0%, #ffffff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+
     }
 
   }
@@ -164,7 +162,6 @@ ul{
   }
 
 
-
   .title{
 
     color: white;
@@ -176,15 +173,19 @@ ul{
       font-size: 74px;
       font-family: 'eiko';
       font-weight: 100;
-
-      // filter: drop-shadow(0 0 0.5rem rgb(255, 255, 255));
-
       text-shadow: 0 0 100px,0 0 2px, 0 0 1em , 0 0 0.5em , 0 0 0.1em;
-      // text-shadow: 0 0 0.1em,0 0 2px, 0 0 1em , 0 0 0.1em , 0 0 0.1em;
 
-      b{
-        animation:blink linear infinite 5s;
-        font:inherit;
+      b {
+        font: inherit;
+      }
+
+      .blik{
+        animation: blink linear infinite 5s;
+      }
+
+      .no-blik {
+        opacity: 0.05;
+        animation: none;
       }
 
       @media (min-width:700px) {
@@ -205,6 +206,7 @@ ul{
       font-size: 20px;
       letter-spacing: 2px;
       text-transform: uppercase;
+      opacity:0;
 
       @media (min-width:700px) {
         font-size: 2px;
@@ -256,6 +258,17 @@ ul{
         letter-spacing: 5px;
 
         padding: 0.5em 0;
+        
+
+        .t1{
+          display: flex;
+          justify-content: right;
+        }
+
+        .t2{
+          display: flex;
+          justify-content: center;
+        }
 
 
         @media (min-width:1000px) {
