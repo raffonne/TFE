@@ -60,6 +60,7 @@ img{
 .kaneImg{
   width: 100%;
   // z-index: -999;
+  display: none;
 }
 
 
@@ -124,7 +125,8 @@ img{
 
     &--1{
         grid-area: img1;
-        width: 100%;
+        max-width: 330px;
+        display: none;
     }
     &--2{
         grid-area:img2;
@@ -224,8 +226,8 @@ img{
   //facelings
   &--2{
 
-    top: 15%;
-    left:-5%;
+    top: 0%;
+    left:50%;
     border-radius: 50px!important;
 
   }

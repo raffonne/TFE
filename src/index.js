@@ -138,8 +138,6 @@ if (quote) {
 var ending = document.querySelector('.footer-heading');
 if (ending) {
 	gsap.to('.footer-heading', {
-		opacity:1,
-		duration:5,
 		scale:10,
 		opacity:0,
 		scrollTrigger: {
@@ -153,20 +151,6 @@ if (ending) {
 	})
 };
 
-// var h2 = document.querySelector('.title--big');
-// if (h2) {
-// 	gsap.to('.title--big', {
-// 		opacity:1,
-// 		duration:3,
-// 		scrollTrigger: {
-// 			trigger:'.title--big',
-// 			start:"bottom bottom",
-// 			end:"-1000",
-// 			// markers:true,
-// 			scrub:0.5
-// 		}
-// 	})
-// };
 
 var pinText1 = document.querySelector('.show-1');
 if(pinText1){
@@ -206,9 +190,8 @@ if(pinText2){
 var portal = document.querySelector('.portal-image');
 if(portal){
 	gsap.to(".portal-image", {
-		duration:4,
 		scale: 12,
-
+		duration:4,
 		onComplete: () => {
 			portal.style.display = 'none';
 		  },
@@ -216,7 +199,7 @@ if(portal){
 		scrollTrigger: {
 			trigger: ".portal-image",
 			start: "top 100",
-			end: "bottom 100",
+			end: "bottom bottom",
 			// markers:true,
 			scrub:3,
 			
@@ -342,14 +325,36 @@ var kanetxt = document.getElementsByClassName('kane__resume');
 );
 
 
-var float = document.getElementsByClassName('.float');
-	new simpleParallax(float, {
-		overflow:true,
-		delay: .4,
-		transition: 'cubic-bezier(0,0,1,1)'
+// var float = document.getElementsByClassName('.float--2');
+// if(float){
+// 	gsap.to(".float--2",{
+// 		x:200,
+// 		scrollTrigger: {
+// 			trigger: ".float--2",
+// 			start: "left 70%",
+// 			end: "left 30%",
+// 			horizontal: true,
+// 			scrub: true
+// 		},
+// 	});
+// }
 
-	},
-);
+// const t1 = gsap.timeline({
+//     scrollTrigger: {
+//         trigger: ".box1",
+//         start: "left 70%",
+//         end: "left 30%",
+//         horizontal: true,
+//         scrub: true
+//     },
+// });
+
+// t1.to(".box1", {
+//     scale: 2,
+//     rotation: 360,
+//     duration: 3
+// });
+	
 
 
 
@@ -445,8 +450,6 @@ setTimeout(function(){
 
 
 }, time);
-
-
 
 
 

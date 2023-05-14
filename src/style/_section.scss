@@ -97,15 +97,7 @@
               flex-direction: row;
               padding-bottom: 104px;
             }
-            &__img{
-              width: 100%;
-              max-width: 500px;
-    
-              @media (min-width:1000px) {
-                transform: translateY(-30%);
-              }
-            }
-    
+        
           }
 
     }

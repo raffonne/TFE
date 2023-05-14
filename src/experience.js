@@ -225,6 +225,11 @@ const sizes = {
   height: window.innerHeight
 }
 
+/**
+ * Lights
+ */
+// const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
+// scene.add(ambientLight)
 
 
 // MainStuff:Setup
@@ -268,19 +273,16 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.1, 1000 );
 camera.rotation.order = 'XYZ';
 
-
 const renderer = new THREE.WebGLRenderer({
   canvas : canvas
 });
 
 
-
 const controls = {};
-
 const player = {
-  height: 1.2,
-  speed: .05,
-  gravity: .01,
+  height: 2,
+  turnSpeed: .1,
+  speed: 0.5,
   velocity: 0,
 };
 
@@ -291,7 +293,6 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 scene.background = new THREE.Color("black");
-document.body.appendChild(renderer.domElement);
 
 window.addEventListener('resize', () =>
 {
@@ -320,8 +321,8 @@ camera.lookAt(new THREE.Vector3(0, player.height, 5));
 const gltfLoader = new GLTFLoader()
 
 gltfLoader.load(
-  './backrooms-3Dmodel/backrooms_with_baked_textures/scene.gltf',
-  // './backrooms/scene.gltf',
+  // './backrooms-3Dmodel/backrooms_with_baked_textures/scene.gltf',
+  './definitive.gltf',
   (gltf) => {
     console.log('success')
     scene.add(gltf.scene)
@@ -348,72 +349,33 @@ document.addEventListener('keyup', ({ keyCode }) => { controls[keyCode] = false 
 
 function control() {
   // Controls:Engine 
-  if(controls[90] || controls[38]){ // w/z / up arrow
+  if (controls[90] || controls[38]) { // w/z / up arrow
     camera.position.x -= Math.sin(camera.rotation.y) * player.speed;
     camera.position.z -= -Math.cos(camera.rotation.y) * player.speed;
   }
-  if(controls[83] || controls[40]){ // s/ down arrow
+  if (controls[83] || controls[40]) { // s/ down arrow
     camera.position.x += Math.sin(camera.rotation.y) * player.speed;
     camera.position.z += -Math.cos(camera.rotation.y) * player.speed;
   }
   if (controls[81] || controls[37]) { // a/left arrow
     camera.position.x += Math.cos(camera.rotation.y) * player.speed;
     camera.position.z += Math.sin(camera.rotation.y) * player.speed;
+    camera.rotation.y -= player.turnSpeed; // tourner la caméra vers la gauche
   }
   if (controls[68] || controls[39]) { // d/right arrow
     camera.position.x -= Math.cos(camera.rotation.y) * player.speed;
     camera.position.z -= Math.sin(camera.rotation.y) * player.speed;
+    camera.rotation.y += player.turnSpeed; // tourner la caméra vers la droite
   }
 }
 
-function onDocumentMouseMove( event ) {
 
-    event.preventDefault();
-
-    if ( isMouseDown ) {
-
-        theta = - ( ( event.clientX - onMouseDownPosition.x ) * 0.5 )
-                + onMouseDownTheta;
-        phi = ( ( event.clientY - onMouseDownPosition.y ) * 0.5 )
-              + onMouseDownPhi;
-
-        phi = Math.min( 180, Math.max( 0, phi ) );
-
-        camera.position.x = radious * Math.sin( theta * Math.PI / 360 )
-                            * Math.cos( phi * Math.PI / 360 );
-        camera.position.y = radious * Math.sin( phi * Math.PI / 360 );
-        camera.position.z = radious * Math.cos( theta * Math.PI / 360 )
-                            * Math.cos( phi * Math.PI / 360 );
-        camera.updateMatrix();
-
-    }
-
-    mouse3D = projector.unprojectVector(
-        new THREE.Vector3(
-            ( event.clientX / renderer.domElement.width ) * 2 - 1,
-            - ( event.clientY / renderer.domElement.height ) * 2 + 1,
-            0.5
-        ),
-        camera
-    );
-    ray.direction = mouse3D.subSelf( camera.position ).normalize();
-
-    interact();
-    render();
-
-}
 
 
 function animate() {  
   requestAnimationFrame(animate);
   control();
   renderer.render(scene, camera);
-
-  target.x = ( 1 - mouse.x ) * 0.0002;
-  target.y = ( 1 - mouse.y ) * 0.0002;
-  
-  camera.rotation.x += 0.05 * ( target.y - camera.rotation.x );
-  camera.rotation.y += 0.05 * ( target.x - camera.rotation.y );
 
 }
 
