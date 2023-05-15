@@ -259,7 +259,7 @@ if (box) {
 var box2 = document.querySelector('.card--2');
 if (box2) {
 	gsap.from('.card--2', {
-		y:1000,
+		y:400,
 		scrollTrigger : {
 			trigger:".section--about-levels",
 			start:'top top',
@@ -289,7 +289,7 @@ if (box3) {
 var box4 = document.querySelector('.card--4');
 if (box4) {
 	gsap.from('.card--4', {
-		y:1200,
+		y:2000,
 		scrollTrigger : {
 			trigger:".section--about-levels",
 			start:'top top',
@@ -300,24 +300,24 @@ if (box4) {
 
 	})
 }
-var box5 = document.querySelector('.card--5');
-if (box5) {
-	gsap.from('.card--5', {
-		y:1200,
-		scrollTrigger : {
-			trigger:".section--about-levels",
-			start:'top top',
-			bottom: 'bottom bottom',
-			scrub:true,
-			markers:true,
-		}
+// var box5 = document.querySelector('.card--5');
+// if (box5) {
+// 	gsap.from('.card--5', {
+// 		y:1200,
+// 		scrollTrigger : {
+// 			trigger:".section--about-levels",
+// 			start:'top top',
+// 			bottom: 'bottom bottom',
+// 			scrub:true,
+// 			markers:true,
+// 		}
 
-	})
-}
+// 	})
+// }
 var box6 = document.querySelector('.card--6');
 if (box6) {
 	gsap.from('.card--6', {
-		y:1200,
+		y:700,
 		scrollTrigger : {
 			trigger:".section--about-levels",
 			start:'top top',
@@ -331,7 +331,7 @@ if (box6) {
 var box7 = document.querySelector('.card--7');
 if (box7) {
 	gsap.from('.card--7', {
-		y:1200,
+		y:200,
 		scrollTrigger : {
 			trigger:".section--about-levels",
 			start:'top top',
@@ -359,7 +359,7 @@ if (box8) {
 var box9 = document.querySelector('.card--9');
 if (box9) {
 	gsap.from('.card--9', {
-		y:1200,
+		y:2500,
 		scrollTrigger : {
 			trigger:".section--about-levels",
 			start:'top top',

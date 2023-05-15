@@ -193,18 +193,29 @@
         .container{
 
             position: relative;
-            height: 400vh;
+            height: 300vh;
         }
         
         .card {
             
             max-width: 700px;
-            height: 300px;
-            background-color: orange;
+            min-height: 300px;
             position: absolute;
-            transition: transform 100ms ease;
-            will-change: transform;
 
+            &:hover{
+                img{
+                    transform: scale(1.1);
+                    transition: all .3s ease;
+                    z-index: 9999;
+                }
+            }
+
+        }
+
+        .br-name{
+            @media (min-width:1000px) {
+                display: none;
+            }
         }
         
         .card--1{
@@ -234,18 +245,20 @@
         .card--5 {
             top: 40%;
             left: 38%;
+            width:480px;
         }
         .card--6 {
             top: 50%;
-            left: 46%;
+            left: 26%;
         }
         .card--7 {
-            top: 60%;
-            left: 350px;
+            top: 70%;
+            left: 5%;
         }
         .card--8 {
             top: 70%;
-            left: 100%;
+            left: 60%;
+            width: 500px;
         }
         .card--9 {
             top: 80%;
