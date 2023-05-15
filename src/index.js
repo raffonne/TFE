@@ -190,8 +190,9 @@ if(pinText2){
 var portal = document.querySelector('.portal-image');
 if(portal){
 	gsap.to(".portal-image", {
-		scale: 12,
+		scale: 10,
 		duration:4,
+
 		onComplete: () => {
 			portal.style.display = 'none';
 		  },
@@ -237,7 +238,138 @@ if(kane){
 			scrub:true
 		},
 	})
-};
+}
+
+
+var box = document.querySelector('.card--1');
+if (box) {
+	gsap.from('.card--1', {
+		y:600,
+		scrollTrigger : {
+			trigger:".section--about-levels",
+			start:'top top',
+			bottom: 'bottom bottom',
+			scrub:true,
+			markers:true,
+		}
+
+	})
+}
+
+var box2 = document.querySelector('.card--2');
+if (box2) {
+	gsap.from('.card--2', {
+		y:1000,
+		scrollTrigger : {
+			trigger:".section--about-levels",
+			start:'top top',
+			bottom: 'bottom bottom',
+			scrub:true,
+			markers:true,
+		}
+
+	})
+}
+
+var box3 = document.querySelector('.card--3');
+if (box3) {
+	gsap.from('.card--3', {
+		y:1200,
+		scrollTrigger : {
+			trigger:".section--about-levels",
+			start:'top top',
+			bottom: 'bottom bottom',
+			scrub:true,
+			markers:true,
+		}
+
+	})
+}
+
+var box4 = document.querySelector('.card--4');
+if (box4) {
+	gsap.from('.card--4', {
+		y:1200,
+		scrollTrigger : {
+			trigger:".section--about-levels",
+			start:'top top',
+			bottom: 'bottom bottom',
+			scrub:true,
+			markers:true,
+		}
+
+	})
+}
+var box5 = document.querySelector('.card--5');
+if (box5) {
+	gsap.from('.card--5', {
+		y:1200,
+		scrollTrigger : {
+			trigger:".section--about-levels",
+			start:'top top',
+			bottom: 'bottom bottom',
+			scrub:true,
+			markers:true,
+		}
+
+	})
+}
+var box6 = document.querySelector('.card--6');
+if (box6) {
+	gsap.from('.card--6', {
+		y:1200,
+		scrollTrigger : {
+			trigger:".section--about-levels",
+			start:'top top',
+			bottom: 'bottom bottom',
+			scrub:true,
+			markers:true,
+		}
+
+	})
+}
+var box7 = document.querySelector('.card--7');
+if (box7) {
+	gsap.from('.card--7', {
+		y:1200,
+		scrollTrigger : {
+			trigger:".section--about-levels",
+			start:'top top',
+			bottom: 'bottom bottom',
+			scrub:true,
+			markers:true,
+		}
+
+	})
+}
+var box8 = document.querySelector('.card--8');
+if (box8) {
+	gsap.from('.card--8', {
+		y:1200,
+		scrollTrigger : {
+			trigger:".section--about-levels",
+			start:'top top',
+			bottom: 'bottom bottom',
+			scrub:true,
+			markers:true,
+		}
+
+	})
+}
+var box9 = document.querySelector('.card--9');
+if (box9) {
+	gsap.from('.card--9', {
+		y:1200,
+		scrollTrigger : {
+			trigger:".section--about-levels",
+			start:'top top',
+			bottom: 'bottom bottom',
+			scrub:true,
+			markers:true,
+		}
+
+	})
+}
 
 
 var image = document.getElementsByClassName('icon-img');
@@ -357,27 +489,57 @@ var kanetxt = document.getElementsByClassName('kane__resume');
 	
 
 
+// var windowSel = $(window);
+
+// // parallax
+// function parallax(selector, speed) {
+//   var movement = -(windowSel.scrollTop() * (speed / 10));
+//   $(selector).css('transform', 'translate3d(0,' + movement + 'px, 0');
+// }
+
+// // parallax init
+// function parallaxInit(selector) {
+//   if ($(selector).length && window.innerWidth > 800 && navigator.userAgent.match(/iPad/i) == null) {
+//     $(selector).each(function(i, el) {
+//       var speed = $(el).attr('data-speed');
+
+//       //init function on load
+//       parallax($(el), speed);
+
+//       // init function on scroll
+//       windowSel.on('scroll', function() {
+//         parallax($(el), speed);
+//       });
+//     });
+//   }
+// }
+
+// var parallaxItem = '[data-parallax]';
+// parallaxInit(parallaxItem);
+
+// according to effect from this website: http://www.techstyle.com/
 
 
-const spaceHolder = document.querySelector('.space-holder');
-const horizontal = document.querySelector('.horizontal');
-spaceHolder.style.height = `${calcDynamicHeight(horizontal)}px`;
 
-function calcDynamicHeight(ref) {
-  const vw = window.innerWidth;
-  const vh = window.innerHeight;
-  const objectWidth = ref.scrollWidth;
-  return objectWidth - vw + vh; // 150 is the padding (in pixels) desired on the right side of the .cards container. This can be set to whatever your styles dictate
-}
+// const spaceHolder = document.querySelector('.space-holder');
+// const horizontal = document.querySelector('.horizontal');
+// spaceHolder.style.height = `${calcDynamicHeight(horizontal)}px`;
 
-window.addEventListener('scroll', () => {
-  const sticky = document.querySelector('.sticky');
-  horizontal.style.transform = `translateX(-${sticky.offsetTop}px)`;
-});
+// function calcDynamicHeight(ref) {
+//   const vw = window.innerWidth;
+//   const vh = window.innerHeight;
+//   const objectWidth = ref.scrollWidth;
+//   return objectWidth - vw + vh; // 150 is the padding (in pixels) desired on the right side of the .cards container. This can be set to whatever your styles dictate
+// }
 
-window.addEventListener('resize', () => {
-  spaceHolder.style.height = `${calcDynamicHeight(horizontal)}px`;
-});
+// window.addEventListener('scroll', () => {
+//   const sticky = document.querySelector('.sticky');
+//   horizontal.style.transform = `translateX(-${sticky.offsetTop}px)`;
+// });
+
+// window.addEventListener('resize', () => {
+//   spaceHolder.style.height = `${calcDynamicHeight(horizontal)}px`;
+// });
 
 
 var scene = document.getElementById('scene');
@@ -454,86 +616,7 @@ setTimeout(function(){
 
 
 
-
-// const lerp = (current, target, factor) =>
-//     current * (1 - factor) + target * factor;
-
-// let mousePosition = { x: 0, y: 0 };
-// window.addEventListener("mousemove", (e) => {
-//     mousePosition.x = e.pageX;
-//     mousePosition.y = e.pageY;
-// });
-
-// const calculateDistance = (x1, y1, x2, y2) => {
-//     return Math.hypot(x1 - x2, y1 - y2);
-// };
-
-// // ------------------------------------------------------------------------
-// class MagneticObject {
-//     constructor(domElement) {
-//         this.domElement = domElement;
-//         this.boundingClientRect = this.domElement.getBoundingClientRect();
-//         this.triggerArea = 200;
-//         this.interpolationFactor = 0.8;
-
-//         this.lerpingData = {
-//             x: { current: 0, target: 0 },
-//             y: { current: 0, target: 0 },
-//         };
-
-//         this.render();
-//         this.resize();
-//     }
-
-//     resize() {
-//         window.addEventListener("resize", () => {
-//             this.boundingClientRect = this.domElement.getBoundingClientRect();
-//         });
-//     }
-
-//     render() {
-//         const distanceFromMouseToCenter = calculateDistance(
-//             mousePosition.x,
-//             mousePosition.y,
-//             this.boundingClientRect.left + this.boundingClientRect.width / 2,
-//             this.boundingClientRect.top + this.boundingClientRect.height / 2
-//         );
-
-//         let targetHolder = { x: 0, y: 0 };
-
-//         if (distanceFromMouseToCenter < this.triggerArea) {
-//             targetHolder.x =
-//                 (mousePosition.x -
-//                     (this.boundingClientRect.left +
-//                         this.boundingClientRect.width / 2)) *
-//                 0.2;
-//             targetHolder.y =
-//                 (mousePosition.y -
-//                     (this.boundingClientRect.top +
-//                         this.boundingClientRect.height / 2)) *
-//                 0.2;
-//             console.log(targetHolder);
-        
-//         }
-		
-//         this.lerpingData["x"].target = targetHolder.x;
-//         this.lerpingData["y"].target = targetHolder.y;
-
-//         for (const item in this.lerpingData) {
-//             this.lerpingData[item].current = lerp(
-//                 this.lerpingData[item].current,
-//                 this.lerpingData[item].target,
-//                 this.interpolationFactor
-//             );
-//         }
-
-//         this.domElement.style.transform = `translate(${this.lerpingData["x"].current}px, ${this.lerpingData["y"].current}px)`;
-
-//         window.requestAnimationFrame(() => this.render());
-//     }
-// }
-
-// const button = document.querySelector(".btn--link");
-// new MagneticObject(button);
-
 AOS.init();
+
+
+

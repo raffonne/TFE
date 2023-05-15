@@ -4,9 +4,9 @@ html{
   
 }
 
-// *{
-//   outline: red dashed 1px;
-// }
+*{
+  outline: red dashed 1px;
+}
 
 body{
 
@@ -144,7 +144,6 @@ header{
     height: 60px;
     position: absolute;
     top: 0;
-
     z-index: 999;
     @media(min-width:1000px){
         
@@ -157,7 +156,7 @@ header{
   
     label {
   
-        position: fixed;
+      position: fixed;
       top: 35px;
       right: 12.5px;
       // margin: 1em;

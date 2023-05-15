@@ -101,13 +101,12 @@
           }
 
     }
+
     //noclip
     &--about-noclip{
 
         padding-top: 10em;
         padding-bottom: 10em;
-
-
 
         @media (min-width:1000px){
 
@@ -116,6 +115,7 @@
             .noclip{
 
                 @media (min-width:1000px) {
+
                     display: grid;
                     grid-template-columns: 1fr 1fr;
                     grid-template-areas:
@@ -187,7 +187,76 @@
     }
     //niveaux diff
     &--about-levels{
+
         position: relative;
+
+        .container{
+
+            position: relative;
+            height: 400vh;
+        }
+        
+        .card {
+            
+            max-width: 700px;
+            height: 300px;
+            background-color: orange;
+            position: absolute;
+            transition: transform 100ms ease;
+            will-change: transform;
+
+        }
+        
+        .card--1{
+            
+            top: 0%;
+            left: 10%;
+            // box-shadow: 0 10px 50px -10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .card--2 {
+            top: 10%;
+            left: 60%; 
+        }
+        
+        .card--3 {
+            top: 20%;
+            left: 5%;
+        }
+
+        //stop//
+
+
+        .card--4 {
+            top: 30%;
+            left: 55%;
+        }
+        .card--5 {
+            top: 40%;
+            left: 38%;
+        }
+        .card--6 {
+            top: 50%;
+            left: 46%;
+        }
+        .card--7 {
+            top: 60%;
+            left: 350px;
+        }
+        .card--8 {
+            top: 70%;
+            left: 100%;
+        }
+        .card--9 {
+            top: 80%;
+            left: 33%;
+        }
+        // .card--10 {
+        //     top: 90%;
+        //     left: 10%;
+        // }
+
+
     }
     //entites
     &--about-entities{
@@ -520,11 +589,11 @@
 
             }
 
-            .portal-container{
+            // .portal-container{
 
-                // text-align: center;
+            //     // text-align: center;
 
-            }
+            // }
 
             > div{
                 margin-top: 2em;

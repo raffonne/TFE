@@ -60,7 +60,7 @@ img{
 .kaneImg{
   width: 100%;
   // z-index: -999;
-  display: none;
+  // display: none;
 }
 
 
@@ -126,7 +126,6 @@ img{
     &--1{
         grid-area: img1;
         max-width: 330px;
-        display: none;
     }
     &--2{
         grid-area:img2;
