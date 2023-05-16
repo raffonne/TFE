@@ -1,6 +1,8 @@
+import { Application } from '@splinetool/runtime';
 
-
-
+    const canvas = document.getElementById('canvas3d');
+    const app = new Application(canvas);
+    app.load('https://prod.spline.design/S2VhqtEL3WY-9me8/scene.splinecode');
 
 // import * as THREE from 'three'
 // import * as dat from 'lil-gui'
@@ -180,206 +182,206 @@
 
 
 
-/**
- * BACKROOMS V1
- */
+// /**
+//  * BACKROOMS V1
+//  */
 
-//THREE.JS
-import * as THREE from 'three'
-import gsap from "gsap";
-import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.js';
-import * as dat from 'lil-gui'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
+// //THREE.JS
+// import * as THREE from 'three'
+// import gsap from "gsap";
+// import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.js';
+// import * as dat from 'lil-gui'
+// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+// // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+// import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
 
-/**
- * Loader
- */
+// /**
+//  * Loader
+//  */
 
-// const LoadingManager = new THREE.LoadingManager(
-//   () => {
-//     console.log('loaded')
-//     gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 3, value : 0})
-//   }, 
-//   () => {
-//     console.log('error')
-//   }, 
+// // const LoadingManager = new THREE.LoadingManager(
+// //   () => {
+// //     console.log('loaded')
+// //     gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 3, value : 0})
+// //   }, 
+// //   () => {
+// //     console.log('error')
+// //   }, 
+// //   () => {
+// //     console.log('progress')
+// //   }
+// // )
+// /**
+//  * Overlay
+//  */
+
+
+// const canvas = document.querySelector('canvas.webgl')
+
+// /**
+//  * Sizes
+//  */
+// const sizes = {
+//   width: window.innerWidth,
+//   height: window.innerHeight
+// }
+
+// /**
+//  * Lights
+//  */
+// // const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
+// // scene.add(ambientLight)
+
+
+// // MainStuff:Setup
+// const scene = new THREE.Scene();
+
+// /**
+//  * Overlay
+//  */
+
+// // const overlayGeometry = new THREE.PlaneGeometry(2,2,1,1)
+// // const overlayMaterial = new THREE.ShaderMaterial({
+// //   // wireframe:true,
+// //   transparent:true,
+// //   uniforms:{
+
+// //     uAlpha: { value : 1 }
+
+// //   },
+// //   vertexShader:`
+
+// //   void main() {
+
+// //     gl_Position = vec4(position, 1.0);
+
+// //   }`,
+
+// //   fragmentShader:`
+
+// //   uniform float uAlpha;
+
+// //   void main() {
+
+// //     gl_FragColor = vec4(0.0, 0.0, 0.0, uAlpha);
+
+// //   }`
+// // })
+// // const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial)
+// // scene.add(overlay)
+
+
+// const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.1, 1000 );
+// camera.rotation.order = 'XYZ';
+
+// const renderer = new THREE.WebGLRenderer({
+//   canvas : canvas
+// });
+
+
+// const controls = {};
+// const player = {
+//   height: 2,
+//   turnSpeed: .1,
+//   speed: 0.5,
+//   velocity: 0,
+// };
+
+
+
+
+// renderer.setSize(window.innerWidth, window.innerHeight);
+// renderer.shadowMap.enabled = true;
+// renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+// scene.background = new THREE.Color("black");
+
+// window.addEventListener('resize', () =>
+// {
+//   // Update sizes
+//   sizes.width = window.innerWidth
+//   sizes.height = window.innerHeight
+
+//   // Update camera
+//   camera.aspect = sizes.width / sizes.height;
+//   camera.updateProjectionMatrix();
+
+//   // Update renderer
+//   renderer.setSize(sizes.width, sizes.height)
+//   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  
+// })
+
+// // Camera:Setup
+// camera.position.set(0, player.height, -5);
+// camera.lookAt(new THREE.Vector3(0, player.height, 5));
+
+
+// //model 3D : setup
+
+
+// const gltfLoader = new GLTFLoader()
+
+// gltfLoader.load(
+//   // './backrooms-3Dmodel/backrooms_with_baked_textures/scene.gltf',
+//   './definitive.gltf',
+//   (gltf) => {
+//     console.log('success')
+//     scene.add(gltf.scene)
+//   },
 //   () => {
 //     console.log('progress')
+//   },
+//   () => {
+//     console.log('error')
 //   }
 // )
-/**
- * Overlay
- */
+
+// //Camera controls
+
+// /**
+//  * Mousemove
+//  */
 
 
-const canvas = document.querySelector('canvas.webgl')
 
-/**
- * Sizes
- */
-const sizes = {
-  width: window.innerWidth,
-  height: window.innerHeight
-}
+// // Controls:Listeners
+// document.addEventListener('keydown', ({ keyCode }) => { controls[keyCode] = true });
+// document.addEventListener('keyup', ({ keyCode }) => { controls[keyCode] = false });
 
-/**
- * Lights
- */
-// const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
-// scene.add(ambientLight)
-
-
-// MainStuff:Setup
-const scene = new THREE.Scene();
-
-/**
- * Overlay
- */
-
-// const overlayGeometry = new THREE.PlaneGeometry(2,2,1,1)
-// const overlayMaterial = new THREE.ShaderMaterial({
-//   // wireframe:true,
-//   transparent:true,
-//   uniforms:{
-
-//     uAlpha: { value : 1 }
-
-//   },
-//   vertexShader:`
-
-//   void main() {
-
-//     gl_Position = vec4(position, 1.0);
-
-//   }`,
-
-//   fragmentShader:`
-
-//   uniform float uAlpha;
-
-//   void main() {
-
-//     gl_FragColor = vec4(0.0, 0.0, 0.0, uAlpha);
-
-//   }`
-// })
-// const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial)
-// scene.add(overlay)
-
-
-const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.1, 1000 );
-camera.rotation.order = 'XYZ';
-
-const renderer = new THREE.WebGLRenderer({
-  canvas : canvas
-});
-
-
-const controls = {};
-const player = {
-  height: 2,
-  turnSpeed: .1,
-  speed: 0.5,
-  velocity: 0,
-};
+// function control() {
+//   // Controls:Engine 
+//   if (controls[90] || controls[38]) { // w/z / up arrow
+//     camera.position.x -= Math.sin(camera.rotation.y) * player.speed;
+//     camera.position.z -= -Math.cos(camera.rotation.y) * player.speed;
+//   }
+//   if (controls[83] || controls[40]) { // s/ down arrow
+//     camera.position.x += Math.sin(camera.rotation.y) * player.speed;
+//     camera.position.z += -Math.cos(camera.rotation.y) * player.speed;
+//   }
+//   if (controls[81] || controls[37]) { // a/left arrow
+//     camera.position.x += Math.cos(camera.rotation.y) * player.speed;
+//     camera.position.z += Math.sin(camera.rotation.y) * player.speed;
+//     camera.rotation.y -= player.turnSpeed; // tourner la caméra vers la gauche
+//   }
+//   if (controls[68] || controls[39]) { // d/right arrow
+//     camera.position.x -= Math.cos(camera.rotation.y) * player.speed;
+//     camera.position.z -= Math.sin(camera.rotation.y) * player.speed;
+//     camera.rotation.y += player.turnSpeed; // tourner la caméra vers la droite
+//   }
+// }
 
 
 
 
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-scene.background = new THREE.Color("black");
+// function animate() {  
+//   requestAnimationFrame(animate);
+//   control();
+//   renderer.render(scene, camera);
 
-window.addEventListener('resize', () =>
-{
-  // Update sizes
-  sizes.width = window.innerWidth
-  sizes.height = window.innerHeight
+// }
 
-  // Update camera
-  camera.aspect = sizes.width / sizes.height;
-  camera.updateProjectionMatrix();
-
-  // Update renderer
-  renderer.setSize(sizes.width, sizes.height)
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-  
-})
-
-// Camera:Setup
-camera.position.set(0, player.height, -5);
-camera.lookAt(new THREE.Vector3(0, player.height, 5));
-
-
-//model 3D : setup
-
-
-const gltfLoader = new GLTFLoader()
-
-gltfLoader.load(
-  // './backrooms-3Dmodel/backrooms_with_baked_textures/scene.gltf',
-  './definitive.gltf',
-  (gltf) => {
-    console.log('success')
-    scene.add(gltf.scene)
-  },
-  () => {
-    console.log('progress')
-  },
-  () => {
-    console.log('error')
-  }
-)
-
-//Camera controls
-
-/**
- * Mousemove
- */
-
-
-
-// Controls:Listeners
-document.addEventListener('keydown', ({ keyCode }) => { controls[keyCode] = true });
-document.addEventListener('keyup', ({ keyCode }) => { controls[keyCode] = false });
-
-function control() {
-  // Controls:Engine 
-  if (controls[90] || controls[38]) { // w/z / up arrow
-    camera.position.x -= Math.sin(camera.rotation.y) * player.speed;
-    camera.position.z -= -Math.cos(camera.rotation.y) * player.speed;
-  }
-  if (controls[83] || controls[40]) { // s/ down arrow
-    camera.position.x += Math.sin(camera.rotation.y) * player.speed;
-    camera.position.z += -Math.cos(camera.rotation.y) * player.speed;
-  }
-  if (controls[81] || controls[37]) { // a/left arrow
-    camera.position.x += Math.cos(camera.rotation.y) * player.speed;
-    camera.position.z += Math.sin(camera.rotation.y) * player.speed;
-    camera.rotation.y -= player.turnSpeed; // tourner la caméra vers la gauche
-  }
-  if (controls[68] || controls[39]) { // d/right arrow
-    camera.position.x -= Math.cos(camera.rotation.y) * player.speed;
-    camera.position.z -= Math.sin(camera.rotation.y) * player.speed;
-    camera.rotation.y += player.turnSpeed; // tourner la caméra vers la droite
-  }
-}
-
-
-
-
-function animate() {  
-  requestAnimationFrame(animate);
-  control();
-  renderer.render(scene, camera);
-
-}
-
-animate();
+// animate();
 
 
 

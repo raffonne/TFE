@@ -30,14 +30,11 @@
     <meta property="twitter:image" content="">
 
     <link rel="stylesheet" href="/style.scss">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.0/bundled/lenis.js"></script>
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <script type="module" src="index.js"></script>
 
     <link rel="icon" href="./images/favicon.svg">
@@ -63,26 +60,6 @@
             <div class="nav__el">
                 <a class="btn nav-links" href="experience.html">Experience</a>
             </div>
-
-            <!-- <div class="utils">
-
-                <div class="lang">
-                    <button class="btn btn--lang">EN</button>
-                </div>
-
-                <div class="sound">
-
-                    <audio autoplay loop id="myAudio">
-                        <source src="./images//waiting-in-the-shadows-dark-ambient-soundscape-108567.mp3" type="audio/wav">
-                    </audio>
-
-                    <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
-                        <img id="sound-icon" src="./images/Vector.svg">
-                    </button>
-
-                </div>
-
-            </div> -->
 
         </nav>
 
@@ -110,13 +87,9 @@
 
     <main class="experience">
 
-        <!-- <div class="bg"></div> -->
-
-
-
       <section class="section section--experience">
         
-        <canvas class="webgl"></canvas>
+        <canvas height="100vh" width="100vw" id="canvas3d"></canvas>
 
         <div class="controls controls--fixed">
             <div class="controls--fixed__keyboard">
@@ -143,9 +116,15 @@
 
 
    
-	
+	<!-- <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.334/build/spline-viewer.js"></script> -->
     <script type="module" src="experience.js"></script>
     <script>
+
+
+        
+
+
+
         const soundBtn = document.getElementById("sound-btn");
         const soundIcon = document.getElementById("sound-icon");
         const audio = document.getElementById("myAudio");
