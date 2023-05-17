@@ -127,7 +127,6 @@ ul{
 
 .bold{
 
-    font-size: 18px;
     text-transform: uppercase;
     max-width: 55ch;
     line-height: 1.5;
@@ -135,7 +134,7 @@ ul{
     &--name{
 
       margin: 0;
-      font-size: 18px;
+      font-size: 26px!important;
       font-family: 'montreal bold';
       
     }
@@ -333,6 +332,7 @@ figcaption{
 
 
 .lvl-number{
+  font-size: 16px;
   text-transform: uppercase;
 }
 

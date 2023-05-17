@@ -4,9 +4,9 @@ html{
   
 }
 
-*{
-  outline: red dashed 1px;
-}
+// *{
+//   outline: red dashed 1px;
+// }
 
 
 #canvas3d{
@@ -33,22 +33,22 @@ body{
 }
 
 
-.bg {
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%;
-  width: 200%;
-  height: 200%;
-  background: transparent url(http://assets.iceable.com/img/noise-transparent.png) repeat 0 0;
-  background-repeat: repeat;
-  -webkit-animation: bg-animation .2s infinite;
-  animation: bg-animation .2s infinite;
-  opacity: 1;
-  visibility: visible;
-  z-index: 6;
-}
+// .bg {
+//   position: fixed;
+//   top: -50%;
+//   left: -50%;
+//   right: -50%;
+//   bottom: -50%;
+//   width: 200%;
+//   height: 200%;
+//   background: transparent url(http://assets.iceable.com/img/noise-transparent.png) repeat 0 0;
+//   background-repeat: repeat;
+//   -webkit-animation: bg-animation .2s infinite;
+//   animation: bg-animation .2s infinite;
+//   opacity: 1;
+//   visibility: visible;
+//   z-index: 6;
+// }
 
 
 .hidden{

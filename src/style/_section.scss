@@ -54,7 +54,9 @@
 
         .container{
             display: grid;
+            
             @media (min-width:1000px) {
+                
                 grid-template-columns: repeat(3, 1fr);
                 grid-template-areas: 
                 "title title title"
@@ -113,6 +115,16 @@
             padding-top: 25em;
 
             .noclip{
+                
+                .noclip__illu{
+
+                    position: absolute;
+                    width: 100%;
+                    opacity: 0.1;
+                    left: 10%;
+                    bottom: 20%;
+
+                }
 
                 @media (min-width:1000px) {
 
@@ -141,11 +153,7 @@
                     &__illu{
 
                         grid-area: img;
-                        position: absolute;
-                        width: 100%;
-                        opacity: 0.1;
-                        left: 10%;
-                        bottom: 20%;
+                        
                     }
 
                     &__gif{
@@ -162,8 +170,6 @@
     
     //univers
     &--about-univers{
-
-        
 
         padding-top: 50px;
         position: relative;
@@ -198,32 +204,54 @@
         
         .card {
             
-            max-width: 700px;
-            min-height: 300px;
+            max-width: 200px;
             width: 100%;
+            position: absolute;
             
             @media (min-width:700px) {
-                position: absolute;
+                max-width: 600px;
             }
 
             &:hover{
+
+                z-index: 9;
                 
                 img{
-                    transform: scale(1.1);
-                    transition: all .3s ease;
+                    transform: scale(1.05);
+                    transition: all .5s ease;
                     z-index: 9999;
+                    filter:brightness(40%);
+                }
+
+                .br-name{
+                    @media (min-width:1000px) {
+                        transition: all .3s ease;
+                        opacity: 1;
+                    }
                 }
             }
 
         }
 
         .br-name{
-            @media (min-width:1000px) {
+            p{
                 display: none;
+            }
+            @media (min-width:1000px) {
+                opacity: 0;
+                position: absolute;
+                bottom: 5%;
+                left: -10%;
+                p{
+                    display: block;
+                }
             }
         }
         
         .card--1{
+            top: 0%;
+            left: 10%;
+
             @media (min-width:1000px) {
                 top: 0%;
                 left: 10%;
@@ -232,7 +260,8 @@
         }
         
         .card--2 {
-
+            top: 10%;
+            left: 60%;  
             @media (min-width:1000px) {
                 top: 10%;
                 left: 60%; 
@@ -241,15 +270,18 @@
         }
         
         .card--3 {
-            @media (min-width:1000px) {
-                top: 20%;
+            top: 20%;
                 left: 5%;
+            @media (min-width:1000px) {
+                top: 15%;
+                left: 10%;
             }
             
         }
 
-
         .card--4 {
+            top: 30%;
+                left: 55%;
             @media (min-width:1000px) {
                 top: 30%;
                 left: 55%;
@@ -257,16 +289,23 @@
             
         }
         .card--5 {
+            top: 40%;
+            left: 38%;
+            img{
+                filter: blur(1px);
+                transition:all .5s ease ;
+            }
 
             @media (min-width:1000px) {
                 top: 40%;
-                left: 38%;
-                width:480px;
+                left: 58%;
+                width:600px;
             }
             
         }
         .card--6 {
-
+            top: 50%;
+            left: 26%;
             @media (min-width:1000px) {
                 top: 50%;
                 left: 26%;
@@ -274,6 +313,8 @@
             
         }
         .card--7 {
+            top: 70%;
+                left: 5%;
             @media (min-width:1000px) {
                 top: 70%;
                 left: 5%;
@@ -281,6 +322,8 @@
             
         }
         .card--8 {
+            top: 70%;
+                left: 60%;
             @media (min-width:1000px) {
                 top: 70%;
                 left: 60%;
@@ -289,6 +332,8 @@
             
         }
         .card--9 {
+            top: 80%;
+                left: 33%;
             @media (min-width:1000px) {
                 top: 80%;
                 left: 33%;

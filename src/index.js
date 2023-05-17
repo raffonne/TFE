@@ -187,26 +187,24 @@ if(pinText2){
 
 
 
-var portal = document.querySelector('.portal-image');
-if(portal){
-	gsap.to(".portal-image", {
-		scale: 10,
-		duration:4,
+// var portal = document.querySelector('.portal-image');
+// if(portal){
+// 	gsap.to(".portal-image", {
+// 		scale: 12,
+// 		onComplete: () => {
+// 			portal.style.display = 'none';
+// 		  },
 
-		onComplete: () => {
-			portal.style.display = 'none';
-		  },
-
-		scrollTrigger: {
-			trigger: ".portal-image",
-			start: "top 100",
-			end: "bottom bottom",
-			// markers:true,
-			scrub:3,
+// 		scrollTrigger: {
+// 			trigger: ".portal-image",
+// 			start: "top 100",
+// 			end: "bottom bottom",
+// 			// markers:true,
+// 			scrub:2,
 			
-		}
-	})
-};
+// 		}
+// 	})
+// };
 
 var inside = document.querySelector('.portal-bg');
 if(inside){
@@ -249,7 +247,7 @@ if(kane){
 
 let mediaQueries = gsap.matchMedia();
 // add a media query. When it matches, the associated function will run
-	mediaQueries.add("(min-width: 1000px)", () => {
+	mediaQueries.add("(min-width: 10px)", () => {
 	// this setup code only runs when viewport is at least 800px wide
 	var box = document.querySelector('.card--1');
 	if (box) {

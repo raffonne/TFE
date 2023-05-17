@@ -30,21 +30,42 @@
     <meta property="twitter:image" content="">
 
     
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.0/bundled/lenis.js"></script>
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     
 
     <link rel="icon" href="./assets/favicon-400c0395.svg">
-  <script type="module" crossorigin src="./assets/index-61fede01.js"></script>
-  <link rel="stylesheet" href="./assets/index-d00615b6.css">
+  <script type="module" crossorigin src="./assets/experience-e86d5357.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/index-52f0eb4c.js">
+  <link rel="stylesheet" href="./assets/index-05e07dc6.css">
 </head>
 <body>
+    <div class="preloader-wrap">
+
+        <div class="preloader-content">
+
+            <h2 class="title title--big">expérience</h2>
+            <p>
+                Vous étiez probablement en train de manger, en train de rouler en voiture, ou en train de passer du temps avec vos proches. 
+
+            </p>
+            <p>
+                Soudain votre jambe passe à travers le sol et sans vous en rendre compte, votre corps entier disparaît....
+
+            </p>
+
+        </div>
+
+
+        <div class="loading">
+            <div class="percentage" id="precent">100%</div>
+            <div class="progress"></div>
+        </div>
+
+</div>
     <header>
         <input class="hidden hidden--input" id="burger" type="checkbox" />
 
@@ -66,33 +87,13 @@
                 <a class="btn nav-links" href="experience.html">Experience</a>
             </div>
 
-            <!-- <div class="utils">
-
-                <div class="lang">
-                    <button class="btn btn--lang">EN</button>
-                </div>
-
-                <div class="sound">
-
-                    <audio autoplay loop id="myAudio">
-                        <source src="./images//waiting-in-the-shadows-dark-ambient-soundscape-108567.mp3" type="audio/wav">
-                    </audio>
-
-                    <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
-                        <img id="sound-icon" src="./images/Vector.svg">
-                    </button>
-
-                </div>
-
-            </div> -->
-
         </nav>
 
         <div class="utils">
 
-            <div class="lang">
+            <!-- <div class="lang">
                 <button class="btn btn--lang">EN</button>
-            </div>
+            </div> -->
 
             <div class="sound">
 
@@ -112,15 +113,9 @@
 
     <main class="experience">
 
-        <!-- <div class="bg"></div> -->
-
-
-
       <section class="section section--experience">
         
-        <!-- <canvas class="webgl"></canvas> -->
-        
-        <spline-viewer width="100vw" height="100vh" url="https://prod.spline.design/S2VhqtEL3WY-9me8/scene.splinecode"></spline-viewer>
+        <canvas height="100vh" width="100vw" id="canvas3d"></canvas>
 
         <div class="controls controls--fixed">
             <div class="controls--fixed__keyboard">
@@ -147,9 +142,15 @@
 
 
    
-	<script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.334/build/spline-viewer.js"></script>
+	<!-- <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.334/build/spline-viewer.js"></script> -->
     
     <script>
+
+
+        
+
+
+
         const soundBtn = document.getElementById("sound-btn");
         const soundIcon = document.getElementById("sound-icon");
         const audio = document.getElementById("myAudio");
