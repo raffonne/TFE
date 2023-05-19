@@ -32,15 +32,14 @@
     
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
-
 
     
 
+
     <link rel="icon" href="./assets/favicon-400c0395.svg">
-  <script type="module" crossorigin src="./assets/experience-e86d5357.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/index-52f0eb4c.js">
-  <link rel="stylesheet" href="./assets/index-05e07dc6.css">
+  <script type="module" crossorigin src="./assets/experience-3e23c123.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/style-12174b4e.js">
+  <link rel="stylesheet" href="./assets/style-78030ab4.css">
 </head>
 <body>
     <div class="preloader-wrap">
@@ -66,50 +65,30 @@
         </div>
 
 </div>
-    <header>
-        <input class="hidden hidden--input" id="burger" type="checkbox" />
+<header>
 
-        <label for="burger">
-            <div class="burger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </label>
+    <nav>
+        <a class="logo" href="index.html">Noclip<span class="hidden hidden--content"> inside the backrooms</span></a>
+        <a class="nav-links" href="experience.html">Expérience</a>
+    </nav>
 
-        <nav>
+    <div class="utils">
 
-            <div class="nav__el">
-                <a class="btn nav-links active" href="index.html">Accueil</a>
-            </div>
-    
-            <div class="nav__el">
-                <a class="btn nav-links" href="experience.html">Experience</a>
-            </div>
+        <div class="sound">
 
-        </nav>
+            <audio autoplay loop id="myAudio">
+                <source src="./assets/ambient_noise-a8c0a70b.mp3" type="audio/wav">
+            </audio>
 
-        <div class="utils">
-
-            <!-- <div class="lang">
-                <button class="btn btn--lang">EN</button>
-            </div> -->
-
-            <div class="sound">
-
-                <audio autoplay loop id="myAudio">
-                    <source src="./assets/ambient_noise-a8c0a70b.mp3" type="audio/wav">
-                </audio>
-
-                <button class="btn btn--sound" id="sound-btn" onclick="toggleSound()">
-                    <img id="sound-icon" src="./assets/Vector-e1c5faf9.svg" alt="icone son">
-                </button>
-                
-            </div>
-
+            <button class="btn btn--sound" id="sound-btn">
+                <img id="sound-icon" src="./assets/Vector-e1c5faf9.svg" alt="icone son">
+            </button>
+            
         </div>
-  
-      </header>
+
+    </div>
+
+  </header>
 
     <main class="experience">
 
@@ -143,42 +122,5 @@
 
    
 	<!-- <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.334/build/spline-viewer.js"></script> -->
-    
-    <script>
-
-
-        
-
-
-
-        const soundBtn = document.getElementById("sound-btn");
-        const soundIcon = document.getElementById("sound-icon");
-        const audio = document.getElementById("myAudio");
-
-        // Vérifie s'il y a une valeur stockée pour l'état de pause de l'audio
-            const isPaused = localStorage.getItem("isPaused");
-
-            if (isPaused === "true") {
-                audio.pause();
-                soundIcon.src = "./images/sound-off.svg";
-            } else {
-                audio.play();
-                soundIcon.src = "./images/Vector.svg";
-            }
-
-            function toggleSound() {
-            if (audio.paused) {
-                audio.play();
-                soundIcon.src = "./images/Vector.svg";
-                localStorage.setItem("isPaused", "false"); // Stocke la valeur false pour indiquer que l'audio n'est pas en pause
-            } else {
-                audio.pause();
-                soundIcon.src = "./images/sound-off.svg";
-                localStorage.setItem("isPaused", "true"); // Stocke la valeur true pour indiquer que l'audio est en pause
-            }
-            };
-
-    </script>
-
 </body>
 </html>

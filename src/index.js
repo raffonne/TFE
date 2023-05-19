@@ -2,11 +2,8 @@
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from "./otherLibs/gsap/splitText";
-import Lenis from '@studio-freight/lenis';
 import simpleParallax from 'simple-parallax-js';
-
 import Parallax from 'parallax-js';
-
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -33,8 +30,6 @@ if(aboutIntro) {
 	});
 
 };
-
-
 
 
 var opacity1 = document.querySelector('#scene');
@@ -169,42 +164,28 @@ if(pinText1){
 };
 
 
-var pinText2 = document.querySelector('.show-2');
-if(pinText2){
-	gsap.to(".show-2", {
-		opacity: 1,
+
+
+
+
+var portal = document.querySelector('.portal-image');
+if(portal){
+	gsap.to(".portal-image", {
+		scale: 12,
+		onComplete: () => {
+			portal.style.display = 'none';
+		  },
+
 		scrollTrigger: {
-			trigger: ".show-2",
-			start: "center center",
-			end: "bottom -1500",
-			scrub: 5,
-			pin: true,
-			// markers:true
-		},
+			trigger: ".portal-image",
+			start: "top 100",
+			end: "bottom bottom",
+			// markers:true,
+			scrub:2,
+			
+		}
 	})
 };
-
-
-
-
-// var portal = document.querySelector('.portal-image');
-// if(portal){
-// 	gsap.to(".portal-image", {
-// 		scale: 12,
-// 		onComplete: () => {
-// 			portal.style.display = 'none';
-// 		  },
-
-// 		scrollTrigger: {
-// 			trigger: ".portal-image",
-// 			start: "top 100",
-// 			end: "bottom bottom",
-// 			// markers:true,
-// 			scrub:2,
-			
-// 		}
-// 	})
-// };
 
 var inside = document.querySelector('.portal-bg');
 if(inside){
@@ -239,6 +220,18 @@ if(kane){
 }
 
 
+var lab = document.querySelector('.kaneImg');
+if(kane){
+	gsap.to(".kaneImg",{
+		y:'100',
+		scrollTrigger:{
+			trigger:".section--about-footage",
+			start:'bottom bottom',
+			end:'top top'
+		}
+	}
+)}
+
 
 
 /**
@@ -258,7 +251,7 @@ let mediaQueries = gsap.matchMedia();
 				start:'top top',
 				bottom: 'bottom bottom',
 				scrub:true,
-				markers:true,
+				// markers:true,
 			}
 
 		})
@@ -272,7 +265,7 @@ let mediaQueries = gsap.matchMedia();
 				start:'top top',
 				bottom: 'bottom bottom',
 				scrub:true,
-				markers:true,
+				// markers:true,
 			}
 
 		})
@@ -287,7 +280,7 @@ let mediaQueries = gsap.matchMedia();
 				start:'top top',
 				bottom: 'bottom bottom',
 				scrub:true,
-				markers:true,
+				// markers:true,
 			}
 
 		})
@@ -302,7 +295,7 @@ let mediaQueries = gsap.matchMedia();
 				start:'top top',
 				bottom: 'bottom bottom',
 				scrub:true,
-				markers:true,
+				// markers:true,
 			}
 
 		})
@@ -316,7 +309,7 @@ let mediaQueries = gsap.matchMedia();
 				start:'top top',
 				bottom: 'bottom bottom',
 				scrub:true,
-				markers:true,
+				// markers:true,
 			}
 
 		})
@@ -330,7 +323,7 @@ let mediaQueries = gsap.matchMedia();
 				start:'top top',
 				bottom: 'bottom bottom',
 				scrub:true,
-				markers:true,
+				// markers:true,
 			}
 
 		})
@@ -344,7 +337,7 @@ let mediaQueries = gsap.matchMedia();
 				start:'top top',
 				bottom: 'bottom bottom',
 				scrub:true,
-				markers:true,
+				// markers:true,
 			}
 
 		})
@@ -358,7 +351,7 @@ let mediaQueries = gsap.matchMedia();
 				start:'top top',
 				bottom: 'bottom bottom',
 				scrub:true,
-				markers:true,
+				// markers:true,
 			}
 
 		})
@@ -372,13 +365,184 @@ let mediaQueries = gsap.matchMedia();
 				start:'top top',
 				bottom: 'bottom bottom',
 				scrub:true,
-				markers:true,
+				// markers:true,
 			},
 			
 
 		})
 	}
 });
+
+
+var slideTxt = document.querySelector('.t1');
+if (slideTxt){
+	gsap.to('.t1', {
+		x:-200,
+		scrollTrigger : {
+			trigger:".section--about-start",
+			start:'top 500',
+			end: 'center center',
+			scrub:1.2,
+			markers:true,
+		},
+	})
+}
+
+var slideTxt = document.querySelector('.t2');
+if (slideTxt){
+	gsap.to('.t2', {
+		x:400,
+		scrollTrigger : {
+			trigger:".section--about-start",
+			start:'top 500',
+			end: 'center center',
+			scrub:1.2,
+			markers:true,
+		},
+	})
+}
+
+
+
+var slideTxt = document.querySelector('.t3');
+if (slideTxt){
+	gsap.to('.t3', {
+		x:-200,
+		scrollTrigger : {
+			trigger:".section--about-univers",
+			start:'top 500',
+			end: 'center center',
+			scrub:1.2,
+			markers:true,
+		},
+	})
+}
+
+var slideTxt = document.querySelector('.t4');
+if (slideTxt){
+	gsap.to('.t4', {
+		x:-100,
+		scrollTrigger : {
+			trigger:".section--about-univers",
+			start:'top 500',
+			end: 'center center',
+			scrub:1.2,
+			markers:true,
+		},
+	})
+}
+
+
+
+
+
+
+
+
+var scene = document.getElementById('scene');
+var parallaxInstance = new Parallax(scene);
+
+
+
+//   Source:  http://codepen.io/ahsanrathore/post/accurate-page-progress-bar
+
+var width = 100,
+perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
+EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
+time = parseInt((EstimatedTime/1000)%60)*100;
+
+// Percentage Increment Animation
+var PercentageID = $("#precent"),
+	start = 0,
+	end = 100,
+	durataion = time;
+	animateValue(PercentageID, start, end, durataion);
+	
+function animateValue(id, start, end, duration) {
+
+var range = end - start,
+  current = start,
+  increment = end > start? 1 : -1,
+  stepTime = Math.abs(Math.floor(duration / range)),
+  obj = $(id);
+
+var timer = setInterval(function() {
+	current += increment;
+	$(obj).text(current + "%");
+  //obj.innerHTML = current;
+	if (current == end) {
+		clearInterval(timer);
+	}
+}, stepTime);
+}
+
+setTimeout(function(){
+
+	$('.preloader-wrap').fadeOut(1000);
+
+	gsap.to('.no-blik',{
+
+		opacity:1,
+		duration:2,
+		delay:2
+	}),
+
+	gsap.to('.title--submain',{
+		opacity:1,
+		duration:6,
+		delay:2,
+	}),
+
+	gsap.to('.main-small',{
+		opacity:1,
+		y:-50,
+		delay:4,
+		duraton:30
+	})
+	
+	gsap.to('.scene-img',{
+		opacity:1,
+		duration:3,
+		delay:3,
+		scale:1.2
+	})
+
+
+
+}, time);
+
+
+
+
+const soundBtn = document.getElementById("sound-btn");
+const soundIcon = document.getElementById("sound-icon");
+const audio = document.getElementById("myAudio");
+
+// Vérifie s'il y a une valeur stockée pour l'état de pause de l'audio
+const isPaused = localStorage.getItem("isPaused");
+
+if (isPaused === "true") {
+    audio.pause();
+    soundIcon.src = "./images/sound-off.svg";
+} else {
+    audio.play();
+    soundIcon.src = "./images/Vector.svg";
+}
+
+// Attache le gestionnaire d'événements au clic sur le bouton
+soundBtn.addEventListener("click", toggleSound);
+
+function toggleSound() {
+    if (audio.paused) {
+        audio.play();
+        soundIcon.src = "./images/Vector.svg";
+        localStorage.setItem("isPaused", "false"); // Stocke la valeur false pour indiquer que l'audio n'est pas en pause
+    } else {
+        audio.pause();
+        soundIcon.src = "./images/sound-off.svg";
+        localStorage.setItem("isPaused", "true"); // Stocke la valeur true pour indiquer que l'audio est en pause
+    }
+}
 
 
 
@@ -467,168 +631,6 @@ var kanetxt = document.getElementsByClassName('kane__resume');
 		
 	},
 );
-
-
-// var float = document.getElementsByClassName('.float--2');
-// if(float){
-// 	gsap.to(".float--2",{
-// 		x:200,
-// 		scrollTrigger: {
-// 			trigger: ".float--2",
-// 			start: "left 70%",
-// 			end: "left 30%",
-// 			horizontal: true,
-// 			scrub: true
-// 		},
-// 	});
-// }
-
-// const t1 = gsap.timeline({
-//     scrollTrigger: {
-//         trigger: ".box1",
-//         start: "left 70%",
-//         end: "left 30%",
-//         horizontal: true,
-//         scrub: true
-//     },
-// });
-
-// t1.to(".box1", {
-//     scale: 2,
-//     rotation: 360,
-//     duration: 3
-// });
-	
-
-
-// var windowSel = $(window);
-
-// // parallax
-// function parallax(selector, speed) {
-//   var movement = -(windowSel.scrollTop() * (speed / 10));
-//   $(selector).css('transform', 'translate3d(0,' + movement + 'px, 0');
-// }
-
-// // parallax init
-// function parallaxInit(selector) {
-//   if ($(selector).length && window.innerWidth > 800 && navigator.userAgent.match(/iPad/i) == null) {
-//     $(selector).each(function(i, el) {
-//       var speed = $(el).attr('data-speed');
-
-//       //init function on load
-//       parallax($(el), speed);
-
-//       // init function on scroll
-//       windowSel.on('scroll', function() {
-//         parallax($(el), speed);
-//       });
-//     });
-//   }
-// }
-
-// var parallaxItem = '[data-parallax]';
-// parallaxInit(parallaxItem);
-
-// according to effect from this website: http://www.techstyle.com/
-
-
-
-// const spaceHolder = document.querySelector('.space-holder');
-// const horizontal = document.querySelector('.horizontal');
-// spaceHolder.style.height = `${calcDynamicHeight(horizontal)}px`;
-
-// function calcDynamicHeight(ref) {
-//   const vw = window.innerWidth;
-//   const vh = window.innerHeight;
-//   const objectWidth = ref.scrollWidth;
-//   return objectWidth - vw + vh; // 150 is the padding (in pixels) desired on the right side of the .cards container. This can be set to whatever your styles dictate
-// }
-
-// window.addEventListener('scroll', () => {
-//   const sticky = document.querySelector('.sticky');
-//   horizontal.style.transform = `translateX(-${sticky.offsetTop}px)`;
-// });
-
-// window.addEventListener('resize', () => {
-//   spaceHolder.style.height = `${calcDynamicHeight(horizontal)}px`;
-// });
-
-
-var scene = document.getElementById('scene');
-var parallaxInstance = new Parallax(scene);
-
-
-
-//   Source:  http://codepen.io/ahsanrathore/post/accurate-page-progress-bar
-
-var width = 100,
-perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
-EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
-time = parseInt((EstimatedTime/1000)%60)*100;
-
-// Percentage Increment Animation
-var PercentageID = $("#precent"),
-	start = 0,
-	end = 100,
-	durataion = time;
-	animateValue(PercentageID, start, end, durataion);
-	
-function animateValue(id, start, end, duration) {
-
-var range = end - start,
-  current = start,
-  increment = end > start? 1 : -1,
-  stepTime = Math.abs(Math.floor(duration / range)),
-  obj = $(id);
-
-var timer = setInterval(function() {
-	current += increment;
-	$(obj).text(current + "%");
-  //obj.innerHTML = current;
-	if (current == end) {
-		clearInterval(timer);
-	}
-}, stepTime);
-}
-
-setTimeout(function(){
-
-	$('.preloader-wrap').fadeOut(1000);
-
-	gsap.to('.no-blik',{
-
-		opacity:1,
-		duration:2,
-		delay:2
-	}),
-
-	gsap.to('.title--submain',{
-		opacity:1,
-		duration:6,
-		delay:2,
-	}),
-
-	gsap.to('.main-small',{
-		opacity:1,
-		y:-50,
-		delay:4,
-		duraton:30
-	}),
-	
-	gsap.to('.scene-img',{
-		opacity:1,
-		duration:3,
-		delay:3,
-		scale:1.2
-	})
-
-
-}, time);
-
-
-
-
-AOS.init();
 
 
 

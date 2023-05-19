@@ -12,7 +12,7 @@
     "vite-plugin-pages": "^0.29.0"
   },
   "dependencies": {
-    "@splinetool/runtime": "^0.9.334",
+    "@splinetool/runtime": "^0.9.337",
     "@studio-freight/lenis": "^0.2.28",
     "aos": "^2.3.4",
     "camera-controls": "^2.3.4",

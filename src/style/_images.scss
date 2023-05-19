@@ -20,58 +20,49 @@ img{
   }
 
   
-  #scene{
+
     
-    opacity:1;
+
 
     .scene-img{
-
       opacity:0;
-
       height: 100vh;
-      width:100vw;
-      // background-image: url("../images/bg.webp");
+      width:100%;
       background-image: url('../images/bg.webp');
-      // background-image: 
-      //   -webkit-image-set(
-      //     url(../images/bg.webp) 1x,
-      //     url(../images/bg@2x.webp) 2x,
-      // );
-      // background-image: 
-      //     image-set(
-      //         url(../images/bg.webp) 1x,
-      //         url(../images/bg@2x.webp) 2x,
-      // );
+      background-image: 
+        -webkit-image-set(
+          url(../images/bg.webp) 1x,
+          url(../images/bg@2x.webp) 2x,
+      );
+      background-image: 
+          image-set(
+              url(../images/bg.webp) 1x,
+              url(../images/bg@2x.webp) 2x,
+      );
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      // opacity: 0.5;
-      
   }
 
-  @media (min-width:1000px) {
-      position: relative!important;
-  }
-}
 
 
 
 .kaneImg{
   width: 100%;
-  // z-index: -999;
-  // display: none;
 }
 
 
-.bg-image{
-  display: none;
+.bg-image{ 
+
+  display: none;  
+
   @media (min-width:1000px) {
 
-      display: block;
-      position: absolute;
-      z-index: -999;
-      opacity: 0.5;
-
+    display: block;
+    position: absolute;
+    z-index: -999;
+    opacity: 0.5;
+      
   }
 
   img{
@@ -152,7 +143,7 @@ img{
 
         @media (min-width:1000px) {
             max-width: 20%;
-            left: 0;
+            right: 0;
             bottom: 40%;
         }
     }
@@ -202,7 +193,9 @@ img{
 
 
 
-
+video{
+  width: 100%;
+}
 
 
 .float{
