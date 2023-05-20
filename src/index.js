@@ -383,7 +383,7 @@ if (slideTxt){
 			start:'top 500',
 			end: 'center center',
 			scrub:1.2,
-			markers:true,
+			// markers:true,
 		},
 	})
 }
@@ -397,7 +397,7 @@ if (slideTxt){
 			start:'top 500',
 			end: 'center center',
 			scrub:1.2,
-			markers:true,
+			// markers:true,
 		},
 	})
 }
@@ -413,7 +413,7 @@ if (slideTxt){
 			start:'top 500',
 			end: 'center center',
 			scrub:1.2,
-			markers:true,
+			// markers:true,
 		},
 	})
 }
@@ -427,7 +427,7 @@ if (slideTxt){
 			start:'top 500',
 			end: 'center center',
 			scrub:1.2,
-			markers:true,
+			// markers:true,
 		},
 	})
 }
