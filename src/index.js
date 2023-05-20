@@ -172,6 +172,8 @@ var portal = document.querySelector('.portal-image');
 if(portal){
 	gsap.to(".portal-image", {
 		scale: 12,
+		duration:4,
+		opacity:0,
 		onComplete: () => {
 			portal.style.display = 'none';
 		  },
@@ -179,27 +181,11 @@ if(portal){
 		scrollTrigger: {
 			trigger: ".portal-image",
 			start: "top 100",
-			end: "bottom bottom",
-			// markers:true,
-			scrub:2,
-			
+			end: "bottom bottom",			
 		}
 	})
 };
 
-var inside = document.querySelector('.portal-bg');
-if(inside){
-	gsap.to(".portal-bg",{
-		duration:1,
-		// scale:2,
-		scrollTrigger:{
-			trigger:".portal-bg",
-			start:"top 300",
-			end:"bottom bottom",
-			scrub:3,
-		}
-	})
-}
 
 
 var kane = document.querySelector('.kane-bg');
