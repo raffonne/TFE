@@ -74,7 +74,6 @@ if (br1) {
 			trigger: '.introduction__content',
 			start: "bottom bottom",
 			end: "-=100%",
-			// toggleActions: "play none none reverse",
 			// markers:true
       }
 	})
@@ -191,7 +190,7 @@ if(portal){
 var kane = document.querySelector('.kane-bg');
 if(kane){
 	gsap.from(".kane-bg", {
-		// opacity: 0,
+		opacity: 0.3,
 		y:500,
 		// scale: 1.5,
 		scrollTrigger: {
@@ -218,17 +217,7 @@ if(kane){
 	}
 )}
 
-
-
-/**
- * GSAP Media Queries
- */
-
-let mediaQueries = gsap.matchMedia();
-// add a media query. When it matches, the associated function will run
-	mediaQueries.add("(min-width: 10px)", () => {
-	// this setup code only runs when viewport is at least 800px wide
-	var box = document.querySelector('.card--1');
+var box = document.querySelector('.card--1');
 	if (box) {
 		gsap.from('.card--1', {
 			y:600,
@@ -357,66 +346,78 @@ let mediaQueries = gsap.matchMedia();
 
 		})
 	}
+
+
+
+/**
+ * GSAP Media Queries
+ */
+
+let mediaQueries = gsap.matchMedia();
+// add a media query. When it matches, the associated function will run
+	mediaQueries.add("(min-width: 500px)", () => {
+	// this setup code only runs when viewport is at least 800px wide
+	var slideTxt = document.querySelector('.t1');
+	if (slideTxt){
+		gsap.to('.t1', {
+			x:-200,
+			scrollTrigger : {
+				trigger:".section--about-start",
+				start:'top 500',
+				end: 'center center',
+				scrub:1.2,
+				// markers:true,
+			},
+		})
+	}
+
+	var slideTxt = document.querySelector('.t2');
+	if (slideTxt){
+		gsap.to('.t2', {
+			x:400,
+			scrollTrigger : {
+				trigger:".section--about-start",
+				start:'top 500',
+				end: 'center center',
+				scrub:1.2,
+				// markers:true,
+			},
+		})
+	}
+
+
+
+	var slideTxt = document.querySelector('.t3');
+	if (slideTxt){
+		gsap.to('.t3', {
+			x:-200,
+			scrollTrigger : {
+				trigger:".section--about-univers",
+				start:'top 500',
+				end: 'center center',
+				scrub:1.2,
+				// markers:true,
+			},
+		})
+	}
+
+	var slideTxt = document.querySelector('.t4');
+	if (slideTxt){
+		gsap.to('.t4', {
+			x:-100,
+			scrollTrigger : {
+				trigger:".section--about-univers",
+				start:'top 500',
+				end: 'center center',
+				scrub:1.2,
+				// markers:true,
+			},
+		})
+	}
 });
 
 
-var slideTxt = document.querySelector('.t1');
-if (slideTxt){
-	gsap.to('.t1', {
-		x:-200,
-		scrollTrigger : {
-			trigger:".section--about-start",
-			start:'top 500',
-			end: 'center center',
-			scrub:1.2,
-			// markers:true,
-		},
-	})
-}
 
-var slideTxt = document.querySelector('.t2');
-if (slideTxt){
-	gsap.to('.t2', {
-		x:400,
-		scrollTrigger : {
-			trigger:".section--about-start",
-			start:'top 500',
-			end: 'center center',
-			scrub:1.2,
-			// markers:true,
-		},
-	})
-}
-
-
-
-var slideTxt = document.querySelector('.t3');
-if (slideTxt){
-	gsap.to('.t3', {
-		x:-200,
-		scrollTrigger : {
-			trigger:".section--about-univers",
-			start:'top 500',
-			end: 'center center',
-			scrub:1.2,
-			// markers:true,
-		},
-	})
-}
-
-var slideTxt = document.querySelector('.t4');
-if (slideTxt){
-	gsap.to('.t4', {
-		x:-100,
-		scrollTrigger : {
-			trigger:".section--about-univers",
-			start:'top 500',
-			end: 'center center',
-			scrub:1.2,
-			// markers:true,
-		},
-	})
-}
 
 
 
@@ -435,7 +436,7 @@ var parallaxInstance = new Parallax(scene);
 var width = 100,
 perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
 EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
-time = parseInt((EstimatedTime/1000)%60)*100;
+time = parseInt((EstimatedTime/1000)%60)*200;
 
 // Percentage Increment Animation
 var PercentageID = $("#precent"),
@@ -617,6 +618,17 @@ var kanetxt = document.getElementsByClassName('kane__resume');
 		
 	},
 );
+
+var kanevid = document.getElementsByClassName('kane__extrait');
+	new simpleParallax(kanevid, {
+		overflow: true,
+		delay: .4,
+		transition: 'cubic-bezier(0,0,1,1)'
+		
+	},
+);
+
+
 
 
 

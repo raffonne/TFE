@@ -186,14 +186,16 @@ ul{
       font-family: 'montreal';
       text-align: center;
       font-size: 16px;
-      letter-spacing: 6px;
+      // letter-spacing: 4px;
       text-transform: uppercase;
       opacity:0;
 
       @media (min-width:700px) {
+
         font-size: 20px;
         letter-spacing: 14px;
         padding-left: 5px;
+
       }
 
       @media (min-width:1000px) {
@@ -242,23 +244,37 @@ ul{
         
 
         .t1{
-          display: flex;
-          justify-content: right;
+
+          @media (min-width:1000px) {
+            display: flex;
+            justify-content: right;
+          }
+         
         }
 
         .t2{
-          display: flex;
-          justify-content: left;
+
+          @media (min-width:1000px) {
+            display: flex;
+            justify-content: left;
+          }
+
         }
 
         .t3{
-          display: flex;
-          justify-content: center;
+          
+          @media (min-width:1000px) {
+            display: flex;
+            justify-content: center;
+          }
         }
 
         .t4{
-          display: flex;
-          justify-content: right;
+          
+          @media (min-width:1000px) {
+            display: flex;
+            justify-content: right;
+          }
         }
 
 

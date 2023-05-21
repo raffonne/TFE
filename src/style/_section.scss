@@ -15,11 +15,13 @@
         display: flex;
 
         .container{
+
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 8em;
             padding-top: 8em;
+
         }
 
         .main-title{
@@ -112,7 +114,7 @@
             "intro intro"
             "img ."
             "desc desc";
-            row-gap: 8em;
+            row-gap: 4em;
             column-gap: 1em;
             
 
@@ -239,9 +241,6 @@
           padding-top: 200px;
         }
 
-
-
-
         .creation{
             display: flex;
             flex-direction: column;
@@ -358,10 +357,6 @@
         .card--5 {
             top: 40%;
             left: 38%;
-            img{
-                filter: blur(1px);
-                transition:all .5s ease ;
-            }
 
             @media (min-width:1000px) {
                 top: 40%;
@@ -450,9 +445,7 @@
 
 
             @media (min-width:1000px) {
-
-                right: 0;
-                top: 0;
+                
                 display: block;
       
             }  
@@ -604,8 +597,8 @@
     
                         @media (min-width:1000px) {
                             max-width: 20%;
-                            left: 0;
-                            bottom: 40%;
+                            left: 45%;
+                            bottom: 30%;
                         }
                     }
                 }

@@ -18,30 +18,24 @@ img{
     z-index: -9;
   
   }
-
-  
-
-    
-
-
-    .scene-img{
-      opacity:0;
-      height: 100vh;
-      width:100%;
-      background-image: url('../images/bg.webp');
-      background-image: 
-        -webkit-image-set(
-          url(../images/bg.webp) 1x,
-          url(../images/bg@2x.webp) 2x,
-      );
-      background-image: 
-          image-set(
-              url(../images/bg.webp) 1x,
-              url(../images/bg@2x.webp) 2x,
-      );
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
+  .scene-img{
+    opacity:0;
+    height: 100vh;
+    width:100%;
+    background-image: url('../images/bg.webp');
+    background-image: 
+      -webkit-image-set(
+        url(../images/bg.webp) 1x,
+        url(../images/bg@2x.webp) 2x,
+    );
+    background-image: 
+        image-set(
+            url(../images/bg.webp) 1x,
+            url(../images/bg@2x.webp) 2x,
+    );
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
 
@@ -236,3 +230,4 @@ video{
   }
 
 }
+
