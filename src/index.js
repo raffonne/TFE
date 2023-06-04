@@ -355,7 +355,7 @@ var box = document.querySelector('.card--1');
 
 let mediaQueries = gsap.matchMedia();
 // add a media query. When it matches, the associated function will run
-	mediaQueries.add("(min-width: 500px)", () => {
+	mediaQueries.add("(min-width: 1000px)", () => {
 	// this setup code only runs when viewport is at least 800px wide
 	var slideTxt = document.querySelector('.t1');
 	if (slideTxt){
@@ -436,7 +436,7 @@ var parallaxInstance = new Parallax(scene);
 var width = 100,
 perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
 EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
-time = parseInt((EstimatedTime/1000)%60)*200;
+time = parseInt((EstimatedTime/1000)%60)*100;
 
 // Percentage Increment Animation
 var PercentageID = $("#precent"),
@@ -482,8 +482,7 @@ setTimeout(function(){
 
 	gsap.to('.main-small',{
 		opacity:1,
-		y:-50,
-		delay:4,
+		delay:5,
 		duraton:30
 	})
 	
@@ -492,6 +491,12 @@ setTimeout(function(){
 		duration:3,
 		delay:3,
 		scale:1.2
+	}),
+
+	gsap.to('header',{
+		opacity:1,
+		delay:4,
+		duration:1,
 	})
 
 

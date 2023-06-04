@@ -50,7 +50,7 @@
             
                 position: absolute;
                 left: 50%;
-                bottom: 0;
+                bottom: 30px;
                 transform: translateX(-50%);
                 opacity:0;
                 gap: 100px;
@@ -273,7 +273,7 @@
             }
             
             @media (min-width:1000px) {
-                max-width: 600px;
+                max-width: 500px;
 
                 &:hover{
 
@@ -379,7 +379,7 @@
                 left: 5%;
             @media (min-width:1000px) {
                 top: 70%;
-                left: 5%;
+                left: 15%;
             }
             
         }

@@ -1,8 +1,9 @@
 import { Application } from '@splinetool/runtime';
+import gsap from "gsap";
 
 const canvas = document.getElementById('canvas3d');
 const app = new Application(canvas);
-app.load('https://prod.spline.design/S2VhqtEL3WY-9me8/scene.splinecode');
+// app.load('https://prod.spline.design/S2VhqtEL3WY-9me8/scene.splinecode');
 
 
 
@@ -39,7 +40,7 @@ function toggleSound() {
 var width = 100,
 perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
 EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
-time = parseInt((EstimatedTime/1000)%60)*100;
+time = parseInt((EstimatedTime/1000)%60)*50;
 
 // Percentage Increment Animation
 var PercentageID = $("#precent"),
@@ -70,8 +71,23 @@ setTimeout(function(){
 
 	$('.preloader-wrap').fadeOut(1000);
 
+    gsap.to('.videoContext', {
+        opacity:1,
+        duration:2,
+        delay:2,
+    })
+
+    gsap.to('#canvas3d',{
+		opacity:1,
+		duration:4,
+		delay:2,
+	})
+
+    gsap.to('header',{
+		opacity:1,
+		delay:4,
+		duration:1,
+	})
+
 
 }, time);
-
-
-
