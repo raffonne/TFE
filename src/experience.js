@@ -4,6 +4,63 @@ import gsap from "gsap";
 const canvas = document.getElementById('canvas3d');
 const app = new Application(canvas);
 // app.load('https://prod.spline.design/S2VhqtEL3WY-9me8/scene.splinecode');
+app.load('https://prod.spline.design/Jv9gx0W4CJBOFhDz/scene.splinecode');
+
+
+
+
+// import * as THREE from 'three';
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+// import SplineLoader from '@splinetool/loader';
+
+// // camera
+// const camera = new THREE.PerspectiveCamera(67, window.innerWidth / window.innerHeight, 70, 100000);
+// camera.position.set(-4328.27, 910.76, -6996.98);
+// camera.quaternion.setFromEuler(new THREE.Euler(-0.04, 0.84, 0.03));
+
+// // scene
+// const scene = new THREE.Scene();
+
+// // spline scene
+// const loader = new SplineLoader();
+// loader.load(
+//   'https://prod.spline.design/Jv9gx0W4CJBOFhDz/scene.splinecode',
+//   (splineScene) => {
+//     scene.add(splineScene);
+//   }
+// );
+
+// // renderer
+// const renderer = new THREE.WebGLRenderer({ antialias: true });
+// renderer.setSize(window.innerWidth, window.innerHeight);
+// renderer.setAnimationLoop(animate);
+// document.body.appendChild(renderer.domElement);
+
+// // scene settings
+// renderer.shadowMap.enabled = true;
+// renderer.shadowMap.type = THREE.PCFShadowMap;
+
+// scene.background = new THREE.Color('#cccccc');
+// renderer.setClearAlpha(1);
+
+// // orbit controls
+// const controls = new OrbitControls(camera, renderer.domElement);
+// controls.enableDamping = true;
+// controls.dampingFactor = 0.125;
+
+// window.addEventListener('resize', onWindowResize);
+// function onWindowResize() {
+//   camera.aspect = window.innerWidth / window.innerHeight;
+//   camera.updateProjectionMatrix();
+//   renderer.setSize(window.innerWidth, window.innerHeight);
+// }
+
+// function animate(time) {
+//   controls.update();
+//   renderer.render(scene, camera);
+// }
+
+
 
 
 
