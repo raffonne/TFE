@@ -4,6 +4,7 @@ button{
     cursor: pointer;
 }
 
+
 .btn{
 
     text-transform: uppercase;
@@ -11,6 +12,37 @@ button{
     background-color: transparent;
     font-family: 'montreal';
     border: none;
+
+    &--skip{
+        color: #C5C5C5;
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 12px!important;
+        color: #C5C5C5;
+        border-radius: 100px;
+        border: solid 0.5px rgb(255, 255, 255, 0.5);
+        transition: all 0.2s;
+
+        height: 50px;
+        width: 50px;
+        @media (min-width:1000px) {
+
+            &:hover{
+                transform: scale(1.05);
+                padding: 5px;
+            }
+
+            font-size: 16px;
+            height: 100px;
+            width: 100px;
+        }
+        
+    }
     
 
     &--link{
@@ -51,6 +83,7 @@ button{
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
+    gap: 15px;
     z-index: 9;
 
     @media (min-width:1000px){
@@ -70,4 +103,72 @@ button{
         transition: 0.5s;
     
     }
+
+    .fullScreen{
+
+
+        .toggle-fullscreen-btn {
+
+            z-index: 999999999999999999;
+            border: 0;
+            padding: 0;
+            background: none;
+            cursor: pointer;
+            outline: none;
+            border: solid 0.5px #fff;
+            border-radius: 100px;
+        
+        }
+        
+        
+        .toggle-fullscreen-svg {
+            display: block;
+            height: auto;
+            height: 35px;
+            width: 35px;
+            transform: scale(0.7);
+        }
+        
+        .toggle-fullscreen-svg path {
+            transform-box: view-box;
+            transform-origin: 4px 4px;
+            fill: none;
+            stroke: white;
+            stroke-width: 1;
+            transition: .15s;
+            
+        }
+        
+        
+        .toggle-fullscreen-btn:hover path:nth-child(1),
+        .toggle-fullscreen-btn:focus path:nth-child(1) {
+            transform: translate(-2px, -2px);
+        }
+        
+        .toggle-fullscreen-btn:hover path:nth-child(2),
+        .toggle-fullscreen-btn:focus path:nth-child(2) {
+            transform: translate(2px, -2px);
+        }
+        
+        .toggle-fullscreen-btn:hover path:nth-child(3),
+        .toggle-fullscreen-btn:focus path:nth-child(3) {
+            transform: translate(2px, 2px);
+        }
+        
+        .toggle-fullscreen-btn:hover path:nth-child(4),
+        .toggle-fullscreen-btn:focus path:nth-child(4) {
+            transform: translate(-2px, 2px);
+        }
+        
+        
+        .toggle-fullscreen-btn:not(.on) .icon-fullscreen-leave {
+            display: none;
+        }
+        
+        .toggle-fullscreen-btn.on .icon-fullscreen-enter {
+            display: none;
+        }
+    }
 }
+
+

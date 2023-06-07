@@ -27,11 +27,17 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <!-- <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.362/build/spline-viewer.js"></script> -->
+
+
     <script type="module" src="experience.js"></script>
     
     <link rel="icon" href="./images/favicon.svg">
 </head>
 <body>
+
+    
+
     <div class="preloader-wrap">
 
         <div class="preloader-content">
@@ -65,9 +71,11 @@
 
     </div>
 
-    <!-- <div class="videoContext">
-        <video preload="auto" class="teaser" controls src="./images/teaser.mp4"></video>
-    </div> -->
+
+    <div class="videoContext" id="videoContext">
+        <video preload="auto" class="teaser" id="teaser" src="./images/teaser.mp4"></video>
+        <button class="btn btn--skip" id="skipButton">Passer</button>
+    </div>
     
 
     <header>
@@ -78,6 +86,25 @@
         </nav>
 
         <div class="utils">
+            <div class="fullScreen">
+                <button class="js-toggle-fullscreen-btn toggle-fullscreen-btn" aria-label="Enter fullscreen mode" hidden>
+                    <svg class="toggle-fullscreen-svg" width="28" height="28" viewBox="-2 -2 28 28">
+                        <g class="icon-fullscreen-enter">
+                            <path d="M 2 9 v -7 h 7" />
+                            <path d="M 22 9 v -7 h -7" />
+                            <path d="M 22 15 v 7 h -7" />
+                            <path d="M 2 15 v 7 h 7" />
+                        </g>
+                        
+                        <g class="icon-fullscreen-leave">
+                            <path d="M 24 17 h -7 v 7" />
+                            <path d="M 0 17 h 7 v 7" />
+                            <path d="M 0 7 h 7 v -7" />
+                            <path d="M 24 7 h -7 v -7" />
+                        </g>
+                    </svg>
+                </button>
+            </div>
 
             <div class="sound">
 
@@ -91,6 +118,8 @@
                 
             </div>
 
+            
+
         </div>
 
     </header>
@@ -100,6 +129,8 @@
       <section class="section section--experience">
         
         <canvas id="canvas3d"></canvas>
+
+        <!-- <spline-viewer url="https://prod.spline.design/Jv9gx0W4CJBOFhDz/scene.splinecode"></spline-viewer> -->
 
         <div class="controls controls--fixed">
 

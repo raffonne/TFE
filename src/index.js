@@ -165,7 +165,13 @@ if(pinText1){
 
 
 
-
+function portalContent() {
+	// Code pour afficher le contenu supplémentaire ici
+	var contenu = document.querySelector('.portal-content');
+	if (contenu) {
+	  contenu.style.opacity = '1';
+	}
+  }
 
 var portal = document.querySelector('.portal-image');
 if(portal){
@@ -175,6 +181,7 @@ if(portal){
 		opacity:0,
 		onComplete: () => {
 			portal.style.display = 'none';
+			portalContent();
 		  },
 
 		scrollTrigger: {
@@ -184,6 +191,8 @@ if(portal){
 		}
 	})
 };
+
+
 
 
 

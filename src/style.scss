@@ -12,6 +12,7 @@
 // }
 
 
+
 .origins-introduction{
 
   display: flex;
@@ -80,11 +81,6 @@
 
 //EXPERIENCE
 .controls{
-
-  &--intro{
-
-  }
-
 
 
   &--fixed{
@@ -321,6 +317,14 @@
   opacity: 0.1;
   left: 10%;
   display: none;
+}
+
+
+
+
+.skip {
+  display: none;
+  transition: 2s;
 }
 
 

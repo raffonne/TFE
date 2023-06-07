@@ -8,10 +8,17 @@ html{
 
 
 #canvas3d{
-  height: 100vh!important;
-  width:100vw!important;
+  height: 100%!important;
+  width:100%!important;
   overflow: hidden!important;
   position: fixed;
+  // display: none;
+  // height: 95%!important;
+  // width:80%!important;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  // border-radius: 50% / 10%;
 
 }
 
@@ -175,4 +182,3 @@ nav{
 }
   
   
-
