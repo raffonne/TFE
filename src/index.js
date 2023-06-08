@@ -1,6 +1,6 @@
 
 import gsap from "gsap";
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import { SplitText } from "./otherLibs/gsap/splitText";
 import simpleParallax from 'simple-parallax-js';
 import Parallax from 'parallax-js';
@@ -65,7 +65,7 @@ if (noclip){
 
 
 
-var br1 = document.querySelector('.section--about-start');
+var br1 = document.querySelector('.introduction__bg-image');
 if (br1) {
 	gsap.to('.introduction__bg-image',{
 		opacity:1,
@@ -82,7 +82,7 @@ if (br1) {
 
 var chapter = document.querySelector('.section--about-origins');
 if(chapter){
-	gsap.from("section--about-origins", {
+	gsap.from(".section--about-origins", {
 		opacity: 0,
 		duration: 1.5,
 		scrollTrigger: {
@@ -165,24 +165,21 @@ if(pinText1){
 
 
 
-function portalContent() {
-	// Code pour afficher le contenu supplémentaire ici
-	var contenu = document.querySelector('.portal-content');
-	if (contenu) {
-	  contenu.style.opacity = '1';
-	}
-  }
-
 var portal = document.querySelector('.portal-image');
 if(portal){
 	gsap.to(".portal-image", {
 		scale: 12,
-		duration:4,
+		duration:3,
 		opacity:0,
 		onComplete: () => {
 			portal.style.display = 'none';
-			portalContent();
-		  },
+
+			gsap.to('.portal-content', {
+				opacity:1,
+				duration:1
+			})
+
+		},
 
 		scrollTrigger: {
 			trigger: ".portal-image",
@@ -363,9 +360,9 @@ var box = document.querySelector('.card--1');
  */
 
 let mediaQueries = gsap.matchMedia();
-// add a media query. When it matches, the associated function will run
-	mediaQueries.add("(min-width: 1000px)", () => {
-	// this setup code only runs when viewport is at least 800px wide
+
+	mediaQueries.add("(min-width: 700px)", () => {
+	
 	var slideTxt = document.querySelector('.t1');
 	if (slideTxt){
 		gsap.to('.t1', {
@@ -423,11 +420,108 @@ let mediaQueries = gsap.matchMedia();
 			},
 		})
 	}
+
+	var kaneBg = document.getElementsByClassName('kaneImg--1');
+	new simpleParallax(kaneBg, {
+		overflow: true,
+		delay: .4,
+		transition: 'cubic-bezier(0,0,0,1)',
+	},
+	);
+
+	var kaneBg2 = document.getElementsByClassName('kaneImg--2');
+	new simpleParallax(kaneBg2, {
+		overflow: true,
+		delay: .6,
+		transition: 'cubic-bezier(0,0,0,1)'
+		
+	},
+	);
+
+	var kaneBg3 = document.getElementsByClassName('kaneImg--3');
+	new simpleParallax(kaneBg3, {
+		overflow: true,
+		delay: .5,
+		transition: 'cubic-bezier(0,0,0,1)'
+		
+	},
+	);
+
+
+	var kaneBg4 = document.getElementsByClassName('kaneImg--4');
+	new simpleParallax(kaneBg4, {
+		overflow: true,
+		delay: .7,
+		transition: 'cubic-bezier(0,0,0,1)'
+		
+	},
+	);
+
+
+
+	
 });
 
 
 
+var image = document.getElementsByClassName('icon-img');
+	new simpleParallax(image, {
+		overflow: true,
+		delay: .4,
+		transition: 'cubic-bezier(0,0,0,2)',
+		
+	},
+	);
 
+
+
+	var image = document.getElementsByClassName('og-br');
+	new simpleParallax(image, {
+		overflow: true,
+		delay: .4,
+		transition: 'cubic-bezier(0,0,0,2)',
+		
+	},
+	);
+
+	var universBg = document.getElementsByClassName('univers__bg');
+	new simpleParallax(universBg, {
+		overflow: true,
+		delay: .6,
+		transition: 'cubic-bezier(0,0,0,2)',
+		
+	},
+	);
+
+
+
+	var gif = document.getElementsByClassName('noclip__gif');
+	new simpleParallax(gif, {
+		overflow: true,
+		delay: .4,		
+		transition: 'cubic-bezier(0,0,1,1)'
+
+	},
+	);
+
+
+	var kanetxt = document.getElementsByClassName('kane__resume');
+	new simpleParallax(kanetxt, {
+		overflow: true,
+		delay: .4,
+		transition: 'cubic-bezier(0,0,1,1)'
+		
+	},
+	);
+
+	var kanevid = document.getElementsByClassName('kane__extrait');
+	new simpleParallax(kanevid, {
+		overflow: true,
+		delay: .4,
+		transition: 'cubic-bezier(0,0,1,1)'
+		
+	},
+	);
 
 
 
@@ -456,21 +550,21 @@ var PercentageID = $("#precent"),
 	
 function animateValue(id, start, end, duration) {
 
-var range = end - start,
-  current = start,
-  increment = end > start? 1 : -1,
-  stepTime = Math.abs(Math.floor(duration / range)),
-  obj = $(id);
+	var range = end - start,
+	current = start,
+	increment = end > start? 1 : -1,
+	stepTime = Math.abs(Math.floor(duration / range)),
+	obj = $(id);
 
-var timer = setInterval(function() {
-	current += increment;
-	$(obj).text(current + "%");
-  //obj.innerHTML = current;
-	if (current == end) {
-		clearInterval(timer);
-	}
-}, stepTime);
-}
+	var timer = setInterval(function() {
+		current += increment;
+		$(obj).text(current + "%");
+	//obj.innerHTML = current;
+		if (current == end) {
+			clearInterval(timer);
+		}
+	}, stepTime);
+};
 
 setTimeout(function(){
 
@@ -492,7 +586,7 @@ setTimeout(function(){
 	gsap.to('.main-small',{
 		opacity:1,
 		delay:5,
-		duraton:30
+		duration:2
 	})
 	
 	gsap.to('.scene-img',{
@@ -548,99 +642,6 @@ function toggleSound() {
 
 
 
-
-var image = document.getElementsByClassName('icon-img');
-	new simpleParallax(image, {
-		overflow: true,
-		delay: .4,
-		transition: 'cubic-bezier(0,0,0,2)',
-		
-	},
-);
-
-
-
-var image = document.getElementsByClassName('og-br');
-	new simpleParallax(image, {
-		overflow: true,
-		delay: .4,
-		transition: 'cubic-bezier(0,0,0,2)',
-		
-	},
-);
-
-var universBg = document.getElementsByClassName('univers__bg');
-	new simpleParallax(universBg, {
-		overflow: true,
-		delay: .6,
-		transition: 'cubic-bezier(0,0,0,2)',
-		
-	},
-);
-
-var kaneBg = document.getElementsByClassName('kaneImg--1');
-	new simpleParallax(kaneBg, {
-		overflow: true,
-		delay: .4,
-		transition: 'cubic-bezier(0,0,0,1)',
-	},
-);
-
-var kaneBg2 = document.getElementsByClassName('kaneImg--2');
-	new simpleParallax(kaneBg2, {
-		overflow: true,
-		delay: .6,
-		transition: 'cubic-bezier(0,0,0,1)'
-		
-	},
-);
-
-var kaneBg3 = document.getElementsByClassName('kaneImg--3');
-	new simpleParallax(kaneBg3, {
-		overflow: true,
-		delay: .5,
-		transition: 'cubic-bezier(0,0,0,1)'
-		
-	},
-);
-
-
-var kaneBg4 = document.getElementsByClassName('kaneImg--4');
-	new simpleParallax(kaneBg4, {
-		overflow: true,
-		delay: .7,
-		transition: 'cubic-bezier(0,0,0,1)'
-		
-	},
-);
-
-var gif = document.getElementsByClassName('noclip__gif');
-	new simpleParallax(gif, {
-		overflow: true,
-		delay: .4,		
-		transition: 'cubic-bezier(0,0,1,1)'
-
-	},
-);
-
-
-var kanetxt = document.getElementsByClassName('kane__resume');
-	new simpleParallax(kanetxt, {
-		overflow: true,
-		delay: .4,
-		transition: 'cubic-bezier(0,0,1,1)'
-		
-	},
-);
-
-var kanevid = document.getElementsByClassName('kane__extrait');
-	new simpleParallax(kanevid, {
-		overflow: true,
-		delay: .4,
-		transition: 'cubic-bezier(0,0,1,1)'
-		
-	},
-);
 
 
 

@@ -79,12 +79,15 @@
             @media (min-width:1000px) {
                 position: relative!important;
             }
+
         }
 
 
         @media (min-width:1000px) {
+
             display: grid;
             grid-template-rows: auto;
+            
         }
 
 
@@ -102,6 +105,10 @@
         position: relative;   
         padding-top: 3000px; 
         height: 150vh;
+
+        @media (min-width:1000px) {
+
+        }
     }
     //begin
     &--about-start{
@@ -112,7 +119,7 @@
             grid-template-areas: 
             "title title"
             "intro intro"
-            "img ."
+            "img img"
             "desc desc";
             row-gap: 4em;
             column-gap: 1em;
@@ -472,17 +479,17 @@
                 
                 position: relative;
                 display: grid;
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
                 grid-template-areas:
-                "bold"
-                "vid"
-                "txt"
-                "img1"
-                "res"
-                "resBis"
-                "img2"
-                "img3"
-                "strong";
+                "bold bold"
+                "vid ."
+                "txt txt"
+                "img1 img1"
+                "res res"
+                "resBis resBis"
+                "img2 img2"
+                "img3 img3"
+                "strong strong";
                 grid-row-gap:1em;
 
 
@@ -708,6 +715,8 @@
             }
             .container{
 
+
+
                 .title--medium{
                     padding: 0;
                     letter-spacing: normal!important;
@@ -736,19 +745,43 @@
 
                 }
 
+               
+
                 .exp-btn{
 
-                    padding: 2em;
-                    position: absolute;
-                    top: 40%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
+                    padding-top: 2em;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
 
-                    a{
-                        font-size: 100px;
-                        letter-spacing: 10px;
-                        font-family: 'tequila';
+                    @media (min-width:700px){
+                        padding-top: 10em;
+                    }
+
+                    @media (min-width:1000px) {
+                        padding-top: 4em;
+                    }
+                   
+
+                    .footer-header{
+
+                        font-size: 40px;
                         
+                        font-family: 'tequila';
+                        top: 15%;
+                        // left: 50%;
+                        // transform: translateX(-50%);
+                        text-align: center;
+                        // text-transform: uppercase;
+
+                        @media (min-width:700px){
+                            font-size: 80px;
+                        }
+    
+                        @media (min-width:1000px) {
+                            font-size: 70px;
+                            letter-spacing: 15px;
+                        }
                     }
                     
                 }

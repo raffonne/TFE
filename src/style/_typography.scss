@@ -186,7 +186,7 @@ ul{
       font-family: 'montreal';
       text-align: center;
       font-size: 16px;
-      // letter-spacing: 4px;
+      letter-spacing: 4px;
       text-transform: uppercase;
       opacity:0;
 
@@ -237,7 +237,7 @@ ul{
         text-transform: uppercase;
 
         font-weight: 100;
-        font-size: 66px;
+        font-size: 60px;
         letter-spacing: 5px;
 
         padding: 0.5em 0;
@@ -275,6 +275,12 @@ ul{
             display: flex;
             justify-content: right;
           }
+        }
+
+        @media (min-width:700px) {
+
+          font-size: 100px;
+
         }
 
 
@@ -344,36 +350,6 @@ figcaption{
   text-transform: uppercase;
 }
 
-
-//text-fill
-
-// .message-wrapper.showmorecontent .clipmessage,
-// .message-wrapper.showlesscontent .readless {
-//   display: none;
-// }
-
-// .message-wrapper.showmorecontent .readmore {
-//   display: none;
-// }
-
-// .message-wrapper .readmore,
-// .message-wrapper .readless {
-//   font-weight: bold;
-//   margin-left: 2px;
-//   cursor: pointer;
-// }
-
-// .showmorecontent .clipmessage,
-// .showlesscontent .readless {
-//   display: block;
-//   transition: .2s ease-in;
-// }
-
-// .readless, .readmore{
-//   font-family: 'montreal bold';
-//   text-transform: uppercase;
-//   margin: 20px 0;
-// }
 
 
 

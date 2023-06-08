@@ -48,76 +48,77 @@ function toggleSound() {
 
 
 //CHARGEMENT DE LA PAGE + ANIMATIONS
-var width = 100,
-perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
-EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
-time = parseInt((EstimatedTime/1000)%60)*50;
+// var width = 100,
+// perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
+// EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
+// time = parseInt((EstimatedTime/1000)%60)*200;
 
-//lancement de la vidéo
-function launchVideo() {
-    var video = document.getElementById('teaser');
-    video.play();
+// //lancement de la vidéo
+// function launchVideo() {
+//     var video = document.getElementById('teaser');
+//     video.play();
 
-    setTimeout(function() {
-        $('.videoContext').fadeOut(1000, function() {
-            $(this).css('display', 'none');
+//     setTimeout(function() {
+//         $('.videoContext').fadeOut(2000, function() {
+
+//             $(this).css('display', 'none');
             
-        });
+//         });
 
         
-    }, video.duration * 1000); // Fondu après la durée de la vidéo en millisecondes
-}
+//     }, video.duration * 1000); // Fondu après la durée de la vidéo en millisecondes
+// }
 
 
-var PercentageID = $("#precent"),
-	start = 0,
-	end = 100,
-	durataion = time;
-	animateValue(PercentageID, start, end, durataion);
+// var PercentageID = $("#precent"),
+// 	start = 0,
+// 	end = 100,
+// 	durataion = time;
+// 	animateValue(PercentageID, start, end, durataion);
 	
-function animateValue(id, start, end, duration) {
+// function animateValue(id, start, end, duration) {
 
-var range = end - start,
-  current = start,
-  increment = end > start? 1 : -1,
-  stepTime = Math.abs(Math.floor(duration / range)),
-  obj = $(id);
+// var range = end - start,
+//   current = start,
+//   increment = end > start? 1 : -1,
+//   stepTime = Math.abs(Math.floor(duration / range)),
+//   obj = $(id);
 
-var timer = setInterval(function() {
-	current += increment;
-	$(obj).text(current + "%");
-  //obj.innerHTML = current;
-	if (current == end) {
-		clearInterval(timer);
-	}
-}, stepTime);
-}
+// var timer = setInterval(function() {
+// 	current += increment;
+// 	$(obj).text(current + "%");
+//   //obj.innerHTML = current;
+// 	if (current == end) {
+// 		clearInterval(timer);
+// 	}
+// }, stepTime);
+// }
 
-window.onload = function() {
-    setTimeout(function() {
-        $('.preloader-wrap').fadeOut(1000);
+// window.onload = function() {
+//     setTimeout(function() {
+//         $('.preloader-wrap').fadeOut(1000);
 
-        gsap.to('.videoContext', {
-            opacity: 1,
-            duration: 1,
-            delay: 1,
-            onComplete: launchVideo // Lancer la vidéo une fois l'animation terminée
-        }),
+//         gsap.to('.videoContext', {
+//             opacity: 1,
+//             duration: 1,
+//             delay: 1,
+//             onComplete: launchVideo // Lancer la vidéo une fois l'animation terminée
+//         }),
 
-        gsap.to('header', {
-            opacity: 1,
-            delay: 2,
-            duration: 1,
-        });
-    }, time);
-};
+//         gsap.to('header', {
+//             opacity: 1,
+//             delay: 2,
+//             duration: 1,
+//         });
+//     }, time);
+// };
 
 
 //PAUSE ON CLICK
 
-var video = document.getElementById('teaser');``
+var video = document.getElementById('teaser');
 var videoContainer = document.getElementById('videoContext');
-var skipButton = document.getElementById('skipButton');
+
 
 video.addEventListener('click', function () {
     if (video.paused) {
@@ -128,11 +129,14 @@ video.addEventListener('click', function () {
 });
 
 //SKIP VIDEO
+var skipButton = document.getElementById('skipButton');
 
 skipButton.addEventListener('click', function() {
+
     video.pause();
     video.classList.add('skip');
     videoContainer.classList.add('skip');
+
 });
 
 

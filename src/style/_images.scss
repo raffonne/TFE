@@ -28,33 +28,42 @@ img{
 
 #myVideo {
 
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: fixed;
-    opacity: 0.3;
-    z-index: -9;
+   display: none;
+
+    @media (min-width:1000px) {
+
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: fixed;
+      opacity: 0.3;
+      z-index: -9;
+
+    }
   
-  }
-  .scene-img{
-    opacity:0;
-    height: 100vh;
-    width:100%;
-    background-image: url('../images/bg.webp');
-    background-image: 
-      -webkit-image-set(
-        url(../images/bg.webp) 1x,
-        url(../images/bg@2x.webp) 2x,
-    );
-    background-image: 
-        image-set(
-            url(../images/bg.webp) 1x,
-            url(../images/bg@2x.webp) 2x,
-    );
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+}
+.scene-img{
+
+  opacity:0;
+  height: 100vh;
+  width:100%;
+  background-image: url('../images/bg.webp');
+  background-image: 
+    -webkit-image-set(
+      url(../images/bg.webp) 1x,
+      url(../images/bg@2x.webp) 2x,
+  );
+  background-image: 
+      image-set(
+          url(../images/bg.webp) 1x,
+          url(../images/bg@2x.webp) 2x,
+  );
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
 
 
 
@@ -131,7 +140,9 @@ img{
         max-width: 330px;
     }
     &--2{
+        margin-top: 3em ;
         grid-area:img2;
+        width: 80%;
 
         img{
             width: 80%!important;
@@ -143,7 +154,7 @@ img{
     }
 
     &--3{
-        grid-area: img3;
+      grid-area: img3;
     }
 
     &--4{
@@ -207,45 +218,5 @@ img{
 
 video{
   width: 100%;
-}
-
-
-.float{
-
-  position: absolute;
-  max-height:700px ;
-  max-width: 700px;
-  
-  
-
-  //smilers
-  &--1{
-
-    top:0;
-    left: -20%;
-    z-index: -1;
-    opacity: 0.9;
-
-  }
-  //facelings
-  &--2{
-
-    top: 0%;
-    left:50%;
-    border-radius: 50px!important;
-
-  }
-  //bacteria
-
-  &--3{
-    right: 5%;
-    bottom: 0;
-  }
-  
-  //window
-  &--4{
-    left: -15%;
-  }
-
 }
 

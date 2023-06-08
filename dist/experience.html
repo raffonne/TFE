@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NOCLIP - Experience</title>
     
-    <link rel="icon" href="./assets/favicon-400c0395.svg">
+    <link rel="icon" href="./assets/favicon-e6100a61.svg">
     <meta name="title" content="NOCLIP Experience">
     <meta name="description" content="NOCLIP INSIDE THE BACKROOMS est un site web immersif dans lequel vous découvrirez les secrets du mystérieux et terrifiant univers des Backrooms. Un univers fascinant créé par les internautes du monde entier et ne cessant d'évoluer chaque jour.">
 
@@ -27,37 +27,59 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <!-- <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.362/build/spline-viewer.js"></script> -->
+
+
     
     
-    <link rel="icon" href="./assets/favicon-400c0395.svg">
-  <script type="module" crossorigin src="./assets/experience-a936e922.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/style-366b0576.js">
-  <link rel="stylesheet" href="./assets/style-6abaaf1f.css">
+    <link rel="icon" href="./assets/favicon-e6100a61.svg">
+  <script type="module" crossorigin src="./assets/experience-e9623886.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/index-cf20789e.js">
+  <link rel="stylesheet" href="./assets/index-8129e461.css">
 </head>
 <body>
+
+    
+
     <div class="preloader-wrap">
 
         <div class="preloader-content">
 
             <h2 class="title title--big">expérience</h2>
-            <p>
-                Vous étiez probablement en train de manger, en train de rouler en voiture, ou en train de passer du temps avec vos&nbsp;proches.
+            
+            <div class="instructions">
 
-            </p>
-            <p>
-                Soudain votre jambe passe à travers le sol et sans vous en rendre compte, votre corps entier disparaît&nbsp;...
+                <div class="instructions--desktop">
+                    
+                </div>
 
-            </p>
+                <div class="instructions--mobile">
+
+                </div>
+
+            </div>
 
         </div>
 
 
         <div class="loading">
-            <div class="percentage" id="precent">100%</div>
-            <div class="progress"></div>
+            <div class="pswp__preloader__icn">
+                <div class="pswp__preloader__cut">
+                  <div class="pswp__preloader__donut"></div>
+                </div>
+            </div>
         </div>
 
+
+
     </div>
+
+
+    <div class="videoContext" id="videoContext">
+        <video preload="auto" class="teaser" id="teaser" src="./assets/teaser-221a095a.mp4"></video>
+        <button class="btn btn--skip" id="skipButton">Passer</button>
+    </div>
+    
 
     <header>
 
@@ -67,11 +89,30 @@
         </nav>
 
         <div class="utils">
+            <div class="fullScreen">
+                <button class="js-toggle-fullscreen-btn toggle-fullscreen-btn" aria-label="Enter fullscreen mode" hidden>
+                    <svg class="toggle-fullscreen-svg" width="28" height="28" viewBox="-2 -2 28 28">
+                        <g class="icon-fullscreen-enter">
+                            <path d="M 2 9 v -7 h 7" />
+                            <path d="M 22 9 v -7 h -7" />
+                            <path d="M 22 15 v 7 h -7" />
+                            <path d="M 2 15 v 7 h 7" />
+                        </g>
+                        
+                        <g class="icon-fullscreen-leave">
+                            <path d="M 24 17 h -7 v 7" />
+                            <path d="M 0 17 h 7 v 7" />
+                            <path d="M 0 7 h 7 v -7" />
+                            <path d="M 24 7 h -7 v -7" />
+                        </g>
+                    </svg>
+                </button>
+            </div>
 
             <div class="sound">
 
                 <audio autoplay loop id="myAudio">
-                    <source src="./assets/ambient_noise-a8c0a70b.mp3" type="audio/wav">
+                    <source src="./assets/ambient-sound-8203366c.mp3" type="audio/wav">
                 </audio>
 
                 <button class="btn btn--sound" id="sound-btn">
@@ -79,6 +120,8 @@
                 </button>
                 
             </div>
+
+            
 
         </div>
 
@@ -89,6 +132,8 @@
       <section class="section section--experience">
         
         <canvas id="canvas3d"></canvas>
+
+        <!-- <spline-viewer url="https://prod.spline.design/Jv9gx0W4CJBOFhDz/scene.splinecode"></spline-viewer> -->
 
         <div class="controls controls--fixed">
 

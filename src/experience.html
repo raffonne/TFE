@@ -36,124 +36,154 @@
 </head>
 <body>
 
+    <div class="desktopOnly">
+        <div class="preloader-wrap">
+
+            <div class="preloader-content">
     
-
-    <div class="preloader-wrap">
-
-        <div class="preloader-content">
-
-            <h2 class="title title--big">expérience</h2>
-            
-            <div class="instructions">
-
-                <div class="instructions--desktop">
+                <h2 class="title title--big">expérience</h2>
+                
+                <div class="instructions">
+    
+                    <div class="instructions--desktop">
+                        <h3 class="title title--little">DISCLAIMER</h3>
+                        <p>
+                            Il s'agit ici d'une expérience visuelle et immersive.<br>
+                            Le but est de faire découvrir les backrooms en y rentrant.</p>
+                    </div>
+    
+                     <div class="controls controls--instructions">
+    
+                        <div class="keyboard">
+    
+                            <div>
+                                <img class="controls-img" src="./images/arrows.svg" alt="">/
+                                <img class="controls-img" src="./images/controls.svg" alt="controles clavier">
+                            </div>
+                            
+                            <p>Déplacement</p>
+                        </div>
+    
+                        <div class="mouse">
+    
+                            <img class="controls-img" src="./images/mouse.svg" alt="controles souris">
+                            <p>Caméra</p>
+                            
+                        </div>
+    
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+    
+            <div class="loading">
+                <div class="pswp__preloader__icn">
+                    <div class="pswp__preloader__cut">
+                      <div class="pswp__preloader__donut"></div>
+                    </div>
+                </div>
+            </div>
+    
+    
+    
+        </div>
+    
+    
+        <div class="videoContext" id="videoContext">
+            <video preload="auto" class="teaser" id="teaser" src="./images/teaser.mp4"></video>
+            <button class="btn btn--skip" id="skipButton">Passer</button>
+        </div>
+        
+    
+        <header>
+    
+            <nav>
+                <a class="logo" href="index.html">Noclip<span class="hidden hidden--content"> inside the backrooms</span></a>
+                <a class="nav-links" href="experience.html">Expérience</a>
+            </nav>
+    
+            <div class="utils">
+                <div class="fullScreen">
+                    <button class="js-toggle-fullscreen-btn toggle-fullscreen-btn" aria-label="Enter fullscreen mode" hidden>
+                        <svg class="toggle-fullscreen-svg" width="28" height="28" viewBox="-2 -2 28 28">
+                            <g class="icon-fullscreen-enter">
+                                <path d="M 2 9 v -7 h 7" />
+                                <path d="M 22 9 v -7 h -7" />
+                                <path d="M 22 15 v 7 h -7" />
+                                <path d="M 2 15 v 7 h 7" />
+                            </g>
+                            
+                            <g class="icon-fullscreen-leave">
+                                <path d="M 24 17 h -7 v 7" />
+                                <path d="M 0 17 h 7 v 7" />
+                                <path d="M 0 7 h 7 v -7" />
+                                <path d="M 24 7 h -7 v -7" />
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+    
+                <div class="sound">
+    
+                    <audio autoplay loop id="myAudio">
+                        <source src="./images/ambient-sound.mp3" type="audio/wav">
+                    </audio>
+    
+                    <button class="btn btn--sound" id="sound-btn">
+                        <img id="sound-icon" src="./images/Vector.svg" alt="icone son">
+                    </button>
                     
                 </div>
-
-                <div class="instructions--mobile">
-
-                </div>
-
+    
+                
+    
             </div>
-
-        </div>
-
-
-        <div class="loading">
-            <div class="pswp__preloader__icn">
-                <div class="pswp__preloader__cut">
-                  <div class="pswp__preloader__donut"></div>
+    
+        </header>
+    
+        <main class="experience">
+    
+          <section class="section section--experience">
+            
+            <canvas id="canvas3d"></canvas>
+    
+            <!-- <spline-viewer url="https://prod.spline.design/Jv9gx0W4CJBOFhDz/scene.splinecode"></spline-viewer> -->
+    
+            <div class="controls controls--fixed">
+    
+                <div class="keyboard">
+    
+                    <div>
+                        <img class="controls-img" src="./images/arrows.svg" alt="">/
+                        <img class="controls-img" src="./images/controls.svg" alt="controles clavier">
+                    </div>
+                    
+                    <p>Déplacement</p>
                 </div>
+    
+                <div class="mouse">
+    
+                    <img class="controls-img" src="./images/mouse.svg" alt="controles souris">
+                    <p>Caméra</p>
+    
+                </div>
+    
             </div>
-        </div>
+    
+          </section>
+    
+        </main>
+    </div>
 
-
+    <div class="mobile">
 
     </div>
 
-
-    <div class="videoContext" id="videoContext">
-        <video preload="auto" class="teaser" id="teaser" src="./images/teaser.mp4"></video>
-        <button class="btn btn--skip" id="skipButton">Passer</button>
-    </div>
     
 
-    <header>
 
-        <nav>
-            <a class="logo" href="index.html">Noclip<span class="hidden hidden--content"> inside the backrooms</span></a>
-            <a class="nav-links" href="experience.html">Expérience</a>
-        </nav>
-
-        <div class="utils">
-            <div class="fullScreen">
-                <button class="js-toggle-fullscreen-btn toggle-fullscreen-btn" aria-label="Enter fullscreen mode" hidden>
-                    <svg class="toggle-fullscreen-svg" width="28" height="28" viewBox="-2 -2 28 28">
-                        <g class="icon-fullscreen-enter">
-                            <path d="M 2 9 v -7 h 7" />
-                            <path d="M 22 9 v -7 h -7" />
-                            <path d="M 22 15 v 7 h -7" />
-                            <path d="M 2 15 v 7 h 7" />
-                        </g>
-                        
-                        <g class="icon-fullscreen-leave">
-                            <path d="M 24 17 h -7 v 7" />
-                            <path d="M 0 17 h 7 v 7" />
-                            <path d="M 0 7 h 7 v -7" />
-                            <path d="M 24 7 h -7 v -7" />
-                        </g>
-                    </svg>
-                </button>
-            </div>
-
-            <div class="sound">
-
-                <audio autoplay loop id="myAudio">
-                    <source src="./images/ambient-sound.mp3" type="audio/wav">
-                </audio>
-
-                <button class="btn btn--sound" id="sound-btn">
-                    <img id="sound-icon" src="./images/Vector.svg" alt="icone son">
-                </button>
-                
-            </div>
-
-            
-
-        </div>
-
-    </header>
-
-    <main class="experience">
-
-      <section class="section section--experience">
-        
-        <canvas id="canvas3d"></canvas>
-
-        <!-- <spline-viewer url="https://prod.spline.design/Jv9gx0W4CJBOFhDz/scene.splinecode"></spline-viewer> -->
-
-        <div class="controls controls--fixed">
-
-            <div class="controls--fixed__keyboard">
-
-                <div>
-                    <img class="controls-img" src="./images/arrows.svg" alt="">/
-                    <img class="controls-img" src="./images/controls.svg" alt="controles clavier">
-                </div>
-                
-                <p>Déplacement</p>
-            </div>
-
-            <div class="controls--fixed__mouse">
-                <img class="controls-img" src="./images/mouse.svg" alt="controles souris">
-                <p>Caméra</p>
-            </div>
-
-        </div>
-
-      </section>
-
-    </main>
     
 </body>
 </html>
