@@ -12,7 +12,6 @@
 // }
 
 
-
 .origins-introduction{
 
   display: flex;
@@ -69,8 +68,10 @@
 
 
 .univers__title{
+  
     height: 150vh;
     position: relative;
+
     h2{
       position: absolute;
       left: 50%;
@@ -79,28 +80,13 @@
     }
   }
 
-
+.instructions{
+  display: flex;
+  flex-direction: column;
+  gap: 10em;
+}
 //EXPERIENCE
 .controls{
-
-  &--instructions{
-
-    display: flex;
-    gap: 2em;
-
-    .keyboard, .mouse{
-
-      img{
-
-        width: 60px;
-        height: 40px;
-
-      }
-    }
-
-  }
-
-
 
   &--fixed{
 
@@ -240,16 +226,18 @@
 }
 
 .preloader-content{
-  position: absolute;
   top: 10%;
   margin: 0 20px;
 
+
   @media (min-width:1000px) {
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    margin: 0;
   }
   h2{
-    padding: 4em;
+    margin: 4em;
   }
 }
 

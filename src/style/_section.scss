@@ -761,6 +761,13 @@
                     @media (min-width:1000px) {
                         padding-top: 4em;
                     }
+
+                    a{
+                        background-image: url("../images/arrow-link.svg");
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 40%;
+                    }
                    
 
                     .footer-header{

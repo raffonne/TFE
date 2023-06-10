@@ -13,6 +13,7 @@
     "vite-plugin-pages": "^0.29.0"
   },
   "dependencies": {
+    "@barba/core": "^2.9.7",
     "@splinetool/loader": "^0.9.361",
     "@splinetool/runtime": "^0.9.337",
     "@studio-freight/lenis": "^0.2.28",

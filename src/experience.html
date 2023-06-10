@@ -27,8 +27,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <!-- <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.362/build/spline-viewer.js"></script> -->
-
 
     <script type="module" src="experience.js"></script>
     
@@ -48,30 +46,10 @@
                     <div class="instructions--desktop">
                         <h3 class="title title--little">DISCLAIMER</h3>
                         <p>
-                            Il s'agit ici d'une expérience visuelle et immersive.<br>
-                            Le but est de faire découvrir les backrooms en y rentrant.</p>
+                            Il s'agit ici d'une expérience visuelle et immersive. Le but étant de faire découvrir l'univers des backrooms à travers les yeux d'une personne qui vient de noclip.
+                        </p>
                     </div>
     
-                     <div class="controls controls--instructions">
-    
-                        <div class="keyboard">
-    
-                            <div>
-                                <img class="controls-img" src="./images/arrows.svg" alt="">/
-                                <img class="controls-img" src="./images/controls.svg" alt="controles clavier">
-                            </div>
-                            
-                            <p>Déplacement</p>
-                        </div>
-    
-                        <div class="mouse">
-    
-                            <img class="controls-img" src="./images/mouse.svg" alt="controles souris">
-                            <p>Caméra</p>
-                            
-                        </div>
-    
-                    </div>
     
                 </div>
     
@@ -101,7 +79,7 @@
     
             <nav>
                 <a class="logo" href="index.html">Noclip<span class="hidden hidden--content"> inside the backrooms</span></a>
-                <a class="nav-links" href="experience.html">Expérience</a>
+                <a class="nav-links" href="experience.html" data-barba-prevent>Expérience</a>
             </nav>
     
             <div class="utils">
@@ -143,14 +121,12 @@
     
         </header>
     
-        <main class="experience">
+        <main class="experience" >
     
           <section class="section section--experience">
             
             <canvas id="canvas3d"></canvas>
-    
-            <!-- <spline-viewer url="https://prod.spline.design/Jv9gx0W4CJBOFhDz/scene.splinecode"></spline-viewer> -->
-    
+        
             <div class="controls controls--fixed">
     
                 <div class="keyboard">

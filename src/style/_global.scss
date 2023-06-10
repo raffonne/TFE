@@ -12,6 +12,7 @@ html{
   width:100%!important;
   overflow: hidden!important;
   position: fixed;
+
   // display: none;
   // height: 95%!important;
   // width:80%!important;
@@ -24,6 +25,10 @@ html{
 
 .section--experience{
   height: 100vh;
+}
+
+.instructions--desktop{
+  text-align: center;
 }
 
 body{
@@ -90,15 +95,6 @@ body{
   
   }
 
-.webgl{
-
-    position: fixed;
-    top: 0;
-    left: 0;
-    outline: none;
-    z-index: 9;
-
-}
 .container{
 
     padding: 0 20px;

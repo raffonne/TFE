@@ -155,7 +155,9 @@ ul{
       font-size: 74px;
       font-family: 'eiko';
       font-weight: 100;
-      text-shadow: 0 0 100px,0 0 2px, 0 0 1em , 0 0 0.5em , 0 0 0.1em;
+      text-shadow: 0 0 100px, 0 0 2px, 0 0 1em, 0 0 0.5em, 0 0 0.1em;
+      -webkit-text-shadow: 0 0 100px, 0 0 2px, 0 0 1em, 0 0 0.5em, 0 0 0.1em;
+
 
       b {
         font: inherit;
@@ -227,6 +229,7 @@ ul{
 
       @media (min-width:1000px) {
         font-size: 26px;
+        padding-left: 20px;
       }
       
     }
@@ -311,10 +314,13 @@ ul{
 }
 
 .noclip__quote{
+
   display: flex;
   justify-content: center;
+
 }
 figure{
+
   margin: 0;
   font-family: 'eiko'!important;
   max-width: 120ch;
